@@ -1,0 +1,51 @@
+/*Image header*/
+.image-full-section{
+	height: 300px;
+	background: url(http://placehold.it/350x250);
+	padding-top: 18%;
+	background-color: #666;
+}
+
+/*Panel Settings*/
+.panel-horizontal .panel-heading {
+	margin-bottom: 0;
+	border-bottom: 0;
+	border-right: 1px solid transparent;
+	border-top-right-radius: 0;
+	width: 150px;
+}
+
+.panel-horizontal .panel-body {
+	float: left;
+	padding-bottom: 0;
+	margin: 0 0 15px 150px;
+}
+.brand{
+	font-weight: bold;
+}
+
+/*Restaurant Details*/
+/*The tabs*/
+.restaurant-photo{
+	height: 400px;
+}
+.restaurant-detail{
+	padding-top: 15px;
+}
+.restaurant-detail p,h2{
+	margin-left: 5px;
+}
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+
+}
+.nav-tabs {
+    margin-bottom: 0;
+}
+.food-number{
+	width: 45px;
+}
