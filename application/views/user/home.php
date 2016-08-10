@@ -1,6 +1,2 @@
-HOME
-
-<?php print_r($this->session->userdata()) ?>
-
+USER HOME
 <a href="<?php echo base_url('login/signout') ?>">signout</a>
-<a href="<?php echo base_url('user/register') ?>">Register</a>

@@ -6,8 +6,15 @@ class Driver extends CI_Controller{
 
 		parent::__construct();
 
-		if($this->session->userdata('isLogged') == FALSE)
-			redirect('user');
+		if($this->session->userdata('isLogged') == FALSE){
+			
+			redirect('main');	
+		
+		}else if($this->session->userdata('type') != 'driver'){
+
+			redirect($this->session->userdata('type'));
+			
+		}
 
 	}
 
@@ -17,7 +24,7 @@ class Driver extends CI_Controller{
 
 		$this->template->load('default','user/home',$data);
 
-		
+
 
 	}
 }

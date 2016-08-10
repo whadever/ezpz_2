@@ -35,5 +35,3 @@
 </div>
 
 
-<a href="<?php echo base_url('login/send_email') ?>"><button>client</button></a>
-

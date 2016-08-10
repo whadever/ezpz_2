@@ -14,7 +14,7 @@
 	<div class="col-xs-4"></div>
 	<div class="col-xs-4">
 		
-		<?php echo form_open('client/submit') ?>
+		<?php echo form_open_multipart('login/register_client') ?>
 
 			<h1>Partner Registration</h1>
 
