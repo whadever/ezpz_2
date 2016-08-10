@@ -25,7 +25,7 @@
 
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" name="login" value="Login">
-				<input type="submit" class="btn btn-primary" name="signup" value="Sign Up">
+				<a href="<?php echo base_url('user/register') ?>"><button type="button" class="btn btn-primary" name="signup" >Sign Up</button></a>
 			</div>
 
 		</form>

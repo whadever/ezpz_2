@@ -22,29 +22,37 @@ class Login extends CI_Controller{
 
 	public function sign_in(){
 
-		$username = $this->input->post('username');
-		$password = hash_password($this->input->post('password'));
+		if($this->input->post('login')){
 
-		$user = $this->login_model->check_user($username,$password);
-		print_r($user);
-		if($user){
+			$username = $this->input->post('username');
+			$password = hash_password($this->input->post('password'));
 
-			$data_session = array(
+			$user = $this->login_model->check_user($username,$password);
+			print_r($user);
+			if($user){
+				if($user->type == 'client'){
+					$name = $user->name;
+				}else{
+					$name = $user->firstname .' '. $user->lastname;
+				}
 
-				//Set the session for login
-						
+				$data_session = array(
 
-				'username'		=> $username,
-				'name'			=> $user->firstname .' '. $user->lastname,
-				'user_id'		=> $user->id,
-				'isLogged'		=> TRUE,
-				'type'			=> $user->type
+					//Set the session for login
 							
 
-				);
-			$this->session->set_userdata($data_session);
+					'username'		=> $username,
+					'name'			=> $name,
+					'user_id'		=> $user->id,
+					'isLogged'		=> TRUE,
+					'type'			=> $user->type
+								
 
-			redirect($user->type);
+					);
+				$this->session->set_userdata($data_session);
+
+				redirect($user->type);
+			}
 		}
 
 	}

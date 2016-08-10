@@ -23,6 +23,10 @@ function indo_date($date){
 
 }
 
+function verification_code(){
+	return bin2hex(openssl_random_pseudo_bytes(32));
+}
+
 function tanggal_indo($date){
         /** ARRAY hari dan bulan**/
         $nama_hari = array("Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu");
