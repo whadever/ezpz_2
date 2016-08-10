@@ -20,6 +20,12 @@ class Login extends CI_Controller{
 			
 	}
 
+	public function send_email(){
+		$this->email_model->email();
+		redirect('login');
+
+	}
+
 	public function sign_in(){
 
 		if($this->input->post('login')){

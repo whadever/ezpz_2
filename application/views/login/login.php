@@ -34,3 +34,4 @@
 	<div class="col-xs-4"></div>
 </div>
 
+<a href="<?php echo base_url('login/send_email') ?>"><button>send</button></a>
