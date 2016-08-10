@@ -14,7 +14,7 @@ class User extends CI_Controller{
 
 		$data['page_title'] = 'Register';
 
-		$this->template->load('default', 'user/register',$data);
+		$this->template->load('default_login', 'user/register',$data);
 
 	}
 
@@ -31,7 +31,7 @@ class User extends CI_Controller{
 
 			$data['page_title'] = 'Register';
 
-			$this->template->load('default', 'user/register',$data);
+			$this->template->load('default_login', 'user/register',$data);
 
 		}
 		else{
