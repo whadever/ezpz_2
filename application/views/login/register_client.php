@@ -27,12 +27,7 @@
 				<label for="">Restaurant Name:</label>
 				<input type="text" name="name" class="form-control" required="1" >
 			</div>
-			
-			<div class="form-group">
-				<label for="">Password</label>
-				<input type="password" name="password" class="form-control" required="1" >
-			</div>
-
+		
 			<div class="form-group">
 				<label for="">Email:</label>
 				<input type="text" name="email" class="form-control" required="1" >
@@ -59,47 +54,47 @@
 	     		</thead>
 	     		<tbody>
 	     			<tr class="monday">
-	     				<td><input type="checkbox" value="Monday" name="days[]" class="opendays" onclick="enable(this,'monday')"></td>
+	     				<td><input type="checkbox" value="Monday" name="day[]" class="opendays" onclick="enable(this,'monday')"></td>
 	     				<td>Monday</td>
 	     				<td id="opentime_monday"></td>
 	     				<td id="closetime_monday"></td>
 	     			</tr>
 	     			<tr class="tuesday">
-	     				<td><input type="checkbox" value="Tuesday" name="days[]" class="opendays" onclick="enable(this,'tuesday')"></td>
+	     				<td><input type="checkbox" value="Tuesday" name="day[]" class="opendays" onclick="enable(this,'tuesday')"></td>
 	     				<td>Tuesday</td>
 
 	     				<td id="opentime_tuesday"></td>
 	     				<td id="closetime_tuesday"></td>
 	     			</tr>
 	     			<tr class="wednesday">
-	     				<td><input type="checkbox" value="Wednesday" name="days[]" class="opendays" onclick="enable(this,'wednesday')"></td>
+	     				<td><input type="checkbox" value="Wednesday" name="day[]" class="opendays" onclick="enable(this,'wednesday')"></td>
 	     				<td>Wednesday</td>
 	     				<td id="opentime_wednesday"></td>
 	     				<td id="closetime_wednesday"></td>
 	     				
 	     			</tr>
 	     			<tr class="thursday">
-	     				<td><input type="checkbox" value="Thursday" name="days[]" class="opendays" onclick="enable(this,'thursday')"></td>
+	     				<td><input type="checkbox" value="Thursday" name="day[]" class="opendays" onclick="enable(this,'thursday')"></td>
 	     				<td>Thursday</td>
 	     				<td id="opentime_thursday"></td>
 	     				<td id="closetime_thursday"></td>
 	     				
 	     			</tr>
 	     			<tr class="friday">
-	     				<td><input type="checkbox" value="Friday" name="days[]" class="opendays" onclick="enable(this,'friday')"></td>
+	     				<td><input type="checkbox" value="Friday" name="day[]" class="opendays" onclick="enable(this,'friday')"></td>
 	     				<td>Friday</td>
 	     				<td id="opentime_friday"></td>
 	     				<td id="closetime_friday"></td>
 	     			</tr>
 	     			<tr class="saturday">
-	     				<td><input type="checkbox" value="Saturday" name="days[]" class="opendays" onclick="enable(this,'saturday')"></td>
+	     				<td><input type="checkbox" value="Saturday" name="day[]" class="opendays" onclick="enable(this,'saturday')"></td>
 	     				<td>Saturday</td>
 	     				<td id="opentime_saturday"></td>
 	     				<td id="closetime_saturday"></td>
 	     				
 	     			</tr>
 	     			<tr class="sunday">
-	     				<td><input type="checkbox" value="Sunday" name="days[]" class="opendays" onclick="enable(this,'sunday')"></td>
+	     				<td><input type="checkbox" value="Sunday" name="day[]" class="opendays" onclick="enable(this,'sunday')"></td>
 	     				<td>Sunday</td>
 	     				<td id="opentime_sunday"></td>
 	     				<td id="closetime_sunday"></td>
@@ -107,6 +102,22 @@
 	     			</tr>
 	     		</tbody>
 	     	</table>
+
+	     	<div class="form-group">
+		     	<div class="input-group ">
+		            <label for="cuisine">Cuisine</label>
+		            <select class="form-control" id="multi" multiple="multiple" name="cuisine[]" required="1"><?php print_r($restaurants) ?>
+			            <?php foreach ($cuisines as $cuisine): ?>
+			            	<option value="<?php echo $cuisine->id ?>"><?php echo $cuisine->name ?></option>
+			            <?php endforeach ?>
+			        </select>
+		        </div>
+			</div>
+
+	        <div class="form-group">
+	        	<label for="">Photo</label>
+	        	<input type="file" name="photo" class="form-control" required="1">
+	        </div>
 
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" name="register" value="Register">
@@ -133,5 +144,9 @@
 			
 	}
 		
+</script>
+
+<script>
+	$('#multi').multiSelect();
 </script>
 

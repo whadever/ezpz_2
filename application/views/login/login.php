@@ -1,3 +1,10 @@
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+
 <div class="row">
 
 	<div class="col-xs-12 text-center">
@@ -34,5 +41,8 @@
 	<div class="col-xs-2 col-sm-3"></div>
 
 </div>
-
+    </div>
+    </div>
+  </div>
+</div>
 

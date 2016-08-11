@@ -9,19 +9,22 @@
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
-	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/multipicker.min.css">
+    
+  	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
+  
 
 
 
     <!-- Begin Scripts -->
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
 
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
     
-	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+	  <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
   
@@ -116,27 +119,15 @@
     
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-      <div class="modal-body">
+
 
         <?php $this->load->view('login/login') ?>
         
-      </div>
-    </div>
-  </div>
-</div>
+  
 	<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
-
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+    
 
 <script>
     var waypoint = new Waypoint({
