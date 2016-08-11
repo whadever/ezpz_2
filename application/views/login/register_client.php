@@ -58,44 +58,43 @@
 	     			</tr>
 	     		</thead>
 	     		<tbody>
-	     			<tr>
-	     				<td><input type="checkbox" value="Monday" name="days[]" class="opendays"></td>
+	     			<tr class="monday">
+	     				<td><input type="checkbox" value="Monday" name="days[]" class="opendays" onclick="enable()"></td>
 	     				<td>Monday</td>
-	     				<td><input type="time" name="opentime[]" disabled="1"></td>
-	     				<td><input type="time" name="closetime[]" disabled="1"></td>
+	     				
 	     			</tr>
-	     			<tr>
-	     				<td><input type="checkbox" value="Tuesday" name="days[]" class="opendays"></td>
+	     			<tr class="tuesday">
+	     				<td><input type="checkbox" value="Tuesday" name="days[]" class="opendays" onclick="enable()"></td>
 	     				<td>Tuesday</td>
 	     				<td><input type="time" name="opentime[]"></td>
 	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
-	     			<tr>
-	     				<td><input type="checkbox" value="Wednesday" name="days[]" class="opendays"></td>
+	     			<tr class="wednesday">
+	     				<td><input type="checkbox" value="Wednesday" name="days[]" class="opendays" onclick="enable()"></td>
 	     				<td>Wednesday</td>
 	     				<td><input type="time" name="opentime[]"></td>
 	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
-	     			<tr>
-	     				<td><input type="checkbox" value="Thursday" name="days[]" class="opendays"></td>
+	     			<tr class="thrusday">
+	     				<td><input type="checkbox" value="Thursday" name="days[]" class="opendays" onclick="enable()"></td>
 	     				<td>Thursday</td>
 	     				<td><input type="time" name="opentime[]"></td>
 	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
-	     			<tr>
-	     				<td><input type="checkbox" value="Friday" name="days[]" class="opendays"></td>
+	     			<tr class="friday">
+	     				<td><input type="checkbox" value="Friday" name="days[]" class="opendays" onclick="enable()"></td>
 	     				<td>Friday</td>
 	     				<td><input type="time" name="opentime[]"></td>
 	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
-	     			<tr>
-	     				<td><input type="checkbox" value="Saturday" name="days[]" class="opendays"></td>
+	     			<tr class="saturday">
+	     				<td><input type="checkbox" value="Saturday" name="days[]" class="opendays" onclick="enable()"></td>
 	     				<td>Saturday</td>
 	     				<td><input type="time" name="opentime[]"></td>
 	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
-	     			<tr>
-	     				<td><input type="checkbox" value="Sunday" name="days[]" class="opendays"></td>
+	     			<tr class="sunday">
+	     				<td><input type="checkbox" value="Sunday" name="days[]" class="opendays" onclick="enable()"></td>
 	     				<td>Sunday</td>
 	     				<td><input type="time" name="opentime[]"></td>
 	     				<td><input type="time" name="closetime[]"></td>
@@ -115,8 +114,9 @@
 
 
 <script>
-	$( document ).ready(function() {
-    	
-});
+	function enable ()
+	{
+		$(".monday").append('<td><input type="time" name="opentime[]" disabled="1"></td><td><input type="time" name="closetime[]" disabled="1"></td>');
+	}
 </script>
 
