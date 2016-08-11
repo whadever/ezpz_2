@@ -59,46 +59,46 @@
 	     		</thead>
 	     		<tbody>
 	     			<tr>
-	     				<td><input type="checkbox" value="Monday" class="opendays"></td>
+	     				<td><input type="checkbox" value="Monday" name="days[]" class="opendays"></td>
 	     				<td>Monday</td>
-	     				<td><input type="time"></td>
-	     				<td><input type="time"></td>
+	     				<td><input type="time" name="opentime[]" disabled="1"></td>
+	     				<td><input type="time" name="closetime[]" disabled="1"></td>
 	     			</tr>
 	     			<tr>
-	     				<td><input type="checkbox" value="Tuesday" class="opendays"></td>
+	     				<td><input type="checkbox" value="Tuesday" name="days[]" class="opendays"></td>
 	     				<td>Tuesday</td>
-	     				<td><input type="time"></td>
-	     				<td><input type="time"></td>
+	     				<td><input type="time" name="opentime[]"></td>
+	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
 	     			<tr>
-	     				<td><input type="checkbox" value="Wednesday" class="opendays"></td>
+	     				<td><input type="checkbox" value="Wednesday" name="days[]" class="opendays"></td>
 	     				<td>Wednesday</td>
-	     				<td><input type="time"></td>
-	     				<td><input type="time"></td>
+	     				<td><input type="time" name="opentime[]"></td>
+	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
 	     			<tr>
-	     				<td><input type="checkbox" value="Thursday" class="opendays"></td>
+	     				<td><input type="checkbox" value="Thursday" name="days[]" class="opendays"></td>
 	     				<td>Thursday</td>
-	     				<td><input type="time"></td>
-	     				<td><input type="time"></td>
+	     				<td><input type="time" name="opentime[]"></td>
+	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
 	     			<tr>
-	     				<td><input type="checkbox" value="Friday" class="opendays"></td>
+	     				<td><input type="checkbox" value="Friday" name="days[]" class="opendays"></td>
 	     				<td>Friday</td>
-	     				<td><input type="time"></td>
-	     				<td><input type="time"></td>
+	     				<td><input type="time" name="opentime[]"></td>
+	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
 	     			<tr>
-	     				<td><input type="checkbox" value="Saturday" class="opendays"></td>
+	     				<td><input type="checkbox" value="Saturday" name="days[]" class="opendays"></td>
 	     				<td>Saturday</td>
-	     				<td><input type="time"></td>
-	     				<td><input type="time"></td>
+	     				<td><input type="time" name="opentime[]"></td>
+	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
 	     			<tr>
-	     				<td><input type="checkbox" value="Sunday" class="opendays"></td>
+	     				<td><input type="checkbox" value="Sunday" name="days[]" class="opendays"></td>
 	     				<td>Sunday</td>
-	     				<td><input type="time"></td>
-	     				<td><input type="time"></td>
+	     				<td><input type="time" name="opentime[]"></td>
+	     				<td><input type="time" name="closetime[]"></td>
 	     			</tr>
 	     		</tbody>
 	     	</table>
@@ -107,26 +107,16 @@
 				<input type="submit" class="btn btn-primary" name="register" value="Register">
 			</div>
 
-			<button onclick="showValue()">Alert</button>
-
 		</form>
 
 	</div>
 	<div class="col-xs-4"></div>
 </div>
 
-<script>
-	function showValue(){
-		var checkedValue = null; 
-		var inputElements = document.getElementsByClassName('opendays');
-		for(var i=0; inputElements[i]; ++i){
-		      if(inputElements[i].checked){
-		           checkedValue = inputElements[i].value;
-		           break;
-		      }
-		}
-		alert(checkedValue);
-	}
 
+<script>
+	$( document ).ready(function() {
+    	
+});
 </script>
 
