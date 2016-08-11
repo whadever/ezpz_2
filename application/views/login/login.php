@@ -15,12 +15,12 @@
 
 			<div class="form-group">
 				<label for="">Username:</label>
-				<input type="text" name="username" class="form-control" required="1">
+				<input type="text" autocomplete="off" name="username" class="form-control" required="1">
 			</div>
 
 			<div class="form-group">
 				<label for="">Password</label>
-				<input type="password" name="password" class="form-control" required="1">
+				<input type="password" autocomplete="off" autosave="off" name="password" class="form-control" required="1">
 			</div>
 
 			<div class="form-group">

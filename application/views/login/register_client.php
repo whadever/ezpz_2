@@ -59,45 +59,51 @@
 	     		</thead>
 	     		<tbody>
 	     			<tr class="monday">
-	     				<td><input type="checkbox" value="Monday" name="days[]" class="opendays" onclick="enable()"></td>
+	     				<td><input type="checkbox" value="Monday" name="days[]" class="opendays" onclick="enable(this,'monday')"></td>
 	     				<td>Monday</td>
-	     				
+	     				<td id="opentime_monday"></td>
+	     				<td id="closetime_monday"></td>
 	     			</tr>
 	     			<tr class="tuesday">
-	     				<td><input type="checkbox" value="Tuesday" name="days[]" class="opendays" onclick="enable()"></td>
+	     				<td><input type="checkbox" value="Tuesday" name="days[]" class="opendays" onclick="enable(this,'tuesday')"></td>
 	     				<td>Tuesday</td>
-	     				<td><input type="time" name="opentime[]"></td>
-	     				<td><input type="time" name="closetime[]"></td>
+
+	     				<td id="opentime_tuesday"></td>
+	     				<td id="closetime_tuesday"></td>
 	     			</tr>
 	     			<tr class="wednesday">
-	     				<td><input type="checkbox" value="Wednesday" name="days[]" class="opendays" onclick="enable()"></td>
+	     				<td><input type="checkbox" value="Wednesday" name="days[]" class="opendays" onclick="enable(this,'wednesday')"></td>
 	     				<td>Wednesday</td>
-	     				<td><input type="time" name="opentime[]"></td>
-	     				<td><input type="time" name="closetime[]"></td>
+	     				<td id="opentime_wednesday"></td>
+	     				<td id="closetime_wednesday"></td>
+	     				
 	     			</tr>
-	     			<tr class="thrusday">
-	     				<td><input type="checkbox" value="Thursday" name="days[]" class="opendays" onclick="enable()"></td>
+	     			<tr class="thursday">
+	     				<td><input type="checkbox" value="Thursday" name="days[]" class="opendays" onclick="enable(this,'thursday')"></td>
 	     				<td>Thursday</td>
-	     				<td><input type="time" name="opentime[]"></td>
-	     				<td><input type="time" name="closetime[]"></td>
+	     				<td id="opentime_thursday"></td>
+	     				<td id="closetime_thursday"></td>
+	     				
 	     			</tr>
 	     			<tr class="friday">
-	     				<td><input type="checkbox" value="Friday" name="days[]" class="opendays" onclick="enable()"></td>
+	     				<td><input type="checkbox" value="Friday" name="days[]" class="opendays" onclick="enable(this,'friday')"></td>
 	     				<td>Friday</td>
-	     				<td><input type="time" name="opentime[]"></td>
-	     				<td><input type="time" name="closetime[]"></td>
+	     				<td id="opentime_friday"></td>
+	     				<td id="closetime_friday"></td>
 	     			</tr>
 	     			<tr class="saturday">
-	     				<td><input type="checkbox" value="Saturday" name="days[]" class="opendays" onclick="enable()"></td>
+	     				<td><input type="checkbox" value="Saturday" name="days[]" class="opendays" onclick="enable(this,'saturday')"></td>
 	     				<td>Saturday</td>
-	     				<td><input type="time" name="opentime[]"></td>
-	     				<td><input type="time" name="closetime[]"></td>
+	     				<td id="opentime_saturday"></td>
+	     				<td id="closetime_saturday"></td>
+	     				
 	     			</tr>
 	     			<tr class="sunday">
-	     				<td><input type="checkbox" value="Sunday" name="days[]" class="opendays" onclick="enable()"></td>
+	     				<td><input type="checkbox" value="Sunday" name="days[]" class="opendays" onclick="enable(this,'sunday')"></td>
 	     				<td>Sunday</td>
-	     				<td><input type="time" name="opentime[]"></td>
-	     				<td><input type="time" name="closetime[]"></td>
+	     				<td id="opentime_sunday"></td>
+	     				<td id="closetime_sunday"></td>
+	     				
 	     			</tr>
 	     		</tbody>
 	     	</table>
@@ -114,9 +120,18 @@
 
 
 <script>
-	function enable ()
+
+	function enable (el,day)
 	{
-		$(".monday").append('<td><input type="time" name="opentime[]" disabled="1"></td><td><input type="time" name="closetime[]" disabled="1"></td>');
+		if($(el).is(":checked")){
+			$("#opentime_"+day).append('<input type="time" name="opentime[]" required="1">');
+			$("#closetime_"+day).append('<input type="time" name="closetime[]" required="1">');
+		}else{
+			$("#opentime_"+day).empty();
+			$("#closetime_"+day).empty();
+		}
+			
 	}
+		
 </script>
 
