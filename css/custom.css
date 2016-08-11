@@ -1,3 +1,18 @@
+body.modal-open {
+    overflow: auto;
+}
+body.modal-open[style] {
+    padding-right: 0px !important;
+}
+
+.modal::-webkit-scrollbar {
+    width: 0 !important; /*removes the scrollbar but still scrollable*/
+    /* reference: http://stackoverflow.com/a/26500272/2259400 */
+}
+body {
+    padding-right: 0px !important;
+}
+
 /*General*/
 .padding-top-five{
   padding-top: 5%;
@@ -11,6 +26,10 @@
 }
 .nav .navbar-nav .dropdown .dropdown-menu ul li a:hover{
   background-color: transparent;
+}
+.navbar-default{
+    border: none;
+    background-color: transparent;
 }
 
 /* Global */
@@ -84,8 +103,8 @@ width: 50%;
 	padding-top: 20%;
 	background: url(http://placehold.it/350x250);
 }
-.form-group{
-	width: 50%;
+#search_bar{
+  width:50%;
 }
 /*What can You DO box*/
 .do-button{

@@ -1,26 +1,26 @@
 <div class="row">
-	<div class="col-xs-4"></div>
-	<div class="col-xs-4 text-center">
+
+	<div class="col-xs-12 text-center">
 		
-		<h2>logo</h2>
+		<h2>Sign In</h2>
 	</div>
-	<div class="col-xs-4"></div>
+
 </div>
 
 <div class="row">
-	<div class="col-xs-4"></div>
-	<div class="col-xs-4">
+	<div class="col-xs-2 col-sm-3"></div>
+	<div class="col-xs-8 col-sm-6">
 		
 		<?php echo form_open('login/sign_in') ?>
 
 			<div class="form-group">
 				<label for="">Username:</label>
-				<input type="text" name="username" class="form-control" >
+				<input type="text" name="username" class="form-control" required="1">
 			</div>
 
 			<div class="form-group">
 				<label for="">Password</label>
-				<input type="password" name="password" class="form-control" >
+				<input type="password" name="password" class="form-control" required="1">
 			</div>
 
 			<div class="form-group">
@@ -29,9 +29,10 @@
 			</div>
 
 		</form>
-
+	
 	</div>
-	<div class="col-xs-4"></div>
+	<div class="col-xs-2 col-sm-3"></div>
+
 </div>
 
 
