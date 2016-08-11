@@ -12,6 +12,7 @@
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/multipicker.min.css">
 
 
 
@@ -133,6 +134,7 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
 

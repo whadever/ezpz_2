@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/multipicker.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,6 +28,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>js/multipicker.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
   </body>

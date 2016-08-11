@@ -61,6 +61,16 @@
 		        </select>
 	        </div>
 
+	        <ul id="days">
+    <li>Su</li>
+    <li>Mo</li>
+    <li>Tu</li>
+    <li>We</li>
+    <li>Th</li>
+    <li>Fr</li>
+    <li>Sa</li>
+</ul>
+
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" name="register" value="Register">
 			</div>
@@ -71,3 +81,6 @@
 	<div class="col-xs-4"></div>
 </div>
 
+<script type="text/javascript">
+	$("#days").multiPicker({ selector : "li" });
+</script>
