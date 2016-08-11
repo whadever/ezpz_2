@@ -9,7 +9,7 @@
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
-    
+    <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
   	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
   	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
   
@@ -64,15 +64,15 @@
               </ul>
               <?php else: ?>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('name') ?>
-                    <span class="caret"></span></a>
-                        <ul class="dropdown-menu" style="background-color: #000;">
+                    <li><a href="#"><?php echo $this->session->userdata('name') ?></a></li>
+                   
+                       
 
-                          <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
+                    <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
 
-                          <li><a href="#">Top Up Wallet</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#">Top Up Wallet</a></li>
+                     
+                    
                     <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
                 </ul>
               <?php endif; ?>
@@ -92,7 +92,7 @@
 </div>
 
 <!--Full Div Image from div bg-->
-<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo base_url() ?>images/pihza.jpg)">
+<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo $background ?>)">
     <div class="row">
         <form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
         <div class="form-group center-block" id="search_bar">

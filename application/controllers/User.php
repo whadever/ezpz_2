@@ -16,12 +16,16 @@ class User extends CI_Controller{
 			
 		}
 
+
+
 	}
 
 	public function index(){
 
 		$data['page_title'] = 'Home';
-
+		$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
+		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
+		$data['background'] = base_url()."images/pihza.jpg";
 		$this->template->load('default','user/home',$data);
 
 	}
