@@ -48,22 +48,66 @@
 				<textarea name="address" class="form-control" required="1" ></textarea>
 			</div>
 
-			<div class="input-group input-group-lg">
-	            <label for="opendays">Open Days</label>
-	            <select class="form-control" id="multiDays" multiple="multiple" name="opendays[]">
-		            <option value="Monday">Monday</option>
-		            <option value="Tuesday">Tuesday</option>
-		            <option value="Wednesday">Wednesday</option>
-		            <option value="Thursday">Thursday</option>
-		            <option value="Friday">Friday</option>
-		            <option value="Saturday">Saturday</option>
-		            <option value="Sunday">Sunday</option>
-		        </select>
-	        </div>
+	     	<table class="table">
+	     		<thead>
+	     			<tr>
+	     				<td>&nbsp;</td>
+	     				<td>Day</td>
+	     				<td>Open Time</td>
+	     				<td>Close Time</td>
+	     			</tr>
+	     		</thead>
+	     		<tbody>
+	     			<tr>
+	     				<td><input type="checkbox" value="Monday" class="opendays"></td>
+	     				<td>Monday</td>
+	     				<td><input type="time"></td>
+	     				<td><input type="time"></td>
+	     			</tr>
+	     			<tr>
+	     				<td><input type="checkbox" value="Tuesday" class="opendays"></td>
+	     				<td>Tuesday</td>
+	     				<td><input type="time"></td>
+	     				<td><input type="time"></td>
+	     			</tr>
+	     			<tr>
+	     				<td><input type="checkbox" value="Wednesday" class="opendays"></td>
+	     				<td>Wednesday</td>
+	     				<td><input type="time"></td>
+	     				<td><input type="time"></td>
+	     			</tr>
+	     			<tr>
+	     				<td><input type="checkbox" value="Thursday" class="opendays"></td>
+	     				<td>Thursday</td>
+	     				<td><input type="time"></td>
+	     				<td><input type="time"></td>
+	     			</tr>
+	     			<tr>
+	     				<td><input type="checkbox" value="Friday" class="opendays"></td>
+	     				<td>Friday</td>
+	     				<td><input type="time"></td>
+	     				<td><input type="time"></td>
+	     			</tr>
+	     			<tr>
+	     				<td><input type="checkbox" value="Saturday" class="opendays"></td>
+	     				<td>Saturday</td>
+	     				<td><input type="time"></td>
+	     				<td><input type="time"></td>
+	     			</tr>
+	     			<tr>
+	     				<td><input type="checkbox" value="Sunday" class="opendays"></td>
+	     				<td>Sunday</td>
+	     				<td><input type="time"></td>
+	     				<td><input type="time"></td>
+	     			</tr>
+	     		</tbody>
+	     	</table>
 
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" name="register" value="Register">
 			</div>
+
+			<button onclick="showValue()">Alert</button>
 
 		</form>
 
@@ -72,7 +116,17 @@
 </div>
 
 <script>
+	function showValue(){
+		var checkedValue = null; 
+		var inputElements = document.getElementsByClassName('opendays');
+		for(var i=0; inputElements[i]; ++i){
+		      if(inputElements[i].checked){
+		           checkedValue = inputElements[i].value;
+		           break;
+		      }
+		}
+		alert(checkedValue);
+	}
 
-		$('#multiDays').multiSelect();
-	
 </script>
+
