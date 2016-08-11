@@ -9,9 +9,6 @@ body.modal-open[style] {
     width: 0 !important; /*removes the scrollbar but still scrollable*/
     /* reference: http://stackoverflow.com/a/26500272/2259400 */
 }
-body {
-    padding-right: 0px !important;
-}
 
 /*General*/
 .padding-top-five{
