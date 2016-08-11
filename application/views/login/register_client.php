@@ -22,6 +22,11 @@
 				<label for="">Username:</label>
 				<input type="text" name="username" class="form-control" required="1" >
 			</div>
+
+			<div class="form-group">
+				<label for="">Restaurant Name:</label>
+				<input type="text" name="name" class="form-control" required="1" >
+			</div>
 			
 			<div class="form-group">
 				<label for="">Password</label>
@@ -42,6 +47,19 @@
 				<label for="">Address:</label>
 				<textarea name="address" class="form-control" required="1" ></textarea>
 			</div>
+
+			<div class="input-group input-group-lg">
+	            <label for="opendays">Open Days</label>
+	            <select class="form-control" id="multiDays" multiple="multiple" name="opendays[]">
+		            <option value="Monday">Monday</option>
+		            <option value="Tuesday">Tuesday</option>
+		            <option value="Wednesday">Wednesday</option>
+		            <option value="Thursday">Thursday</option>
+		            <option value="Friday">Friday</option>
+		            <option value="Saturday">Saturday</option>
+		            <option value="Sunday">Sunday</option>
+		        </select>
+	        </div>
 
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" name="register" value="Register">
