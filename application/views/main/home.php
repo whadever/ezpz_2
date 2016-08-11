@@ -23,7 +23,7 @@
 					<div class="panel-body">
 						Be Our Freelancer
 						<p>Work as a freelancer with EZPZ. Free working time, profit, easy.</p>
-						<a class="btn btn-info do-button" href="<?php echo base_url('accounts/signup/driver') ?>">Sign Up as Freelancer</a>
+						<a class="btn btn-info do-button" href="<?php echo base_url('login/register/driver') ?>">Sign Up as Freelancer</a>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 					<div class="panel-body">
 						Be Our Partner Restaurant
 						<p>Team up with us and get more profit and reach more customers.</p>
-						<a class="btn btn-info do-button" href="<?php echo base_url('accounts/signup/client') ?>">Be a Partner</a>
+						<a class="btn btn-info do-button" href="<?php echo base_url('login/register/client') ?>">Be a Partner</a>
 					</div>
 				</div>
 			</div>
