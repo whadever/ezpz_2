@@ -24,8 +24,6 @@ class Driver extends CI_Controller{
 
 		$this->template->load('default','user/home',$data);
 
-
-
 	}
 }
 
