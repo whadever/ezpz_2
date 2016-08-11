@@ -14,7 +14,7 @@
 	<div class="col-xs-4"></div>
 	<div class="col-xs-4">
 		
-		<?php echo form_open('user/submit') ?>
+		<?php echo form_open('login/register_user') ?>
 
 			<div class="form-group">
 				<label for="">Username:</label>
