@@ -60,7 +60,9 @@ class Login extends CI_Controller{
 
 			$data['page_title'] = 'Register';
 
+
 			$this->template->load('default_login', 'login/register_user',$data);
+
 
 		}
 		else{
