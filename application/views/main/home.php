@@ -57,11 +57,11 @@
 
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 			    <div class="hovereffect">
-			        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
+			        <img class="img-responsive" src="images/cuisines/<?php echo $cuisine->photo ?>" alt="">
 			            <div class="overlay">
-			                <h2><?php echo $cuisine; ?></h2>
+			                <h2><?php echo "$cuisine->name"; ?></h2>
 							<p> 
-								<a href="<?php echo base_url('restaurant/cuisine/'.$cuisine) ?>">View Restaurants</a>
+								<a href="<?php echo base_url('restaurant/cuisine/'.$cuisine->name) ?>">View Restaurants</a>
 							</p> 
 			            </div>
 			    </div>
@@ -74,21 +74,20 @@
 	<?php endforeach;?>
 </div>
 </div>
-
 	<script>
 
 	var test = [""];
 	<?php $i = 0; ?>
 
 	<?php foreach ($lists as $list): ?>
-		test[<?php echo $i ?>] = "<?php echo $list['username'] ?>"
+		test[<?php echo $i ?>] = "<?php echo $list->name ?>";
 		<?php $i++; ?>
 	<?php endforeach; ?>
 	
 	$("#restaurant-search").typeahead({
 
 	                        minLength: 0,
-	                        items: 9999,
+	                        items: 4,
 	                        source: test,   
 	                    });
 

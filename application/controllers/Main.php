@@ -10,6 +10,8 @@
 			
 			}
 			$data['page_title'] = 'Home';
+			$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
+			$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 			
 			$this->template->load('default','main/home' ,$data);	
 			

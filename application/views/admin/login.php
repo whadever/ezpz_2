@@ -1,84 +1,95 @@
-<?php 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Log In</title>
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+    <!-- CSS-->
+    <link href="<?php echo base_url() ?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
+    <script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
 
-if($this->session->flashdata('failed')): ?>
-	<div class="alert alert-danger">
-		<?php echo $this->session->flashdata('failed') ?>
-	</div>
-<?php endif; ?>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
+    <style>
 
+		body{
+			padding: 5% 0;
+      background-image: url('./assets/background.jpg');
+      background-size:     cover;                      
+      background-repeat:   no-repeat;
+      background-position: center center; 
+    }
 
+    .btn-primary{
+      background-color: black;
+      border: 1px solid black;
+      color: white; 
+    }
 
-<script>
-
-function formValidate ()
-{
-	var username = document.forms["loginForm"]["username"].value;
-	var password = document.forms["loginForm"]["password"].value;
-
-	if(username == null || username == '' && password == null || password == '')
-	{
-		alert('Please Fill All Login Form');
-		return false;
-	}
-	else
-	{
-		document.getElementById('loginForm').submit();
-	}
-}
-
-</script>
-<div class="container-fluid" style="padding-top:5%;">
-		<?php if($this->session->flashdata('error')): ?>
-			<div class="alert alert-danger">
-			<?php echo $this->session->flashdata('error') ?>
-			</div>
-		<?php endif; ?>
-		<div class="col-md-4">	</div>
-
-		<div class="col-md-4">
-
-				<div class="login">
-					<?php echo form_open('admin/login', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
-					<table align="center">
-						<tr>
-					    	<td>
-					        	<div class="heading">
-					            	<h3>Admin Login</h3>
-					            </div>
-					        </td>
-					    </tr>
-						<tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-					            <input type="text" name ="username" class="form-control" id="username" placeholder="Username" required>
-					        </div>
-					    </td>
-					    </tr>
-						<tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-					            <input type="password" name = "password" id="password" class="form-control" placeholder="Password" required>
-					        </div>
-					    </td>
-					    </tr>
-					    <tr>
-					    	<td><input type="submit" name="submit" value="Login" onClick="submitForm ()" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;"></td>
-						</tr>
-					</table>
-					</form>
-					
-				</div>
-
-		</div>
-
-		<div class="col-md-4">	</div>
-</div>
+    .btn-primary:hover{
+      background-color: black;
+      color: white;
+      border: 1px solid black;
+    }
+    
+    
 
 
+	</style>
 
-		
+
+</head>
+<body>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+      <div class="col-sm-4 col-xs-12">
+      
+      <img src="<?php echo base_url() ?>assets/rwlogo.jpg" style="margin-bottom:20px; width:100%" class="img img-responsive" alt="">
+      
+      <h2><strong>Log In</strong></h2></div>
+    <div class="col-sm-4"></div>
+  </div>
+    <div class="row">
+    	<div class="col-sm-4"></div>
+    	<div class="col-sm-4 col-xs-12" style="border:1px solid black; padding: 2% 3%; border-radius: 6px; background-color:#FFF12C ">
+    		<?php echo form_open('admin_login/login') ?>
+          
+          <div class="form-group">
+            <label for="">Username :</label>
+            <input type="text" class="form-control" name="username" placeholder="Username">
+          </div>
+
+          <div class="form-group">
+            <label for="">Password :</label>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+
+          <div class="form-group text-center">
+            <input type="submit" name="submit" value="Log In" class="btn btn-primary">
+          </div>
+
+    		<?php echo form_close(); ?>
+    	</div>
+    	<div class="col-sm-4"></div>
+    </div>
+  </div>
+	
+
+  
+</body>
+</html>

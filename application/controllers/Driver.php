@@ -22,7 +22,7 @@ class Driver extends CI_Controller{
 
 		$data['page_title'] = 'Driver';
 
-		$this->template->load('default','user/home',$data);
+		$this->template->load('default_driver','driver/home',$data);
 
 	}
 }

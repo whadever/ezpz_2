@@ -22,7 +22,7 @@ class Client extends CI_Controller{
 
 		$data['page_title'] = 'Client';
 
-		$this->template->load('default','client/home',$data);
+		$this->template->load('default_client','client/home',$data);
 
 	}
 
