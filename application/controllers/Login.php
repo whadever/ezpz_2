@@ -60,7 +60,7 @@ class Login extends CI_Controller{
 
 			$data['page_title'] = 'Register';
 
-			$this->template->load('default_login', 'user/register',$data);
+			$this->template->load('default_login', 'login/register_user',$data);
 
 		}
 		else{
@@ -87,9 +87,57 @@ class Login extends CI_Controller{
 				redirect('login');
 			}
 			else{
-				redirect('user/register/user');
+				redirect('login/register_user');
 			}
 		}
+	}
+
+	public function register_driver(){
+		/*Set the Message*/
+		$this->form_validation->set_message('is_unique','%s has been taken');
+
+		/*Set the Rules*/
+		$this->form_validation->set_rules('username', 'Username', 'is_unique[users.username]|is_unique[drivers.username]|is_unique[restaurants.username]');
+		$this->form_validation->set_rules('email', 'Email', 'valid_email|is_unique[users.email]|is_unique[drivers.email]|is_unique[restaurants.email]');
+		
+		if($this->form_validation->run() == FALSE){
+
+			$data['page_title'] = 'Register';
+
+			$this->template->load('default_login', 'login/register_driver',$data);
+
+		}else{
+			if($this->input->post('register')){
+				$verification_code = verification_code();
+				$verification_string = $this->input->post('username') . '~' . $verification_code;
+
+				$data = array(
+
+						'username' 			=> $this->input->post('username'),
+						'password' 			=> hash_password($this->input->post('password')),
+						'email' 			=> $this->input->post('email'),
+						'phone'		 		=> $this->input->post('telephone'),
+						'address' 			=> $this->input->post('address'),
+						'ird'	 			=> $this->input->post('ird'),
+						'driver_licence' 	=> $this->input->post('driver_license'),
+						'licence_type' 		=> $this->input->post('license_type'),
+						'verification_code'	=> $verification_code,
+						'created'			=> date('Y-m-d')
+
+						);
+
+				$this->crud_model->insert_data('drivers', $data);
+				$this->email_model->verification_email($data['email'], $verification_string);
+				$this->session->set_flashdata('success','Driver has been added');
+
+				redirect('login');
+			}
+			else{
+				redirect('login/register_driver');
+			}
+		}
+
+
 	}
 
 	public function register_client(){
@@ -104,7 +152,7 @@ class Login extends CI_Controller{
 
 			$data['page_title'] = 'Register';
 
-			$this->template->load('default', 'client/register',$data);
+			$this->template->load('default_login', 'login/register_client',$data);
 
 		}
 		else{
@@ -158,7 +206,7 @@ class Login extends CI_Controller{
 				redirect('login');
 			}
 			else{
-				redirect('login/register/client');
+				redirect('login/register_client');
 			}
 		}
 	}

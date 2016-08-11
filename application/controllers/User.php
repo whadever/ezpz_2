@@ -25,19 +25,6 @@ class User extends CI_Controller{
 		$this->template->load('default','user/home',$data);
 
 	}
-
-	public function register(){
-
-		$data['page_title'] = 'Register';
-
-		$this->template->load('default_login', 'user/register',$data);
-
-	}
-
-	public function submit(){
-
-		
-	}
 }
 
  ?>
