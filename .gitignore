@@ -1,12 +1,2 @@
-*/application/config/database.php
-*/application/logs/log-*.php
-!*/application/logs/index.html
-*/application/cache/*
-!*/application/cache/index.html
-!*/application/cache/.htaccess
-
-application/config/database.php
-
 application/config/config.php
-
-uploads/*
+application/config/database.php
