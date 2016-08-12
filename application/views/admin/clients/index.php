@@ -3,9 +3,20 @@
 		<h2>Manage clients</h2>
 	</div>
 	<div class="col-xs-8">
-		
+		<?php if($this->uri->segment(3) == 0): ?>
+      <a href="<?php echo base_url('admin/approve_all_client') ?>" class="btn btn-primary pull-right">Approve All</a>
+    <?php endif; ?>
 	</div>
 </div>
+
+<?php if($this->session->flashdata('password')): ?>
+  <div class="row">
+    <div class="alert alert-success">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
+      <?php echo $this->session->flashdata('password'); ?>
+    </div>  
+  </div>
+<?php endif; ?>
 
 <div class="row" style="font-size : 14px">
 	<div class="col-xs-12">

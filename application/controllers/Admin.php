@@ -160,27 +160,44 @@ class Admin extends CI_Controller{
 
 
 	public function approve_driver($id){
+		$random_code = random_string('numeric', 5);
+		$password = hash_password($random_code);
+		$this->crud_model->update_data('drivers',array('is_verified' => 1,'password' => $password), array('id' => $id));
 
-		$this->crud_model->update_data('drivers',array('is_verified' => 1), array('id' => $id));
-
+		$this->session->set_flashdata('password', $random_code);
 		redirect('admin/drivers/0');
 
 
 	}
 
-	public function approve_all_driver($id){
+	public function approve_all_driver(){
+		$random_code = random_string('numeric', 5);
+		$password = hash_password($random_code);
+		$this->crud_model->update_data('drivers',array('is_verified' => 1,'password' => $password), array('is_verified' => 0));
 
-		$this->crud_model->update_data('drivers',array('is_verified' => 1), array('is_verified' => 0));
+		$this->session->set_flashdata('password', $random_code);
+		redirect('admin/drivers/0');
 
+
+	}
+
+	public function approve_all_client(){
+		$random_code = random_string('numeric', 5);
+		$password = hash_password($random_code);
+		$this->crud_model->update_data('restaurants',array('is_verified' => 1,'password' => $password), array('is_verified' => 0));
+
+		$this->session->set_flashdata('password', $random_code);
 		redirect('admin/drivers/0');
 
 
 	}
 
 	public function approve_client($id){
+		$random_code = random_string('numeric', 5);
+		$password = hash_password($random_code);
+		$this->crud_model->update_data('restaurants',array('is_verified' => 1,'password' => $password), array('id' => $id));
 
-		$this->crud_model->update_data('restaurants',array('is_verified' => 1), array('id' => $id));
-
+		$this->session->set_flashdata('password', $random_code);
 		redirect('admin/clients/0');
 
 

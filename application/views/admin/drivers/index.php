@@ -9,6 +9,15 @@
 	</div>
 </div>
 
+<?php if($this->session->flashdata('password')): ?>
+  <div class="row">
+    <div class="alert alert-success">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
+      <?php echo $this->session->flashdata('password'); ?>
+    </div>  
+  </div>
+<?php endif; ?>
+
 <div class="row" style="font-size : 14px">
 	<div class="col-xs-12">
 		<table id="drivers" class="table table-bordered  table-striped">
