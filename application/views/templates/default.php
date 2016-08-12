@@ -21,7 +21,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
-
+    <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     
 	  <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
@@ -96,7 +96,7 @@
 </div>
 
 <!--Full Div Image from div bg-->
-<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo $background ?>)">
+<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo $background ?>)" data-stellar-background-ratio="0.5">
     <div class="row">
         <form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
         <div class="form-group center-block" id="search_bar">
@@ -132,7 +132,17 @@
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
+<script>
 
+$(document).ready(function(){
+  $(window).stellar(
+    {
+      verticalOffset:50,
+      horizontalOffset:50,
+    });
+});
+
+</script>
 <script>
     var waypoint = new Waypoint({
       element: document.getElementById('search'),
