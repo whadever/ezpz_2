@@ -32,17 +32,11 @@
       background-image: url('./assets/background.jpg');
       background-size:     cover;                      
       background-repeat:   no-repeat;
-<<<<<<< HEAD
       background-position: center; 
       background-attachment: fixed;
       color: white ;
       font-family:  'Roboto', sans-serif;
-=======
-      background-position: center center; 
-      background-attachment: fixed;
-      color: white;
-      padding-top:10%;
->>>>>>> origin/master
+
     }
 
     .btn-primary{
@@ -84,21 +78,7 @@
 
 }
     
-    input[type="text"]
-    {
-        background: transparent;
-        height:50px;
-        border: none;
-        color:#fff;
-    }
-
-    input[type="password"]
-    {
-        background: transparent;
-        height:50px;
-        border: none;
-        color:#fff;
-    }
+    
 	  </style>
 
 
@@ -106,7 +86,7 @@
 
 <body>
   <div class="container-fluid">
-<<<<<<< HEAD
+
   <div class="row">
     <div class="col-sm-4"></div>
       <div class="col-sm-4 col-xs-12">
@@ -116,40 +96,19 @@
     </div>
     <div class="col-sm-4"></div>
   </div>
-=======
-    <div class="row">
-      <div class="col-sm-4"></div>
-        <div class="col-sm-4 col-xs-12">
-        
-        EZPZ - admin
-        
-        <h2><strong>Log In</strong></h2></div>
-      <div class="col-sm-4"></div>
-    </div>
-    
->>>>>>> origin/master
     <div class="row">
     	<div class="col-sm-4"></div>
     	<div class="col-sm-4 col-xs-12" style=" padding: 2% 3%; border-radius: 6px; background-color: transparent; ">
     		<?php echo form_open('admin_login/login', array('autofill' => 'false')) ?>
           
           <div class="form-group">
-<<<<<<< HEAD
-            
-=======
-            <input type="text" class="form-control" name="username" placeholder="Username" style="display:none">
->>>>>>> origin/master
+
             <input type="text" class="form-control" name="username" placeholder="Username">
           </div>
         
           <br>
 
           <div class="form-group">
-<<<<<<< HEAD
-           
-=======
-            <input type="password" class="form-control" name="password" placeholder="Password" style="display:none">
->>>>>>> origin/master
             <input type="password" class="form-control" name="password" placeholder="Password">
           </div>
 

@@ -12,37 +12,36 @@ class Admin extends CI_Controller{
 
 	}
 
+	/* admin home */
 	public function index(){
+		/* get all unapproved drivers */
 		$data['unapproved_drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => 0))->result();
+		/* get all unapproved clients */
 		$data['unapproved_clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => 0))->result();
 		$this->template->load('default_admin','admin/home',$data);
 
 	}
 
+	/* user list page */
 	public function users(){
 		$data['users'] = $this->crud_model->get_by_condition('users',array('is_verified' => 1))->result();
 
 		$this->template->load('default_admin','admin/users/index',$data); 
 	}
 
-<<<<<<< HEAD
+
 	public function drivers($is_verified){
-		$data['drivers'] = $this->admin_model->get_by_condition('drivers',array('is_verified' => $is_verified))->result();
-=======
-	public function drivers(){
-		$data['drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => 1))->result();
->>>>>>> origin/master
+		
+		$data['drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => $is_verified))->result();
+
 
 		$this->template->load('default_admin','admin/drivers/index',$data); 
 	}
 
-<<<<<<< HEAD
+
 	public function clients($is_verified){
-		$data['clients'] = $this->admin_model->get_by_condition('restaurants',array('is_verified' => $is_verified))->result();
-=======
-	public function clients(){
-		$data['clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => 1))->result();
->>>>>>> origin/master
+		$data['clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => $is_verified))->result();
+
 
 		$this->template->load('default_admin','admin/clients/index',$data); 
 	}
