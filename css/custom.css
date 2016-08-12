@@ -141,8 +141,11 @@ width: 50%;
 .section-head h3{
 	margin-top: 7px;
 }
-.food{
-	margin-bottom: 20px;
+.food {
+    margin-bottom: 20px;
+    padding: 0;
+    padding-bottom: 20px;
+    background-color: #5BC0DE;
 }
 /*Image + Hover*/
 .hovereffect {

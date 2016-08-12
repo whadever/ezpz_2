@@ -117,9 +117,9 @@
 
 
 <div id="main">
-    <div class="container-fluid">
+   
         <?php echo $body ?>
-    </div>
+    
     
 </div>
 
