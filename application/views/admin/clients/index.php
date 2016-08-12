@@ -82,6 +82,7 @@
         <?php echo form_close() ?>
       </div>
     </div>
+    
   </div>
 </div><!-- Modal edit client end -->
 

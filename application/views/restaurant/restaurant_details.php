@@ -6,7 +6,8 @@
 					
 				<h2 style="display:inline;"><?php echo $restaurant->name.' ' ?></h2>
 				<span class="rating">
-					<h3 class="label label-info" style="font-size:12px;display:inline;line-height:15px;">3 / 5</h3><p style="font-size:10px;display:inline;margin-left:2px;">100 votes</p>
+					<h3 class="label label-info" style="font-size:12px;display:inline;line-height:15px;">3 / 5</h3>
+					<p style="font-size:10px;display:inline;margin-left:2px;">100 votes</p>
 				</span>
 				
 				<?php if($restaurant_time): ?>
@@ -81,23 +82,23 @@
 	</div>
 </div>
 
-	<script>
+<script>
 
-	var test = [""];
-	<?php $i = 0; ?>
+var test = [""];
+<?php $i = 0; ?>
 
-	<?php foreach ($lists as $list): ?>
-		test[<?php echo $i ?>] = "<?php echo $list->name ?>";
-		<?php $i++; ?>
-	<?php endforeach; ?>
-	
-	$("#restaurant-search").typeahead({
+<?php foreach ($lists as $list): ?>
+	test[<?php echo $i ?>] = "<?php echo $list->name ?>";
+	<?php $i++; ?>
+<?php endforeach; ?>
 
-	                        minLength: 0,
-	                        items: 4,
-	                        source: test,   
-	                    });
+$("#restaurant-search").typeahead({
 
-	</script>
+                        minLength: 0,
+                        items: 4,
+                        source: test,   
+                    });
+
+</script>
 
 

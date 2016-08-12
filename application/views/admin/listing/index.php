@@ -89,120 +89,129 @@
   <div class="modal-dialog">
 <!-- Modal content-->
     <div class="modal-content">
+      
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Add New Listing</h4>
       </div>
+
       <div class="modal-body">
         <div class="row">
-  <?php echo form_open_multipart('listing/add') ?>
-  <div class="col-md-6">
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-10">
-        <div class="form-group">
-          <label for="">Featured Photo :*</label>
-          <img src="" name="image" alt="">
-          <input type="file" name="image" class="form-control" >
-        </div>
 
-        <div class="form-group">
-          <label for="">City :*</label>
-          <select name="city"  class="form-control" required="1">
-            <option value="">Select City</option>
-            <?php foreach($cities as $city): ?>
-              <option value="<?php echo $city->id ?>"><?php echo $city->name ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+          <?php echo form_open_multipart('listing/add') ?>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-xs-1"></div>
+              <div class="col-xs-10">
 
-        <div class="form-group">
-          <label for="">District :*</label>
-          <input type="text" name="district" placeholder="District" class="form-control" required="1">
-        </div>
+                <div class="form-group">
+                  <label for="">Featured Photo :*</label>
+                  <img src="" name="image" alt="">
+                  <input type="file" name="image" class="form-control" >
+                </div>
 
-        <div class="form-group">
-          <label for="">Width :*</label>
-          <input type="number" name="width" placeholder="Width" class="form-control" required="1">
-        </div>
+                <div class="form-group">
+                  <label for="">City :*</label>
+                  <select name="city"  class="form-control" required="1">
+                    <option value="">Select City</option>
+                    <?php foreach($cities as $city): ?>
+                      <option value="<?php echo $city->id ?>"><?php echo $city->name ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
 
-        <div class="form-group">
-          <label for="">Length :*</label>
-          <input type="number" name="length" placeholder="Length" class="form-control" required="1">
-        </div>
+                <div class="form-group">
+                  <label for="">District :*</label>
+                  <input type="text" name="district" placeholder="District" class="form-control" required="1">
+                </div>
 
-        <div class="form-group">
-          <label for="">Address :*</label>
-          <textarea name="address" placeholder="Address" class="form-control" required="1"></textarea>
-        </div>
+                <div class="form-group">
+                  <label for="">Width :*</label>
+                  <input type="number" name="width" placeholder="Width" class="form-control" required="1">
+                </div>
 
-      </div>
-      <div class="col-xs-1"></div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-10">
-        <div class="form-group">
-          <label for="">Seller :*</label>
-          <select name="seller"  class="form-control" required="1">
-            <option value="">Select Seller</option>
-            <?php foreach($sellers as $seller): ?>
-              <option value="<?php echo $seller->id ?>"><?php echo $seller->name ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+                <div class="form-group">
+                  <label for="">Length :*</label>
+                  <input type="number" name="length" placeholder="Length" class="form-control" required="1">
+                </div>
 
-        <div class="form-group">
-          <label for="">Agent :*</label>
-          <select name="agent"  class="form-control" required="1">
-            <option value="">Select Agent</option>
-            <?php foreach($agents as $agent): ?>
-              <option value="<?php echo $agent->id ?>"><?php echo $agent->name ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+                <div class="form-group">
+                  <label for="">Address :*</label>
+                  <textarea name="address" placeholder="Address" class="form-control" required="1"></textarea>
+                </div>
 
-        <div class="form-group">
-          <label for="">Type :*</label>
-          <select name="type"  class="form-control" required="1">
-            <option value="">Select Type</option>
-            <?php foreach($types as $type): ?>
-              <option value="<?php echo $type->id ?>"><?php echo $type->name ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="">Price :*</label>
-          <div class="input-group">
-            <span class="input-group-addon">Rp. </span>
-            <input type="number" name="price" placeholder="Price" class="form-control" required="1">
+              </div>
+              <div class="col-xs-1"></div>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="">Description :</label>
-          <textarea name="description" rows="4" placeholder="Description" class="form-control"></textarea>
-        </div>
+          <div class="col-md-6">
+            <div class="row">
 
-        <div class="form-group">
+              <div class="col-xs-1"></div>
+              <div class="col-xs-10">
+                <div class="form-group">
+                  <label for="">Seller :*</label>
+                  <select name="seller"  class="form-control" required="1">
+                    <option value="">Select Seller</option>
+                    <?php foreach($sellers as $seller): ?>
+                      <option value="<?php echo $seller->id ?>"><?php echo $seller->name ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Agent :*</label>
+                  <select name="agent"  class="form-control" required="1">
+                    <option value="">Select Agent</option>
+                    <?php foreach($agents as $agent): ?>
+                      <option value="<?php echo $agent->id ?>"><?php echo $agent->name ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Type :*</label>
+                  <select name="type"  class="form-control" required="1">
+                    <option value="">Select Type</option>
+                    <?php foreach($types as $type): ?>
+                      <option value="<?php echo $type->id ?>"><?php echo $type->name ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Price :*</label>
+                  <div class="input-group">
+                    <span class="input-group-addon">Rp. </span>
+                    <input type="number" name="price" placeholder="Price" class="form-control" required="1">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Description :</label>
+                  <textarea name="description" rows="4" placeholder="Description" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                  
+                </div>
+              </div>
+              <div class="col-xs-1"></div>
+
+            </div>
+          </div>
           
         </div>
       </div>
-      <div class="col-xs-1"></div>
-    </div>
-  </div>
-  
-</div>
-      </div>
+      
       <div class="modal-footer">
         <input type="submit" value="Submit" name="submit" class="btn btn-primary">
         <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
         <?php echo form_close() ?>
       </div>
     </div>
+
   </div>
 </div><!-- Modal Add Listing end -->
 
@@ -234,121 +243,130 @@
   <div class="modal-dialog">
 <!-- Modal content-->
     <div class="modal-content">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Edit Listing</h4>
       </div>
+
       <div class="modal-body">
         <div class="row">
-  <?php echo form_open_multipart('listing/update') ?>
-  <div class="col-md-6">
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-10">
-        <div class="form-group">
-          <label for="">Featured Photo :*</label>
-          <img src="" name="image" alt="">
-          <input type="hidden" name="last_image" value="">
-          <input type="file" name="image" class="form-control" >
-        </div>
 
-        <div class="form-group">
-          <label for="">City :*</label>
-          <select name="city"  class="form-control" required="1">
-            <option value="">Select City</option>
-            <?php foreach($cities as $city): ?>
-              <option value="<?php echo $city->id ?>"><?php echo $city->name ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+          <?php echo form_open_multipart('listing/update') ?>
+          <div class="col-md-6">
+            <div class="row">
 
-        <div class="form-group">
-          <label for="">District :*</label>
-          <input type="text" name="district" placeholder="District" class="form-control" required="1">
-        </div>
+              <div class="col-xs-1"></div>
+              <div class="col-xs-10">
 
-        <div class="form-group">
-          <label for="">Width :*</label>
-          <input type="number" name="width" placeholder="Width" class="form-control" required="1">
-        </div>
+                <div class="form-group">
+                  <label for="">Featured Photo :*</label>
+                  <img src="" name="image" alt="">
+                  <input type="hidden" name="last_image" value="">
+                  <input type="file" name="image" class="form-control" >
+                </div>
 
-        <div class="form-group">
-          <label for="">Length :*</label>
-          <input type="number" name="length" placeholder="Length" class="form-control" required="1">
-        </div>
+                <div class="form-group">
+                  <label for="">City :*</label>
+                  <select name="city"  class="form-control" required="1">
+                    <option value="">Select City</option>
+                    <?php foreach($cities as $city): ?>
+                      <option value="<?php echo $city->id ?>"><?php echo $city->name ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
 
-        <div class="form-group">
-          <label for="">Address :*</label>
-          <textarea name="address" placeholder="Address" class="form-control" required="1"></textarea>
-        </div>
+                <div class="form-group">
+                  <label for="">District :*</label>
+                  <input type="text" name="district" placeholder="District" class="form-control" required="1">
+                </div>
 
-      </div>
-      <div class="col-xs-1"></div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-10">
-        <div class="form-group">
-          <label for="">Seller :*</label>
-          <select name="seller"  class="form-control" required="1">
-            <option value="">Select Seller</option>
-            <?php foreach($sellers as $seller): ?>
-              <option value="<?php echo $seller->id ?>"><?php echo $seller->name ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+                <div class="form-group">
+                  <label for="">Width :*</label>
+                  <input type="number" name="width" placeholder="Width" class="form-control" required="1">
+                </div>
 
-        <div class="form-group">
-          <label for="">Agent :*</label>
-          <select name="agent"  class="form-control" required="1">
-            <option value="">Select Agent</option>
-            <?php foreach($agents as $agent): ?>
-              <option value="<?php echo $agent->id ?>"><?php echo $agent->name ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+                <div class="form-group">
+                  <label for="">Length :*</label>
+                  <input type="number" name="length" placeholder="Length" class="form-control" required="1">
+                </div>
 
-        <div class="form-group">
-          <label for="">Type :*</label>
-          <select name="type"  class="form-control" required="1">
-            <option value="">Select Type</option>
-            <?php foreach($types as $type): ?>
-              <option value="<?php echo $type->id ?>"><?php echo $type->name ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+                <div class="form-group">
+                  <label for="">Address :*</label>
+                  <textarea name="address" placeholder="Address" class="form-control" required="1"></textarea>
+                </div>
 
-        <div class="form-group">
-          <label for="">Price :*</label>
-          <div class="input-group">
-            <span class="input-group-addon">Rp. </span>
-            <input type="number" name="price" placeholder="Price" class="form-control" required="1">
+              </div>
+              <div class="col-xs-1"></div>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="">Description :</label>
-          <textarea name="description" rows="4" placeholder="Description" class="form-control"></textarea>
-        </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-xs-1"></div>
+              <div class="col-xs-10">
 
-        <div class="form-group">
+                <div class="form-group">
+                  <label for="">Seller :*</label>
+                  <select name="seller"  class="form-control" required="1">
+                    <option value="">Select Seller</option>
+                    <?php foreach($sellers as $seller): ?>
+                      <option value="<?php echo $seller->id ?>"><?php echo $seller->name ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Agent :*</label>
+                  <select name="agent"  class="form-control" required="1">
+                    <option value="">Select Agent</option>
+                    <?php foreach($agents as $agent): ?>
+                      <option value="<?php echo $agent->id ?>"><?php echo $agent->name ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Type :*</label>
+                  <select name="type"  class="form-control" required="1">
+                    <option value="">Select Type</option>
+                    <?php foreach($types as $type): ?>
+                      <option value="<?php echo $type->id ?>"><?php echo $type->name ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Price :*</label>
+                  <div class="input-group">
+                    <span class="input-group-addon">Rp. </span>
+                    <input type="number" name="price" placeholder="Price" class="form-control" required="1">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Description :</label>
+                  <textarea name="description" rows="4" placeholder="Description" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                  
+                </div>
+              </div>
+              <div class="col-xs-1"></div>
+            </div>
+          </div>
           
         </div>
       </div>
-      <div class="col-xs-1"></div>
-    </div>
-  </div>
-  
-</div>
-      </div>
+
       <div class="modal-footer">
         <input type="hidden" name="id" value="">
         <input type="submit" value="Submit" name="submit" class="btn btn-primary">
         <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
         <?php echo form_close() ?>
       </div>
+      
     </div>
   </div>
 </div><!-- Modal edit Listing end -->

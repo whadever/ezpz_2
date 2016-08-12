@@ -177,7 +177,9 @@
 
 
   </head>
+
   <body>
+
   <div id="mySidenav" class="sidenav">
 	  <div class="company_logo" style="margin-bottom: 30px; padding-left: 32px">
 	  	<h2>Menu</h2>
@@ -193,8 +195,8 @@
 	  <div class="bottom-align-text text-center">Copyright &copy; 2016 | Hassee Developers</div>
   </div>
 
-  <div class="container-fluid">
-  <div id="main">
+<div class="container-fluid">
+  	<div id="main">
 	  <div class="row">
 	  	<div class="col-xs-2">
 	  		<div id="background-btn" class="col-xs-4">
@@ -209,15 +211,13 @@
 		  			<a href="<?php echo base_url('home') ?>"><img src="<?php echo base_url() ?>assets/logo.jpg" style="margin-bottom:10px; padding-top: 20px;width:100%" class="img img-responsive" alt="">
 		  			</a>
 		  		</div>
-		  		<div class="col-sm-4">
-		  			
-		  		</div>
+		  		<div class="col-sm-4"></div>
 	  		</div>
 	  	</div>
-	  	<div class="col-xs-2"><h5 style="padding-top: 50px" class="pull-right">Welcome, <?php echo $this->session->userdata('admin_username') ?></h5></div>
+	  	<div class="col-xs-2"><h5 style="padding-top: 50px" class="pull-right">Welcome, <?php echo $this->session->userdata('admin_username') ?></h5>
+	  	</div>
 	  </div>
 	  <hr>
-	
 		
 		<div class="row">
 			<div class="col-xs-12">

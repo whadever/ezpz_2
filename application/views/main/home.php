@@ -42,8 +42,9 @@
 <!--What you can do div end, cuisine selection start-->
 <div class="container-fluid food">
 	<div class="container">
-	<div class="row text-center">
-	<h1 style="margin-bottom:25px;">Cuisine Selections</h1></div>
+		<div class="row text-center">
+			<h1 style="margin-bottom:25px;">Cuisine Selections</h1>
+		</div>
 	<?php 
 
 	$counter=0;
@@ -72,25 +73,26 @@
 			</div>
 		<?php endif; $counter++;?>
 	<?php endforeach;?>
+	</div>
 </div>
-</div>
-	<script>
-
-	var test = [""];
-	<?php $i = 0; ?>
-
-	<?php foreach ($lists as $list): ?>
-		test[<?php echo $i ?>] = "<?php echo $list->name ?>";
-		<?php $i++; ?>
-	<?php endforeach; ?>
 	
-	$("#restaurant-search").typeahead({
+<script>
 
-	                        minLength: 0,
-	                        items: 4,
-	                        source: test,   
-	                    });
+var test = [""];
+<?php $i = 0; ?>
 
-	</script>
+<?php foreach ($lists as $list): ?>
+	test[<?php echo $i ?>] = "<?php echo $list->name ?>";
+	<?php $i++; ?>
+<?php endforeach; ?>
+
+$("#restaurant-search").typeahead({
+
+                        minLength: 0,
+                        items: 4,
+                        source: test,   
+                    });
+
+</script>
 
 

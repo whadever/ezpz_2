@@ -17,14 +17,12 @@
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
 
-    
-
-
   </head>
+  
   <body>
   
 				<?php echo $body ?>
-	
-    
+  
   </body>
+  
 </html>

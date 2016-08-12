@@ -1,21 +1,28 @@
 
 <div class="container-fluid padding-top-five">
 	<h2 style="margin-left:1%;"><?php echo $cuisine_name ?></h2>
-	<hr></hr>
+	<hr>
+
 	<?php 
 
 	$counter=0;
 	//Get Restaurant
 	foreach($restaurants as $restaurant): ?>
-		<?php 
-		//Put Div row in every first of three
-		if($counter % 3 ==  0): ?>
+
+		 
+		<!-- Put Div row in every first of three -->
+		<?php if($counter % 3 ==  0): ?>
 			<div class="row">
 		<?php endif; ?>
+
 			<div class="col-md-4 col-xs-12">
 				<div class="panel panel-default panel-horizontal">
 				    <div class="panel-body">
-				        <p class="brand"><a href="<?php echo base_url('restaurant/detail/'.$restaurant->name) ?>"><?php echo $restaurant->name; ?></a></p>
+				        <p class="brand">
+				        	<a href="<?php echo base_url('restaurant/detail/'.$restaurant->name) ?>">
+				        	<?php echo $restaurant->name; ?>
+				        	</a>
+				        </p>
 						<p><?php echo $restaurant->address ?></p>
 						<?php $closed = 1; ?>
 						<?php foreach ($restaurant_time as $time): ?>
@@ -33,6 +40,7 @@
 				    </div>
 				</div>
 			</div>
+		
 		<?php
 		//Put Div close in every three of three 
 		if($counter % 3 ==  2): ?>
@@ -41,21 +49,21 @@
 	<?php endforeach;?>
 </div>
 
-	<script>
+<script>
 
-	var test = [""];
-	<?php $i = 0; ?>
+var test = [""];
+<?php $i = 0; ?>
 
-	<?php foreach ($lists as $list): ?>
-		test[<?php echo $i ?>] = "<?php echo $list->name ?>";
-		<?php $i++; ?>
-	<?php endforeach; ?>
-	
-	$("#restaurant-search").typeahead({
+<?php foreach ($lists as $list): ?>
+	test[<?php echo $i ?>] = "<?php echo $list->name ?>";
+	<?php $i++; ?>
+<?php endforeach; ?>
 
-	                        minLength: 0,
-	                        items: 4,
-	                        source: test,   
-	                    });
+$("#restaurant-search").typeahead({
 
-	</script>
+                        minLength: 0,
+                        items: 4,
+                        source: test,   
+                    });
+
+</script>

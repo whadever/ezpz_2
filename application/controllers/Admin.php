@@ -20,19 +20,29 @@ class Admin extends CI_Controller{
 	}
 
 	public function users(){
-		$data['users'] = $this->admin_model->get_by_condition('users',array('is_verified' => 1))->result();
+		$data['users'] = $this->crud_model->get_by_condition('users',array('is_verified' => 1))->result();
 
 		$this->template->load('default_admin','admin/users/index',$data); 
 	}
 
+<<<<<<< HEAD
 	public function drivers($is_verified){
 		$data['drivers'] = $this->admin_model->get_by_condition('drivers',array('is_verified' => $is_verified))->result();
+=======
+	public function drivers(){
+		$data['drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => 1))->result();
+>>>>>>> origin/master
 
 		$this->template->load('default_admin','admin/drivers/index',$data); 
 	}
 
+<<<<<<< HEAD
 	public function clients($is_verified){
 		$data['clients'] = $this->admin_model->get_by_condition('restaurants',array('is_verified' => $is_verified))->result();
+=======
+	public function clients(){
+		$data['clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => 1))->result();
+>>>>>>> origin/master
 
 		$this->template->load('default_admin','admin/clients/index',$data); 
 	}
@@ -48,7 +58,7 @@ class Admin extends CI_Controller{
 						redirect('admin');
 					}else
 					{
-						$data_user = $this->admin_model->get_by_condition('users', array('id' => $id))->row();
+						$data_user = $this->crud_model->get_by_condition('users', array('id' => $id))->row();
 						
 						//Check if user have completed their data
 							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo == NULL)
@@ -82,7 +92,7 @@ class Admin extends CI_Controller{
 						redirect('admin');
 					}else
 					{
-						$data_user = $this->admin_model->get_by_condition('drivers', array('id' => $id))->row();
+						$data_user = $this->crud_model->get_by_condition('drivers', array('id' => $id))->row();
 						
 						//Check if user have completed their data
 							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
@@ -116,7 +126,7 @@ class Admin extends CI_Controller{
 						redirect('admin');
 					}else
 					{
-						$data_user = $this->admin_model->get_by_condition('restaurants', array('id' => $id))->row();
+						$data_user = $this->crud_model->get_by_condition('restaurants', array('id' => $id))->row();
 
 						//Check if user have completed their data
 							if($data_user->name == NULL && $data_user->address == NULL && $data_user->opentime == NULL && $data_user->closetime == NULL && $data_user->opendays == NULL && $data_user->longitude == NULL  && $data_user->latitude == NULL && $data_user->photo == NULL  && $data_user->phone == NULL)
