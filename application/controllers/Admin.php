@@ -13,7 +13,8 @@ class Admin extends CI_Controller{
 	}
 
 	public function index(){
-		$this->template->load('default_admin','admin/home');
+		$data['unapproved_drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => 0))->result();
+		$this->template->load('default_admin','admin/home',$data);
 
 	}
 

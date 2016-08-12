@@ -16,9 +16,11 @@ class Login extends CI_Controller{
 				$session_des = array('username', 'name', 'user_id', 'data_complete', 'is_verified', 'isLogged', 'type');	
 				$this->session->unset_userdata($session_des);
 				redirect('admin');
-			}else
+			}else if($this->session->userdata('isLogged') == True)
 			{
 				$this->session->sess_destroy();
+				redirect('main');
+			}else{
 				redirect('main');
 			}
 		}

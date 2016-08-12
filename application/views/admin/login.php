@@ -32,6 +32,7 @@
       background-size:     cover;                      
       background-repeat:   no-repeat;
       background-position: center center; 
+      color: white 
     }
 
     .btn-primary{
@@ -59,14 +60,14 @@
     <div class="col-sm-4"></div>
       <div class="col-sm-4 col-xs-12">
       
-      <img src="<?php echo base_url() ?>assets/rwlogo.jpg" style="margin-bottom:20px; width:100%" class="img img-responsive" alt="">
+      EZPZ - admin
       
       <h2><strong>Log In</strong></h2></div>
     <div class="col-sm-4"></div>
   </div>
     <div class="row">
     	<div class="col-sm-4"></div>
-    	<div class="col-sm-4 col-xs-12" style="border:1px solid black; padding: 2% 3%; border-radius: 6px; background-color:#FFF12C ">
+    	<div class="col-sm-4 col-xs-12" style=" padding: 2% 3%; border-radius: 6px; background-color: transparent; ">
     		<?php echo form_open('admin_login/login') ?>
           
           <div class="form-group">
