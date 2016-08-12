@@ -64,21 +64,23 @@
         border: none;
         color:#fff;
     }
-	</style>
+	  </style>
 
 
-</head>
+  </head>
+
 <body>
   <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-4"></div>
-      <div class="col-sm-4 col-xs-12">
-      
-      EZPZ - admin
-      
-      <h2><strong>Log In</strong></h2></div>
-    <div class="col-sm-4"></div>
-  </div>
+    <div class="row">
+      <div class="col-sm-4"></div>
+        <div class="col-sm-4 col-xs-12">
+        
+        EZPZ - admin
+        
+        <h2><strong>Log In</strong></h2></div>
+      <div class="col-sm-4"></div>
+    </div>
+    
     <div class="row">
     	<div class="col-sm-4"></div>
     	<div class="col-sm-4 col-xs-12" style=" padding: 2% 3%; border-radius: 6px; background-color: transparent; ">
