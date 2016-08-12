@@ -20,7 +20,7 @@
 
 			<div class="form-group">
 				<label for="">Username:</label>
-				<input type="text" name="username" class="form-control" required="1" >
+				<input type="text" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' name="username" class="form-control" required="1" >
 			</div>
 
 			<div class="form-group">
