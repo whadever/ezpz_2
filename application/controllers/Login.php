@@ -249,7 +249,6 @@ class Login extends CI_Controller{
 			$password = hash_password($this->input->post('password'));
 
 			$user = $this->login_model->check_user($username,$password);
-			print_r($user);
 			if($user){
 				if($user->type == 'client'){
 					$name = $user->name;

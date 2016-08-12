@@ -22,6 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  
   <body>
 
   <div class="container">
@@ -31,8 +32,6 @@
   </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    
-    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     
   </body>

@@ -1,18 +1,22 @@
 <!--What you can do div end, cuisine selection start-->
 <div class="container-fluid food">
 	<div class="container">
-	<div class="row text-center">
-	<h1 style="margin-bottom:25px;">Cuisine Selections</h1></div>
-	<?php 
-
-	$counter=0;
-	//Get Restaurant
-	foreach($cuisines as $cuisine): ?>
+		<div class="row text-center">
+			<h1 style="margin-bottom:25px;">Cuisine Selections</h1>
+		</div>
+		
 		<?php 
-		//Put Div row in every first of three
-		if($counter % 4 ==  0): ?>
-			<div class="row">
-		<?php endif; ?>
+
+		$counter=0;
+		//Get Restaurant
+		foreach($cuisines as $cuisine): 
+
+		?>
+			 
+			<!-- Put Div row in every first of three -->
+			<?php if($counter % 4 ==  0): ?>
+				<div class="row">
+			<?php endif; ?>
 
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 			    <div class="hovereffect">
@@ -25,29 +29,32 @@
 			            </div>
 			    </div>
 			</div>
-		<?php
-		//Put Div close in every three of three 
-		if($counter % 4 ==  3): ?>
-			</div>
-		<?php endif; $counter++;?>
-	<?php endforeach;?>
-</div>
-</div>
-	<script>
 
-	var test = [""];
-	<?php $i = 0; ?>
+			
+			<!-- Put Div close in every three of three  -->
+			<?php if($counter % 4 ==  3): ?>
+				</div>
+			<?php endif; $counter++;?>
 
-	<?php foreach ($lists as $list): ?>
-		test[<?php echo $i ?>] = "<?php echo $list->name ?>";
-		<?php $i++; ?>
-	<?php endforeach; ?>
+		<?php endforeach;?>
+	</div>
+</div>
 	
-	$("#restaurant-search").typeahead({
+<script>
 
-	                        minLength: 0,
-	                        items: 4,
-	                        source: test,   
-	                    });
+var test = [""];
+<?php $i = 0; ?>
 
-	</script>
+<?php foreach ($lists as $list): ?>
+	test[<?php echo $i ?>] = "<?php echo $list->name ?>";
+	<?php $i++; ?>
+<?php endforeach; ?>
+
+$("#restaurant-search").typeahead({
+
+                        minLength: 0,
+                        items: 4,
+                        source: test,   
+                    });
+
+</script>
