@@ -3,7 +3,9 @@
 		<h2>Manage drivers</h2>
 	</div>
 	<div class="col-xs-8">
-		
+    <?php if($this->uri->segment(3) == 0): ?>
+		  <a href="<?php echo base_url('admin/approve_all_driver') ?>" class="btn btn-primary pull-right">Approve All</a>
+    <?php endif; ?>
 	</div>
 </div>
 

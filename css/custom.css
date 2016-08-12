@@ -68,7 +68,7 @@ body.modal-open[style] {
   background-color: black; 
   top: 50%; 
   z-index: 3;
-  padding: 12px 8px;
+  padding: 12px 7px;
   opacity: 0.7;
 }
 

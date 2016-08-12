@@ -168,6 +168,15 @@ class Admin extends CI_Controller{
 
 	}
 
+	public function approve_all_driver($id){
+
+		$this->crud_model->update_data('drivers',array('is_verified' => 1), array('is_verified' => 0));
+
+		redirect('admin/drivers/0');
+
+
+	}
+
 	public function approve_client($id){
 
 		$this->crud_model->update_data('restaurants',array('is_verified' => 1), array('id' => $id));
