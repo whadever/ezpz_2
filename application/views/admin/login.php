@@ -32,7 +32,9 @@
       background-size:     cover;                      
       background-repeat:   no-repeat;
       background-position: center center; 
-      color: white 
+      background-attachment: fixed;
+      color: white;
+      padding-top:10%;
     }
 
     .btn-primary{
@@ -47,7 +49,27 @@
       border: 1px solid black;
     }
     
-    
+    input[type="text"]
+    {
+        background: transparent;
+        height:50px;
+        border: none;
+        color:#fff;
+    }
+
+    input[type="password"]
+    {
+        background: transparent;
+        height:50px;
+        border: none;
+        color:#fff;
+    }
+
+    #login-box
+    {
+      position:absolute;
+      top:50%;
+    }
 
 
 	</style>
@@ -55,7 +77,7 @@
 
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid" id="login-box">
   <div class="row">
     <div class="col-sm-4"></div>
       <div class="col-sm-4 col-xs-12">
@@ -68,15 +90,17 @@
     <div class="row">
     	<div class="col-sm-4"></div>
     	<div class="col-sm-4 col-xs-12" style=" padding: 2% 3%; border-radius: 6px; background-color: transparent; ">
-    		<?php echo form_open('admin_login/login') ?>
+    		<?php echo form_open('admin_login/login', array('autofill' => 'false')) ?>
           
           <div class="form-group">
-            <label for="">Username :</label>
+            <input type="text" class="form-control" name="username" placeholder="Username" style="display:none">
             <input type="text" class="form-control" name="username" placeholder="Username">
           </div>
+        
+          <br>
 
           <div class="form-group">
-            <label for="">Password :</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" style="display:none">
             <input type="password" class="form-control" name="password" placeholder="Password">
           </div>
 
