@@ -185,8 +185,8 @@
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="border-bottom: none">&times;</a>
 	  <a href="<?php echo base_url('admin') ?>">Home</a>
 	  <a href="<?php echo base_url('admin/users') ?>">User List</a>
-	  <a href="<?php echo base_url('admin/drivers') ?>">Driver List</a>
-	  <a href="<?php echo base_url('admin/clients') ?>">Client List</a>
+	  <a href="<?php echo base_url('admin/drivers/1') ?>">Driver List</a>
+	  <a href="<?php echo base_url('admin/clients/1') ?>">Client List</a>
 	  <a href="<?php echo base_url('buyers') ?>">Buyers</a>
 	  <a href="<?php echo base_url('home/change_pass') ?>">Change Password</a>
 	  <a href="<?php echo base_url('admin_login/logout') ?>">Logout</a>

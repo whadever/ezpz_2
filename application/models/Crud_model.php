@@ -6,6 +6,10 @@ class Crud_model extends CI_Model{
 		$this->db->insert($table,$data);
 	}
 
+	public function update_data($table,$data,$condition){
+		$this->db->update($table,$data,$condition);
+	}
+
 	public function get_data($table){
 		return $this->db->get($table);
 	}

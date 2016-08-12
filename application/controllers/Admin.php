@@ -14,6 +14,7 @@ class Admin extends CI_Controller{
 
 	public function index(){
 		$data['unapproved_drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => 0))->result();
+		$data['unapproved_clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => 0))->result();
 		$this->template->load('default_admin','admin/home',$data);
 
 	}
@@ -24,14 +25,14 @@ class Admin extends CI_Controller{
 		$this->template->load('default_admin','admin/users/index',$data); 
 	}
 
-	public function drivers(){
-		$data['drivers'] = $this->admin_model->get_by_condition('drivers',array('is_verified' => 1))->result();
+	public function drivers($is_verified){
+		$data['drivers'] = $this->admin_model->get_by_condition('drivers',array('is_verified' => $is_verified))->result();
 
 		$this->template->load('default_admin','admin/drivers/index',$data); 
 	}
 
-	public function clients(){
-		$data['clients'] = $this->admin_model->get_by_condition('restaurants',array('is_verified' => 1))->result();
+	public function clients($is_verified){
+		$data['clients'] = $this->admin_model->get_by_condition('restaurants',array('is_verified' => $is_verified))->result();
 
 		$this->template->load('default_admin','admin/clients/index',$data); 
 	}
@@ -147,6 +148,25 @@ class Admin extends CI_Controller{
 				}
 			}
 		}
+
+
+	public function approve_driver($id){
+
+		$this->crud_model->update_data('drivers',array('is_verified' => 1), array('id' => $id));
+
+		redirect('admin/drivers/0');
+
+
+	}
+
+	public function approve_client($id){
+
+		$this->crud_model->update_data('restaurants',array('is_verified' => 1), array('id' => $id));
+
+		redirect('admin/clients/0');
+
+
+	}
 
 
 

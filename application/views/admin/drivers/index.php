@@ -31,14 +31,15 @@
             <td><?php echo $driver->address ?></td>
 						<td><?php echo $driver->telephone; ?></td>
 						<td>
-            
+            <?php if($this->uri->segment(3) == 1){ ?>
 						  <span href="" data-toggle="modal" data-target="#delete_driver" data-id="<?php echo $driver->id?>" class="glyphicon glyphicon-trash pull-right" style="cursor:pointer; font-size: 20px" style="font-size: 12px">      
               </span>
               
 							<span href="" class="glyphicon glyphicon-pencil pull-right"  style="cursor:pointer; font-size: 20px; margin-right :3px;" data-toggle="modal" data-target="#edit_driver" data-id="<?php echo $driver->id?>" data-name="<?php echo $driver->username?>" data-email="<?php echo $driver->email?>" data-phone="<?php echo $driver->telephone?>" style="font-size: 12px">                
               </span>
-							
-
+						<?php }else if($this->uri->segment(3) == 0){ ?>
+                <a href="<?php echo base_url('admin/approve_driver/'.$driver->id) ?>" class="btn btn-primary" >Approve</a>
+            <?php } ?>
 						</td>
 					</tr>
 					<?php $i++ ?>	

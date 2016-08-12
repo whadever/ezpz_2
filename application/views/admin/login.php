@@ -11,6 +11,7 @@
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,100,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
     <script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
@@ -31,21 +32,50 @@
       background-image: url('./assets/background.jpg');
       background-size:     cover;                      
       background-repeat:   no-repeat;
-      background-position: center center; 
-      color: white 
+      background-position: center; 
+      background-attachment: fixed;
+      color: white ;
+      font-family:  'Roboto', sans-serif;
     }
 
     .btn-primary{
-      background-color: black;
-      border: 1px solid black;
+      background-color: transparent;
+      border: none;
+      
       color: white; 
     }
 
     .btn-primary:hover{
-      background-color: black;
+      background-color: transparent;
       color: white;
-      border: 1px solid black;
+      border: none;
+      box-shadow: 0px 0px 10px #FFF;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
     }
+      .form-control:focus {
+      border-bottom : 1px solid white;
+      border-color: #FFF;
+      border-radius: 0;
+      outline: none;
+    
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #FFF;
+      }
+    
+    
+    .form-control{
+      background-color: transparent;
+      border: none;
+      border-bottom : 1px solid white;
+      border-radius: 0;
+      color: white;
+      font-weight: 300;
+    }
+
+}
     
     
 
@@ -60,9 +90,9 @@
     <div class="col-sm-4"></div>
       <div class="col-sm-4 col-xs-12">
       
-      EZPZ - admin
       
-      <h2><strong>Log In</strong></h2></div>
+      
+    </div>
     <div class="col-sm-4"></div>
   </div>
     <div class="row">
@@ -71,12 +101,12 @@
     		<?php echo form_open('admin_login/login') ?>
           
           <div class="form-group">
-            <label for="">Username :</label>
+            
             <input type="text" class="form-control" name="username" placeholder="Username">
           </div>
 
           <div class="form-group">
-            <label for="">Password :</label>
+           
             <input type="password" class="form-control" name="password" placeholder="Password">
           </div>
 

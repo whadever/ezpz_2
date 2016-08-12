@@ -31,13 +31,15 @@
             <td><?php echo $client->address ?></td>
 						<td><?php echo $client->telephone; ?></td>
 						<td>
-            
+            <?php if($this->uri->segment(3) == 1){ ?>
 						  <span href="" data-toggle="modal" data-target="#delete_client" data-id="<?php echo $client->id?>" class="glyphicon glyphicon-trash pull-right" style="cursor:pointer; font-size: 20px" style="font-size: 12px">      
               </span>
               
 							<span href="" class="glyphicon glyphicon-pencil pull-right"  style="cursor:pointer; font-size: 20px; margin-right :3px;" data-toggle="modal" data-target="#edit_client" data-id="<?php echo $client->id?>" data-name="<?php echo $client->name?>" data-email="<?php echo $client->email?>" data-phone="<?php echo $client->telephone?>" style="font-size: 12px">                
               </span>
-							
+							<?php }else if($this->uri->segment(3) == 0){ ?>
+                <a href="<?php echo base_url('admin/approve_client/'.$client->id) ?>" class="btn btn-primary" >Approve</a>
+              <?php } ?>
 
 						</td>
 					</tr>
