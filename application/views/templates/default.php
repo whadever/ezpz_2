@@ -125,10 +125,10 @@
 
 
 
-        <?php $this->load->view('login/login') ?>
+<?php $this->load->view('login/login') ?>
         
   
-	<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
