@@ -1,35 +1,44 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Travel modes in directions</title>
+<head>
+  <meta charset="utf-8">
+  <title><?php echo $page_title; ?> - EZPZ</title>
+    
+    <!-- Stylesheet -->
+    <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
+
+
+
+    <!-- Begin Scripts -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
+    <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
+    
     <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
       #map {
-        height: 100%;
-      }
-      #floating-panel {
-        position: absolute;
-        top: 10px;
-        left: 25%;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
+        height: 600px;
+        width: 100%;
       }
       #right-panel {
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
-        padding-left: 10px;
+        
       }
 
       #right-panel select, #right-panel input {
@@ -45,22 +54,12 @@
       }
       #right-panel {
         height: 100%;
-        float: right;
+        
         width: 390px;
-        overflow: auto;
+       
       }
-      #map {
-        margin-right: 400px;
-      }
-      #floating-panel {
-        background: #fff;
-        padding: 5px;
-        font-size: 14px;
-        font-family: Arial;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
-        display: none;
-      }
+      
+     
       @media print {
         #map {
           height: 500px;
@@ -72,67 +71,107 @@
         }
       }
     </style>
-  </head>
-  <body>
     
-    <div id="map"></div>
-    <div id="right-panel"></div>
-    <div id="distance">Distance: </div>
-    <script>
-      function initMap() {
-        var directionsDisplay = new google.maps.DirectionsRenderer;
-        var directionsService = new google.maps.DirectionsService;
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 9,
-          center: {lat: 37.77, lng: -122.447}
-        });
-        directionsDisplay.setMap(map);
-        directionsDisplay.setPanel(document.getElementById('right-panel'));
+</head>
 
-       
+<body>
 
-        var onChangeHandler = function() {
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
-        };
+  <header>
+  <!--NavBar-->
+      <div class="container-fluid">
+          
+          <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
+              </div>
 
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-        document.getElementById('mode').addEventListener('change', function() {
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
-        });
-      }
+              <div class="collapse navbar-collapse" id="myNavbar">
 
-      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-       
-        directionsService.route({
-          origin: {lat: -6.176740140876901, lng: 106.87433085214423},  // Haight.
-          destination: {lat: -6.159684716067252, lng: 106.89306474100874},  // Ocean Beach.
-          // Note that Javascript allows us to access the constant
-          // using square brackets and a string value as its
-          // "property."
-          travelMode: 'DRIVING'
-        }, function(response, status) {
-          if (status == 'OK') {
-            /* get distance and print it */
-            distance = response.routes[0].legs[0].distance.value / 1000;
-             document.getElementById('distance').innerHTML += 
-            distance.toFixed(2) + " Km";
-            directionsDisplay.setDirections(response);
+                <ul class="nav navbar-nav navbar-left">
+                  <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
+                  <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
+                  <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li>
+                  
+                  <li role="separator" class="divider" style="background-color: white; height: 1px"></li>
+                </ul>
 
-           
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
+                <?php if($this->session->userdata("isLogged") == FALSE): ?>
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li><a href="<?php echo base_url('login/register/user') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+                <?php else: ?>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#"><?php echo $this->session->userdata('username') ?></a></li>
+                     
+                         
+
+                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" >Edit Profile</a></li>
+
+                      <li><a href="#">Top Up Wallet</a></li>
+                       
+                      
+                      <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+                  </ul>
+                <?php endif; ?>
+               
+
+              </div>
+            </div>
+          </nav>
+
+      </div>
+
+  </header>
+
+  <!--Full Div Image from div bg-->
+<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo $background ?>)">
+
+</div>
+
+<div id="main">
+    <div class="container-fluid">
+        <?php echo $body ?>
+    </div>
+</div>
+
+<script>
+    var waypoint = new Waypoint({
+      element: document.getElementById('search'),
+      handler: function(direction) {
+        document.getElementById('navbar').style.backgroundColor = '#5bc0de';
+           }
+    });
+
+</script>
+
+<script>
+    var waypoint2 = new Waypoint({
+      element: document.getElementById('top'),
+      handler: function(direction) {
+        document.getElementById('navbar').style.backgroundColor = "transparent";
      
-      }
-
        
-    </script>
+      },
+      offset: '-20%'
+    });
+</script>
 
-   
-   </script> 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5r3Vc2ohLE1naIZaaYLjfAifThGzAHwc&callback=initMap">
-    </script>
-  </body>
+<script>
+
+    function submit(){
+
+        $("#search").submit();
+}
+
+</script>
+
+</body>
 </html>
