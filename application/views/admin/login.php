@@ -99,17 +99,17 @@
     <div class="row">
     	<div class="col-sm-4"></div>
     	<div class="col-sm-4 col-xs-12" style=" padding: 2% 3%; border-radius: 6px; background-color: transparent; ">
-    		<?php echo form_open('admin_login/login', array('autofill' => 'false')) ?>
+    		<?php echo form_open('admin_login/login') ?>
           
           <div class="form-group">
 
-            <input type="text" class="form-control" name="username" placeholder="Username">
+            <input type="text" autocomplete="off" class="form-control" name="username" placeholder="Username">
           </div>
         
           <br>
 
           <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password">
+            <input type="password" autocomplete="off" class="form-control" name="password" placeholder="Password">
           </div>
 
           <div class="form-group text-center">
