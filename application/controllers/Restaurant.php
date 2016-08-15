@@ -3,6 +3,11 @@
 
 	class Restaurant extends CI_Controller{
 
+		public function __construct(){
+			parent::__construct();
+			date_default_timezone_set('NZ');
+		}
+
 		public function cuisine($cuisine = ''){
 
 			if($cuisine != ''){
@@ -49,21 +54,29 @@
 			$data['background'] = base_url().$data['restaurant']->photo;
 			$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 
+			$data['comments'] = $this->restaurant_model->get_comments($data['restaurant']->id);
+
 			$this->template->load('default','restaurant/restaurant_details' ,$data);	
 
 		}
 
 		public function post_comment(){
-			if($this->input->post('post')){
+			if($this->input->post()){
+
+				$review = str_replace("\n", '<br />',$this->input->post('review') );
+
 				$data = array(
 						'restaurant_id' => $this->input->post('restaurant_id'),
 						'user_id' => $this->input->post('user_id'),
-						'review' => $this->input->post('review'),
-						'rating' => 0,
-						'date' => date('Y-m-d')
+						'review' => $review,
+						'rating' => 5,
+						'date' => date('Y-m-d H:i:s')
 
 
 					);
+				
+				$this->crud_model->insert_data('review', $data);
+				redirect($this->input->post('url'));
 			}
 		}
 

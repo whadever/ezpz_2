@@ -11,14 +11,29 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-4"></div>
-	<div class="col-xs-4">
+	<div class="col-xs-3"></div>
+	<div class="col-xs-6">
 		
-		<?php echo form_open('login/register_user') ?>
+		<?php echo form_open_multipart('login/register_user') ?>
 
 			<div class="form-group">
 				<label for="">Username:</label>
-				<input type="text" name="username" class="form-control" required="1" >
+				<input type="text" name="username" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' class="form-control" required="1" >
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="form-group">
+						<label for="">First Name:</label>
+						<input type="text" name="firstname" class="form-control" required="1" >
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+						<label for="">Last Name:</label>
+						<input type="text" name="lastname" class="form-control" required="1" >
+					</div>
+				</div>
 			</div>
 			
 			<div class="form-group">
@@ -42,12 +57,17 @@
 			</div>
 
 			<div class="form-group">
+	        	<label for="">Profile Picture:</label>
+	        	<input type="file" name="photo" class="form-control" required="1">
+	        </div>
+
+			<div class="form-group">
 				<input type="submit" class="btn btn-primary" name="register" value="Register">
 			</div>
 
 		</form>
 
 	</div>
-	<div class="col-xs-4"></div>
+	<div class="col-xs-3"></div>
 </div>
 

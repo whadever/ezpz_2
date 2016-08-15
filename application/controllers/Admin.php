@@ -9,7 +9,7 @@ class Admin extends CI_Controller{
 		if($this->session->userdata('admin_isLogged') != 1){
 			redirect('admin_login');
 		}
-
+		date_default_timezone_set('NZ');
 	}
 
 	/* admin home */

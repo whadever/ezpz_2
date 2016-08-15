@@ -18,7 +18,22 @@
 
 			<div class="form-group">
 				<label for="">Username:</label>
-				<input type="text" name="username" class="form-control" required="1" >
+				<input type="text" name="username" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' class="form-control" required="1" >
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="form-group">
+						<label for="">First Name:</label>
+						<input type="text" name="firstname" class="form-control" required="1" >
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+						<label for="">Last Name:</label>
+						<input type="text" name="lastname" class="form-control" required="1" >
+					</div>
+				</div>
 			</div>
 			
 			<div class="form-group">
@@ -54,11 +69,16 @@
 			<div class="form-group">
 				<label for="">License Type:</label>
 				<select class="form-control" name="license_type">
-				            <option value="learner">Learner</option>
-				            <option value="restricted">Restricted</option>
-				            <option value="full">Full License</option>
+				            <option value="Learner">Learner</option>
+				            <option value="Restricted">Restricted</option>
+				            <option value="Full License">Full License</option>
 				</select>
 			</div>
+
+			<div class="form-group">
+	        	<label for="">Driver Picture:</label>
+	        	<input type="file" name="photo" class="form-control" required="1">
+	        </div>
 
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" name="register" value="Register">

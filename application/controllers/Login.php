@@ -2,6 +2,11 @@
 	
 class Login extends CI_Controller{
 
+	public function __construct(){
+		parent::__construct();
+		date_default_timezone_set('NZ');
+	}
+
 	public function index(){
 
 		redirect('main');
@@ -76,6 +81,32 @@ class Login extends CI_Controller{
 		else{
 			if($this->input->post('register')){
 
+				$config['allowed_types']        = 'jpg|png';
+		            $config['max_size']             = 5000;
+		            // $config['max_width']            = 1000;
+		            // $config['max_height']           = 768;
+
+		            
+										
+					$config['upload_path']          = 'uploads/user/' . $this->input->post('username');
+					$config['overwrite']			= True;
+					$config['file_name']			= 'photo.jpg';
+					$this->upload->initialize($config);
+
+					//Check if the folder for the upload existed
+					if(!file_exists($config['upload_path']))
+					{
+						//if not make the folder so the upload is possible
+						mkdir($config['upload_path'], 0777, true);
+					}
+
+	                if ($this->upload->do_upload('photo'))
+	                {
+	                    //Get the link for the database
+	                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
+	                }
+
+
 
 				$verification_code = verification_code();
 
@@ -83,10 +114,13 @@ class Login extends CI_Controller{
 				$data = array(
 
 					'username' 			=> $this->input->post('username'),
+					'firstname'			=> $this->input->post('firstname'),
+					'lastname'			=> $this->input->post('lastname'),
 					'password' 			=> hash_password($this->input->post('password')),
 					'email' 			=> $this->input->post('email'),
 					'telephone' 		=> $this->input->post('telephone'),
 					'address' 			=> $this->input->post('address'),
+					'photo'				=> $photo,
 					'verification_code'	=> $verification_code,
 					'created'			=> date('Y-m-d')
 
@@ -123,16 +157,45 @@ class Login extends CI_Controller{
 				$verification_code = verification_code();
 				$verification_string = $this->input->post('username') . '~' . $verification_code;
 
+				$config['allowed_types']        = 'jpg|png';
+		            $config['max_size']             = 5000;
+		            // $config['max_width']            = 1000;
+		            // $config['max_height']           = 768;
+
+		            
+										
+					$config['upload_path']          = 'uploads/driver/' . $this->input->post('username');
+					$config['overwrite']			= True;
+					$config['file_name']			= 'photo.jpg';
+					$this->upload->initialize($config);
+
+					//Check if the folder for the upload existed
+					if(!file_exists($config['upload_path']))
+					{
+						//if not make the folder so the upload is possible
+						mkdir($config['upload_path'], 0777, true);
+					}
+
+	                if ($this->upload->do_upload('photo'))
+	                {
+	                    //Get the link for the database
+	                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
+	                }
+
+
 				$data = array(
 
 						'username' 			=> $this->input->post('username'),
+						'firstname'			=> $this->input->post('firstname'),
+						'lastname'			=> $this->input->post('lastname'),
 						'password' 			=> hash_password($this->input->post('password')),
 						'email' 			=> $this->input->post('email'),
-						'phone'		 		=> $this->input->post('telephone'),
+						'telephone'		 		=> $this->input->post('telephone'),
 						'address' 			=> $this->input->post('address'),
 						'ird'	 			=> $this->input->post('ird'),
 						'driver_licence' 	=> $this->input->post('driver_license'),
 						'licence_type' 		=> $this->input->post('license_type'),
+						'photo'				=> $photo,
 						'verification_code'	=> $verification_code,
 						'created'			=> date('Y-m-d')
 
@@ -179,7 +242,7 @@ class Login extends CI_Controller{
 
 		            
 										
-					$config['upload_path']          = 'uploads/user/' . $this->input->post('username');
+					$config['upload_path']          = 'uploads/restaurant/' . $this->input->post('username');
 					$config['overwrite']			= True;
 					$config['file_name']			= 'photo.jpg';
 					$this->upload->initialize($config);
@@ -202,6 +265,8 @@ class Login extends CI_Controller{
 					'username' 			=> $this->input->post('username'),
 					'name'				=> $this->input->post('name'),
 					'email' 			=> $this->input->post('email'),
+					'latitude'			=> $this->input->post('lat'),
+					'longitude'			=> $this->input->post('lng'),
 					'telephone' 		=> $this->input->post('telephone'),
 					'address' 			=> $this->input->post('address'),
 					'cuisine_id'		=> implode(', ', $this->input->post('cuisine')),
@@ -249,7 +314,7 @@ class Login extends CI_Controller{
 			$password = hash_password($this->input->post('password'));
 
 			$user = $this->login_model->check_user($username,$password);
-			if($user){
+			if($user && $user->is_verified == 1){
 				if($user->type == 'client'){
 					$name = $user->name;
 				}else{

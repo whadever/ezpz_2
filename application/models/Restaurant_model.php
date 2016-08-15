@@ -32,6 +32,14 @@ class Restaurant_model extends CI_Model{
 		}
 	}
 
+	public function get_comments($restaurant_id){
+		$this->db->select('review.*,users.photo,users.username');
+		$this->db->from('review');
+		$this->db->join('users', 'users.id = review.user_id');
+		$this->db->where('review.restaurant_id',$restaurant_id);
+		$this->db->order_by('id','desc');
+		return $this->db->get()->result();
+	}
 }
 
 ?>

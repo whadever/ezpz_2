@@ -75,13 +75,16 @@
 					<a href="#" data-toggle="modal" data-target="#loginModal">Please Login</a>
 					<?php 	$this->load->view('login/login') ?>
 				<?php else: ?>
-				<?php echo form_open('restaurant/post_comment') ?>
+				<?php echo form_open('restaurant/post_comment',array('id' => 'comment')) ?>
 				    <div class="input-group">
-	  					<textarea class="form-control" name="review" aria-describedby="basic-addon2">
-	  					</textarea>
+	  					<textarea class="form-control" rows="1" name="review" aria-describedby="basic-addon2"></textarea>
 	  					<input type="hidden" name="restaurant_id" value="<?php echo $restaurant->id ?>">
 	  					<input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id') ?>">
-	  					<span class="input-group-addon" id="basic-addon2"><input type="submit" name="post" value="Post Comment"></span>
+	  					<input type="hidden" value="<?php echo uri_string(); ?>" name="url">
+	  					<span class="input-group-btn">
+                    		<button class="btn btn-default" type="submit" name="post" onclick="submit()">
+                		Post</button>
+                		</span>
 
 					</div>
 				</form>
@@ -89,16 +92,20 @@
 				<?php endif; ?>
 				
 		      	<div id="review">
-		      	<div class="panel panel-default panel-horizontal">
-		      		<div class="panel-heading">
-		      			<div class="image-review" style="background-image:url(<?php echo base_url()."/images/emily.jpg" ?>);">
+		      	<?php foreach ($comments as $comment): ?>
+		      		<div class="panel panel-default panel-horizontal">
+		      		<div class="panel-heading text-center">
+		      			<div class="image-review" style="background-image:url(<?php echo base_url().$comment->photo ?>);">
 		      			</div>
-		      			<h3 class="panel-title">Felita Setiawan</h3>
+		      			<h3 class="panel-title"><?php echo $comment->username ?></h3>
 		      		</div>
 		      		<div class="panel-body">
-		      			IT FEELS SO GOOD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia magnam quisquam ea sint doloribus, consequuntur deleniti libero illo. Cupiditate laborum, quae animi amet perferendis dicta delectus itaque aperiam iure ratione.
+		      			<?php echo $comment->review ?>
 		      		</div>	
 		      	</div>
+		      	<?php endforeach ?>
+		      	
+		      	
 		    </div>
 		    </div>
 
@@ -127,6 +134,15 @@ $("#restaurant-search").typeahead({
                         items: 4,
                         source: test,   
                     });
+
+</script>
+
+<script>
+
+    function submit(){
+
+        $("#comment").submit();
+}
 
 </script>
 

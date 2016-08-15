@@ -1,5 +1,5 @@
 <!--What you can do div end, cuisine selection start-->
-<div class="container-fluid food">
+<div class="food">
 	<div class="container">
 		<div class="row text-center">
 			<h1 style="margin-bottom:25px;">Cuisine Selections</h1>

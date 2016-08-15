@@ -49,10 +49,7 @@
         padding: 5px 11px 0px 11px;
       }
 
-      #type-selector label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
+     
       }
     </style>
   </head>
