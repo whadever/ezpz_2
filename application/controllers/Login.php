@@ -5,6 +5,7 @@ class Login extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		date_default_timezone_set('NZ');
+
 	}
 
 	public function index(){
@@ -33,7 +34,7 @@ class Login extends CI_Controller{
 
 	public function register($type = '')
 	{
-
+		$data['background'] = $data['background'] = base_url()."images/pihza.jpg";
 
 			if($this->session->userdata('type') == 'user' || !$this->session->userdata('user_id'))
 			{
@@ -118,6 +119,8 @@ class Login extends CI_Controller{
 					'lastname'			=> $this->input->post('lastname'),
 					'password' 			=> hash_password($this->input->post('password')),
 					'email' 			=> $this->input->post('email'),
+					'latitude'			=> $this->input->post('lat'),
+					'longitude'			=> $this->input->post('lng'),
 					'telephone' 		=> $this->input->post('telephone'),
 					'address' 			=> $this->input->post('address'),
 					'photo'				=> $photo,

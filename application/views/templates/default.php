@@ -66,11 +66,14 @@
                 </ul>
                 <?php else: ?>
                   <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><?php echo $this->cart->total_items() ?>
+    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
+  </a></li>
                       <li><a href="#"><?php echo $this->session->userdata('name') ?></a></li>
                      
                          
 
-                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
+                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" class="nav-link">Edit Profile</a></li>
 
                       <li><a href="#">Top Up Wallet</a></li>
                        
@@ -89,11 +92,6 @@
   </header>
 
 
-<div class="cart">
-	<a href="#"><?php echo $this->cart->total_items() ?>
-    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
-  </a>
-</div>
 
 <!--Full Div Image from div bg-->
 <div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo $background ?>)" data-stellar-background-ratio="0.5">
@@ -147,7 +145,7 @@ $(document).ready(function(){
     var waypoint = new Waypoint({
       element: document.getElementById('search'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = '#5bc0de';
+        document.getElementById('navbar').style.backgroundColor = 'rgba(91, 192, 222,0.8)';
      
         
       }
