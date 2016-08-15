@@ -33,6 +33,12 @@ class Driver extends CI_Controller{
 		$this->template->load('default_driver', 'driver/direction',$data);
 	}
 
+	public function test_map(){
+		$data['page_title'] = 'Driver';
+		$data['background'] = base_url()."images/pihza.jpg";
+		$this->load->view('driver/test_map');
+	}
+
 
 }
 
