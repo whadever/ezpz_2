@@ -69,8 +69,37 @@
 		    </div>
 
 		    <div id="menu1" class="tab-pane fade">
-		      <h3>Reviews</h3>
-		      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		      	<h3>Reviews</h3>
+
+				<?php if($this->session->userdata('isLogged')==FALSE): 	 ?>
+					<a href="#" data-toggle="modal" data-target="#loginModal">Please Login</a>
+					<?php 	$this->load->view('login/login') ?>
+				<?php else: ?>
+				<?php echo form_open('restaurant/post_comment') ?>
+				    <div class="input-group">
+	  					<textarea class="form-control" name="review" aria-describedby="basic-addon2">
+	  					</textarea>
+	  					<input type="hidden" name="restaurant_id" value="<?php echo $restaurant->id ?>">
+	  					<input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id') ?>">
+	  					<span class="input-group-addon" id="basic-addon2"><input type="submit" name="post" value="Post Comment"></span>
+
+					</div>
+				</form>
+
+				<?php endif; ?>
+				
+		      	<div id="review">
+		      	<div class="panel panel-default panel-horizontal">
+		      		<div class="panel-heading">
+		      			<div class="image-review" style="background-image:url(<?php echo base_url()."/images/emily.jpg" ?>);">
+		      			</div>
+		      			<h3 class="panel-title">Felita Setiawan</h3>
+		      		</div>
+		      		<div class="panel-body">
+		      			IT FEELS SO GOOD Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia magnam quisquam ea sint doloribus, consequuntur deleniti libero illo. Cupiditate laborum, quae animi amet perferendis dicta delectus itaque aperiam iure ratione.
+		      		</div>	
+		      	</div>
+		    </div>
 		    </div>
 
 		    <div id="menu2" class="tab-pane fade">

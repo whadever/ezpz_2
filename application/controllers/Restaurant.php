@@ -48,8 +48,23 @@
 
 			$data['background'] = base_url().$data['restaurant']->photo;
 			$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
+
 			$this->template->load('default','restaurant/restaurant_details' ,$data);	
 
+		}
+
+		public function post_comment(){
+			if($this->input->post('post')){
+				$data = array(
+						'restaurant_id' => $this->input->post('restaurant_id'),
+						'user_id' => $this->input->post('user_id'),
+						'review' => $this->input->post('review'),
+						'rating' => 0,
+						'date' => date('Y-m-d')
+
+
+					);
+			}
 		}
 
 		

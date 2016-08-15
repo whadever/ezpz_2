@@ -1,3 +1,40 @@
+
+/*Panel Review*/
+
+.image-review{
+  border-radius: 50px;
+  height:100px; 
+  width:100px; 
+  background-size:cover; 
+}
+
+#review .panel.panel-horizontal {
+    display:table;
+    margin-top: 2%;
+    width:100%;
+}
+#review .panel.panel-horizontal > .panel-heading, #review .panel.panel-horizontal > .panel-body, #review .panel.panel-horizontal > .panel-footer {
+    display:table-cell;
+    margin-left: 0;
+}
+#review .panel.panel-horizontal > .panel-heading, #review .panel.panel-horizontal > .panel-footer {
+    width: 10%;
+    text-align: center;
+    border:0;
+    vertical-align: middle;
+}
+#review .panel.panel-horizontal > .panel-heading {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    background-color: #fff;
+}
+#review .panel.panel-horizontal > .panel-footer {
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 4px;
+}
+
+/**/
+
 header .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     color: white;
     background-color: transparent;
