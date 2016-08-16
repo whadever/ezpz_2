@@ -95,7 +95,7 @@
 
 <!--Full Div Image from div bg-->
 <div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo $background ?>)" data-stellar-background-ratio="0.5">
-    <div class="row">
+    <div class="row" id="body">
         <form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
         <div class="form-group center-block" id="search_bar">
             <div class="input-group">
@@ -143,7 +143,7 @@ $(document).ready(function(){
 </script>
 <script>
     var waypoint = new Waypoint({
-      element: document.getElementById('search'),
+      element: document.getElementById('body'),
       handler: function(direction) {
         document.getElementById('navbar').style.backgroundColor = 'rgba(91, 192, 222,0.8)';
      

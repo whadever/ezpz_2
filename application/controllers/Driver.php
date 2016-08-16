@@ -40,6 +40,18 @@ class Driver extends CI_Controller{
 		$this->load->view('driver/test_map');
 	}
 
+	public function profile($id=''){
+		if($id != $this->session->userdata('user_id')){
+			redirect('user');
+		}
+
+
+		$data['page_title'] = 'Profile';
+		$data['background'] = base_url()."images/pihza.jpg";
+		$data['user'] = $this->crud_model->get_by_condition('users',array('id' => $id))->row();
+		$this->template->load('default','user/profile', $data);
+	}
+
 
 }
 
