@@ -14,7 +14,7 @@
 	<div class="col-xs-4"></div>
 	<div class="col-xs-4">
 		
-		<?php echo form_open('login/register_driver') ?>
+		<?php echo form_open_multipart('login/register_driver') ?>
 
 			<div class="form-group">
 				<label for="">Username:</label>
