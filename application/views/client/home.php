@@ -72,8 +72,23 @@
 							     	<label for="cuisine">Cuisine</label>
 							     	<div class="input-group ">   
 							            <select class="form-control" id="multi" multiple="multiple" name="cuisine[]" required="1">
+							            <?php $exploded_id = explode(', ', $restaurant->cuisine_id); ?>
+							            <?php $i = 0; ?>
 								            <?php foreach ($cuisines as $cuisine): ?>
-								            	<option value="<?php echo $cuisine->id ?>"><?php echo $cuisine->name ?></option>
+												<?php
+													
+														if($exploded_id[$i] == $cuisine->id){
+															$selected = "selected";
+															$i++;
+															
+														}else{
+															$selected = '';
+															
+														}
+														
+												 ?>
+								            	<option value="<?php echo $cuisine->id ?>" <?php echo $selected ?> ><?php echo $cuisine->name ?></option>
+								            	
 								            <?php endforeach ?>
 								        </select>
 							        </div>
@@ -117,8 +132,8 @@
 						</div>
 					</div>
 							    
-					</div>
-				</div><!--End of Restaurant info update-->
+				</div>
+				<!--End of Restaurant info update-->
 				<!--Menu Tab-->
 				<div id="menu" class="tab-pane fade">
 					<div class="row">
@@ -145,7 +160,7 @@
 							    				<td><?php echo $i ?></td>
 							    				<td><img src="<?php echo base_url($dish->photo) ?>" width="50" alt=""></td>
 							    				<td><?php echo $dish->name ?></td>
-							    				<td><?php echo price($dish->price) ?></td>
+							    				<td><?php echo NZD($dish->price) ?></td>
 							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 							    				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 							    				</td>
@@ -171,7 +186,7 @@
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
 					      </div>
-					      <?php echo form_open_multipart('restaurants/add_menu') ?>
+					      <?php echo form_open_multipart('client/add_menu') ?>
 					      <div class="modal-body">
 					        	<div class="form-group">
 					        		<label for="name">Name</label>
@@ -187,7 +202,7 @@
 					        	</div>
 					        	<div class="form-group">
 					        		<label for="description">Description</label>
-					        		<textarea class="form-control" name="price" value="" placeholder="Dish's Description" rows="3" cols="35" style="font-size: 1.1em;border: 1px solid #5bc0de;border-radius: 3px;"></textarea>
+					        		<textarea class="form-control" name="description" value="" placeholder="Dish's Description" rows="3" ></textarea>
 					        	</div>
 					      </div>
 					      <div class="modal-footer">

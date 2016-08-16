@@ -6,6 +6,15 @@
 		public function __construct(){
 			parent::__construct();
 			date_default_timezone_set('NZ');
+			if($this->session->userdata('isLogged') == TRUE){
+				
+				if($this->session->userdata('type') != 'user'){
+
+					redirect($this->session->userdata('type'));
+				}
+				
+			}
+			
 		}
 
 		public function cuisine($cuisine = ''){

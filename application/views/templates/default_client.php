@@ -78,9 +78,9 @@
               <div class="collapse navbar-collapse" id="myNavbar">
 
                 <ul class="nav navbar-nav navbar-left">
-                  <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
+                  <li><a href="<?php echo base_url('client') ?>" class="nav-link">Home</a></li>
                   <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
-                  <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li>
+                 
                   
                   <li role="separator" class="divider" style="background-color: white; height: 1px"></li>
                 </ul>
