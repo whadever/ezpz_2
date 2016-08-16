@@ -102,6 +102,9 @@ class Driver extends CI_Controller{
 					'email' 			=> $this->input->post('email'),
 					'telephone' 		=> $this->input->post('telephone'),
 					'address' 			=> $this->input->post('address'),
+					'ird'	 			=> $this->input->post('ird'),
+					'driver_license' 	=> $this->input->post('driver_license'),
+					'license_type' 		=> $this->input->post('license_type'),	
 					'photo'				=> $photo,
 					'verification_code'	=> $verification_code,
 					'is_verified'		=> 0
@@ -120,12 +123,15 @@ class Driver extends CI_Controller{
 					'email' 			=> $this->input->post('email'),
 					'telephone' 		=> $this->input->post('telephone'),
 					'address' 			=> $this->input->post('address'),
+					'ird'	 			=> $this->input->post('ird'),
+					'driver_license' 	=> $this->input->post('driver_license'),
+					'license_type' 		=> $this->input->post('license_type'),	
 					'photo'				=> $photo,
 					);
             }
             
-
-            $this->crud_model->update_data('drivers',$data_update,array('id' => $id));
+            
+   			$this->crud_model->update_data('drivers',$data_update,array('id' => $id));
 			
 			$this->session->set_flashdata('success', 'Profile has been updated');
 			redirect('driver/profile/'.$id);

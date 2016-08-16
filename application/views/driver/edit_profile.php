@@ -65,20 +65,20 @@
 
 			<div class="form-group">
 				<label for="">Driver License:</label>
-				<input type="text" class="form-control" name="driver_license" required="1" value="<?php echo $user->driver_license ?>" >
+				<input type="text" name="driver_license" class="form-control" required="1" value="<?php echo $user->driver_license ?>" >
 			</div>
-
+			
 			<div class="form-group">
 				<label for="">License Type</label>
 				<select class="form-control" name="license_type">
-					<option value="Learner">Learner</option>
-					<option value="Restricted">Restricted</option>
-					<option value="Full License">Full License</option>
+					<option value="Learner" <?php if($user->license_type == 'Learner') echo 'selected' ?> >Learner</option>
+					<option value="Restricted" <?php if($user->license_type == 'Restricted') echo 'selected' ?> >Restricted</option>
+					<option value="Full License" <?php if($user->license_type == 'Full License') echo 'selected' ?> >Full License</option>
 				</select>
 			</div>
 
 			<div class="form-group">
-				<label for="profile_picture">Profile Picture:</label>
+				<label for="profile_picture">Profile Picture:</label><br>
 				<img src="<?php echo base_url().$user->photo ?>" width="150" id="profile_picture" alt="">
 				<input type="file" class="form-control" name="photo">
 			</div>

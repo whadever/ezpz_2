@@ -195,8 +195,8 @@ class Login extends CI_Controller{
 						'telephone'		 	=> $this->input->post('telephone'),
 						'address' 			=> $this->input->post('address'),
 						'ird'	 			=> $this->input->post('ird'),
-						'driver_licence' 	=> $this->input->post('driver_license'),
-						'licence_type' 		=> $this->input->post('license_type'),
+						'driver_license' 	=> $this->input->post('driver_license'),
+						'license_type' 		=> $this->input->post('license_type'),
 						'photo'				=> $photo,
 						'verification_code'	=> $verification_code,
 						'created'			=> date('Y-m-d')

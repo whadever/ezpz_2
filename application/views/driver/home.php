@@ -31,7 +31,7 @@
 						20 Km
 					</td>
 					<td>
-						<?php echo rupiah(102010) ?>
+						<?php echo nzd(102010) ?>
 					</td>
 				</tr>
 				<tr>
