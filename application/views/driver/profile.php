@@ -2,9 +2,6 @@
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8 text-center">
-			<pre>
-				<?php print_r($driver) ?>
-			</pre>
 			<div class="row">
 				<div class="profile-picture" style="background-image : url(<?php echo base_url().$driver->photo ?>); " id="edit-prof-pic">
 				</div>
