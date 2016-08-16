@@ -71,7 +71,7 @@
 			</div>
 
 			<div class="form-group">
-	        	<label for="">Driver Picture:</label>
+	        	<label for="">Profile Picture:</label>
 	        	<input type="file" name="photo" class="form-control" required="1">
 	        </div>
 
