@@ -7,6 +7,7 @@
 
 	$counter=0;
 	//Get Restaurant
+	if($restaurants):
 	foreach($restaurants as $restaurant): ?>
 
 		 
@@ -47,6 +48,9 @@
 			</div>
 		<?php endif; $counter++;?>
 	<?php endforeach;?>
+<?php else: ?>
+	<h2>No Restaurant in this section</h2>
+<?php endif; ?>
 </div>
 
 <script>

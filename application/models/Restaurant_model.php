@@ -6,6 +6,7 @@ class Restaurant_model extends CI_Model{
 		if($cuisine_id != ''){
 			$restaurants_cuisine = $this->db->get('restaurants')->result();
 			$j = 0;
+			$id = array();
 			foreach ($restaurants_cuisine as $value) {
 
 				$exploded_id = explode(', ', $value->cuisine_id);
@@ -17,7 +18,9 @@ class Restaurant_model extends CI_Model{
 				$j++;
 			}
 			
-			
+			if ($id == NULL) {
+				$id = array('0');
+			}
 
 			$this->db->select('*');
 			$this->db->from('restaurants');

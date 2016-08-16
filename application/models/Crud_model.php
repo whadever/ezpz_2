@@ -18,6 +18,10 @@ class Crud_model extends CI_Model{
 		return $this->db->get_where($table,$condition);
 	}
 
+	public function delete_data($table,$condition){
+		$this->db->delete($table,$condition);
+	}
+
 }
 
 ?>

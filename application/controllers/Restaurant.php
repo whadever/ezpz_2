@@ -23,9 +23,10 @@
 				$cuisine_name = str_replace('%20', ' ', $cuisine);
 				$data['cuisine_name'] = $cuisine_name;
 				$cuisine_id = $this->crud_model->get_by_condition('cuisines', array('name' => $cuisine_name))->row('id');
-				$data['page_title']	= 'Restaurants';
 				
+				$data['page_title']	= 'Restaurants';
 				$data['restaurants']= $this->restaurant_model->get_restaurants($cuisine_id);
+				
 
 			}else{
 				$data['cuisine_name'] = "All Restaurants";
