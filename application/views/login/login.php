@@ -30,9 +30,9 @@
 							<input type="password" autocomplete="off" autosave="off" name="password" class="form-control" required="1">
 						</div>
 
-						<div class="form-group">
-							<input type="submit" class="btn btn-primary" name="login" value="Login">
-							<a href="<?php echo base_url('user/register') ?>"><button type="button" class="btn btn-primary" name="signup" >Sign Up</button></a>
+						<div class="form-group text-center">
+							<input type="submit" class="btn btn-primary " name="login" value="Login">
+							
 						</div>
 
 					</form>
