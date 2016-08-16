@@ -46,7 +46,8 @@
 
 			<div class="form-group">
 				<label for="">Address:</label>
-				<textarea id="address" name="address" class="form-control" required="1" ></textarea>
+				<textarea id="address_show" disabled="1" class="form-control" required="1" ></textarea>
+				<input type="hidden" id="address" name="address">
 			</div>
 
 	     	<table class="table">
@@ -196,6 +197,7 @@
           $('#lat').val(place.geometry.location.lat());
           $('#lng').val(place.geometry.location.lng());
           $('#address').val(place.formatted_address);
+          $('#address_show').val(place.formatted_address);
 
           var address = '';
           if (place.address_components) {
