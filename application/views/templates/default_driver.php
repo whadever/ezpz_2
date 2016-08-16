@@ -11,7 +11,7 @@
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.css">
+ 
     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
 
 
@@ -21,6 +21,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     
@@ -180,8 +181,10 @@
   </header>
 
   <!--Full Div Image from div bg-->
-<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo $background ?>)">
-
+<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-image: url(<?php echo $background ?>)" data-stellar-background-ratio="0.5">
+  <div class="row" id="body">
+    
+  </div>
 </div>
 
 <div id="main">
@@ -191,8 +194,20 @@
 </div>
 
 <script>
+
+$(document).ready(function(){
+  $(window).stellar(
+    {
+      verticalOffset:50,
+      horizontalOffset:50,
+    });
+});
+
+</script>
+
+<script>
     var waypoint = new Waypoint({
-      element: document.getElementById('search'),
+      element: document.getElementById('body'),
       handler: function(direction) {
         document.getElementById('navbar').style.backgroundColor = '#5bc0de';
            }
