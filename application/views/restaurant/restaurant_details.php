@@ -1,4 +1,4 @@
-<?php date_default_timezone_set('Asia/Jakarta'); ?>
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12">
@@ -40,7 +40,7 @@
 				<?php $disabled = 'disabled'; ?>
 		  <?php endif ?>
 		  <div class="tab-content">
-		    <div id="home" class="tab-pane fade in active">
+		    <div id="home" class="tab-pane in active">
 
 		    	<?php foreach($dishes as $dish): ?>
 		    	<?php echo form_open('cart/add') ?>
@@ -68,7 +68,7 @@
 		    	<?php endforeach; ?>
 		    </div>
 
-		    <div id="menu1" class="tab-pane fade">
+		    <div id="menu1" class="tab-pane">
 		      	<h3>Reviews</h3>
 
 				<?php if($this->session->userdata('isLogged')==FALSE): 	 ?>
@@ -109,7 +109,7 @@
 		    </div>
 		    </div>
 
-		    <div id="menu2" class="tab-pane fade">
+		    <div id="menu2" class="tab-pane">
 		      <h3>Photos</h3>
 		      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 		    </div>

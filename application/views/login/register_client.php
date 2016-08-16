@@ -136,6 +136,7 @@
 
 	</div>
 	<div class="col-xs-3"></div>
+	
 </div>
 <script>
       // This example requires the Places library. Include the libraries=places
