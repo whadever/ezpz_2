@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2016 at 01:55 AM
+-- Generation Time: Aug 16, 2016 at 01:47 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -62,7 +62,8 @@ INSERT INTO `cuisines` (`id`, `name`, `photo`) VALUES
 (1, 'Asian', 'ramyeon.jpg'),
 (2, 'Italian', 'ramyeon.jpg'),
 (3, 'Indonesian', 'ramyeon.jpg'),
-(4, 'Chinese', 'ramyeon.jpg');
+(4, 'Chinese', 'ramyeon.jpg'),
+(5, 'Setyawan', 'ramyeon.jpg');
 
 -- --------------------------------------------------------
 
@@ -79,16 +80,6 @@ CREATE TABLE `dishes` (
   `photo` varchar(255) NOT NULL,
   `available` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `dishes`
---
-
-INSERT INTO `dishes` (`id`, `restaurant_id`, `name`, `price`, `description`, `photo`, `available`) VALUES
-(1, 1, 'Nasi Ayam', 20000, '', '', 1),
-(2, 2, 'Nasi Goreng Gangster', 25000, '', '', 1),
-(3, 8, 'Sety Bakar', 25, 'INI SETY DIBAKAR TRUS KULITNYA KAYA IRVAN', 'uploads/user/Moo Milk/menu/mickey_png__d_by_azul0123-d5p0y4o.png', 1),
-(4, 2, 'Setyawan', 54.5, '', 'uploads/user/Nasi Goreng Mafia/menu/minion_png_by_isammyt-d6fn0fj.png', 1);
 
 -- --------------------------------------------------------
 
@@ -108,11 +99,9 @@ CREATE TABLE `drivers` (
   `ird` varchar(255) NOT NULL,
   `driver_licence` varchar(255) NOT NULL,
   `licence_type` varchar(255) NOT NULL,
-  `photo_front` varchar(255) DEFAULT NULL,
-  `photo_back` varchar(255) DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `verification_code` varchar(255) DEFAULT NULL,
-  `is_verified` int(20) DEFAULT '0',
+  `is_verified` int(20) NOT NULL DEFAULT '0',
   `created` date NOT NULL,
   `type` varchar(255) NOT NULL DEFAULT 'driver'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -121,9 +110,8 @@ CREATE TABLE `drivers` (
 -- Dumping data for table `drivers`
 --
 
-INSERT INTO `drivers` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `telephone`, `address`, `ird`, `driver_licence`, `licence_type`, `photo_front`, `photo_back`, `photo`, `verification_code`, `is_verified`, `created`, `type`) VALUES
-(1, 'John', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', NULL, NULL, 'jonathan.hosea@me.com', '+087884514310', 'Taman Pegangsaan Ind0ah Blok D no 11, kelapa gading', 'u3hekahbmdfbasf', 'sdkjhfkjsbdfsjdfsf', 'learner', NULL, NULL, NULL, '80cde59ca19c731a8838bcb70a80a64664e3fde1bd8b227317a8bd5658d4ad35', 1, '2016-08-05', 'driver'),
-(2, 'koko_ganteng', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', NULL, NULL, 'irrpanwinata@gmail.com', '+812345678901', 'asdf', '000', '90823', 'learner', NULL, NULL, NULL, '00199ca4fe8aaf3f1de0b067e4ac3360e8b0678717f52e2b03e704e2aa2bea7f', NULL, '2016-08-11', 'driver');
+INSERT INTO `drivers` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `telephone`, `address`, `ird`, `driver_licence`, `licence_type`, `photo`, `verification_code`, `is_verified`, `created`, `type`) VALUES
+(3, 'john', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Jonathan', 'Hosea', 'zonecaptain@gmail.com', '+812887688232', 'TPI', '09000', '0923712389120', 'Full License', 'uploads/driver/john/photo.jpg', NULL, 1, '2016-08-15', 'driver');
 
 -- --------------------------------------------------------
 
@@ -153,16 +141,8 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`id`, `username`, `password`, `name`, `address`, `cuisine_id`, `longitude`, `latitude`, `photo`, `telephone`, `email`, `created`, `is_verified`, `type`) VALUES
-(1, 'Padang Sederhana', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Padang Sederhana', NULL, '1', 106.90566340642113, -6.1594933036414785, NULL, NULL, 'zonecaptain@gmail.com', NULL, 1, 'client'),
-(2, 'Nasi Goreng Mafia', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'nasgor mafia', 'cemputA SJDHJLKASHDLJ  ', '0', 106.87433085214423, -6.176740140876901, NULL, NULL, 'nasgor_mafia@gmail.com', '2016-08-05', 1, 'client'),
-(3, 'King Cross', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'King Cross', NULL, NULL, 106.89306474100874, -6.159684716067252, NULL, NULL, 'kingcross@gethassee.com', '2016-08-05', 1, 'client'),
-(8, 'Moo Milk', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Moo Milk', 'Klp Cengkir Barat X FQ1/23', '1, 2', NULL, NULL, 'uploads/user/Moo_Milk/photo.jpg', NULL, 'irpanwinata@gmail.comaasd', '2016-08-08', 1, 'client'),
-(9, 'reyner', '43edc', 'reyner', 'Plaza Pasifik blok B2 kav 47 lt.3', '0', NULL, NULL, 'uploads/user/reyner/mickey_png__d_by_azul0123-d5p0y4o.png', NULL, 'rener@gethassee.com', '2016-08-08', 1, 'client'),
-(10, 'Daud Bar', '84dec', 'Mickey Steak', 'Jalan Mawar 1 no. 22-23', '0', NULL, NULL, 'uploads/user/Mickey_Steak/daud.jpg', NULL, 'mickeyjane@gmail.com', '2016-08-08', 1, 'client'),
-(11, 'DAWD', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'DAWD', 'HIBRIDA', '0', NULL, NULL, 'uploads/user/DAWD/photo.jpg', NULL, 'kvhnzz_95@hotmail.com', '2016-08-08', 0, 'client'),
-(12, 'Minangkabau', NULL, 'Minang Jaya', 'Minang', '1, 3', NULL, NULL, NULL, '+812345678901', 'minang@minang.ccom', '2016-08-11', 0, 'client'),
-(13, 'Masbro', NULL, 'Masbro Resto', 'masbro', '1, 3', NULL, NULL, 'uploads/user/Masbro/photo.jpg', '+812345678901', 'masbro@gmail.com', '2016-08-11', 1, 'client'),
-(14, 'Martabakl', NULL, 'Martabak L', 'dsa', '2, 4', NULL, NULL, 'uploads/user/Martabakl/photo.jpg', '+812345678901', 'martabak@gmail.com', '2016-08-11', 0, 'client');
+(16, 'c1espresso', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'C1 Espresso', '185 High St, Christchurch Central, Christchurch 8142, New Zealand', '1, 3, 5', 172.64046280000002, -43.535125, 'uploads/restaurant/c1espresso/photo.jpg', '+812345678901', 'c1espresso@gethassee.com', '2016-08-15', 1, 'client'),
+(17, 'subwayaddington', '97447f94d9cea2c2182f3a5a5ea77971400c217712acdba307bb7085efd7dd9191400768ed150bf3d5db5563000e7374df18330906bddedded04260cfd9d9ec7', 'Subway Addington', '359 Lincoln Rd, Addington, Christchurch 8024, New Zealand', '2, 3, 4, 5', 172.61484180000002, -43.54124820000001, 'uploads/restaurant/subwayaddington/photo.jpg', '+628131687899', 'subway@addington.com', '2016-08-15', 1, 'client');
 
 -- --------------------------------------------------------
 
@@ -183,10 +163,9 @@ CREATE TABLE `restaurant_time` (
 --
 
 INSERT INTO `restaurant_time` (`id`, `restaurant_id`, `day`, `opentime`, `closetime`) VALUES
-(1, '13', 'Thursday', '04:23:00', '16:04:00'),
-(2, '13', 'Friday', '02:01:00', '01:00:00'),
-(5, '14', 'Thursday', '17:00:00', '23:00:00'),
-(6, '14', 'Sunday', '18:00:00', '01:00:00');
+(9, '16', 'Monday', '16:00:00', '01:00:00'),
+(10, '16', 'Thursday', '16:00:00', '01:00:00'),
+(11, '17', 'Tuesday', '08:00:00', '23:59:00');
 
 -- --------------------------------------------------------
 
@@ -203,6 +182,14 @@ CREATE TABLE `review` (
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `restaurant_id`, `user_id`, `review`, `rating`, `date`) VALUES
+(12, 16, 33, 'This is too good\r<br />\r<br />hehe', 5, '2016-08-15 21:03:25'),
+(13, 16, 33, 'josua tai', 5, '2016-08-16 03:26:49');
+
 -- --------------------------------------------------------
 
 --
@@ -216,6 +203,8 @@ CREATE TABLE `users` (
   `firstname` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL,
   `telephone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `photo` varchar(255) DEFAULT NULL,
@@ -229,13 +218,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `telephone`, `address`, `photo`, `verification_code`, `is_verified`, `created`, `type`) VALUES
-(27, 'admin', '$2y$10$6831VbJjQQbz7hrkrp.UfuhgraZFZS3ANv26utgZNs9wC1TkYoHZW', NULL, NULL, 'zonecaptain@gmail.com', '+081619638800', 'TPI D 11\r\nTaman Pegangsaan Indah', NULL, NULL, 1, '0000-00-00', 'user'),
-(28, 'sety', '$2y$10$k.vBoA68RNIq/w3jWZzR7eI.LJ55JPW0zssN23fYikdTFDtaTM28m', NULL, NULL, 'setyawansusanto99@outlook.com', '+123456789012', 'kelapagading', NULL, NULL, 1, '2016-08-05', 'user'),
-(29, 'irvan', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'irvan', NULL, 'setotsss@gmail.com', '+812887688232', 'Klp Cengkir Barat X FQ1/23', NULL, '3d70b76dd8f9f2f653c31897cf09321f2ebb1d26b338e4a24c844159d7befb1e', 1, '2016-08-08', 'user'),
-(30, 'setyawan', '$2y$10$ju2L0CYeXXpab5HFxArDHO9oVSzQLkLzQ/pqzrtRGknXICPmb8rtO', NULL, NULL, 'setyawansusanrrto99@outlook.com', '+812887688232', 'Klp Cengkir Barat X FQ1/23', NULL, '878d5bb25e35e23eb1fc93723a6b97d4c0098919018cdb4827e73474c65d85e6', 0, '2016-08-09', 'user'),
-(31, 'irvannn', '$2y$10$2oUQntwP5zwpUBvRdT8JQOFwX.KkJhI5XCZoFGZS0IVq0DmtBI0iu', NULL, NULL, 'irvan@hot.com', '+812887688232', 'Gading ', NULL, '875bb63b778a246175fecdcf73fcb669785f6d41f38ae26191dc03681f6b0f82', 0, '2016-08-09', 'user'),
-(32, 'ird', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', NULL, NULL, 'irpanwinata@gmail.com', '+081288768823', 'Klp Cengkir Barat X FQ1/23', NULL, '11178a20e4fbb225b20c81e2a9678a255c3a1294d1747b612544f42fe15439fa', 0, '2016-08-10', 'user');
+INSERT INTO `users` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `latitude`, `longitude`, `telephone`, `address`, `photo`, `verification_code`, `is_verified`, `created`, `type`) VALUES
+(33, 'irvan', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Irvan', 'Winata', 'irpanwinata@gmail.com', 0, 0, '+628131687899', 'Klp Cengkir Barat X FQ1/23', 'uploads/user/irvan/photo.jpg', NULL, 1, '2016-08-15', 'user'),
+(34, 'setyawan9', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Setyawan', 'Susanto', 'setyawan@gethassee.com', 0, 0, '+812345678901', 'Puri Duyung', 'uploads/user/setyawan9/photo.jpg', '49f00aed72ab3af3636beff82378ea2cca20cf83928dd2a6ba848bef80e22006', 0, '2016-08-15', 'user'),
+(37, 'felita', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Felita', 'Setiawan', 'felita@gethassee.com', 0, 0, '+812345678901', '64 Riccarton Rd, Riccarton, Christchurch 8011, New Zealand', 'uploads/user/felita/photo.jpg', NULL, 1, '2016-08-16', 'user'),
+(38, 'Reyner', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Gerald', 'Liando', 'reyner@gethassee.com', -43.531877, 172.57474860000002, '+081288768823', '355 Riccarton Rd, Upper Riccarton, Christchurch 8041, New Zealand', 'uploads/user/Reyner/photo.jpg', '29fb5d3437066452e60b58284202db98d60641e310312b331f58d531cef7cb85', 0, '2016-08-16', 'user');
 
 --
 -- Indexes for dumped tables
@@ -302,37 +289,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cuisines`
 --
 ALTER TABLE `cuisines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `dishes`
 --
 ALTER TABLE `dishes`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `drivers`
 --
 ALTER TABLE `drivers`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `restaurant_time`
 --
 ALTER TABLE `restaurant_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
