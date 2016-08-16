@@ -113,7 +113,7 @@
 	     	<div class="form-group">
 	     	<label for="cuisine">Cuisine</label>
 		     	<div class="input-group ">   
-		            <select class="form-control" id="multi" multiple="multiple" name="cuisine[]" required="1"><?php print_r($restaurants) ?>
+		            <select class="form-control" id="multi" multiple="multiple" name="cuisine[]" required="1">
 			            <?php foreach ($cuisines as $cuisine): ?>
 			            	<option value="<?php echo $cuisine->id ?>"><?php echo $cuisine->name ?></option>
 			            <?php endforeach ?>

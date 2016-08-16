@@ -10,12 +10,51 @@
     <!-- CSS-->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.css">
+    <link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
     <script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
+
+    <style>
+      #map {
+        height: 400px;
+      }
+      .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 300px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
+    </style>
 
   </head>
   
