@@ -95,7 +95,7 @@
 		      	<?php foreach ($comments as $comment): ?>
 		      		<div class="panel panel-default panel-horizontal">
 		      		<div class="panel-heading text-center">
-		      			<div class="image-review" style="background-image:url(<?php echo base_url().$comment->photo ?>);">
+		      			<div class="profile-picture" style="background-image:url(<?php echo base_url().$comment->photo ?>);">
 		      			</div>
 		      			<h3 class="panel-title"><?php echo $comment->username ?></h3>
 		      		</div>

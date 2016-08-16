@@ -69,7 +69,7 @@
                     <li><a href="#"><?php echo $this->cart->total_items() ?>
     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
   </a></li>
-                      <li><a href="#"><?php echo $this->session->userdata('name') ?></a></li>
+                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type');?>/profile/<?php echo $this->session->userdata('user_id') ?>"><?php echo $this->session->userdata('name') ?></a></li>
                      
                          
 
