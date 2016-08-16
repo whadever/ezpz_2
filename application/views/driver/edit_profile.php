@@ -59,7 +59,26 @@
 			</div>
 
 			<div class="form-group">
-				<label for="">Profile Picture:</label>
+				<label for="">IRD Number:</label>
+				<input type="text" class="form-control" name="ird" required="1" value="<?php echo $user->ird ?>">
+			</div>
+
+			<div class="form-group">
+				<label for="">Driver License:</label>
+				<input type="text" class="form-control" name="driver_license" required="1" value="<?php echo $user->driver_license ?>" >
+			</div>
+
+			<div class="form-group">
+				<label for="">License Type</label>
+				<select class="form-control" name="license_type">
+					<option value="Learner">Learner</option>
+					<option value="Restricted">Restricted</option>
+					<option value="Full License">Full License</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="profile_picture">Profile Picture:</label>
 				<img src="<?php echo base_url().$user->photo ?>" width="150" id="profile_picture" alt="">
 				<input type="file" class="form-control" name="photo">
 			</div>
