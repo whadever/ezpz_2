@@ -1,4 +1,5 @@
 <!--What you can do div end, cuisine selection start-->
+<div class="row">
 <div class="food">
 	<div class="container">
 		<div class="row text-center">
@@ -39,7 +40,7 @@
 		<?php endforeach;?>
 	</div>
 </div>
-	
+</div>
 <script>
 
 var test = [""];

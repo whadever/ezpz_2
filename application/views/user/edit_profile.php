@@ -68,3 +68,21 @@
 	<div class="col-xs-3"></div>
 </div>
 
+<script>
+
+var test = [""];
+<?php $i = 0; ?>
+
+<?php foreach ($lists as $list): ?>
+	test[<?php echo $i ?>] = "<?php echo $list->name ?>";
+	<?php $i++; ?>
+<?php endforeach; ?>
+
+$("#restaurant-search").typeahead({
+
+                        minLength: 0,
+                        items: 4,
+                        source: test,   
+                    });
+
+</script>

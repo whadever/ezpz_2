@@ -3,7 +3,8 @@
 
 
 <!--Full Div End, What you can do div-->
-<div class="container-fluid whatdo">
+<div class="row">
+<div class="whatdo">
 	<div class="container">
 		<div class="row text-center">
 		<h1 style="margin-bottom:25px;">What You Can Do</h1>
@@ -39,8 +40,10 @@
 		</div>
 	</div>
 </div>
+</div>
 <!--What you can do div end, cuisine selection start-->
-<div class="container-fluid food">
+<div class="row">
+<div class="food">
 	<div class="container">
 		<div class="row text-center">
 			<h1 style="margin-bottom:25px;">Cuisine Selections</h1>
@@ -75,7 +78,7 @@
 	<?php endforeach;?>
 	</div>
 </div>
-	
+</div>
 <script>
 
 var test = [""];
