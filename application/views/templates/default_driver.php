@@ -166,7 +166,7 @@
                 </ul>
                 <?php else: ?>
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#"><?php echo $this->session->userdata('username') ?></a></li>
+                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/profile/<?php echo $this->session->userdata('user_id') ?>"><?php echo $this->session->userdata('username') ?></a></li>
                      
                          
 

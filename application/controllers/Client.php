@@ -29,14 +29,14 @@ class Client extends CI_Controller{
 
 	public function profile($id=''){
 		if($id != $this->session->userdata('user_id')){
-			redirect('user');
+			redirect('client');
 		}
 
 
 		$data['page_title'] = 'Profile';
 		$data['background'] = base_url()."images/pihza.jpg";
-		$data['user'] = $this->crud_model->get_by_condition('users',array('id' => $id))->row();
-		$this->template->load('default','user/profile', $data);
+		$data['client'] = $this->crud_model->get_by_condition('restaurants',array('id' => $id))->row();
+		$this->template->load('default_client','client/profile', $data);
 	}
 
 }

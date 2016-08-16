@@ -2,12 +2,15 @@
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8 text-center">
+			<pre>
+				<?php print_r($driver) ?>
+			</pre>
 			<div class="row">
-				<div class="profile-picture" style="background-image : url(<?php echo base_url().$user->photo ?>); " id="edit-prof-pic">
+				<div class="profile-picture" style="background-image : url(<?php echo base_url().$driver->photo ?>); " id="edit-prof-pic">
 				</div>
 			</div>
 			<div class="row">
-				<p id="profile-name"><?php echo $user->username ?></p>
+				<p id="profile-name"><?php echo $driver->username ?></p>
 			</div>
 		</div>
 		<div class="col-md-2"></div>
