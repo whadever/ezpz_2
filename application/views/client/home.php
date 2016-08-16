@@ -93,13 +93,78 @@
 								        </select>
 							        </div>
 								</div>
-						
+							<table class="table">
+					     		<thead>
+					     			<tr>
+					     				<td>&nbsp;</td>
+					     				<td>Day</td>
+					     				<td>Open Time</td>
+					     				<td>Close Time</td>
+					     			</tr>
+					     		</thead>
+					     		<tbody>
+					     		<pre>
+					     			<?php print_r($restaurant_time) ?>
+					     		</pre>
+					     		<?php foreach ($restaurant_time as $time): ?>
+					     			
+					     		<?php endforeach ?>
+					     			<tr class="monday">
+					     				<td><input type="checkbox" value="Monday" name="day[]" class="opendays" onclick="enable(this,'monday')"></td>
+					     				<td>Monday</td>
+					     				<td id="opentime_monday"></td>
+					     				<td id="closetime_monday"></td>
+					     			</tr>
+					     			<tr class="tuesday">
+					     				<td><input type="checkbox" value="Tuesday" name="day[]" class="opendays" onclick="enable(this,'tuesday')"></td>
+					     				<td>Tuesday</td>
+
+					     				<td id="opentime_tuesday"></td>
+					     				<td id="closetime_tuesday"></td>
+					     			</tr>
+					     			<tr class="wednesday">
+					     				<td><input type="checkbox" value="Wednesday" name="day[]" class="opendays" onclick="enable(this,'wednesday')"></td>
+					     				<td>Wednesday</td>
+					     				<td id="opentime_wednesday"></td>
+					     				<td id="closetime_wednesday"></td>
+					     				
+					     			</tr>
+					     			<tr class="thursday">
+					     				<td><input type="checkbox" value="Thursday" name="day[]" class="opendays" onclick="enable(this,'thursday')"></td>
+					     				<td>Thursday</td>
+					     				<td id="opentime_thursday"></td>
+					     				<td id="closetime_thursday"></td>
+					     				
+					     			</tr>
+					     			<tr class="friday">
+					     				<td><input type="checkbox" value="Friday" name="day[]" class="opendays" onclick="enable(this,'friday')"></td>
+					     				<td>Friday</td>
+					     				<td id="opentime_friday"></td>
+					     				<td id="closetime_friday"></td>
+					     			</tr>
+					     			<tr class="saturday">
+					     				<td><input type="checkbox" value="Saturday" name="day[]" class="opendays" onclick="enable(this,'saturday')"></td>
+					     				<td>Saturday</td>
+					     				<td id="opentime_saturday"></td>
+					     				<td id="closetime_saturday"></td>
+					     				
+					     			</tr>
+					     			<tr class="sunday">
+					     				<td><input type="checkbox" value="Sunday" name="day[]" class="opendays" onclick="enable(this,'sunday')"></td>
+					     				<td>Sunday</td>
+					     				<td id="opentime_sunday"></td>
+					     				<td id="closetime_sunday"></td>
+					     				
+					     			</tr>
+					     		</tbody>
+					     	</table> 
 					    	<div class="form-group">
 					            <label for="photo">Photo</label>
 					            <input type="file" name = "photo" class="form-control" placeholder="Profile Photo" required="required">
 					        </div>
-					    
-					    	<input type="submit" name="submit" value="Update" class="btn btn-primary " id="loginButton";">
+					    	<input type="hidden" name="lat" id="lat" value="<?php echo $restaurant->latitude; ?>">
+							<input type="hidden" name="lng" id="lng" value="<?php echo $restaurant->longitude; ?>">
+					    	<input type="submit" name="submit" value="Update" class="btn btn-primary ">
 					    	</td>
 					
 						</form>

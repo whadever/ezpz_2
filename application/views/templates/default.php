@@ -129,7 +129,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    
 <script>
 
 $(document).ready(function(){
