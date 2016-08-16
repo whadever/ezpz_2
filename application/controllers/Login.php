@@ -202,14 +202,12 @@ class Login extends CI_Controller{
 						'created'			=> date('Y-m-d')
 
 						);
-				echo "<pre>";
-				print_r($data);
-				echo "</pre>";
-				#$this->crud_model->insert_data('drivers', $data);
-				#$this->email_model->verification_email($data['email'], $verification_string);
-				#$this->session->set_flashdata('success','Driver has been added');
+				
+				$this->crud_model->insert_data('drivers', $data);
+				$this->email_model->verification_email($data['email'], $verification_string);
+				$this->session->set_flashdata('success','Driver has been added');
 
-				#redirect('login');
+				redirect('login');
 			}
 			else{
 				redirect('login/register/driver');
