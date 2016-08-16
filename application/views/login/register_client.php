@@ -153,7 +153,7 @@
 
         var options = {
           
-          componentRestrictions: {country: 'id'}
+          componentRestrictions: {country: 'nz'}
         };
 
       
