@@ -48,6 +48,7 @@ class Driver extends CI_Controller{
 
 		$data['page_title'] = 'Profile';
 		$data['background'] = base_url()."images/pihza.jpg";
+		$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $id))->row();
 		$this->template->load('default_driver','driver/profile', $data);
 	}
 
