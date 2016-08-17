@@ -40,7 +40,7 @@
 		  
 			<div class="tab-content">
 		    
-		    <div id="home" class="tab-pane in active">
+		    <div id="home" class="tab-pane fade in active">
 
 		    	<?php foreach($dishes as $dish): ?>
 		    	<?php echo form_open('cart/add') ?>
@@ -51,7 +51,7 @@
 		    		<div class="col-xs-10" style="padding-left:0px">
 		    			<div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> >
 					      <p><?php echo $dish->description ?></p>
-					      <p>Price : $<?php echo $dish->price ?></p>
+					      <p>Price : <?php echo NZD($dish->price) ?></p>
 					    </div>
 					    
 					    <!-- Get Dishes Ids -->
@@ -68,7 +68,7 @@
 		    	<?php endforeach; ?>
 		    </div>
 
-		    <div id="menu1" class="tab-pane">
+		    <div id="menu1" class="tab-pane fade">
 		      	<h3>Reviews</h3>
 
 				<?php if($this->session->userdata('isLogged')==FALSE): 	 ?>
@@ -109,7 +109,7 @@
 		    	</div>
 		    </div>
 
-		    <div id="menu2" class="tab-pane">
+		    <div id="menu2" class="tab-pane fade">
 		      <h3>Photos</h3>
 		      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 		    </div>
