@@ -1,3 +1,39 @@
+ <style>
+      #map {
+        height: 400px;
+      }
+      .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 300px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
+    </style>
+
+
 <div class="row">
 	<div class="col-xs-3"></div>
 	<div class="col-xs-6">
@@ -47,10 +83,18 @@
 				<input type="tel" pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +XXXX-XXXX-XXXX)' name="telephone" value="<?php echo $user->telephone ?>" class="form-control" required="1" >
 			</div>
 
-			<div class="form-group">
-				<label for="">Address:</label>
-				<textarea name="address" class="form-control" required="1" ><?php echo $user->address ?></textarea>
-			</div>
+			<div class="form-group" id="#mapBody">
+	     		<label for="">Location</label>
+	     		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+			    <div id="map"></div>
+	     	</div>
+
+	     	<div class="form-group">
+		        <label for="address">Address</label>
+		        <div class="col-sm-13">
+				<textarea name="address_show" id="address_show" disabled="disabled" class="form-control" rows="3"><?php echo $user->address; ?></textarea></div>
+				<input type="hidden" id="address" name="address" value="<?php echo $user->address; ?>">					      
+		    </div>
 
 			<div class="form-group">
 	        	<label for="profile_picture">Profile Picture:</label><br/>
@@ -59,7 +103,9 @@
 	        </div>
 
 			<div class="form-group">
-				<input type="submit" class="btn btn-primary" name="update" value="Update">
+			<input type="hidden" name="lat" id="lat" value="<?php echo $user->latitude; ?>">
+			<input type="hidden" name="lng" id="lng" value="<?php echo $user->longitude; ?>">
+			<input type="submit" class="btn btn-primary" name="update" value="Update">
 			</div>
 
 		</form>
@@ -67,6 +113,92 @@
 	</div>
 	<div class="col-xs-3"></div>
 </div>
+
+<script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: <?php echo $user->latitude ?> , lng: <?php echo $user->longitude ?>},
+          zoom: 20
+        });
+        var input = /** @type {!HTMLInputElement} */(
+            document.getElementById('pac-input'));
+
+        var options = {
+          
+          componentRestrictions: {country: 'nz'}
+        };
+
+        var myLatLng = new google.maps.LatLng(<?php echo $user->latitude.','.$user->longitude; ?>);
+      
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+       
+
+        var autocomplete = new google.maps.places.Autocomplete(input,options);
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map,
+          position: myLatLng,
+          anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            window.alert("Place not found");
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setIcon(/** @type {google.maps.Icon} */({
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+          }));
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+
+          $('#lat').val(place.geometry.location.lat());
+          $('#lng').val(place.geometry.location.lng());
+          $('#address').val(place.formatted_address);
+          $('#address_show').val(place.formatted_address);
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+          infowindow.open(map, marker);
+        });
+
+        // Sets a listener on a radio button to change the filter type on Places
+        // Autocomplete.
+        
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5r3Vc2ohLE1naIZaaYLjfAifThGzAHwc&libraries=places&callback=initMap"
+        async defer></script>
+
 
 <script>
 
@@ -84,5 +216,19 @@ $("#restaurant-search").typeahead({
                         items: 4,
                         source: test,   
                     });
+
+</script>
+
+<!-- Prevent users submit form by hitting "Enter" -->
+
+<script type="text/javascript"> 
+
+function stopRKey(evt) { 
+  var evt = (evt) ? evt : ((event) ? event : null); 
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+} 
+
+document.onkeypress = stopRKey; 
 
 </script>

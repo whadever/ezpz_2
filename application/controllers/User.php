@@ -93,6 +93,8 @@ class User extends CI_Controller{
 					'email' 			=> $this->input->post('email'),
 					'telephone' 		=> $this->input->post('telephone'),
 					'address' 			=> $this->input->post('address'),
+					'latitude'			=> $this->input->post('lat'),
+					'longitude'			=> $this->input->post('lng'),
 					'photo'				=> $photo,
 					'verification_code'	=> $verification_code,
 					'is_verified'		=> 0
@@ -110,6 +112,8 @@ class User extends CI_Controller{
 					'lastname'			=> $this->input->post('lastname'),
 					'email' 			=> $this->input->post('email'),
 					'telephone' 		=> $this->input->post('telephone'),
+					'latitude'			=> $this->input->post('lat'),
+					'longitude'			=> $this->input->post('lng'),
 					'address' 			=> $this->input->post('address'),
 					'photo'				=> $photo,
 					);

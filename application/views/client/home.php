@@ -64,7 +64,7 @@
 						     	<div class="form-group">
 							        <label for="address">Address</label>
 							        <div class="col-sm-13">
-									<textarea name="address_show" disabled="disabled" class="form-control" rows="3"><?php echo $restaurant->address; ?></textarea></div>
+									<textarea name="address_show" id="address_show" disabled="disabled" class="form-control" rows="3"><?php echo $restaurant->address; ?></textarea></div>
 									<input type="hidden" id="address" name="address" value="<?php echo $restaurant->address; ?>">					      
 							    </div>
 						
@@ -314,7 +314,7 @@
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: <?php echo $restaurant->latitude ?> , lng: <?php echo $restaurant->longitude ?>},
-          zoom: 18
+          zoom: 20
         });
         var input = /** @type {!HTMLInputElement} */(
             document.getElementById('pac-input'));
@@ -323,7 +323,7 @@
           
           componentRestrictions: {country: 'nz'}
         };
-        var myLatLng = new google.maps.LatLng(<?php echo $restaurant->latitude.','.$restaurant->longitude; ?>)
+        var myLatLng = new google.maps.LatLng(<?php echo $restaurant->latitude.','.$restaurant->longitude; ?>);
       
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
        

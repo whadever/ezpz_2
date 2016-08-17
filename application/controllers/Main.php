@@ -24,7 +24,8 @@
 
 		public function about(){
 			$data['page_title'] = 'About';
-			$this->template->load('default','about' ,$data);	
+			$data['background'] = base_url()."images/pihza.jpg";
+			$this->template->load('default','main/about' ,$data);	
 		}
 
 		
