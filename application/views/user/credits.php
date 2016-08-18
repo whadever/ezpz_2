@@ -6,6 +6,7 @@
     <input type="text" name="expiry"/>
     <input type="text" name="cvc"/>
 </form>
+
 </div>
 
 
