@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2016 at 02:59 AM
+-- Generation Time: Aug 18, 2016 at 03:46 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -62,7 +62,8 @@ INSERT INTO `cuisines` (`id`, `name`, `photo`, `thumb`) VALUES
 (15, 'Japanese', 'images/cuisines/Japan.jpg', 'images/cuisines/Japan_thumb.jpg'),
 (16, 'Chinese', 'images/cuisines/Tasty-Chinese-Dumplings-Food-Photo-Wallpaper-Desktop-Free-HD-2993493945.jpg', 'images/cuisines/Tasty-Chinese-Dumplings-Food-Photo-Wallpaper-Desktop-Free-HD-2993493945_thumb.jpg'),
 (17, 'Italian', 'images/cuisines/Supreme_pizza.jpg', 'images/cuisines/Supreme_pizza_thumb.jpg'),
-(18, 'American', 'images/cuisines/american.jpg', 'images/cuisines/american_thumb.jpg');
+(18, 'American', 'images/cuisines/american.jpg', 'images/cuisines/american_thumb.jpg'),
+(19, 'Baby Diaper', 'images/cuisines/o-CLOTH-DIAPER-facebook.jpg', 'images/cuisines/o-CLOTH-DIAPER-facebook_thumb.jpg');
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,7 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`id`, `username`, `password`, `name`, `address`, `cuisine_id`, `longitude`, `latitude`, `photo`, `telephone`, `email`, `created`, `is_verified`, `type`) VALUES
-(16, 'c1espresso', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'C1 Espresso', '185 High St, Christchurch Central, Christchurch 8142, New Zealand', '15, 17', 172.64046280000002, -43.535125, 'uploads/restaurant//photo.jpg', '+812345678901', 'c1espresso@gethassee.com', '2016-08-18', 1, 'client'),
+(16, 'c1espresso', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'C1 Espresso', '185 High St, Christchurch Central, Christchurch 8142, New Zealand', '15, 17', 172.64046280000002, -43.535125, 'uploads/restaurant/c1espresso/photo.jpg', '+812345678901', 'c1espresso@gethassee.com', '2016-08-18', 1, 'client'),
 (17, 'subwayaddington', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Subway Addington', '359 Lincoln Rd, Addington, Christchurch 8024, New Zealand', '15, 16', 172.61484180000002, -43.54124820000001, 'uploads/restaurant/subwayaddington/photo.jpg', '+628131687899', 'subway@addington.com', '2016-08-16', 1, 'client'),
 (19, 'topkapi', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Topkapi Restaurant', '64 Manchester St, Christchurch Central, Christchurch 8011, New Zealand', '17, 18', 172.63983099999996, -43.5368573, 'uploads/restaurant/topkapi/photo.jpg', '+812345678901', 'topkapi@gmail.com', '2016-08-18', 1, 'client');
 
@@ -174,10 +175,10 @@ CREATE TABLE `restaurant_time` (
 INSERT INTO `restaurant_time` (`id`, `restaurant_id`, `day`, `opentime`, `closetime`) VALUES
 (12, '18', 'Tuesday', '01:01:00', '12:59:00'),
 (33, '17', 'Tuesday', '08:00:00', '23:59:00'),
-(42, '16', 'Monday', '16:00:00', '01:00:00'),
-(43, '16', 'Thursday', '10:00:00', '22:00:00'),
-(44, '16', 'Sunday', '10:00:00', '22:00:00'),
-(49, '19', 'Tuesday', '10:00:00', '23:59:00');
+(49, '19', 'Tuesday', '10:00:00', '23:59:00'),
+(50, '16', 'Monday', '16:00:00', '01:00:00'),
+(51, '16', 'Thursday', '10:00:00', '22:00:00'),
+(52, '16', 'Sunday', '10:00:00', '22:00:00');
 
 -- --------------------------------------------------------
 
@@ -301,7 +302,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cuisines`
 --
 ALTER TABLE `cuisines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `dishes`
 --
@@ -321,7 +322,7 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `restaurant_time`
 --
 ALTER TABLE `restaurant_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `review`
 --
