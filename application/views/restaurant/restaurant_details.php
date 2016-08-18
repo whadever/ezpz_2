@@ -94,7 +94,7 @@
 			  					<input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id') ?>"/>
 			  					<input type="hidden" value="<?php echo uri_string(); ?>" name="url"/>
 			  					<span class="input-group-btn">
-		                    		<button class="btn btn-default" type="submit" name="post" onclick="submit()" style="height:100%;">
+		                    		<button class="btn btn-default" type="submit" name="post" onclick="submit()" style="height:53px;">
 		                		Post</button>
 		                		
 							</div>
