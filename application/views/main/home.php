@@ -15,7 +15,7 @@
 					<div class="panel-body">
 						Get Your Food Delivered
 						<p>Be a member of EZPZ and get food delivered to your reach fast, and easy with reasonable price.</p>
-						<p class="btn btn-info do-button">Order Now</p>
+						<a href="#" data-toggle="modal" data-target="#loginModal"><p class="btn btn-info do-button">Order Now</p></a>
 					</div>
 				</div>
 			</div>
