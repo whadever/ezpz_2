@@ -46,15 +46,19 @@
 <div class="container"></div>
 		    	<?php foreach($dishes as $dish): ?>
 		    	<?php echo form_open('cart/add') ?>
-		    	<div class="row">
-		    		<div class="col-xs-2 hidden-xs" style="margin-bottom:5px; ">
-		    			<img class="img-responsive" width="60" src="<?php echo base_url().$dish->photo ?>" alt="">
+		    	<div class="row" style="margin-bottom:10px; padding-top:10px">
+		    		<div class="col-sm-2 hidden-xs">
+		    			<div class="menu-image" style="border-radius:20px; width:100px; height:100px; background-size:cover; background-position:center center; margin:auto; background-image:url(<?php echo base_url().$dish->photo ?>);">
+		    				
+		    			</div>	
+		    			<!-- <img class="img-responsive" src="<?php echo base_url().$dish->photo ?>" alt=""> -->
 		    		</div>
-		    		<div class="col-xs-10" style="padding-left:0px">
-		    			<div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> >
+		    		<div class="col-xs-12 col-sm-10" style="padding-left:10px;">
+		    			<!-- <div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> > -->
+		    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder="0" <?php echo $disabled ?>>
 					      <p><?php echo $dish->description ?></p>
-					      <p>Price : <?php echo NZD($dish->price) ?></p>
-					    </div>
+					      <p style="margin-bottom:5px;">Price : <?php echo NZD($dish->price) ?></p>
+					    <!-- </div> -->
 					    
 					    <!-- Get Dishes Ids -->
 					    <input type="hidden" value="<?php echo $dish->id ?>" name="dish_id">
