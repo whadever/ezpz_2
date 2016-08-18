@@ -26,8 +26,7 @@
 		<div class="col-xs-12">
 		  <ul class="nav nav-tabs">
 		    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
-		    <li><a data-toggle="tab" href="#menu1">Reviews</a></li>
-		    <li><a data-toggle="tab" href="#menu2">Photos</a></li>
+		    <li><a data-toggle="tab" href="#review">Reviews</a></li>
 		  </ul>
 		 <?php if($restaurant_time): ?>
 		  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) && 
@@ -71,7 +70,7 @@
 		    	<?php endforeach; ?>
 		    </div>
 
-		    <div id="menu1" class="tab-pane fade">
+		    <div id="review" class="tab-pane fade">
 		      	<h3>Reviews</h3>
 
 				<?php if($this->session->userdata('isLogged')==FALSE): 	 ?>
@@ -110,11 +109,6 @@
 		      	
 		      	
 		    	</div>
-		    </div>
-
-		    <div id="menu2" class="tab-pane fade">
-		      <h3>Photos</h3>
-		      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 		    </div>
 		  </div>
 
