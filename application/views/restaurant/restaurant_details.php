@@ -45,17 +45,17 @@
 				  
 					<div class="tab-content">
 				    
-				    <div id="home" class="tab-pane fade in active">
+				    <div id="home" class="tab-pane fade in active" style="padding:15px;">
 				    	<?php foreach($dishes as $dish): ?>
 				    	<?php echo form_open('cart/add') ?>
-				    	<div class="row" style="margin-bottom:10px; padding-top:10px">
-				    		<div class="col-sm-2 hidden-xs">
+				    	<div class="row" style="padding-bottom:15px; padding-top:10px; border-bottom:1px solid #ddd;">
+				    		<div class="col-sm-2 hidden-xs" style="padding-right:0;">
 				    			<div class="menu-image" style="border-radius:20px; width:100px; height:100px; background-size:cover; background-position:center center; margin:auto; background-image:url(<?php echo base_url().$dish->photo ?>);">
 				    				
 				    			</div>	
 				    			<!-- <img class="img-responsive" src="<?php echo base_url().$dish->photo ?>" alt=""> -->
 				    		</div>
-				    		<div class="col-xs-12 col-sm-10" >
+				    		<div class="col-xs-12 col-sm-10" style="padding-right:20px;">
 				    			<!-- <div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> > -->
 				    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder="0" <?php echo $disabled ?>>
 				    			  <div style="word-wrap: break-word; width: 80%">
@@ -73,6 +73,7 @@
 							    <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
 				    			
 				    			<input type="submit" value="Add to Cart" class="btn btn-primary pull-right">
+
 				    		</div>
 				    	</div>
 				    	<?php echo form_close() ?>					    	
@@ -88,18 +89,16 @@
 						<?php else: ?>
 						<?php echo form_open('restaurant/post_comment',array('id' => 'comment')) ?>
 						    <div class="input-group">
-			  					<textarea class="form-control" rows="1" name="review" aria-describedby="basic-addon2"></textarea>
+			  					<textarea class="form-control" rows="1" name="review" aria-describedby="basic-addon2"></textarea></span>
 			  					<input type="hidden" name="restaurant_id" value="<?php echo $restaurant->id ?>"/>
 			  					<input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id') ?>"/>
 			  					<input type="hidden" value="<?php echo uri_string(); ?>" name="url"/>
 			  					<span class="input-group-btn">
-		                    		<button class="btn btn-default" type="submit" name="post" onclick="submit()">
+		                    		<button class="btn btn-default" type="submit" name="post" onclick="submit()" style="height:100%;">
 		                		Post</button>
-		                		</span>
-
+		                		
 							</div>
 						<?php echo form_close(); ?>
-
 						<?php endif; ?>
 					
 				      	<div id="review">
@@ -112,11 +111,9 @@
 					      		</div>
 					      		<div class="panel-body">
 					      			<?php echo $comment->review ?>
-					      		</div>	
+					      		</div>
 					      	</div>
 				      	<?php endforeach ?>
-				      	
-				      	
 				    	</div>
 				    </div>	
 				  </div>

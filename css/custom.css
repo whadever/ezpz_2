@@ -72,8 +72,7 @@ body.modal-open[style] {
 .tab-content {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
-    padding: 15px;
-    padding-left: 25px;
+    padding: 25px;
 }
 
 .nav-tabs {
