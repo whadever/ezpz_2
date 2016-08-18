@@ -32,8 +32,8 @@
 				    <li><a data-toggle="tab" href="#review">Reviews</a></li>
 				  </ul>
 				 <?php if($restaurant_time): ?>
-				  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) && 
-						date('H:i') < date('H:i',strtotime($restaurant_time->closetime))){
+				  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) || 
+						date('H:i') > date('H:i',strtotime($restaurant_time->closetime))){
 				  		$disabled = 'disabled';?>
 				  		
 						<?php }else{
