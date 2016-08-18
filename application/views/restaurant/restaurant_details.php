@@ -43,7 +43,7 @@
 			<div class="tab-content">
 		    
 		    <div id="home" class="tab-pane fade in active">
-
+<div class="container"></div>
 		    	<?php foreach($dishes as $dish): ?>
 		    	<?php echo form_open('cart/add') ?>
 		    	<div class="row">
