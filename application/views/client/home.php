@@ -14,11 +14,9 @@
 						<div class="col-md-7 col-xs-12">
 				        	<div class="heading">
 				            	<h3>Update Restaurant Info</h3>
-				            	
 				            </div>
 			            </div>
-
-					</div>   
+					</div><!--End of tab header row-->   
 					<hr>   
 					<div class="row">
 						<div class="col-md-7 col-xs-12">
@@ -75,49 +73,47 @@
 								        </select>
 							        </div>
 								</div>
-							<table class="table">
-					     		<thead>
-					     			<tr>
-					     				<td>&nbsp;</td>
-					     				<td>Day</td>
-					     				<td>Open Time</td>
-					     				<td>Close Time</td>
-					     			</tr>
-					     		</thead>
-					     		<tbody>
-							
-								<?php $j = 0; ?>
-					     		<?php for ($i=0; $i < count($days) ; $i++):  ?>
-									
-										<?php if($restaurant_time[$j]['day'] == $days[$i]){
+								<table class="table">
+						     		<thead>
+						     			<tr>
+						     				<td>&nbsp;</td>
+						     				<td>Day</td>
+						     				<td>Open Time</td>
+						     				<td>Close Time</td>
+						     			</tr>
+						     		</thead>
+						     		<tbody>
+								
+									<?php $j = 0; ?>
+						     		<?php for ($i=0; $i < count($days) ; $i++):  ?>
+										
+											<?php if($restaurant_time[$j]['day'] == $days[$i]){
 
-												$checked = 'checked';
-												$open = '<input type="time" name="opentime[]" value="'.$restaurant_time[$j]['opentime'].'" required="1">';
-												$close = '<input type="time" name="closetime[]" value="'.$restaurant_time[$j]['closetime'].'" required="1">';
-												if($j < count($restaurant_time)-1){
+													$checked = 'checked';
+													$open = '<input type="time" name="opentime[]" value="'.$restaurant_time[$j]['opentime'].'" required="1">';
+													$close = '<input type="time" name="closetime[]" value="'.$restaurant_time[$j]['closetime'].'" required="1">';
+													if($j < count($restaurant_time)-1){
+														
+														$j++;
+														
+													}
 													
-													$j++;
-													
-												}
-												
-											}else if($restaurant_time[$j]['day'] != $days[$i]){
-												$checked = '';
-												$open = '';
-												$close = '';
-												} ?>
-									
-					     			<tr class="<?php echo $days[$i] ?>">
-					     				<td><input type="checkbox" value="<?php echo $days[$i] ?>" name="day[]" class="opendays" <?php echo $checked ?> onclick="enable(this,'<?php echo $days[$i] ?>')"></td>
-					     				<td><?php echo $days[$i] ?></td>
-					     				<td id="opentime_<?php echo $days[$i] ?>"><?php echo $open ?></td>
-					     				<td id="closetime_<?php echo $days[$i] ?>"><?php echo $close ?></td>
-					     			</tr>
-					     			
-					     		<?php endfor; ?>
-					     			
-					     			
-					     		</tbody>
-					     	</table> 
+												}else if($restaurant_time[$j]['day'] != $days[$i]){
+													$checked = '';
+													$open = '';
+													$close = '';
+													} ?>
+										
+						     			<tr class="<?php echo $days[$i] ?>">
+						     				<td><input type="checkbox" value="<?php echo $days[$i] ?>" name="day[]" class="opendays" <?php echo $checked ?> onclick="enable(this,'<?php echo $days[$i] ?>')"></td>
+						     				<td><?php echo $days[$i] ?></td>
+						     				<td id="opentime_<?php echo $days[$i] ?>"><?php echo $open ?></td>
+						     				<td id="closetime_<?php echo $days[$i] ?>"><?php echo $close ?></td>
+						     			</tr>
+						     			
+						     		<?php endfor; ?> 			
+						     		</tbody>
+						     	</table> 
 					    	<div class="form-group">
 					            <label for="photo">Photo</label>
 					            <input type="file" name = "photo" class="form-control" placeholder="Profile Photo">
@@ -127,14 +123,9 @@
 							<input type="hidden" name="username" id="username" value="<?php echo $restaurant->username; ?>">
 					    	<input type="submit" name="update" value="Update" class="btn btn-primary ">
 					    	</td>
-					
 						</form>
-
-						
-
 						</div>
 					</div>
-							    
 				</div>
 				<!--End of Restaurant info update-->
 				<!--Menu Tab-->
