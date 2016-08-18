@@ -203,7 +203,84 @@ class Admin extends CI_Controller{
 
 	}
 
+	public function cuisines(){
+		$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 
+		$this->template->load('default_admin','admin/cuisines/index',$data); 
+	}
+
+	public function add_cuisine(){
+		if($this->input->post('submit')){
+
+			$config['allowed_types']        = 'jpg|png';
+            $config['max_size']             = 10000;
+            // $config['max_width']            = 1000;
+            // $config['max_height']           = 768;
+
+            
+								
+			$config['upload_path']          = 'images/cuisines';
+			$config['overwrite']			= False;
+			$this->upload->initialize($config);
+
+			//Check if the folder for the upload existed
+			if(!file_exists($config['upload_path']))
+			{
+				//if not make the folder so the upload is possible
+				mkdir($config['upload_path'], 0777, true);
+			}
+
+            if ($this->upload->do_upload('photo'))
+            {	
+            	$image = $this->upload->data();
+                //Get the link for the database
+                $photo = $config ['upload_path'] . '/' . $image['file_name'];
+            }
+
+			//image_moo
+			$this->image_moo
+				->load($config ['upload_path'] . '/' . $image['file_name'])
+				->resize_crop(350,250)
+				->save_pa('','_thumb');
+
+			$this->image_moo
+			->load($config ['upload_path'] . '/' . $image['file_name'])
+			->resize_crop(1900,700)
+			->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
+
+			$data = array(
+
+				'name'	=> $this->input->post('name'),
+				'photo' => $photo,
+				'thumb' => $config ['upload_path'] . '/' . $image['raw_name'].'_thumb'.$image['file_ext']
+
+				);
+
+			$this->crud_model->insert_data('cuisines',$data);
+
+			redirect('admin/cuisines');
+		}
+
+		else{
+			redirect('admin/cuisines');
+		}
+	}
+
+	public function delete_cuisine(){
+		if($this->input->post('delete')){
+
+			$cuisine = $this->crud_model->get_by_condition('cuisines',array('id' => $this->input->post('id')))->row();
+
+			unlink($cuisine->photo);
+			unlink($cuisine->thumb);
+
+			$this->crud_model->delete_data('cuisines',array('id' => $this->input->post('id')));
+	
+		}
+
+		redirect('admin/cuisines');
+		
+	}
 
 
 

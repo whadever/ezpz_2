@@ -22,32 +22,38 @@
 			if($cuisine != ''){
 				$cuisine_name = str_replace('%20', ' ', $cuisine);
 				$data['cuisine_name'] = $cuisine_name;
-				$cuisine_id = $this->crud_model->get_by_condition('cuisines', array('name' => $cuisine_name))->row('id');
+				$cuisine= $this->crud_model->get_by_condition('cuisines', array('name' => $cuisine_name))->row();
 				
 				$data['page_title']	= 'Restaurants';
-				$data['restaurants']= $this->restaurant_model->get_restaurants($cuisine_id);
-				
+				$data['restaurants']= $this->restaurant_model->get_restaurants($cuisine->id);
+				$data['background'] = base_url().$cuisine->photo;
 
 			}else{
 				$data['cuisine_name'] = "All Restaurants";
 				$data['page_title']	= 'Restaurants';
 				$data['restaurants']=$this->crud_model->get_by_condition('restaurants',array('is_verified' => 1))->result();
+				$data['background'] = base_url()."images/pihza.jpg";
 			}
 				$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 				$data['restaurant_time'] = $this->crud_model->get_data('restaurant_time')->result();
-				$data['background'] = base_url()."images/pihza.jpg";
+				
 				$this->template->load('default','restaurant/restaurant_list' ,$data);	
 		}
 		
 
 		public function detail($name = ''){
 
-
-
 			if($this->input->post('restaurant-search') != ''){
 				$name = $this->input->post('restaurant-search');
+
+				$restaurant = $this->crud_model->get_by_condition('restaurants',array('name' => $name))->row();
+				if(!$restaurant){
+
+					redirect($this->uri->segment());
+
+				}
 			}
-			elseif($this->input->post('restaurant-search') == '' && $name ==''){
+			else if($this->input->post('restaurant-search') == '' && $name ==''){
 				redirect('main');
 			}
 

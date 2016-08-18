@@ -189,7 +189,7 @@
 	  <a href="<?php echo base_url('admin/users') ?>">User List</a>
 	  <a href="<?php echo base_url('admin/drivers/1') ?>">Driver List</a>
 	  <a href="<?php echo base_url('admin/clients/1') ?>">Client List</a>
-	  <a href="<?php echo base_url('buyers') ?>">Buyers</a>
+	  <a href="<?php echo base_url('admin/cuisines') ?>">Cuisines</a>
 	  <a href="<?php echo base_url('home/change_pass') ?>">Change Password</a>
 	  <a href="<?php echo base_url('admin_login/logout') ?>">Logout</a>
 	  <div class="bottom-align-text text-center">Copyright &copy; 2016 | Hassee Developers</div>

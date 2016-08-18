@@ -83,29 +83,29 @@ class Login extends CI_Controller{
 			if($this->input->post('register')){
 
 				$config['allowed_types']        = 'jpg|png';
-		            $config['max_size']             = 5000;
-		            // $config['max_width']            = 1000;
-		            // $config['max_height']           = 768;
+	            $config['max_size']             = 5000;
+	            // $config['max_width']            = 1000;
+	            // $config['max_height']           = 768;
 
-		            
-										
-					$config['upload_path']          = 'uploads/user/' . $this->input->post('username');
-					$config['overwrite']			= True;
-					$config['file_name']			= 'photo.jpg';
-					$this->upload->initialize($config);
+	            
+									
+				$config['upload_path']          = 'uploads/user/' . $this->input->post('username');
+				$config['overwrite']			= True;
+				$config['file_name']			= 'photo.jpg';
+				$this->upload->initialize($config);
 
-					//Check if the folder for the upload existed
-					if(!file_exists($config['upload_path']))
-					{
-						//if not make the folder so the upload is possible
-						mkdir($config['upload_path'], 0777, true);
-					}
+				//Check if the folder for the upload existed
+				if(!file_exists($config['upload_path']))
+				{
+					//if not make the folder so the upload is possible
+					mkdir($config['upload_path'], 0777, true);
+				}
 
-	                if ($this->upload->do_upload('photo'))
-	                {
-	                    //Get the link for the database
-	                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
-	                }
+                if ($this->upload->do_upload('photo'))
+                {
+                    //Get the link for the database
+                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
+                }
 
 
 
@@ -223,11 +223,13 @@ class Login extends CI_Controller{
 
 		/*Set the Rules*/
 		$this->form_validation->set_rules('username', 'Username', 'is_unique[users.username]|is_unique[drivers.username]|is_unique[restaurants.username]');
+		$this->form_validation->set_rules('name', 'Restaurant Name', 'is_unique[restaurants.name]');
 		$this->form_validation->set_rules('email', 'Email', 'valid_email|is_unique[users.email]|is_unique[drivers.email]|is_unique[restaurants.email]');
 		
 		if($this->form_validation->run() == FALSE){
 
 			$data['page_title'] = 'Register';
+			$data['background'] = $data['background'] = base_url()."images/pihza.jpg";
 
 			$this->template->load('default_login', 'login/register_client',$data);
 

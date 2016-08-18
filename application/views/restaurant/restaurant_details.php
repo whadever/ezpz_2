@@ -16,6 +16,7 @@
 				<p>Closed Today</p>
 			<?php endif; ?>
 			<p><?php echo $restaurant->telephone.' ' ?></p>
+
 		</div>
 		
 	</div>
@@ -28,7 +29,8 @@
 		    <li><a data-toggle="tab" href="#menu2">Photos</a></li>
 		  </ul>
 		 <?php if($restaurant_time): ?>
-		  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime))){
+		  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) && 
+				date('H:i') < date('H:i',strtotime($restaurant_time->closetime))){
 		  		$disabled = 'disabled';?>
 		  		
 				<?php }else{
