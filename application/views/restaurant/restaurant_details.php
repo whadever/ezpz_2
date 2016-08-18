@@ -1,7 +1,7 @@
 
 
 	<div class="row">
-		
+		<div class="container">
 		<div class="col-xs-12 restaurant-detail">
 				
 			<h2 style="display:inline;"><?php echo $restaurant->name.' ' ?></h2>
@@ -16,12 +16,13 @@
 				<p>Closed Today</p>
 			<?php endif; ?>
 			<p><?php echo $restaurant->telephone.' ' ?></p>
-
+		</div>	
 		</div>
 		
 	</div>
 
 	<div class="row">
+	<div class="container">
 		<div class="col-xs-12">
 		  <ul class="nav nav-tabs">
 		    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
@@ -117,7 +118,7 @@
 		    </div>
 		  </div>
 
-		</div>
+		</div></div>
 	</div>
 
 <script>
