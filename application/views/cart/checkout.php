@@ -35,7 +35,7 @@
                 <?php echo form_hidden('rowid[]', $items['rowid']); ?>
 
                 <tr>
-                        <td><td><a onclick="return confirm('Are you sure?')" href="<?php echo site_url('cart/remove/'.$item['rowid']) ?>">&times;</a></td></td>
+                        <td><a onclick="return confirm('Are you sure?')" href="<?php echo site_url('cart/remove/'.$items['rowid']) ?>">&times;</a></td>
                         <td><?php echo $i ?></td>
                         <td><?php echo $items['name']; ?> </td>
                         <td><?php echo $items['qty']; ?></td>

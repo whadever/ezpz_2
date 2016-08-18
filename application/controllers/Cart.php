@@ -84,8 +84,25 @@
 		//Checkout
 		public function checkout ()
 		{
+			// if($this->input->post('restaurant-search') != ''){
+			// 	$name = $this->input->post('restaurant-search');
+
+			// 	$restaurant = $this->crud_model->get_by_condition('restaurants',array('name' => $name))->row();
+			// 	if(!$restaurant){
+
+			// 		redirect($this->uri->segment());
+
+			// 	}
+			// }
+			// else if($this->input->post('restaurant-search') == '' && $name ==''){
+			// 	redirect('main');
+			// }
+
+			// $restaurant_name = str_replace('%20', ' ', $name);
 			$data['page_title']	= 'Your Shopping';
 			$data['items']		= $this->cart->contents();
+			// $data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('name' => $restaurant_name))->row();
+			$data['background'] = base_url()."images/pihza.jpg";
 			$this->template->load('default','cart/checkout', $data);
 		}
 
