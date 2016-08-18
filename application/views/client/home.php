@@ -23,7 +23,7 @@
 					<div class="row">
 						<div class="col-md-7 col-xs-12">
 								<div class="form-group">
-							        <label for="username">Restaurant Name</label>
+							        <label for="name">Restaurant Name</label>
 							        <input type="text" name ="name" class="form-control" value="<?php echo $restaurant->name; ?>">
 							    </div>
 							    <div class="form-group">
@@ -124,6 +124,7 @@
 					        </div>
 					    	<input type="hidden" name="lat" id="lat" value="<?php echo $restaurant->latitude; ?>">
 							<input type="hidden" name="lng" id="lng" value="<?php echo $restaurant->longitude; ?>">
+							<input type="hidden" name="username" id="username" value="<?php echo $restaurant->username; ?>">
 					    	<input type="submit" name="update" value="Update" class="btn btn-primary ">
 					    	</td>
 					

@@ -21,7 +21,7 @@
 
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 			    <div class="hovereffect">
-			        <img class="img-responsive" src="images/cuisines/<?php echo $cuisine->photo ?>" alt="">
+			        <img class="img-responsive" src="<?php echo $cuisine->thumb ?>" alt="">
 			            <div class="overlay">
 			                <h2><?php echo "$cuisine->name"; ?></h2>
 							<p> 

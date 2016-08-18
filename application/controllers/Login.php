@@ -259,10 +259,16 @@ class Login extends CI_Controller{
 					}
 
 	                if ($this->upload->do_upload('photo'))
-	                {
+	                {	
+	                	$image = $thiss->upload->data();
 	                    //Get the link for the database
 	                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
 	                }
+
+	                $this->image_moo
+					->load($config ['upload_path'] . '/' . $image['file_name'])
+					->resize_crop(1900,700)
+					->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
 
 					$data = array(
 

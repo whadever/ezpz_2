@@ -128,12 +128,20 @@ class Client extends CI_Controller{
             if($this->upload->do_upload('photo'))
             {
                 //Get the link for the database
+                $image = $this->upload->data();
                 $photo = $config ['upload_path'] . '/' . $config ['file_name'];
+                $this->image_moo
+					->load($photo)
+					->resize_crop(1900,700)
+					->save($photo,TRUE);
             }else{
             	$photo = $this->crud_model->get_by_condition('restaurants',array('id' => $this->session->userdata('user_id')))->row('photo');
             }
 
+
+
 			$data = array(
+			
 			'name'				=> $this->input->post('name'),
 			'email' 			=> $this->input->post('email'),
 			'latitude'			=> $this->input->post('lat'),
