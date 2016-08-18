@@ -36,62 +36,51 @@
   <header>
   <!--NavBar-->
       <div class="container-fluid">
-          
-          <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span> 
-                </button>
-                <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
-              </div>
+	          <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+	            <div class="container">
+	              <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	                  <span class="icon-bar"></span>
+	                  <span class="icon-bar"></span>
+	                  <span class="icon-bar"></span> 
+	                </button>
+	                <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
+	              </div>
 
-              <div class="collapse navbar-collapse" id="myNavbar">
+	              <div class="collapse navbar-collapse" id="myNavbar">
 
-                <ul class="nav navbar-nav navbar-left">
-                  <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
-                  <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
-                  <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li>
-                  
-                  <li role="separator" class="divider" style="background-color: white; height: 1px"></li>
-                </ul>
+	                <ul class="nav navbar-nav navbar-left">
+	                  <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
+	                  <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
+	                  <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li>
+	                  
+	                  <li role="separator" class="divider" style="background-color: white; height: 1px"></li>
+	                </ul>
 
-                <?php if($this->session->userdata("isLogged") == FALSE): ?>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#" data-toggle="modal" data-target="#cartModal"><?php echo $this->cart->total_items() ?>
-                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
-                  </a></li>
-                
-                  <li><a href="<?php echo base_url('login/register/user') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-                <?php else: ?>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#cartModal"><?php echo $this->cart->total_items() ?>
-                      <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
-                    </a></li>
-                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type');?>/profile/<?php echo $this->session->userdata('user_id') ?>"><?php echo $this->session->userdata('name') ?></a></li>
-                     
-                         
-
-                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" class="nav-link">Edit Profile</a></li>
-
-                      <li><a href="#">Top Up Wallet</a></li>
-                       
-                      
-                      <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-                  </ul>
-                <?php endif; ?>
-               
-
-              </div>
-            </div>
-          </nav>
-
+	                <?php if($this->session->userdata("isLogged") == FALSE): ?>
+	                <ul class="nav navbar-nav navbar-right">
+	                  <li><a href="#" data-toggle="modal" data-target="#cartModal"><?php echo $this->cart->total_items() ?>
+	                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
+	                  </a></li>
+	                
+	                  <li><a href="<?php echo base_url('login/register/user') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	                  <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	                </ul>
+	                <?php else: ?>
+	                  <ul class="nav navbar-nav navbar-right">
+	                    <li><a href="#" data-toggle="modal" data-target="#cartModal"><?php echo $this->cart->total_items() ?>
+	                      <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
+	                    </a></li>
+	                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type');?>/profile/<?php echo $this->session->userdata('user_id') ?>"><?php echo $this->session->userdata('name') ?></a></li>
+	                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" class="nav-link">Edit Profile</a></li>
+	                      <li><a href="#">Top Up Wallet</a></li>
+	                      <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+	                  </ul>
+	                <?php endif; ?>
+	               </div>
+	            </div>
+	          </nav>
       </div>
-
   </header>
 
 

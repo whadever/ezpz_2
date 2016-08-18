@@ -68,6 +68,18 @@ body.modal-open[style] {
 .padding-top-five{
   padding-top: 5%;
 }
+/*Content-tabs*/
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 15px;
+    padding-left: 25px;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+
 /*For navbar*/
 #myNavbar{
   padding-right: 10px;
@@ -168,28 +180,18 @@ width: 50%;
 #search_bar{
   width:50%;
 }
-/*What can You DO box*/
+/*What can You Do box*/
 .do-button{
   margin-top: 10%;
 }
 /*For the food section*/
-.section-head{
-	height: 40px;
-	background-color: #000;
-	line-height: 40px;
-	color: #fff;
-
-}
-.section-head h3{
-	margin-top: 7px;
-}
 .food {
     margin-bottom: 20px;
     padding: 0;
     padding-bottom: 20px;
     background-color: #5BC0DE;
 }
-/*Image + Hover*/
+/*Image + Hover For Cuisines at Home*/
 .hovereffect {
   width: 100%;
   height: 100%;

@@ -1,16 +1,13 @@
 
-<div class="container-fluid padding-top-five">
+<div class="container">
 	<h2 style="margin-left:1%;"><?php echo $cuisine_name ?></h2>
 	<hr>
-
 	<?php 
 
 	$counter=0;
 	//Get Restaurant
 	if($restaurants):
 	foreach($restaurants as $restaurant): ?>
-
-		 
 		<!-- Put Div row in every first of three -->
 		<?php if($counter % 3 ==  0): ?>
 			<div class="row">

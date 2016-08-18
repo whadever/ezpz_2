@@ -1,49 +1,31 @@
 <div class="row" style="padding-top:10px;">
-		<!--Side Navigation-->
-		<div class="col-sm-2 hidden-xs">
-			<ul class="nav nav-pills nav-stacked">
-				<li class="profile-pills" class="active"> <a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data"> Update Restaurant Page </a> </li>
-				<li class="profile-pills"> <a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/change_login"> Update Login Details </a> </li>
-			</ul>
-		</div>
 		<!--The content tabs-->
-		<div class="col-sm-10">
+		<div class="col-sm-12" style="margin-top:10px;">
 			<ul class="nav nav-tabs">
 			    <li class="active"><a data-toggle="tab" href="#info">Update Restaurant Info</a></li>
 			    <li><a data-toggle="tab" href="#menu">Update Menu</a></li>
-			    <li><a data-toggle="tab" href="#time">Update Business Time</a></li>
+			    <li><a data-toggle="tab" href="#time">Change Password</a></li>
 		  	</ul>
 		  	<!--Restaurant Detail Tab-->
 		  	<div class="tab-content">
 				<div id="info" class="login tab-pane fade in active" style="margin-top:0px;">
 					<?php echo form_open_multipart('client/edit_profile/'.$this->session->userdata('user_id')) ?>
 					<div class="row">
-						<div class="col-xs-6">
+						<div class="col-md-7 col-xs-12">
 				        	<div class="heading">
 				            	<h3>Update Restaurant Info</h3>
 				            	
 				            </div>
 			            </div>
 
-			            <div class="col-xs-1"></div>
-
-			            <div class="col-xs-5">
-			            	<div class="heading">
-				            	<h3>Change Password</h3>
-				            	
-				            </div>
-			            </div>
 					</div>   
 					<hr>   
 					<div class="row">
-						
-						<div class="col-xs-6">
+						<div class="col-md-7 col-xs-12">
 								<div class="form-group">
 							        <label for="username">Restaurant Name</label>
 							        <input type="text" name ="name" class="form-control" value="<?php echo $restaurant->name; ?>">
 							    </div>
-						
-						
 							    <div class="form-group">
 							    	<label for="email">E-mail</label>
 							        <input type="text" name = "email" class="form-control" value="<?php echo $restaurant->email; ?>">
@@ -149,29 +131,6 @@
 
 						
 
-						</div>
-						<div class="col-xs-1"></div>
-						<div class="col-xs-5">
-							<?php echo form_open('dashboard/change_password/submit') ?>
-	
-						    	<div class="form-group">
-						            <label for="old_password">Old Password</label>
-						            <input type="password" name ="old_password" class="form-control" placeholder="Old Password" required="required">
-						        </div>
-						
-						    	<div class="form-group">
-						            <label for="new_password">New Password</label>
-						            <input type="password" name ="new_password" class="form-control" placeholder="New Password" required="required">
-						        </div>
-						  
-						    	<div class="form-group">
-						            <label for="conf_password">Confirm Password</label>
-						            <input type="password" name ="conf_password" class="form-control" placeholder="Confirm Password" required="required">
-						        </div>
-						
-						    	<input type="submit" name="submit" value="Update" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">
-						    
-						</form>
 						</div>
 					</div>
 							    
