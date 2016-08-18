@@ -59,9 +59,7 @@
 
 	                <?php if($this->session->userdata("isLogged") == FALSE): ?>
 	                <ul class="nav navbar-nav navbar-right">
-	                  <li><a href="#" data-toggle="modal" data-target="#cartModal"><?php echo $this->cart->total_items() ?>
-	                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
-	                  </a></li>
+	                  
 	                
 	                  <li><a href="<?php echo base_url('login/register/user') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 	                  <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -73,7 +71,7 @@
 	                    </a></li>
 	                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type');?>/profile/<?php echo $this->session->userdata('user_id') ?>"><?php echo $this->session->userdata('name') ?></a></li>
 	                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" class="nav-link">Edit Profile</a></li>
-	                      <li><a href="#">Top Up Wallet</a></li>
+	                      <li><a href="#"><?php echo NZD($credits) ?></a></li>
 	                      <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 	                  </ul>
 	                <?php endif; ?>

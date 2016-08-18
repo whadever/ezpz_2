@@ -66,6 +66,6 @@ function nama_bulan($month){
 
 function NZD($number){
 
-		return number_format($number,2).' NZD';
+		return '$ '.number_format($number,2);
 
 }

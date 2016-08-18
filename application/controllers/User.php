@@ -19,10 +19,11 @@ class User extends CI_Controller{
 
 
 
+
 	}
 
 	public function index(){
-
+		$data['credits'] = $this->crud_model->get_by_condition('users',array('id' => $this->session->userdata('user_id')))->row('credits');
 		$data['page_title'] = 'Home';
 		$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
@@ -35,7 +36,7 @@ class User extends CI_Controller{
 		if($id != $this->session->userdata('user_id')){
 			redirect('user');
 		}
-
+		$data['credits'] = $this->crud_model->get_by_condition('users',array('id' => $this->session->userdata('user_id')))->row('credits');
 		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 		$data['page_title'] = 'Profile';
 		$data['background'] = base_url()."images/pihza.jpg";
@@ -47,6 +48,7 @@ class User extends CI_Controller{
 		if($id != $this->session->userdata('user_id')){
 			redirect('user');
 		}
+		
 		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 		$data['page_title'] = 'Edit Profile';
 		$data['background'] = base_url()."images/pihza.jpg";
@@ -125,7 +127,7 @@ class User extends CI_Controller{
 			$this->session->set_flashdata('success', 'Profile has been updated');
 			redirect('user/profile/'.$id);
 		}
-		
+		$data['credits'] = $this->crud_model->get_by_condition('users',array('id' => $this->session->userdata('user_id')))->row('credits');
 		$this->template->load('default','user/edit_profile',$data);
 
 	}
