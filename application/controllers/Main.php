@@ -23,7 +23,6 @@
 		}
 
 		public function about(){
-			$data['credits'] = $this->crud_model->get_by_condition('users',array('id' => $this->session->userdata('user_id')))->row('credits');
 			$data['page_title'] = 'About';
 			$data['background'] = base_url()."images/pihza.jpg";
 			$this->template->load('default','main/about' ,$data);	

@@ -340,7 +340,8 @@ class Login extends CI_Controller{
 					'name'			=> $name,
 					'user_id'		=> $user->id,
 					'isLogged'		=> TRUE,
-					'type'			=> $user->type
+					'type'			=> $user->type,
+					'credits'		=> $user->credits
 								
 
 					);

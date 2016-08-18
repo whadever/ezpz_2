@@ -34,7 +34,7 @@
 				$data['restaurants']=$this->crud_model->get_by_condition('restaurants',array('is_verified' => 1))->result();
 				$data['background'] = base_url()."images/pihza.jpg";
 			}
-				$data['credits'] = $this->crud_model->get_by_condition('users',array('id' => $this->session->userdata('user_id')))->row('credits');
+				
 				$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 				$data['restaurant_time'] = $this->crud_model->get_data('restaurant_time')->result();
 				
@@ -72,7 +72,7 @@
 			$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 
 			$data['comments'] = $this->restaurant_model->get_comments($data['restaurant']->id);
-			$data['credits'] = $this->crud_model->get_by_condition('users',array('id' => $this->session->userdata('user_id')))->row('credits');
+		
 
 			$this->template->load('default','restaurant/restaurant_details' ,$data);	
 
