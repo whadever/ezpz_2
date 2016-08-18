@@ -131,6 +131,12 @@ class User extends CI_Controller{
 		$this->template->load('default','user/edit_profile',$data);
 
 	}
+
+	public function credits(){
+		$data['background'] = base_url()."images/pihza.jpg";
+		$this->template->load('default','user/credits',$data);
+
+	}
 }
 
  ?>
