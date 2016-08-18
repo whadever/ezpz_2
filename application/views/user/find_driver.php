@@ -26,6 +26,7 @@ function auto_load(){
           	}else{
           		setTimeout(auto_load,3000);
           	}
+            
           } 
         });
 }

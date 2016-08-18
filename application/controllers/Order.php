@@ -3,8 +3,9 @@
 	class Order extends CI_Controller{
 
 		public function __construct(){
+			parent::__construct();
 
-			if($this->session->userdata('isLogged') == false || $this->session->userdata('type') !='user'){
+			if($this->session->userdata('isLogged') == FALSE || $this->session->userdata('type') !='user'){
 				redirect('main');
 			}
 
@@ -20,11 +21,12 @@
 			}
 
 			$data['order_id'] = $order_id;
+			$data['background'] = base_url().'images/pihza.jpg';
 			$data['page_title'] = 'Order';
 			$data['order'] = $this->db->get_where('order_history', array('id' => $order_id))->row();
 
 
-			$this->template->load('default','users/find_driver', $data);
+			$this->template->load('default','user/find_driver', $data);
 
 			$this->cart->destroy();
 

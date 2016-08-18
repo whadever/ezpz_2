@@ -54,16 +54,17 @@ class Order_model extends CI_Model{
 
 		$to = implode (", ", $emails); 
 
-		//Emailing the drivers check *email model*
-		$this->load->model('email_model');
-		if($this->email_model->send_order($to, $restaurant_data))
-		{
-			//Return Order Id for later use
-			return $order_id;
-		}else
-		{
-			return 0;
-		}
+		// //Emailing the drivers check *email model*
+		// $this->load->model('email_model');
+		// if($this->email_model->send_order($to, $restaurant_data))
+		// {
+		// 	//Return Order Id for later use
+		// 	return $order_id;
+		// }else
+		// {
+		// 	return 0;
+		// }
+		return $order_id;
 
 	}
 

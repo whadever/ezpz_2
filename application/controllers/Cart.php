@@ -94,6 +94,7 @@
 		{
 			$data['page_title'] = 'Your Shopping Cart';
 			$data['items'] 		= $this->cart->contents() ;
+			$data['background'] = base_url()."images/pihza.jpg";
 			$this->template->load('default','cart/overview', $data);
 		}
 

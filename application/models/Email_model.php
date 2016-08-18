@@ -49,6 +49,33 @@ class Email_model extends CI_Model{
 
 	}
 
+	public function send_order ($email, $data)
+	{
+		$to = $email;
+		$subject = "New Food Order";
+		$message = "<h3>Hello!</h3>
+					<p>
+						Here is the order detail, to accept this order please login into the website.\n
+					<br>
+						Restaurant :" . $data->name . "\n
+					<br>
+						Address :" . $data->address . "\n
+					<br>
+					</p>";
+		$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+		$headers .= 'From: ordering@ezpzdelivery.co.nz' . "\r\n" .
+					'Reply-To: contact@ezpzdelivery.co.nz' . "\r\n" .
+					'X-Mailer: PHP/' . phpversion();
+		
+		if(!mail($to, $subject, $message, $headers))
+		{
+			return false;
+		}else
+		{
+			return true;
+		}
+	}
+
 		
 
 }
