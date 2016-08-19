@@ -172,7 +172,7 @@ width: 50%;
 
 /*Css for the full width image div*/
 .image-full{
-	height: 500px;
+	height: 400px;
 	padding-top: 20%;
 	background: url(http://placehold.it/350x250);
 }
