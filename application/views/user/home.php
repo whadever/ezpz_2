@@ -31,6 +31,8 @@
 			    </div>
 			</div>
 
+			<a href="<?php echo base_url('user/send_mail') ?>" class="btn btn-default">Send mail</a>
+
 			
 			<!-- Put Div close in every three of three  -->
 			<?php if($counter % 4 ==  3): ?>

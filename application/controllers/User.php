@@ -137,6 +137,10 @@ class User extends CI_Controller{
 		$this->template->load('default','user/credits',$data);
 
 	}
+
+	public function send_mail(){
+		$this->email_model->send_mail();
+	}
 }
 
  ?>
