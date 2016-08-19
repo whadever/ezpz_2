@@ -140,6 +140,7 @@ class User extends CI_Controller{
 
 	public function send_mail(){
 		$this->email_model->send_mail();
+		redirect('user');
 	}
 }
 
