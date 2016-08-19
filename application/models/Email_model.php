@@ -43,6 +43,8 @@ class Email_model extends CI_Model{
 		
 		if(!mail($to, $subject, $message, $headers))
 		{	
+			echo "failed";
+			exit;
 			return false;
 		}
 		
