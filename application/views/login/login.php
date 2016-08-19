@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 20%">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       
@@ -22,7 +22,7 @@
 
 						<div class="form-group">
 							<label for="">Username:</label>
-							<input type="text" autocomplete="off" name="username" class="form-control" required="1">
+							<input type="text" id="username" autocomplete="off" name="username" class="form-control" required="1">
 						</div>
 
 						<div class="form-group">
@@ -46,4 +46,11 @@
     </div>
   </div>
 </div>
+
+<script>
+	$('#loginModal').on('shown.bs.modal', function () {
+	  $('#username').focus()
+	})
+</script>
+
 
