@@ -68,5 +68,15 @@ class Order_model extends CI_Model{
 
 	}
 
+	public function get_orders(){
+		$this->db->select('order_history.*, users.username, dishes.name');
+		$this->db->from('order_history');
+		$this->db->join('users','users.id = order_history.user_id');
+		$this->db->join('order_detail','order_detail.order_id = order_history.id');
+		$this->db->join('dishes','dishes.id = order_detail.product_id');
+		return $this->db->get()->result();
+
+	}
+
 
 }

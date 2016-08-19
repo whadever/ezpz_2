@@ -7,90 +7,58 @@
 				<thead>
 					<tr>
 						<td>
+							Order ID
+						</td>	
+						<td>
 							Client's Name
 						</td>
 						<td>
-							Location
+							Items
 						</td>
 						<td>
-							Distance
+							Code
 						</td>
 						<td>
-							Price
+							Total Quantity
+						</td>
+						<td>
+							Total Price
+						</td>
+						<td>
+							Status
+						</td>
+						<td>
+							&nbsp;
 						</td>
 					</tr>
 				</thead>
+
 				<tbody>
+					<?php foreach($orders as $order): ?>
 					<tr>
 						<td>
-							Irvan Winata
+							<?php echo $order->id  ?>
 						</td>
 						<td>
-							Kelapa Gading
+							<?php echo $order->username  ?>
 						</td>
 						<td>
-							20 Km
+							<?php echo $order->name  ?>
 						</td>
 						<td>
-							<?php echo nzd(102010) ?>
+							<?php echo $order->code ?>
+						</td>
+						<td>
+							<?php echo $order->total_qty." Items" ?>
+						</td>
+						<td>
+							<?php echo NZD($order->total_price) ?>
+						</td>
+						<td>
+							<?php echo $order->status ?>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							Irvan Winata
-						</td>
-						<td>
-							Kelapa Gading
-						</td>
-						<td>
-							20 Km
-						</td>
-						<td>
-							Rp. 100,000
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Irvan Winata
-						</td>
-						<td>
-							Kelapa Gading
-						</td>
-						<td>
-							20 Km
-						</td>
-						<td>
-							Rp. 100,000
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Irvan Winata
-						</td>
-						<td>
-							Kelapa Gading
-						</td>
-						<td>
-							20 Km
-						</td>
-						<td>
-							Rp. 100,000
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Irvan Winata
-						</td>
-						<td>
-							Kelapa Gading
-						</td>
-						<td>
-							20 Km
-						</td>
-						<td>
-							Rp. 100,000
-						</td>
-					</tr>
+					<?php endforeach; ?>
 				</tbody>
 		</table>
 

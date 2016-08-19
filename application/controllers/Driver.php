@@ -23,6 +23,7 @@ class Driver extends CI_Controller{
 
 		$data['page_title'] = 'Driver';
 		$data['background'] = base_url()."images/pihza.jpg";
+		$data['orders'] = $this->order_model->get_orders();
 
 		$this->template->load('default_driver','driver/home',$data);
 

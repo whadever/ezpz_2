@@ -38,6 +38,10 @@
 			echo $status;
 		}
 
+		public function driver_found(){
+			$this->load->view('user/driver_found');
+		}
+
 
 	}
  ?>

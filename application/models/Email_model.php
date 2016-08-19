@@ -26,8 +26,9 @@ class Email_model extends CI_Model{
 	}
 
 	public function send_mail(){
+		echo "string";
 		
-		$to = "irpanwinata@gmail.com";
+		$to = "setyawansusanto99@outlook.com";
 		$subject = "Your to Your New EZPZ Account!";
 		$message = "Hello!
 					Here is your link for account verification\n";
