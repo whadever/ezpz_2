@@ -91,8 +91,8 @@
 				    	</div>
 				    	<?php echo form_close() ?>					    	
 				    	<?php endforeach; ?>
-				    </div>
-
+				    </div><!--End of Menu tab-->
+				    <!--Review Tab-->
 				    <div id="review" class="tab-pane fade">
 				      	<h3>Reviews</h3>
 
@@ -114,7 +114,6 @@
 						<?php echo form_close(); ?>
 						<?php endif; ?>
 					
-				      	<div id="review">
 				      	<?php foreach ($comments as $comment): ?>
 				      		<div class="panel panel-default panel-horizontal">
 					      		<div class="panel-heading text-center">
@@ -127,8 +126,15 @@
 					      		</div>
 					      	</div>
 				      	<?php endforeach ?>
-				    	</div>
-				    </div>	
+				    </div><!--End of Review Panel-->
+				    </div><!--End of Tabcontent-->	
+				  </div>
+				  <div class="col-sm-4 col-xs-12" style="padding: 20px 15px 10px 15px;">
+				  	<div class="col-xs-12" style="border:1px #ddd solid;padding-bottom:10px;">
+				  		<h3 class="text-center">Order Details</h3>
+				  		<?php $this->load->view('cart/overview');?>
+
+				  	</div>
 				  </div>
 			</div>
 		</div>
