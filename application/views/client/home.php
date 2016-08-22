@@ -25,7 +25,7 @@
 							        <input type="text" name ="name" class="form-control" value="<?php echo $restaurant->name; ?>">
 							    </div>
 							    <div class="form-group">
-							    	<label for="email">E-mail</label>
+							    	<label fr="email">E-mail</label>
 							        <input type="text" name = "email" class="form-control" value="<?php echo $restaurant->email; ?>">
 							    </div>
 						
@@ -158,7 +158,7 @@
 							    				<td><?php echo $dish->name ?></td>
 							    				<td><?php echo $dish->description ?></td>
 							    				<td><?php echo NZD($dish->price) ?></td>
-							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true" href="" data-toggle="modal" data-target="#edit_menu" data-id="<?php echo $dish->id?>" data-name="<?php echo $dish->name?>" style="cursor:pointer;""></span>
 							    				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 							    				</td>
 							    			</tr>
@@ -175,6 +175,7 @@
 						</div>
 					</div>
 					<!--Menu Table end-->
+
 					<!-- Modal -->
 					<div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					  <div class="modal-dialog" role="document">
@@ -209,7 +210,43 @@
 					      <?php echo form_close() ?>
 					    </div>
 					  </div>
-					</div>
+					</div><!--Menu Add Modal End-->
+					<!-- Modal Edit Menu-->
+					<div class="modal fade" id="edit_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content login">
+					      <div class="modal-header heading">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Edit Dish Detail</h4>
+					      </div>
+					      <?php echo form_open_multipart('client/edit_menu') ?>
+					      <div class="modal-body">
+					        	<div class="form-group">
+					        		<label for="name">Name</label>
+					        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
+					        	</div>
+					        	<div class="form-group">
+					        		<label for="price">Price</label>
+					        		<input type="number" class="form-control" name="price" id="price" value="" placeholder="Dish's Price" required="1">
+					        	</div>
+					        	<div class="form-group">
+					        		<label for="photo">Photo</label>
+					        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo" required="1">
+					        	</div>
+					        	<div class="form-group">
+					        		<label for="description">Description</label>
+					        		<textarea class="form-control" name="description" value="" placeholder="Dish's Description" rows="3" ></textarea>
+					        	</div>
+					      </div>
+					      <div class="modal-footer">
+					        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
+					        <input type="submit" class="btn btn-danger" data-dismiss="modal" value="Close">
+					      </div>
+					      <?php echo form_close() ?>
+					    </div>
+					  </div>
+					</div><!--Edit menu modal-->
+				</div><!--End of menu tab-->
 				</div><!--End of menu tab-->
 				<!--Update Password-->
 				<div id="pass" class="login tab-pane fade">
@@ -372,5 +409,23 @@ $(document).ready(function() {
       return false;
     }
   });
+});
+</script>
+
+<script>
+//triggered when modal is about to be shown
+$('#edit_menu').on('show.bs.modal', function(e) {
+
+    //get data-id attribute of the clicked element
+    var id = $(e.relatedTarget).data('id');
+    var name = $(e.relatedTarget).data('name');
+    var price = document.getElementById("price").value;
+    var description = $(e.relatedTarget).data('description');
+    alert(price);
+    //populate the textbox
+    $(e.currentTarget).find('input[name="name"]').val(name);
+    $(e.currentTarget).find('input[name="id"]').val(id);
+    $(e.currentTarget).find('input[name="price"]').val(price);
+    $(e.currentTarget).find('input[name="description"]').val(description);
 });
 </script>
