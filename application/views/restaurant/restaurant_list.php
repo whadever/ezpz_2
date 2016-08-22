@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container-fluid">
 	<h2 style="margin-left:1%;"><?php echo $cuisine_name ?></h2>
 	<hr>
 	<?php 

@@ -1,6 +1,6 @@
 <?php echo form_open(''); ?>
 
-<div class="container" id="cart-info">
+<div class="container padding-top-five" id="cart-info">
         
        <!--  <?php if($this->session->flashdata('success')): ?>
                 
@@ -17,7 +17,7 @@
 
         <?php endif; ?> -->
 
-        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered">
+        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered table-striped">
 
         <tr>    
                 <th>&nbsp;</th>
@@ -47,9 +47,9 @@
         <?php endforeach; ?>
 
         <tr>
-                <td colspan="3"> </td>
+                <td colspan="4"> </td>
                 <td class="right"><strong>Total</strong></td>
-                <td class="right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                <td class="text-right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
         </tr>
 
         </table>

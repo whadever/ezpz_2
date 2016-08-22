@@ -4,7 +4,7 @@
 			<ul class="nav nav-tabs">
 			    <li class="active"><a data-toggle="tab" href="#info">Update Restaurant Info</a></li>
 			    <li><a data-toggle="tab" href="#menu">Update Menu</a></li>
-			    <li><a data-toggle="tab" href="#time">Change Password</a></li>
+			    <li><a data-toggle="tab" href="#pass">Change Password</a></li>
 		  	</ul>
 		  	<!--Restaurant Detail Tab-->
 		  	<div class="tab-content">
@@ -132,10 +132,11 @@
 				<div id="menu" class="tab-pane fade">
 					<div class="row">
 						<div class="col-xs-12"><?php echo form_open() ?>
-							<div class="panel panel-default">
-							  <div class="panel-heading">
-							    <h3 class="panel-title">List Menu</h3>
-							  </div>
+							<div class="heading">
+								<h2>Menu List</h2>
+							</div>
+							<hr>
+							<div class="panel panel-default">							  
 							  <div class="panel-body">
 							    	<table class="table table-striped">
 							    		<thead>
@@ -143,6 +144,7 @@
 							    				<th>No.</th>
 							    				<th>Photo</th>
 							    				<th>Name</th>
+							    				<th>Description</th>
 							    				<th>Price</th>
 							    				<th>Action</th>
 							    			</tr>
@@ -154,6 +156,7 @@
 							    				<td><?php echo $i ?></td>
 							    				<td><img src="<?php echo base_url($dish->photo) ?>" width="50" alt=""></td>
 							    				<td><?php echo $dish->name ?></td>
+							    				<td><?php echo $dish->description ?></td>
 							    				<td><?php echo NZD($dish->price) ?></td>
 							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 							    				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -208,8 +211,8 @@
 					  </div>
 					</div>
 				</div><!--End of menu tab-->
-				<!--Update Restaurant Time-->
-				<div id="time" class="login tab-pane fade">
+				<!--Update Password-->
+				<div id="pass" class="login tab-pane fade">
 					<?php echo form_open('dashboard/change_password/submit') ?>
 					<table align="center">
 						<tr>

@@ -70,7 +70,7 @@
 	                    </a></li>
 	                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type');?>/profile/<?php echo $this->session->userdata('user_id') ?>"><?php echo $this->session->userdata('name') ?></a></li>
 	                      <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" class="nav-link">Edit Profile</a></li>
-	                      <li><a href="<?php echo base_url('user/credits') ?>"><?php echo NZD($this->session->userdata('credits')) ?></a></li>
+	                      <li><a href="<?php echo base_url('user/credits') ?>"><?php echo NZD($this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits')) ?></a></li>
 	                      <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 	                  </ul>
 	                <?php endif; ?>

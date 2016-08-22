@@ -15,7 +15,7 @@
 <?php endif; ?>
 	
 	<div class="row">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 restaurant-detail">
 						
@@ -36,26 +36,25 @@
 		</div>
 		
 	</div>
-
 	<div class="row">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-				  <ul class="nav nav-tabs">
-				    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
-				    <li><a data-toggle="tab" href="#review">Reviews</a></li>
-				  </ul>
-				 <?php if($restaurant_time): ?>
-				  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) || 
-						date('H:i') > date('H:i',strtotime($restaurant_time->closetime))){
-				  		$disabled = 'disabled';?>
-				  		
-						<?php }else{
-				  		$disabled = '';
-				  	}?>
-				  <?php else: ?>
-						<?php $disabled = 'disabled'; ?>
-				  <?php endif ?>
+		<div class="container-fluid" >
+			<div class="row" style="padding-right:">
+				<div class="col-sm-8 col-xs-12">
+					  <ul class="nav nav-tabs">
+					    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
+					    <li><a data-toggle="tab" href="#review">Reviews</a></li>
+					  </ul>
+					  <?php if($restaurant_time): ?>
+					  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) || 
+							date('H:i') > date('H:i',strtotime($restaurant_time->closetime))){
+					  		$disabled = 'disabled';?>
+					  		
+							<?php }else{
+					  		$disabled = '';
+					  	}?>
+					  <?php else: ?>
+							<?php $disabled = 'disabled'; ?>
+					  <?php endif ?>
 				  
 					<div class="tab-content">
 				    
@@ -131,8 +130,6 @@
 				    	</div>
 				    </div>	
 				  </div>
-
-				</div>
 			</div>
 		</div>
 	</div>
