@@ -98,5 +98,20 @@
 			$this->template->load('default','cart/overview', $data);
 		}
 
+		//destroy Cart
+		public function destory ($param = 'yes')
+		{	
+			//Get Resto id from cart
+			$restaurant_id 		= $this->cart_model->getRestaurantId();
+			if($param == 'yes')
+			{
+				$this->cart->destroy();
+				redirect($this->session->flashdata('url'));
+			}else
+			{
+				redirect(base_url() . 'restaurant/detail/' . str_replace(' ', '%20', $this->crud_model->get_by_condition('restaurants', array('id' => $restaurant_id))->row()->name));
+			}
+		}
+
 	}
 ?>	

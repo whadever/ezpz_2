@@ -114,6 +114,7 @@
 <!-- Modal -->
 
 <?php $this->load->view('login/login') ?>
+<?php $this->load->view('restaurant/cart_check'); ?>
         
   
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
@@ -154,12 +155,13 @@ $(document).ready(function(){
     });
 </script>
 
+
 <script>
 
     var test = [""];
     <?php $i = 0; ?>
 
-    <?php foreach ($restaurants as $restaurant): ?>
+    <?php foreach ($lists as $restaurant): ?>
         test[<?php echo $i ?>] = "<?php echo $restaurant['username'] ?>"
         <?php $i++; ?>
     <?php endforeach; ?>

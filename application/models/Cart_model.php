@@ -33,6 +33,14 @@
 			$this->cart->update($data);	
 		}
 
+		public function getRestaurantId ()
+		{
+			foreach ($this->cart->contents() as $cart) {
+				$id 	= $cart['id'];
+			}
+
+			return $this->db->get_where('dishes', array('id' => $id))->row()->restaurant_id;
+		}
 		
 	}
  ?>

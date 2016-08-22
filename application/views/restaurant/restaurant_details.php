@@ -1,5 +1,19 @@
+<?php if($cartDestroy == TRUE): ?>
+	
+<script>
+	 $(window).load(function(){
 
+        $('#checkCart').modal({
+		  backdrop: 'static',
+		  keyboard: false
+		});
+		
+        $('#checkCart').modal('show');
+    })
+</script>	
 
+<?php endif; ?>
+	
 	<div class="row">
 		<div class="container">
 			<div class="row">
@@ -72,7 +86,7 @@
 							    <!-- Get URL -->
 							    <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
 				    			
-				    			<input type="submit" value="Add to Cart" class="btn btn-primary pull-right">
+				    			<input type="submit" value="Add to Cart" class="btn btn-primary pull-right" onClick="checkCart()">
 
 				    		</div>
 				    	</div>
@@ -147,7 +161,7 @@ $("#restaurant-search").typeahead({
     function submit(){
 
         $("#comment").submit();
-}
+	}
 
 </script>
 

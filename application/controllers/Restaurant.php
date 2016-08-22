@@ -73,6 +73,22 @@
 
 			$data['comments'] = $this->restaurant_model->get_comments($data['restaurant']->id);
 		
+			//If cart have contents destroy cart, and add new items
+			if($this->cart->total_items() > 0)
+			{
+				$restaurant_id 		= $this->cart_model->getRestaurantId();
+				$current_restaurant = $this->crud_model->get_by_condition('restaurants', array('name' => $restaurant_name))->row()->id;
+				if($restaurant_id != $current_restaurant)
+				{
+					$data['cartDestroy'] = TRUE;
+				}else
+				{
+					$data['cartDestroy'] = False;
+				}
+			}else
+			{
+				$data['cartDestroy'] = False;
+			}
 
 			$this->template->load('default','restaurant/restaurant_details' ,$data);	
 
