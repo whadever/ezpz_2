@@ -158,7 +158,7 @@
 							    				<td><?php echo $dish->name ?></td>
 							    				<td class="hidden-xs" style="max-width: 200px"><div style="word-wrap: break-word; width: 80%"><?php echo $dish->description ?></div></td>
 							    				<td><?php echo NZD($dish->price) ?></td>
-							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true" href="" data-toggle="modal" data-target="#edit_menu" data-id="<?php echo $dish->id?>" data-name="<?php echo $dish->name?>" style="cursor:pointer;""></span>
+							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true" href="" data-toggle="modal" data-target="#edit_menu" data-id="<?php echo $dish->id?>" data-price="<?php echo $dish->price ?>" data-name="<?php echo $dish->name?>" data-description="<?php echo $dish->description ?>" style="cursor:pointer;""></span>
 							    				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 							    				</td>
 							    			</tr>
@@ -417,13 +417,13 @@ $('#edit_menu').on('show.bs.modal', function(e) {
     //get data-id attribute of the clicked element
     var id = $(e.relatedTarget).data('id');
     var name = $(e.relatedTarget).data('name');
-    var price = document.getElementById("price").value;
+    var price = $(e.relatedTarget).data('price');
     var description = $(e.relatedTarget).data('description');
-    alert(price);
+
     //populate the textbox
     $(e.currentTarget).find('input[name="name"]').val(name);
     $(e.currentTarget).find('input[name="id"]').val(id);
     $(e.currentTarget).find('input[name="price"]').val(price);
-    $(e.currentTarget).find('input[name="description"]').val(description);
+    $(e.currentTarget).find('textarea[name="description"]').val(description);
 });
 </script>
