@@ -1,5 +1,5 @@
 <div class="row">
-			<h1 style="margin-bottom:25px;">You have xx requests</h1>
+			<h1 style="margin-bottom:25px;">You have <?php echo count($orders) ?> requests</h1>
 </div>
 <div class="row">
 	<div class="col-xs-12">
@@ -56,6 +56,9 @@
 						</td>
 						<td>
 							<?php echo $order->status ?>
+						</td>
+						<td>
+							<button class="btn btn-primary">Accept</button>
 						</td>
 					</tr>
 					<?php endforeach; ?>
