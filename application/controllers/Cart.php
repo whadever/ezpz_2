@@ -86,7 +86,9 @@
 		{
 			$data['page_title']	= 'Your Shopping';
 			$data['items']		= $this->cart->contents();
-			$this->load->view('cart/checkout', $data);
+			$data['background'] = base_url()."images/pihza.jpg";
+			$this->template->load('default','cart/checkout',$data);
+			// $this->load->view('cart/checkout', $data);
 		}
 
 		//Cart Overview and Check out
