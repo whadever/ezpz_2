@@ -22,7 +22,6 @@
 		</div>
 		
 	</div>
-
 	<div class="row">
 		<div class="container-fluid" >
 			<div class="row" style="padding-right:">
