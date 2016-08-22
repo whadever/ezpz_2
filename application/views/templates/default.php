@@ -112,8 +112,7 @@
 
 
 <!-- Modal -->
-
-<?php $this->load->view('login/login') ?>
+<?php if($this->session->userdata('isLogged') == false) $this->load->view('login/login'); ?>
 <?php $this->load->view('restaurant/cart_check'); ?>
         
   

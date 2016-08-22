@@ -146,8 +146,16 @@ class Order_model extends CI_Model{
 		$this->db->from('orders');
 		$this->db->join('restaurants','restaurants.id = orders.restaurant_id');
 		$this->db->join('users','users.id = orders.user_id');
+		$this->db->where('orders.status', 1);
 		return $this->db->get()->result();
 
+	}
+	
+	public function get_order_detail($order_id = ''){
+		$this->db->select('order_detail.*, dishes.name');
+		$this->db->from('order_detail');
+		$this->db->join('dishes','dishes.id = order_detail.product_id');
+		return $this->db->get()->result();
 	}
 
 
