@@ -1,7 +1,7 @@
 
 
 	<div class="row">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 restaurant-detail">
 						
@@ -24,101 +24,107 @@
 	</div>
 
 	<div class="row">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-				  <ul class="nav nav-tabs">
-				    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
-				    <li><a data-toggle="tab" href="#review">Reviews</a></li>
-				  </ul>
-				 <?php if($restaurant_time): ?>
-				  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) || 
-						date('H:i') > date('H:i',strtotime($restaurant_time->closetime))){
-				  		$disabled = 'disabled';?>
-				  		
-						<?php }else{
-				  		$disabled = '';
-				  	}?>
-				  <?php else: ?>
-						<?php $disabled = 'disabled'; ?>
-				  <?php endif ?>
+		<div class="container-fluid" >
+			<div class="row" style="padding-right:">
+				<div class="col-sm-8 col-xs-12">
+					  <ul class="nav nav-tabs">
+					    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
+					    <li><a data-toggle="tab" href="#review">Reviews</a></li>
+					  </ul>
+					  <?php if($restaurant_time): ?>
+					  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) || 
+							date('H:i') > date('H:i',strtotime($restaurant_time->closetime))){
+					  		$disabled = 'disabled';?>
+					  		
+							<?php }else{
+					  		$disabled = '';
+					  	}?>
+					  <?php else: ?>
+							<?php $disabled = 'disabled'; ?>
+					  <?php endif ?>
 				  
 					<div class="tab-content">
-				    
-				    <div id="home" class="tab-pane fade in active" style="padding:15px;">
-				    	<?php foreach($dishes as $dish): ?>
-				    	<?php echo form_open('cart/add') ?>
-				    	<div class="row" style="padding-bottom:15px; padding-top:10px; border-bottom:1px solid #ddd;">
-				    		<div class="col-sm-2 hidden-xs" style="padding-right:0;">
-				    			<div class="menu-image" style="border-radius:20px; width:100px; height:100px; background-size:cover; background-position:center center; margin:auto; background-image:url(<?php echo base_url().$dish->photo ?>);">
-				    				
-				    			</div>	
-				    			<!-- <img class="img-responsive" src="<?php echo base_url().$dish->photo ?>" alt=""> -->
-				    		</div>
-				    		<div class="col-xs-12 col-sm-10" style="padding-right:20px;">
-				    			<!-- <div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> > -->
-				    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder="0" <?php echo $disabled ?>>
-				    			  <div style="word-wrap: break-word; width: 80%">
-				    			  	<p><?php echo $dish->description ?></p>
-				    			  </div>
-							      
-							      <p style="margin-bottom:5px;">Price : <?php echo NZD($dish->price) ?></p>
-							    <!-- </div> -->
-							    
-							    <!-- Get Dishes Ids -->
-							    <input type="hidden" value="<?php echo $dish->id ?>" name="dish_id">
-							    <input type="hidden" value="<?php echo $dish->restaurant_id ?>" name="resto_id">
-							    
-							    <!-- Get URL -->
-							    <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
-				    			
-				    			<input type="submit" value="Add to Cart" class="btn btn-primary pull-right">
+				    	<!--Menu/Home tab-->
+					    <div id="home" class="tab-pane fade in active" style="padding:15px;">
+					    	<?php foreach($dishes as $dish): ?>
+					    	<?php echo form_open('cart/add') ?>
+					    	<div class="row" style="padding-bottom:15px; padding-top:10px; border-bottom:1px solid #ddd;">
+					    		<div class="col-sm-2 hidden-xs" style="padding-right:0;">
+					    			<div class="menu-image" style="border-radius:20px; width:100px; height:100px; background-size:cover; background-position:center center; margin:auto; background-image:url(<?php echo base_url().$dish->photo ?>);">
+					    				
+					    			</div>	
+					    			<!-- <img class="img-responsive" src="<?php echo base_url().$dish->photo ?>" alt=""> -->
+					    		</div>
+					    		<div class="col-xs-12 col-sm-10" style="padding-right:20px;">
+					    			<!-- <div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> > -->
+					    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder="0" <?php echo $disabled ?>>
+					    			  <div style="word-wrap: break-word; width: 80%">
+					    			  	<p><?php echo $dish->description ?></p>
+					    			  </div>
+								      
+								      <p style="margin-bottom:5px;">Price : <?php echo NZD($dish->price) ?></p>
+								    <!-- </div> -->
+								    
+								    <!-- Get Dishes Ids -->
+								    <input type="hidden" value="<?php echo $dish->id ?>" name="dish_id">
+								    <input type="hidden" value="<?php echo $dish->restaurant_id ?>" name="resto_id">
+								    
+								    <!-- Get URL -->
+								    <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
+					    			
+					    			<input type="submit" value="Add to Cart" class="btn btn-primary pull-right">
 
-				    		</div>
-				    	</div>
-				    	<?php echo form_close() ?>					    	
-				    	<?php endforeach; ?>
-				    </div>
+					    		</div>
+					    	</div>
+					    	<?php echo form_close() ?>					    	
+					    	<?php endforeach; ?>
+					    </div>
+					    <!--Review Tab-->
+					    <div id="review" class="tab-pane fade">
+					      	<h3>Reviews</h3>
 
-				    <div id="review" class="tab-pane fade">
-				      	<h3>Reviews</h3>
-
-						<?php if($this->session->userdata('isLogged')==FALSE): 	 ?>
-							<a href="#" data-toggle="modal" data-target="#loginModal">Please Login</a>
-							
-						<?php else: ?>
-						<?php echo form_open('restaurant/post_comment',array('id' => 'comment')) ?>
-						    <div class="input-group">
-			  					<textarea class="form-control" rows="1" name="review" aria-describedby="basic-addon2"></textarea></span>
-			  					<input type="hidden" name="restaurant_id" value="<?php echo $restaurant->id ?>"/>
-			  					<input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id') ?>"/>
-			  					<input type="hidden" value="<?php echo uri_string(); ?>" name="url"/>
-			  					<span class="input-group-btn">
-		                    		<button class="btn btn-default" type="submit" name="post" onclick="submit()" style="height:53px;">
-		                		Post</button>
-		                		
-							</div>
-						<?php echo form_close(); ?>
-						<?php endif; ?>
-					
-				      	<div id="review">
-				      	<?php foreach ($comments as $comment): ?>
-				      		<div class="panel panel-default panel-horizontal">
-					      		<div class="panel-heading text-center">
-					      			<div class="profile-picture" style="background-image:url(<?php echo base_url().$comment->photo ?>);">
-					      			</div>
-					      			<h3 class="panel-title"><?php echo $comment->username ?></h3>
-					      		</div>
-					      		<div class="panel-body">
-					      			<?php echo $comment->review ?>
-					      		</div>
-					      	</div>
-				      	<?php endforeach ?>
-				    	</div>
-				    </div>	
+							<?php if($this->session->userdata('isLogged')==FALSE): 	 ?>
+								<a href="#" data-toggle="modal" data-target="#loginModal">Please Login</a>
+								
+							<?php else: ?>
+							<?php echo form_open('restaurant/post_comment',array('id' => 'comment')) ?>
+							    <div class="input-group">
+				  					<textarea class="form-control" rows="2" name="review" aria-describedby="basic-addon2"></textarea></span>
+				  					<input type="hidden" name="restaurant_id" value="<?php echo $restaurant->id ?>"/>
+				  					<input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id') ?>"/>
+				  					<input type="hidden" value="<?php echo uri_string(); ?>" name="url"/>
+				  					<span class="input-group-btn">
+			                    		<button class="btn btn-default" type="submit" name="post" onclick="submit()" style="height:53px;">
+			                		Post</button>
+			                		
+								</div>
+							<?php echo form_close(); ?>
+							<?php endif; ?>
+						
+					      	<div>
+						      	<?php foreach ($comments as $comment): ?>
+						      		<div class="panel panel-default panel-horizontal">
+							      		<div class="panel-heading text-center">
+							      			<div class="profile-picture" style="background-image:url(<?php echo base_url().$comment->photo ?>);">
+							      			</div>
+							      			<h3 class="panel-title"><?php echo $comment->username ?></h3>
+							      		</div>
+							      		<div class="panel-body">
+							      			<?php echo $comment->review ?>
+							      		</div>
+							      	</div>
+						      	<?php endforeach ?>
+					    	</div>
+					    </div><!--Review Tab end-->	
+					  </div><!--Tab content end-->
+				</div><!--End of left side col-->
+				<!--Order Box-->
+				  <div class="col-sm-4 col-xs-12" style="padding:20px 10px 10px 10px;">
+				  	<div class="col-xs-12" style="border:1px #ddd solid;padding-bottom:20px;">
+				  			<h3 class="text-center">Order Detail</h3>
+				  			<?php $this->load->view('cart/overview') ?>
+				  	</div>
 				  </div>
-
-				</div>
 			</div>
 		</div>
 	</div>

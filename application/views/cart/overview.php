@@ -1,8 +1,9 @@
+
 <?php echo form_open('cart/update'); ?>
       
        
 
-        <table cellpadding="6" cellspacing="1" border="0" class="table table-striped table-bordered" >
+        <table cellpadding="6" cellspacing="1" border="0" class="table" >
 
         <tr>
                 <th>&nbsp;</th>
