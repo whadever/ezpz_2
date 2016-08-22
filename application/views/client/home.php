@@ -156,7 +156,7 @@
 							    				<td><?php echo $i ?></td>
 							    				<td><img src="<?php echo base_url($dish->photo) ?>" width="50" alt=""></td>
 							    				<td><?php echo $dish->name ?></td>
-							    				<td><div style="word-wrap: break-word; width: 80%"><?php echo $dish->description ?></div></td>
+							    				<td><?php echo $dish->description ?></td>
 							    				<td><?php echo NZD($dish->price) ?></td>
 							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true" href="" data-toggle="modal" data-target="#edit_menu" data-id="<?php echo $dish->id?>" data-name="<?php echo $dish->name?>" style="cursor:pointer;""></span>
 							    				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -246,7 +246,6 @@
 					    </div>
 					  </div>
 					</div><!--Edit menu modal-->
-		
 				</div><!--End of menu tab-->
 				<!--Update Password-->
 				<div id="pass" class="login tab-pane fade">
