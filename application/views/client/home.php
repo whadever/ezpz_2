@@ -278,8 +278,7 @@
 					    </tr>
 					    <tr>
 					    <td>
-					    	<div class="form-group">
-					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					    	<div class="form-group">					          
 					            <input type="password" name ="conf_password" class="form-control" placeholder="Confirm Password" required="required">
 					        </div>
 					    </td>

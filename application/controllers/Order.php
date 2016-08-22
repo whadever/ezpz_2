@@ -23,7 +23,7 @@
 			$data['order_id'] = $order_id;
 			$data['background'] = base_url().'images/pihza.jpg';
 			$data['page_title'] = 'Order';
-			$data['order'] = $this->db->get_where('order_history', array('id' => $order_id))->row();
+			$data['order'] = $this->db->get_where('orders', array('id' => $order_id))->row();
 
 
 			$this->template->load('default','user/find_driver', $data);
@@ -34,7 +34,7 @@
 
 		public function tracking ($order_id)
 		{
-			$status = $this->db->get_where('order_history', array('id' => $order_id))->row()->status;
+			$status = $this->db->get_where('orders', array('id' => $order_id))->row()->status;
 			echo $status;
 		}
 

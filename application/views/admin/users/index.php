@@ -61,7 +61,7 @@
       <div class="modal-body">
         <?php echo form_open('users/edit_user'); ?>
 			<div class="form-group">
-				<label for="">user Name :</label>
+				<label for="">User Name :</label>
 				<input type="text" name="name" value="" placeholder="user Name" class="form-control">
 			</div>
 			<div class="form-group">

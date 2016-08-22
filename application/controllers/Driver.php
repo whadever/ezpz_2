@@ -142,6 +142,17 @@ class Driver extends CI_Controller{
 
 	}
 
+	public function accept_order($order_id){
+			$driver_id = $this->session->userdata('user_id');
+
+			$this->db->where('id',$order_id);
+			$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 1));
+			
+			$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id));
+			$data['orders'] = $this->crud_model->get_by_condition('orders',array('id' => $order_id));
+			redirect('driver');
+		}
+
 
 }
 

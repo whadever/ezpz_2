@@ -13,16 +13,13 @@
 							Client's Name
 						</td>
 						<td>
-							Items
+							Restaurant's Name
+						</td>
+						<td>
+							Address
 						</td>
 						<td>
 							Code
-						</td>
-						<td>
-							Total Quantity
-						</td>
-						<td>
-							Total Price
 						</td>
 						<td>
 							Status
@@ -43,22 +40,19 @@
 							<?php echo $order->username  ?>
 						</td>
 						<td>
-							<?php echo $order->name  ?>
+							<?php echo $order->restaurant  ?>
+						</td>
+						<td>
+							<?php echo $order->address  ?>
 						</td>
 						<td>
 							<?php echo $order->code ?>
 						</td>
 						<td>
-							<?php echo $order->total_qty." Items" ?>
-						</td>
-						<td>
-							<?php echo NZD($order->total_price) ?>
-						</td>
-						<td>
 							<?php echo $order->status ?>
 						</td>
 						<td>
-							<button class="btn btn-primary">Accept</button>
+							<a class="btn btn-primary" href="<?php echo base_url('driver/accept_order/'.$order->id) ?>" >Accept</a>
 						</td>
 					</tr>
 					<?php endforeach; ?>
