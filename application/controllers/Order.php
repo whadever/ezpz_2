@@ -11,24 +11,82 @@
 
 		}
 
-		public function search_driver(){
-			if($this->cart->total_items() > 0){
-				$order_id = $this->order_model->new_order($this->cart->contents());
-				$this->session->set_userdata(array('order_id' => $order_id));
+		public function payment(){
+			if ($this->input->post('submit')) {
+				
+				if($this->cart->total_items() > 0){
+					$order_id = $this->order_model->new_order($this->cart->contents());
+					$this->session->set_userdata(array('order_id' => $order_id,'order_status' => 1));
+
+				}
+				else{
+					$order_id = $this->session->userdata('order_id');
+				}
+
+				$data['order_id'] = $order_id;
+				$data['background'] = base_url().'images/pihza.jpg';
+				$data['page_title'] = 'Payment';
+				$data['order'] = $this->db->get_where('orders', array('id' => $order_id))->row();
+				$data['order_details'] = $this->order_model->get_order_detail($data['order']->id);
+				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
+
+
+				$this->template->load('default','user/payment', $data);
+
+				$this->cart->destroy();
+			}else{
+				redirect('user');
 			}
-			else{
-				$order_id = $this->session->userdata('order_id');
+			
+
+		}
+
+		public function find_driver($order_id){
+			if($this->input->post('submit')){
+				$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
+				if($this->input->post('payment') > $credits){
+					redirect('user');
+				}
+				else{
+					//update user's money
+					$credits = $credits - $this->input->post('payment');
+					$this->crud_model->update_data('users',array('credits' => $credits),array('id' => $this->session->userdata('user_id')));
+
+					//update order status
+					$this->crud_model->update_data('orders',array('status' => 1),array('id' => $order_id));
+
+					//Get Restaurant ID For emailing drivers
+					$data['order'] = $this->crud_model->get_by_condition('orders', array('id' => $order_id))->row();
+
+					//Get Resto Info
+					$restaurant_data = $this->db->get_where('restaurants', array('id' => $data['order']->restaurant_id))->row();
+					//Email The Drivers
+					$drivers  = $this->crud_model->get_data('drivers')->result();
+
+					foreach ($drivers as $driver)
+					{
+						$emails[] = $driver->email;
+					}
+
+					$to = implode (", ", $emails); 
+
+					//Emailing the drivers check *email model*
+					$this->email_model->send_order($to, $restaurant_data);
+					
+					
+				
+					$data['background'] = base_url().'images/pihza.jpg';
+					$data['page_title'] = 'Payment';
+					
+					$this->session->set_userdata(array('order_status' => 2));
+
+					$this->template->load('default','user/find_driver', $data);
+
+				}
+			}else{
+				redirect('user');
 			}
-
-			$data['order_id'] = $order_id;
-			$data['background'] = base_url().'images/pihza.jpg';
-			$data['page_title'] = 'Order';
-			$data['order'] = $this->db->get_where('orders', array('id' => $order_id))->row();
-
-
-			$this->template->load('default','user/find_driver', $data);
-
-			$this->cart->destroy();
+			
 
 		}
 
