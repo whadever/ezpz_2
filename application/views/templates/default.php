@@ -133,12 +133,11 @@ $(document).ready(function(){
 
 </script>
 <script>
+
     var waypoint = new Waypoint({
       element: document.getElementById('body'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = 'rgba(91, 192, 222,0.8)';
-     
-        
+        document.getElementById('navbar').style.backgroundColor = 'rgba(91, 192, 222,0.8)'; 
       }
     });
 
@@ -152,7 +151,7 @@ $(document).ready(function(){
      
        
       },
-      offset: '-20%'
+      offset: '-15%'
     });
 </script>
 
