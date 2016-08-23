@@ -72,7 +72,7 @@
         <h4 class="modal-title">Edit client</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('clients/edit_client'); ?>
+        <?php echo form_open('admin/edit_client'); ?>
 			<div class="form-group">
 				<label for="">client Name :</label>
 				<input type="text" name="name" value="" placeholder="client Name" class="form-control">
@@ -107,7 +107,7 @@
         <h4 class="modal-title">Delete client</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('clients/delete'); ?>
+        <?php echo form_open('admin/delete_client'); ?>
 			<p>Are you sure?</p>
       </div>
       <div class="modal-footer">

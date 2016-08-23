@@ -361,7 +361,27 @@ class Admin extends CI_Controller{
 		}
 		redirect('admin/users');
 	}
-}
+
 
 //Manage Client/Restaurant Update Delete
+	public function edit_client(){
+		if($this->input->post('update')){
+			$data = array(
+				'id'	=> $this->input->post('id'),
+				'name'	=> $this->input->post('name'),
+				'email' 	=> $this->input->post('email'),
+				'telephone' => $this->input->post('phone')
+
+			);
+			$this->crud_model->update_data('restaurants',$data,array('id' => $data['id']));
+			redirect('admin/clients/1');
+		}	
+	}
+	public function delete_client(){
+		if($this->input->post('delete')){
+			$this->crud_model->delete_data('restaurants',array('id' => $this->input->post('id')));
+		}
+		redirect('admin/clients/1');
+	}
+}
 ?>
