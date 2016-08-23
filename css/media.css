@@ -1,0 +1,20 @@
+/* LRM Group */
+
+@media only screen and (max-device-width: 767px)
+{
+	#myNavbar
+	{
+		background:#000;
+	}
+
+	#top
+	{
+		background-size:100% 100%;
+	}
+
+	#tableHome
+	{
+		width:100%;
+		overflow-x: scroll; 
+	}
+} 

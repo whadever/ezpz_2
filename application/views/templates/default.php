@@ -5,6 +5,8 @@
 <head>
 	<meta charset="utf-8">
 	<title><?php echo $page_title; ?> - EZPZ</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
