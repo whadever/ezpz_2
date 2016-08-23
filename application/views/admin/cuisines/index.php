@@ -85,19 +85,13 @@
         <h4 class="modal-title">Edit cuisine</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('cuisines/edit_cuisine'); ?>
+        <?php echo form_open('admin/edit_cuisine'); ?>
 			<div class="form-group">
-				<label for="">cuisine Name :</label>
+				<label for="">Cuisine Name :</label>
 				<input type="text" name="name" value="" placeholder="cuisine Name" class="form-control">
 			</div>
-			<div class="form-group">
-				<label for="">Email :</label>
-				<input type="text" name="email" placeholder="Email" class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="">Phone :</label>
-				<input type="text" name="phone" placeholder="Phone" class="form-control">
-			</div>     
+			<label for="">Photo :</label>
+        <input type="file" name="photo" class="form-control">
       </div>
       <div class="modal-footer">
       	<input type="hidden" name="id" value="">
@@ -139,14 +133,12 @@ $('#edit_cuisine').on('show.bs.modal', function(e) {
     //get data-id attribute of the clicked element
     var name = $(e.relatedTarget).data('name');
     var id = $(e.relatedTarget).data('id');
-    var email = $(e.relatedTarget).data('email');
-    var phone = $(e.relatedTarget).data('phone');
+    
 
     //populate the textbox
     $(e.currentTarget).find('input[name="name"]').val(name);
     $(e.currentTarget).find('input[name="id"]').val(id);
-    $(e.currentTarget).find('input[name="email"]').val(email);
-    $(e.currentTarget).find('input[name="phone"]').val(phone);
+    
 });
 </script>
 <script>

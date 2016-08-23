@@ -94,8 +94,55 @@ class Client extends CI_Controller{
                 $this->db->insert('dishes', $data);
 			}
 
-			redirect('client/index');
+			redirect('client');
 
+	}
+
+	public function edit_menu(){
+		if($this->input->post('update')){
+			$config['allowed_types']        = 'jpg|png';
+            $config['max_size']             = 5000;
+			$config['upload_path']          = 'uploads/restaurant/' .$this->session->userdata('username').'/dishes';
+			$config['overwrite']			= True;
+			$this->upload->initialize($config);
+
+			//Check if the folder for the upload existed
+			if(!file_exists($config['upload_path']))
+			{
+				//if not make the folder so the upload is possible
+				mkdir($config['upload_path'], 0777, true);
+			}
+
+            if ($this->upload->do_upload('photo'))
+            {
+                //Get the link for the database
+                $photo = $this->upload->data();
+                $photo = $config['upload_path'] . '/' . $photo['file_name'];
+            }
+            else{
+            	$photo= $this->crud_model->get_by_condition('dishes',array('id' => $this->input->post('id')))->row('photo');
+            }
+            $data = array(	
+            			'id'			=>$this->input->post('id'),
+						'name'			=> $this->input->post('name'),
+						'price' 		=> $this->input->post('price'),
+						'description' 	=> $this->input->post('description'),
+						'photo' 		=> $photo,
+						'available' 	=> 1
+						
+					);
+
+			$this->crud_model->update_data('dishes',$data,array('id' => $data['id']));
+		}
+		redirect('client');
+	}
+
+	public function delete_menu(){
+		$id = $this->input->post('id');
+		$dish = $this->crud_model->get_by_condition('dishes',array('id' => $id))->row();
+		unlink($dish->photo);
+		$this->crud_model->delete_data('dishes',array('id' => $id));
+		redirect('client/index#menu');
 	}
 
 	public function edit_profile($id){
