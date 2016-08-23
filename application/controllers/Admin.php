@@ -265,7 +265,7 @@ class Admin extends CI_Controller{
 			redirect('admin/cuisines');
 		}
 	}
-//Cuisine Update Delete
+//Manage Cuisine Update Delete
 	public function edit_cuisine(){
 		if($this->input->post('update')){
 			$config['allowed_types']        = 'jpg|png';
@@ -338,7 +338,30 @@ class Admin extends CI_Controller{
 		
 	}
 
+//Manage User Update Delete
+	public function edit_user(){
+		if($this->input->post('update')){
+			$data = array(
+				'id'	=> $this->input->post('id'),
+				'username'	=> $this->input->post('name'),
+				'email' 	=> $this->input->post('email'),
+				'telephone' => $this->input->post('phone')
 
+			);
+			$this->crud_model->update_data('users',$data,array('id' => $data['id']));
 
+			redirect('admin/users');
+		}	
+	}
+
+	public function delete_user(){
+		if($this->input->post('delete')){
+			$this->crud_model->delete_data('users',array('id' => $this->input->post('id')));
+	
+		}
+		redirect('admin/users');
+	}
 }
+
+//Manage Client/Restaurant Update Delete
 ?>

@@ -59,10 +59,10 @@
         <h4 class="modal-title">Edit user</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('users/edit_user'); ?>
+        <?php echo form_open('admin/edit_user'); ?>
 			<div class="form-group">
-				<label for="">User Name :</label>
-				<input type="text" name="name" value="" placeholder="user Name" class="form-control">
+				<label for="">Username :</label>
+				<input type="text" name="name" value="" placeholder="Username" class="form-control">
 			</div>
 			<div class="form-group">
 				<label for="">Email :</label>
@@ -93,7 +93,7 @@
         <h4 class="modal-title">Delete user</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('users/delete'); ?>
+        <?php echo form_open('admin/delete_user'); ?>
 			<p>Are you sure?</p>
       </div>
       <div class="modal-footer">
