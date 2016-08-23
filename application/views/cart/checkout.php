@@ -33,7 +33,7 @@
       }
     </style>
 
-<?php echo form_open('order/search_driver'); ?>
+<?php echo form_open('order/payment'); ?>
 
 <div class="container padding-top-five" id="cart-info">
         
@@ -106,7 +106,7 @@
         <input type="hidden" name="lng" id="lng" value="">       
 
         <p>
-            <input type="submit" class="btn btn-primary btn-float">
+            <input type="submit" name="submit" value="Pay Now" class="btn btn-primary btn-float">
         </p>
 </div>
 

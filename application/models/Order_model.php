@@ -118,26 +118,7 @@ class Order_model extends CI_Model{
 
 		$this->db->update('orders', array('restaurant_id' => $restaurant_id));
 
-		//Email The Drivers
-		$drivers  = $this->crud_model->get_data('drivers')->result();
-
-		foreach ($drivers as $driver)
-		{
-			$emails[] = $driver->email;
-		}
-
-		$to = implode (", ", $emails); 
-
-		//Emailing the drivers check *email model*
-		$this->load->model('email_model');
-		if($this->email_model->send_order($to, $restaurant_data))
-		{
-			//Return Order Id for later use
-			return $order_id;
-		}else
-		{
-			return 0;
-		}
+		return $order_id;
 
 	}
 
@@ -152,9 +133,10 @@ class Order_model extends CI_Model{
 	}
 	
 	public function get_order_detail($order_id = ''){
-		$this->db->select('order_detail.*, dishes.name');
+		$this->db->select('order_detail.*, dishes.name, dishes.price');
 		$this->db->from('order_detail');
 		$this->db->join('dishes','dishes.id = order_detail.product_id');
+		$this->db->where('order_detail.order_id',$order_id);
 		return $this->db->get()->result();
 	}
 

@@ -14,7 +14,13 @@
 	</div>
 </div>
 
-	<div class="col-md-2"></div>
+	<div class="col-md-6"></div>
+</div>
+<div class="row">
+	<iframe width="600" height="450" src="//www.google.com/maps/embed/v1/place?q=<?php echo urlencode($user->address) ?>
+      &zoom=17
+      &key=AIzaSyBcbISjaXDKeBwFCoxybJ_4cbvJs1SOi4w">
+  </iframe>
 </div>
 
 <script>

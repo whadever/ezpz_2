@@ -148,7 +148,7 @@ class Driver extends CI_Controller{
 			$driver_id = $this->session->userdata('user_id');
 
 			$this->db->where('id',$order_id);
-			$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 1));
+			$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 2));
 			
 			$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
 			$data['order'] = $this->crud_model->get_by_condition('orders',array('id' => $order_id))->row();

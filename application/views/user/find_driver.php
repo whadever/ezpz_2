@@ -4,7 +4,7 @@
 		<div class="row">
 			<div id="driver">
 				<h2>Waiting For Driver
-          <?php echo $order_id; ?>  
+          <?php echo $order->id; ?>  
         </h2>
 			</div>
 		</div>
@@ -16,11 +16,11 @@
 
 function auto_load(){
         $.ajax({
-          url: "<?php echo base_url('order/tracking/'.$order_id) ?>",
+          url: "<?php echo base_url('order/tracking/'.$order->id) ?>",
           type: 'GET',
           cache: false,
           success: function(result){
-          	if(result == 1)
+          	if(result == 2)
           	{
              	window.location.replace("<?php echo base_url('order/driver_found'); ?>");
           	}else{
