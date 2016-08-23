@@ -120,7 +120,7 @@ class Client extends CI_Controller{
                 $photo = $config['upload_path'] . '/' . $photo['file_name'];
             }
             else{
-            	$photo='';
+            	$photo= $this->crud_model->get_by_condition('dishes',array('id' => $this->input->post('id')))->row('photo');
             }
             $data = array(	
             			'id'			=>$this->input->post('id'),
@@ -139,6 +139,8 @@ class Client extends CI_Controller{
 
 	public function delete_menu(){
 		$id = $this->input->post('id');
+		$dish = $this->crud_model->get_by_condition('dishes',array('id' => $id))->row();
+		unlink($dish->photo);
 		$this->crud_model->delete_data('dishes',array('id' => $id));
 		redirect('client/index#menu');
 	}

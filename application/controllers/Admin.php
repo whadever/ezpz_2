@@ -265,7 +265,7 @@ class Admin extends CI_Controller{
 			redirect('admin/cuisines');
 		}
 	}
-//still needs fix on photos
+//Cuisine Update Delete
 	public function edit_cuisine(){
 		if($this->input->post('update')){
 			$config['allowed_types']        = 'jpg|png';
@@ -302,17 +302,18 @@ class Admin extends CI_Controller{
 				->resize_crop(1900,700)
 				->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
 
-
+				$thumb = $config ['upload_path'] . '/' . $image['raw_name'].'_thumb'.$image['file_ext'];
             }
             else{
-            	$photo='';
+            	$photo= $this->crud_model->get_by_condition('cuisines',array('id' => $this->input->post('id')))->row('photo');
+            	$thumb= $this->crud_model->get_by_condition('cuisines',array('id' => $this->input->post('id')))->row('thumb');
             }
 
 			$data = array(
 				'id'	=> $this->input->post('id'),
 				'name'	=> $this->input->post('name'),
 				'photo' => $photo,
-				'thumb' => $config ['upload_path'] . '/' . $image['raw_name'].'_thumb'.$image['file_ext']
+				'thumb' => $thumb
 
 			);
 			$this->crud_model->update_data('cuisines',$data,array('id' => $data['id']));
