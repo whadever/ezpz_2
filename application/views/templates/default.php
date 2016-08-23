@@ -5,6 +5,8 @@
 <head>
 	<meta charset="utf-8">
 	<title><?php echo $page_title; ?> - EZPZ</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -131,12 +133,11 @@ $(document).ready(function(){
 
 </script>
 <script>
+
     var waypoint = new Waypoint({
       element: document.getElementById('body'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = 'rgba(91, 192, 222,0.8)';
-     
-        
+        document.getElementById('navbar').style.backgroundColor = 'rgba(91, 192, 222,0.8)'; 
       }
     });
 
@@ -150,7 +151,7 @@ $(document).ready(function(){
      
        
       },
-      offset: '-20%'
+      offset: '-15%'
     });
 </script>
 

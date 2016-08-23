@@ -2,7 +2,7 @@
 			<h1 style="margin-bottom:25px;">You have <?php echo count($orders) ?> requests</h1>
 </div>
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col-xs-12" id="tableHome">
 		<table class="table table-bordered" id="orders" >
 				<thead>
 					<tr>

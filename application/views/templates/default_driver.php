@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
 
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Begin Scripts -->
 
