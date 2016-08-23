@@ -34,7 +34,7 @@ class Login extends CI_Controller{
 
 	public function register($type = '')
 	{
-		$data['background'] = $data['background'] = base_url()."images/pihza.jpg";
+		$data['background'] = base_url()."images/pihza.jpg";
 
 			if($this->session->userdata('type') == 'user' || !$this->session->userdata('user_id'))
 			{
@@ -73,6 +73,7 @@ class Login extends CI_Controller{
 		if($this->form_validation->run() == FALSE){
 
 			$data['page_title'] = 'Register';
+			$data['background'] = base_url()."images/pihza.jpg";
 
 
 			$this->template->load('default_login', 'login/register_user',$data);
