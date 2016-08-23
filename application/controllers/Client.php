@@ -94,11 +94,11 @@ class Client extends CI_Controller{
                 $this->db->insert('dishes', $data);
 			}
 
-			redirect('client/index');
+			redirect('client');
 
 	}
 
-	public function edit_menu($id){
+	public function edit_menu(){
 		if($this->input->post('update')){
 			$config['allowed_types']        = 'jpg|png';
             $config['max_size']             = 5000;
@@ -122,7 +122,8 @@ class Client extends CI_Controller{
             else{
             	$photo='';
             }
-            $data = array(			
+            $data = array(	
+            			'id'			=>$this->input->post('id'),
 						'name'			=> $this->input->post('name'),
 						'price' 		=> $this->input->post('price'),
 						'description' 	=> $this->input->post('description'),
@@ -131,9 +132,15 @@ class Client extends CI_Controller{
 						
 					);
 
-			$this->crud_model->update_data('dishes',$data,array('id' => $id));
+			$this->crud_model->update_data('dishes',$data,array('id' => $data['id']));
 		}
 		redirect('client');
+	}
+
+	public function delete_menu(){
+		$id = $this->input->post('id');
+		$this->crud_model->delete_data('dishes',array('id' => $id));
+		redirect('client/index#menu');
 	}
 
 	public function edit_profile($id){

@@ -221,11 +221,11 @@
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					        <h4 class="modal-title" id="myModalLabel">Edit Dish Detail</h4>
 					      </div>
-					      <?php echo form_open_multipart('client/edit_menu/'.$dish->id) ?>
+					      <?php echo form_open_multipart('client/edit_menu/') ?>
 					      <div class="modal-body">
+					      		<input type="hidden" name="id" value="">
 					        	<div class="form-group">
 					        		<label for="name">Name</label>
-					        		<?php echo $dish->id?>
 					        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
 					        	</div>
 					        	<div class="form-group">
@@ -260,7 +260,7 @@
 					        <h4 class="modal-title">Delete Menu</h4>
 					      </div>
 					      <div class="modal-body">
-					        <?php echo form_open('client/delete'); ?>
+					        <?php echo form_open('client/delete_menu'); ?>
 								<p>Are you sure?</p>
 					      </div>
 					      <div class="modal-footer">
@@ -453,4 +453,11 @@ $('#edit_menu').on('show.bs.modal', function(e) {
     $(e.currentTarget).find('input[name="price"]').val(price);
     $(e.currentTarget).find('textarea[name="description"]').val(description);
 });
+$('#delete_menu').on('show.bs.modal', function(e) {
+	//get data-id attribute of the clicked element
+    var id = $(e.relatedTarget).data('id');
+    //populate the textbox
+    $(e.currentTarget).find('input[name="id"]').val(id);
+
+})
 </script>
