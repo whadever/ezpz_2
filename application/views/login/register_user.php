@@ -141,7 +141,7 @@
           $('#lat').val(place.geometry.location.lat());
           $('#lng').val(place.geometry.location.lng());
           $('#address').val(place.formatted_address);
-          $('#address_show').val(place.formatted_addresse);
+          $('#address_show').val(place.formatted_address);
 
           var address = '';
           if (place.address_components) {
