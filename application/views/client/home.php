@@ -158,8 +158,10 @@
 							    				<td><?php echo $dish->name ?></td>
 							    				<td class="hidden-xs" style="max-width: 200px"><div style="word-wrap: break-word; width: 80%"><?php echo $dish->description ?></div></td>
 							    				<td><?php echo NZD($dish->price) ?></td>
-							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true" href="" data-toggle="modal" data-target="#edit_menu" data-id="<?php echo $dish->id?>" data-price="<?php echo $dish->price ?>" data-name="<?php echo $dish->name?>" data-description="<?php echo $dish->description ?>" style="cursor:pointer;""></span>
-							    				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							    				<td>
+							    				<span class="glyphicon glyphicon-pencil" aria-hidden="true" href="" data-toggle="modal" data-target="#edit_menu" data-id="<?php echo $dish->id?>" data-price="<?php echo $dish->price ?>" data-name="<?php echo $dish->name?>" data-description="<?php echo $dish->description ?>" style="cursor:pointer;""></span>
+
+							    				<span class="glyphicon glyphicon-trash" href="" aria-hidden="true" data-toggle="modal" data-target="#delete_menu" data-id="<?php echo $dish->id ?>" style="cursor:pointer;" ></span>
 							    				</td>
 							    			</tr>
 							    			<?php $i++; ?>
@@ -219,10 +221,11 @@
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					        <h4 class="modal-title" id="myModalLabel">Edit Dish Detail</h4>
 					      </div>
-					      <?php echo form_open_multipart('client/edit_menu') ?>
+					      <?php echo form_open_multipart('client/edit_menu/'.$dish->id) ?>
 					      <div class="modal-body">
 					        	<div class="form-group">
 					        		<label for="name">Name</label>
+					        		<?php echo $dish->id?>
 					        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
 					        	</div>
 					        	<div class="form-group">
@@ -231,7 +234,7 @@
 					        	</div>
 					        	<div class="form-group">
 					        		<label for="photo">Photo</label>
-					        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo" required="1">
+					        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo">
 					        	</div>
 					        	<div class="form-group">
 					        		<label for="description">Description</label>
@@ -239,14 +242,38 @@
 					        	</div>
 					      </div>
 					      <div class="modal-footer">
-					        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
+					        <input type="submit" value="Save changes" name="update" class="btn btn-primary">
 					        <input type="submit" class="btn btn-danger" data-dismiss="modal" value="Close">
 					      </div>
 					      <?php echo form_close() ?>
 					    </div>
 					  </div>
 					</div><!--Edit menu modal-->
+
+					<!-- Modal delete menu -->
+					<div id="delete_menu" class="modal fade" role="dialog">
+					  <div class="modal-dialog">
+						<!-- Modal content-->
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal">&times;</button>
+					        <h4 class="modal-title">Delete Menu</h4>
+					      </div>
+					      <div class="modal-body">
+					        <?php echo form_open('client/delete'); ?>
+								<p>Are you sure?</p>
+					      </div>
+					      <div class="modal-footer">
+					      	<input type="hidden" name="id" value="">
+					        <input type="submit" name="delete" value="Confirm" class="btn btn-danger">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        <?php echo form_close() ?>
+					      </div>
+					    </div>
+					  </div>
+					</div><!-- Modal delete user end -->
 				</div><!--End of menu tab-->
+
 				<!--Update Password-->
 				<div id="pass" class="login tab-pane fade">
 					<?php echo form_open('dashboard/change_password/submit') ?>

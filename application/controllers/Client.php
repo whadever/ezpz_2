@@ -98,6 +98,44 @@ class Client extends CI_Controller{
 
 	}
 
+	public function edit_menu($id){
+		if($this->input->post('update')){
+			$config['allowed_types']        = 'jpg|png';
+            $config['max_size']             = 5000;
+			$config['upload_path']          = 'uploads/restaurant/' .$this->session->userdata('username').'/dishes';
+			$config['overwrite']			= True;
+			$this->upload->initialize($config);
+
+			//Check if the folder for the upload existed
+			if(!file_exists($config['upload_path']))
+			{
+				//if not make the folder so the upload is possible
+				mkdir($config['upload_path'], 0777, true);
+			}
+
+            if ($this->upload->do_upload('photo'))
+            {
+                //Get the link for the database
+                $photo = $this->upload->data();
+                $photo = $config['upload_path'] . '/' . $photo['file_name'];
+            }
+            else{
+            	$photo='';
+            }
+            $data = array(			
+						'name'			=> $this->input->post('name'),
+						'price' 		=> $this->input->post('price'),
+						'description' 	=> $this->input->post('description'),
+						'photo' 		=> $photo,
+						'available' 	=> 1
+						
+					);
+
+			$this->crud_model->update_data('dishes',$data,array('id' => $id));
+		}
+		redirect('client');
+	}
+
 	public function edit_profile($id){
 		if($id != $this->session->userdata('user_id')){
 			redirect('client');
