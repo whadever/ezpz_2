@@ -20,6 +20,11 @@
 			</tr>
 		</table>
 
+		<h1 class="roboto headline">Order Status</h1>
+		<h2 class="robot" id="statusDriver" align="center">Driver Enroute to Restaurant</h2>
+			
+		</h1>
+
 		<h1 class="roboto headline">Order Information</h1>
 		<table class="table table-bordered driver-info">
 			<tr>
@@ -50,3 +55,37 @@
 	</div>
 <div class="col-md-3"></div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+function auto_load(){
+        $.ajax({
+          url: "<?php echo base_url('order/tracking/'.$order->id) ?>",
+          type: 'GET',
+          cache: false,
+          success: function(result){
+          	if(result == 3)
+          	{
+             	document.getElementById("statusDriver").innerHTML = "Driver Have Bought Your Order and Now Enroute to Your Home";
+             	setTimeout(auto_load,3000);
+          	}else if(result == 4)
+          	{
+          		document.getElementById("statusDriver").innerHTML = "Your Order Have Been Completed!";
+          	}else{
+          		setTimeout(auto_load,3000);
+          	}
+            
+          } 
+        });
+}
+ 
+</script>
+
+<script>
+$(document).ready(function(){
+
+	auto_load();
+
+});
+</script>

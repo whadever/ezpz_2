@@ -106,6 +106,7 @@
 
 		}
 
+		//Ajax
 		public function tracking ($order_id)
 		{
 			$status = $this->db->get_where('orders', array('id' => $order_id))->row()->status;
