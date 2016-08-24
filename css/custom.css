@@ -1,11 +1,12 @@
+/* Import Media Query */
+@import url('media.css');
+
+
 /*footer*/
 footer{
   background-color: #34495e;
   color: white;
 }
-
-/* Import Media Query */
-@import url('media.css');
 
 /*Panel Review*/
 .profile-picture{
@@ -366,7 +367,7 @@ width: 50%;
 
 .roboto
 {
-  font-family: 'Roboto', sans-serif;\
+  font-family: 'Roboto', sans-serif;
   font-weight:100;
   padding:1em 0 0.5em 0;
 }

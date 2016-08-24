@@ -112,7 +112,7 @@
 
 <footer>
   <div class="container-fluid">
-    <div class="row text-center" style="padding: 10px;">
+    <div class="row text-center" style="padding: 10px; font-size:80%;">
       <img src="<?php echo base_url()?>images/logo.png" width="50px" style="margin-right:1em;">&copy; Hassee 2016. All Rights Reserved under LRM Corporation
     </div>
   </div>
