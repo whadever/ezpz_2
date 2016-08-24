@@ -210,7 +210,7 @@ $(document).ready(function(){
     var waypoint = new Waypoint({
       element: document.getElementById('body'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = '#5bc0de';
+        document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.95)';
            }
     });
 

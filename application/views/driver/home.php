@@ -21,9 +21,7 @@
 						<td>
 							Code
 						</td>
-						<td>
-							Status
-						</td>
+				
 						<td>
 							&nbsp;
 						</td>
@@ -49,9 +47,6 @@
 							<?php echo $order->code ?>
 						</td>
 						<td>
-							<?php echo $order->status ?>
-						</td>
-						<td>
 							<a class="btn btn-primary" href="<?php echo base_url('driver/accept_order/'.$order->id) ?>" >Accept</a>
 						</td>
 						
@@ -64,6 +59,10 @@
 	</div>
 		
 </div>
+
+<pre>
+	<?php print_r($this->session->userdata()) ?>
+</pre>
 
 <script>
 	$(document).ready(function() {

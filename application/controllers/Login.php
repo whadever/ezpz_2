@@ -348,7 +348,15 @@ class Login extends CI_Controller{
 					);
 				$this->session->set_userdata($data_session);
 
-				$order = $this->crud_model->get_by_condition('orders',array('user_id' => $user->id))->row();
+				if($user->type == 'user'){
+
+					$order = $this->crud_model->get_by_condition('orders',array('user_id' => $user->id))->row();
+
+				}else if($user->type == 'driver'){
+					$order = $this->crud_model->get_by_condition('orders',array('driver_id' => $user->id))->row();
+				}
+
+				
 				if($order){
 					$this->session->set_userdata(array('order_status' => $order->status, 'order_id' => $order->id));
 				}
