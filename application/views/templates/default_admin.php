@@ -229,8 +229,12 @@
 	</div>
 </div>
 
-<footer style="padding-top:10px; border-top: 1px solid #999; color: #000; margin-top: 20px" class="container-fluid text-center">
-	<p>Copyright &copy;2016 | Hassee Developers</p>
+<footer>
+  <div class="container-fluid">
+    <div class="row text-center" style="padding: 10px;">
+      <img src="<?php echo base_url()?>images/logo.png" width="50px" height="50px">&copy; Hassee 2016. All Rights Reserved under LRM Corporation
+    </div>
+  </div>
 </footer>
 
 

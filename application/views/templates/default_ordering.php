@@ -90,6 +90,14 @@
     
 </div>
 
+<footer>
+  <div class="container-fluid">
+    <div class="row text-center" style="padding: 10px;">
+      <img src="<?php echo base_url()?>images/logo.png" width="50px" height="50px">&copy; Hassee 2016. All Rights Reserved under LRM Corporation
+    </div>
+  </div>
+</footer>
+
 
 <!-- Modal -->
 <?php if($this->session->userdata('isLogged') == false) $this->load->view('login/login'); ?>
