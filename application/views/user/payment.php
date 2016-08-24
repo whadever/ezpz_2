@@ -42,7 +42,7 @@
 <div class="container padding-top-five" id="cart-info">
 
 	<div class="row">
-		<div class="col-xs-6">
+		<div class="col-md-6">
 		<h2>Payment Detail</h2>
 			<table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-striped">
 
@@ -115,7 +115,7 @@
             <input type="submit" name="submit" value="Pay Now" class="btn btn-primary btn-float">
 		</div>
 
-		<div class="col-xs-6">
+		<div class="col-md-6">
 			<h2>Location</h2>
             <div id="map"></div>
 		</div>

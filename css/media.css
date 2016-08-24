@@ -44,4 +44,8 @@
 	{
 		padding-top: 5em;
 	}
+	
+	.ms-container{
+		width: 250px;
+	}
 }
