@@ -81,7 +81,7 @@ class Order_model extends CI_Model{
 			'status'			=> 0,
 			'latitude'			=> $this->input->post('lat'),
 			'longitude'			=> $this->input->post('lng'),
-			'address'			=> $this->input->post('address')
+			'address'			=> $this->input->post('address'),
 			
 
 

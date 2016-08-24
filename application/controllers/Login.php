@@ -81,7 +81,7 @@ class Login extends CI_Controller{
 
 		}
 		else{
-			if($this->input->post('register')){
+			if($this->input->post()){
 
 				$config['allowed_types']        = 'jpg|png';
 	            $config['max_size']             = 5000;
@@ -347,6 +347,11 @@ class Login extends CI_Controller{
 
 					);
 				$this->session->set_userdata($data_session);
+
+				$order = $this->crud_model->get_by_condition('orders',array('user_id' => $user->id))->row();
+				if($order){
+					$this->session->set_userdata(array('order_status' => $order->status, 'order_id' => $order->id));
+				}
 
 				redirect($user->type);
 			}else{

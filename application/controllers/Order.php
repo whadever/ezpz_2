@@ -8,15 +8,16 @@
 			if($this->session->userdata('isLogged') == FALSE || $this->session->userdata('type') !='user'){
 				redirect('main');
 			}
+			
 
 		}
 
 		public function payment(){
-			if ($this->input->post('submit')) {
+			if ($this->input->post()) {
 				
 				if($this->cart->total_items() > 0){
 					$order_id = $this->order_model->new_order($this->cart->contents());
-					$this->session->set_userdata(array('order_id' => $order_id,'order_status' => 1));
+					$this->session->set_userdata(array('order_id' => $order_id));
 
 				}
 				else{
@@ -52,8 +53,16 @@
 					$credits = $credits - $this->input->post('payment');
 					$this->crud_model->update_data('users',array('credits' => $credits),array('id' => $this->session->userdata('user_id')));
 
+					$data_order = array(
+							'status' => 1,
+							'distance'			=> $this->input->post('distance'),
+							'estimation_time'	=> $this->input->post('duration')
+						);
 					//update order status
-					$this->crud_model->update_data('orders',array('status' => 1),array('id' => $order_id));
+					$this->crud_model->update_data('orders',$data_order,array('id' => $order_id));
+
+					//update userdata
+					$this->session->set_userdata(array('order_id' => $order_id,'order_status' => 1));
 
 					//Get Restaurant ID For emailing drivers
 					$data['order'] = $this->crud_model->get_by_condition('orders', array('id' => $order_id))->row();
@@ -77,14 +86,18 @@
 				
 					$data['background'] = base_url().'images/pihza.jpg';
 					$data['page_title'] = 'Payment';
-					
-					$this->session->set_userdata(array('order_status' => 2));
+				
 
 					$this->template->load('default','user/find_driver', $data);
 
 				}
 			}else{
-				redirect('user');
+				$data['order'] = $this->crud_model->get_by_condition('orders', array('id' => $order_id))->row();
+				$data['background'] = base_url().'images/pihza.jpg';
+				$data['page_title'] = 'Waiting for Driver';
+			
+
+				$this->template->load('default','user/find_driver', $data);
 			}
 			
 
@@ -96,8 +109,16 @@
 			echo $status;
 		}
 
-		public function driver_found(){
-			$this->load->view('user/driver_found');
+		public function driver_found($order_id){
+			$data['page_title'] = 'Driver Information';
+			$data['order'] = $this->crud_model->get_by_condition('orders',array('id' => $order_id))->row();	
+			if($data['order']->driver_id == 0){
+				redirect('user');
+			}
+			$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $data['order']->driver_id))->row();
+			$data['background'] = base_url().'images/pihza.jpg';
+			$this->template->load('default','user/driver_found',$data);
+
 		}
 
 

@@ -11,6 +11,9 @@
 			{
 				redirect('main');
 			}
+			else if($this->session->userdata('order_status') == '1'){
+				redirect('order/find_driver/'.$this->session->userdata('order_id'));
+			}
 			
 		}
 
@@ -19,7 +22,7 @@
 		{
 			if($this->input->post())
 			{
-				$dish = $this->crud_model->get_by_condition('dishes', array('id' => $this->input->post('dish_id'), 'restaurant_id' => $this->input->post('resto_id')))->row();
+				$dish = $this->crud_model->get_by_condition('dishes', array('id' => $this->input->post('id'), 'restaurant_id' => $this->input->post('resto_id')))->row();
 
 				$item  = array (
 
@@ -32,6 +35,7 @@
 
 				if($this->cart_model->add($item))
 				{
+
 					$this->session->set_flashdata('success', ' Updating Cart Success!');
 					redirect($this->input->post('url'));
 				}else

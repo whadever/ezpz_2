@@ -12,6 +12,10 @@
 
 					redirect($this->session->userdata('type'));
 				}
+
+				else if($this->session->userdata('order_status') == '1'){
+					redirect('order/find_driver/'.$this->session->userdata('order_id'));
+				}
 				
 			}
 			

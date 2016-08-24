@@ -70,7 +70,11 @@
 				    		</div>
 				    		<div class="col-xs-12 col-sm-10" style="padding-right:20px;">
 				    			<!-- <div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> > -->
-				    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder="0" <?php echo $disabled ?>>
+				    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3>
+				    			  <?php $data = json_encode($dish) ?>
+				    			  <a href="#plus" class="pull-right" id="plus" onclick='add_cart(this,<?php echo $data; ?>)'><span class="glyphicon glyphicon-plus"></span></a>
+
+				    			  <a href="#min" class="pull-right" id="min" onclick='minus_cart(this,<?php echo $data; ?>)'><span class="glyphicon glyphicon-minus" style="margin-right: 10px"></span></a>
 				    			  <div style="word-wrap: break-word; width: 80%">
 				    			  	<p><?php echo $dish->description ?></p>
 				    			  </div>
@@ -157,6 +161,46 @@ $("#restaurant-search").typeahead({
                         source: test,   
                     });
 
+</script>
+
+<script>
+	function add_cart(el,dish){
+
+
+
+		dish.quantity = 1;
+
+		dish.resto_id = <?php echo $restaurant->id ?>;
+	
+		$.ajax({
+          url: "<?php echo base_url('cart/add') ?>",
+          data: dish,
+          type: 'POST',
+          success: function(result){
+          	
+            
+          } 
+        });
+	}
+
+	function minus_cart(el,dish){
+
+
+
+		dish.quantity = -1;
+
+		dish.resto_id = <?php echo $restaurant->id ?>;
+	
+		$.ajax({
+          url: "<?php echo base_url('cart/add') ?>",
+          data: dish,
+          type: 'POST',
+          success: function(result){
+          	
+            
+          } 
+        });
+	}
 </script>
 
 <script>

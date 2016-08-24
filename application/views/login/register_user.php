@@ -15,7 +15,7 @@
 	<div class="col-xs-3"></div>
 	<div class="col-xs-6">
 		
-		<?php echo form_open_multipart('login/register_user',array('name' => 'register_user','id' => 'registerUser')) ?>
+		<?php echo form_open_multipart('login/register_user',array('name' => 'register_user','id' => 'registerUser','onsubmit' => "return form_validation()")) ?>
 
 			<div class="form-group">
 				<label for="">Username:</label>
@@ -72,7 +72,7 @@
 			<div class="form-group">
 				<input type="hidden" name="lat" id="lat" value="">
 				<input type="hidden" name="lng" id="lng" value="">
-				<button type="button" onclick="form_validation()" class="btn btn-primary" name="register">Register</button>
+				<input type="submit" class="btn btn-primary" name="register" value="Register">
 			</div>
 
 		</form>
@@ -173,9 +173,7 @@
       alert("Address must be filled");
       return false;
     }
-    else{
-      document.getElementById('registerUser').submit();
-    }
+
 
   }
 </script>

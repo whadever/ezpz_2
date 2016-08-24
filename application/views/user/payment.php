@@ -96,9 +96,12 @@
 
 	        </table>
 
-	        <label for="">Distance</label>
-	        <div id="distance">Distance: </div>
- 			<div id="duration">Arriving in: </div>
+	        <label for="">Detail</label>
+          <div id="fare">Fare: $ 2.00</div>
+	        <div id="distance_show">Distance: </div>
+ 			    <div id="duration_show">Arriving in: </div>
+          <input type="hidden" name="distance" id="distance" value="">
+          <input type="hidden" name="duration" id="duration" value="">
  			<br>
 
 	        <label for="">Deliver To:</label>
@@ -172,8 +175,11 @@
           if (status == 'OK') {
             /* get distance and print it */
             distance = response.routes[0].legs[0].distance.value / 1000;
-             document.getElementById('distance').innerHTML += 
+             document.getElementById('distance_show').innerHTML += 
             distance.toFixed(1) + " Km";
+            $('#distance').val(distance.toFixed(1));
+
+            //get total cost
 
             cost = distance * <?php echo 2 ?>;
             document.getElementById('cost').innerHTML += 
@@ -183,10 +189,24 @@
             document.getElementById('total').innerHTML += 
             total.toFixed(2);
             $('#payment').val(total.toFixed(2));
+
+
             /*get duration */
             duration = response.routes[0].legs[0].duration.value / 60;
-            document.getElementById('duration').innerHTML += 
-            duration.toFixed(0) + " Minutes";
+       
+            if(duration < 60){
+              document.getElementById('duration_show').innerHTML += 
+              duration.toFixed(0) + " Minutes";
+            }else{
+              hour = Math.floor(duration / 60);
+              min = duration % 60;
+
+              document.getElementById('duration_show').innerHTML += 
+              hour + " Hour(s) " + min + " Minutes" ;
+            }
+
+            $('#duration').val(duration.toFixed(0));
+
 
             directionsDisplay.setDirections(response);
 

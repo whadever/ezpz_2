@@ -33,7 +33,7 @@
       }
     </style>
 
-<?php echo form_open('order/payment'); ?>
+
 
 <div class="container padding-top-five" id="cart-info">
         
@@ -55,7 +55,7 @@
         <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered table-striped">
 
         <tr>    
-                <th>&nbsp;</th>
+
                 <th>No.</th>
                 <th>Item Name</th>
                 <th>Qty</th>
@@ -70,7 +70,7 @@
                 <?php echo form_hidden('rowid[]', $items['rowid']); ?>
 
                 <tr>
-                        <td><a onclick="return confirm('Are you sure?')" href="<?php echo site_url('cart/remove/'.$items['rowid']) ?>">&times;</a></td>
+                        
                         <td><?php echo $i ?></td>
                         <td><?php echo $items['name']; ?> </td>
                         <td><?php echo $items['qty']; ?></td>
@@ -82,12 +82,13 @@
         <?php endforeach; ?>
 
         <tr>
-                <td colspan="4"> </td>
+                <td colspan="3"> </td>
                 <td class="right"><strong>Total</strong></td>
                 <td class="text-right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
         </tr>
 
         </table>
+        <?php echo form_open('order/payment',array('id' => 'checkoutForm','name' => 'checkout_form','onsubmit' => "return form_validation()")); ?>
     
 
         <div class="form-group" id="#mapBody">
@@ -98,7 +99,7 @@
 
         <div class="form-group">
             <label for="">Address:</label>
-            <textarea id="address_show" disabled="1" class="form-control" required="1" ></textarea>
+            <textarea id="address_show" name="address_show" disabled="1" class="form-control" required="1" ></textarea>
             <input type="hidden" id="address" name="address">
         </div>
 
@@ -106,9 +107,12 @@
         <input type="hidden" name="lng" id="lng" value="">       
 
         <p>
-            <input type="submit" name="submit" value="Pay Now" class="btn btn-primary btn-float">
+          
+            <input type="submit" class="btn btn-primary" name="submit" value="Go to Payment" >
         </p>
+        <?php echo form_close() ?>
 </div>
+
 
 <script>
       // This example requires the Places library. Include the libraries=places
@@ -191,3 +195,17 @@
       }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5r3Vc2ohLE1naIZaaYLjfAifThGzAHwc&libraries=places&callback=initMap" async defer></script>
+
+<script>
+  function form_validation(){
+
+
+    var address = document.forms["checkout_form"]["address_show"].value;
+
+    if(address == null || address == ""){
+      alert("Address must be filled");
+      return false;
+    }
+
+  }
+</script>

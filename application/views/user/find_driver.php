@@ -22,7 +22,7 @@ function auto_load(){
           success: function(result){
           	if(result == 2)
           	{
-             	window.location.replace("<?php echo base_url('order/driver_found'); ?>");
+             	window.location.replace("<?php echo base_url('order/driver_found'.$order->id); ?>");
           	}else{
           		setTimeout(auto_load,3000);
           	}
