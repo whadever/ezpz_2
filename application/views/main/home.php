@@ -8,16 +8,15 @@
 
 <!--Full Div End, What you can do div-->
 <div class="row">
-<div class="whatdo">
-	<div class="container">
+	<div class="container whatdo">
 		<div class="row text-center">
-		<h1 style="margin-bottom:25px;">What You Can Do</h1>
+		<h2 style="margin-bottom:25px;">What You Can Do</h2>
 		</div>
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="panel text-center food-panel">
 					<div class="panel-body">
-						Get Your Food Delivered
+						<h4>Get Your Food Delivered</h4>
 						<p>Be a member of EZPZ and get food delivered to your reach fast, and easy with reasonable price.</p>
 						<a href="#" data-toggle="modal" data-target="#loginModal" class="btn do-button"><p>Order Now</p></a>
 					</div>
@@ -26,7 +25,7 @@
 			<div class="col-sm-4">
 				<div class="panel text-center food-panel">
 					<div class="panel-body">
-						Be Our Freelancer
+						<h4>Be Our Freelancer</h4>
 						<p>Work as a freelancer with EZPZ. Free working time, profit, easy.</p>
 						<a class="btn do-button" href="<?php echo base_url('login/register/driver') ?>"><p>Sign Up as Freelancer</p></a>
 					</div>
@@ -35,7 +34,7 @@
 			<div class="col-sm-4">
 				<div class="panel text-center food-panel">
 					<div class="panel-body">
-						Be Our Partner Restaurant
+						<h4>Be Our Partner Restaurant</h4>
 						<p>Team up with us and get more profit and reach more customers.</p>
 						<a class="btn do-button" href="<?php echo base_url('login/register/client') ?>"><p>Be a Partner</p></a>
 					</div>
@@ -44,13 +43,11 @@
 		</div>
 	</div>
 </div>
-</div>
 <!--What you can do div end, cuisine selection start-->
-<div class="row">
-<div class="food">
+<div class="row food">
 	<div class="container">
 		<div class="row text-center">
-			<h1 style="margin-bottom:25px;">Cuisine Selections</h1>
+			<h2 style="margin-bottom:25px;">Cuisine Selections</h2>
 		</div>
 	<?php 
 
@@ -81,7 +78,6 @@
 		<?php endif; $counter++;?>
 	<?php endforeach;?>
 	</div>
-</div>
 </div>
 <script>
 

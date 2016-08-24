@@ -221,13 +221,15 @@ width: 50%;
 .whatdo{
   margin: 30px auto 30px auto;
 }
+.whatdo h4{
+  font-variant: small-caps;
+  font-weight: bold;
+}
 
 /*For the food section*/
 .food {
-    margin-top:30px;
-    margin-bottom: 30px;
-    padding: 0;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     background-color: #ecf0f1;
 }
 /*Image + Hover For Cuisines at Home*/
