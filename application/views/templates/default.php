@@ -25,6 +25,9 @@
 	  <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
+
+    <!--FOnt-->
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   
     
 </head>

@@ -15,7 +15,7 @@
 <?php endif; ?>
 	
 	<div class="row">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 restaurant-detail">
 						
@@ -37,7 +37,7 @@
 		
 	</div>
 	<div class="row">
-		<div class="container-fluid" >
+		<div class="container" >
 			<div class="row" style="padding-right:">
 				<div class="col-sm-8 col-xs-12">
 					  <ul class="nav nav-tabs">
