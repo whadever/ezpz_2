@@ -43,6 +43,9 @@
 		}
 
 		public function find_driver($order_id){
+			if($order_id != $this->session->userdata('order_id')){
+				redirect('order/find_driver/'.$this->session->userdata('order_id'));
+			}
 			if($this->input->post('submit')){
 				$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
 				if($this->input->post('payment') > $credits){
