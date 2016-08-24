@@ -70,6 +70,17 @@ class Order_model extends CI_Model{
 
 	public function new_order ($cart)
 	{
+		
+		do
+		{
+			$flag == 0;
+			$code = substr(md5(microtime()),rand(0,26),5);
+			if($this->db->get_where('order_history', array('code' => $code))->num_rows() > 0 || $this->db->get_where('orders', array('code' => $code))->num_rows() > 0)
+			{
+				$flag = 1;
+			}
+		}while($flag == 1);
+
 		$orders = array(
 
 			'user_id'			=> $this->session->userdata('user_id'),
@@ -77,13 +88,11 @@ class Order_model extends CI_Model{
 			'total_product'		=> count($cart),
 			'total_qty'			=> $this->cart->total_items(),
 			'total_price'		=> $this->cart->total(),
-			'code'				=> substr(md5(microtime()),rand(0,26),5),
+			'code'				=> $code,
 			'status'			=> 0,
 			'latitude'			=> $this->input->post('lat'),
 			'longitude'			=> $this->input->post('lng'),
 			'address'			=> $this->input->post('address'),
-			
-
 
 			); 
 
