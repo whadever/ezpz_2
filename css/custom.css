@@ -1,7 +1,6 @@
 /* Import Media Query */
 @import url('media.css');
 
-
 /*footer*/
 footer{
   background-color: #34495e;
@@ -43,7 +42,9 @@ footer{
 }
 
 /**/
-
+header .navbar-default{
+  background-color: rgba(44, 62, 80,0.2);
+}
 header .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     color: white;
     background-color: transparent;
@@ -77,11 +78,6 @@ body.modal-open[style] {
 /*General*/
 .padding-top-five{
   padding-top: 5%;
-}
-.container{
-  padding-left: 3px;
-  padding-right: 3px;
-  
 }
 body{
   font-family: 'Muli', sans-serif;
@@ -226,7 +222,7 @@ width: 50%;
   padding: 5px;
 }
 .whatdo{
-  margin: 30px auto 30px auto;
+  margin: 30px auto 50px auto;
 }
 .whatdo h4{
   font-variant: small-caps;
@@ -236,7 +232,7 @@ width: 50%;
 /*For the food section*/
 .food {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 70px;
     background-color: #ecf0f1;
 }
 /*Image + Hover For Cuisines at Home*/

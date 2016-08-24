@@ -233,7 +233,7 @@ $(document).ready(function(){
     var waypoint2 = new Waypoint({
       element: document.getElementById('top'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = "transparent";
+        document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.2)';
      
        
       },
