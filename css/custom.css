@@ -333,13 +333,13 @@ width: 50%;
 /* Waiting for Drivers */
 .waiting
 {
-  font-family: font-family: 'Roboto', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight:100;
   font-size:72px;
 }
 
 .roboto
 {
-  font-family: font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight:100;
 }
