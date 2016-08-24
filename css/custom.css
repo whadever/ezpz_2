@@ -1,3 +1,9 @@
+/*footer*/
+footer{
+  background-color: #34495e;
+  color: white;
+}
+
 /* Import Media Query */
 @import url('media.css');
 
@@ -345,6 +351,11 @@ width: 50%;
   color:#fff !important; 
 }
 
+.headline
+{
+  font-size:48px;
+}
+
 /* Waiting for Drivers */
 .waiting
 {
@@ -355,6 +366,23 @@ width: 50%;
 
 .roboto
 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;\
   font-weight:100;
+  padding:1em 0 0.5em 0;
+}
+
+/* Driver Found */
+.driver-info
+{
+  font-family:roboto;
+  font-size:18px;
+  font-weight: lighter;
+}
+
+.driver-photo
+{
+  width: 300px; 
+  border-radius:50%; 
+  height:300px;
+  margin:1em 0 3em 0;
 }

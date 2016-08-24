@@ -178,7 +178,7 @@ function auto_load(){
           type: 'GET',
           cache: false,
           success: function(result){
-          	if(result == 2)
+          	if(result > 1)
           	{
              	window.location.replace("<?php echo base_url('order/driver_found/'.$order->id); ?>");
           	}else{
