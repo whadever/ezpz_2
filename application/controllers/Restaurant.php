@@ -10,11 +10,18 @@
 				
 				if($this->session->userdata('type') != 'user'){
 
+					if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+						redirect('driver/accept_order/'.$this->session->userdata('order_id'));
+					}
+
 					redirect($this->session->userdata('type'));
 				}
 
-				else if($this->session->userdata('order_status') == '1'){
-					redirect('order/find_driver/'.$this->session->userdata('order_id'));
+				if($this->session->userdata('type') == 'user'){
+
+					if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+						redirect('order/find_driver/'.$this->session->userdata('order_id'));
+					}
 				}
 				
 			}

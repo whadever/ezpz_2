@@ -6,9 +6,20 @@
 		public function __construct(){
 			parent::__construct();
 			date_default_timezone_set('NZ');
-			if($this->session->userdata('order_status') == '1'){
-				redirect('order/find_driver/'.$this->session->userdata('order_id'));
+			if($this->session->userdata('type') == 'user'){
+
+				if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+					redirect('order/find_driver/'.$this->session->userdata('order_id'));
+				}
+
+			}else if($this->session->userdata('type') == 'driver'){
+
+				if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+					redirect('driver/accept_order/'.$this->session->userdata('order_id'));
+				}
+
 			}
+			
 		}
 
 		public function index(){

@@ -16,29 +16,21 @@ class Driver extends CI_Controller{
 			
 		}
 		
+		
 		date_default_timezone_set('NZ');
 	}
 
 	public function index(){
 
+		if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+			redirect('driver/accept_order/'.$this->session->userdata('order_id'));
+		}
 		$data['page_title'] = 'Driver';
 		$data['background'] = base_url()."images/pihza.jpg";
 		$data['orders'] = $this->order_model->get_orders();
 
 		$this->template->load('default_driver','driver/home',$data);
 
-	}
-
-	public function direction(){
-		$data['page_title'] = 'Driver';
-		$data['background'] = base_url()."images/pihza.jpg";
-		$this->template->load('default_driver', 'driver/direction',$data);
-	}
-
-	public function test_map(){
-		$data['page_title'] = 'Driver';
-		$data['background'] = base_url()."images/pihza.jpg";
-		$this->load->view('driver/test_map');
 	}
 
 	public function profile($id=''){

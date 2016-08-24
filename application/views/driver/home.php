@@ -19,7 +19,7 @@
 							Address
 						</td>
 						<td>
-							Code
+							Earnings
 						</td>
 				
 						<td>
@@ -44,7 +44,7 @@
 							<a href="#" data-toggle="modal" data-target="#maps" data-address="<?php echo urlencode($order->address) ?>"><?php echo $order->address  ?></a>
 						</td>
 						<td>
-							<?php echo $order->code ?>
+							<?php echo NZD($order->delivery_cost * 70 / 100 - ($order->delivery_cost * 70/100 * 15/100) )  ?>
 						</td>
 						<td>
 							<a class="btn btn-primary" href="<?php echo base_url('driver/accept_order/'.$order->id) ?>" >Accept</a>

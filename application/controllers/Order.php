@@ -59,7 +59,8 @@
 					$data_order = array(
 							'status' => 1,
 							'distance'			=> $this->input->post('distance'),
-							'estimation_time'	=> $this->input->post('duration')
+							'estimation_time'	=> $this->input->post('duration'),
+							'delivery_cost'		=> $this->input->post('cost')
 						);
 					//update order status
 					$this->crud_model->update_data('orders',$data_order,array('id' => $order_id));
@@ -110,6 +111,7 @@
 		public function tracking ($order_id)
 		{
 			$status = $this->db->get_where('orders', array('id' => $order_id))->row()->status;
+			$this->session->set_userdata('order_status',$status);
 			echo $status;
 		}
 
