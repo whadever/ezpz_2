@@ -1,3 +1,9 @@
+/*footer*/
+footer{
+  background-color: #34495e;
+  color: white;
+}
+
 /* Import Media Query */
 @import url('media.css');
 

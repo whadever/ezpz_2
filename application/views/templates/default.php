@@ -110,6 +110,14 @@
     
 </div>
 
+<footer>
+  <div class="container-fluid">
+    <div class="row">
+      <h3 class="text-center">&copy; Hassee Developers</h3>
+    </div>
+  </div>
+</footer>
+
 
 <!-- Modal -->
 <?php if($this->session->userdata('isLogged') == false) $this->load->view('login/login'); ?>
