@@ -9,6 +9,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--FOnt-->
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" rel="stylesheet">
@@ -149,7 +152,7 @@ $(document).ready(function(){
     var waypoint = new Waypoint({
       element: document.getElementById('body'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = '#5bc0de';
+        document.getElementById('navbar').style.backgroundColor = '#34495e';
      
         
       }

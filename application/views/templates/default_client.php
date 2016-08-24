@@ -20,6 +20,8 @@
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
+    <!--FOnt-->
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
     <style>
       #map {
@@ -131,7 +133,7 @@ $(document).ready(function(){
     var waypoint = new Waypoint({
       element: document.getElementById('body'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = 'rgba(91, 192, 222,0.8)';
+        document.getElementById('navbar').style.backgroundColor = '#34495e';
      
         
       }

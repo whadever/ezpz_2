@@ -88,9 +88,9 @@
         <form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
         <div class="form-group center-block" id="search_bar">
             <div class="input-group">
-                <input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant">
+                <input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant" style="-webkit-box-shadow: none !important;  -moz-box-shadow: none !important;  box-shadow: none !important; border-radius:0px;">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit" name="search" onclick="submit()">
+                    <button class="btn btn-primary" type="submit" name="search" onclick="submit()">
                 <span class="glyphicon glyphicon-search"></span></button>
                 </span>
             </div>
