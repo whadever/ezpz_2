@@ -88,7 +88,7 @@
 					$data['page_title'] = 'Payment';
 				
 
-					$this->template->load('default','user/find_driver', $data);
+					$this->template->load('default_ordering','user/find_driver', $data);
 
 				}
 			}else{
@@ -97,7 +97,7 @@
 				$data['page_title'] = 'Waiting for Driver';
 			
 
-				$this->template->load('default','user/find_driver', $data);
+				$this->template->load('default_ordering','user/find_driver', $data);
 			}
 			
 

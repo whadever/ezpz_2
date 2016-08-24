@@ -175,7 +175,7 @@ width: 50%;
 
 /*Css for the full width image div*/
 .image-full{
-	height: 400px;
+	height: 100px;
 	padding-top: 20%;
 	background: url(http://placehold.it/350x250);
 }
@@ -304,4 +304,18 @@ width: 50%;
 .navbar-default .navbar-brand
 {
   color:#fff; !important
+}
+
+/* Waiting for Drivers */
+.waiting
+{
+  font-family: font-family: 'Roboto', sans-serif;
+  font-weight:100;
+  font-size:72px;
+}
+
+.roboto
+{
+  font-family: font-family: 'Roboto', sans-serif;
+  font-weight:100;
 }

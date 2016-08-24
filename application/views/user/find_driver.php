@@ -2,12 +2,13 @@
 <style>
 
 .showbox {
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 5%;
+  margin-top:1em;
+  margin-bottom:1em;
 }
 
 .loader {
@@ -18,7 +19,6 @@
 .loader:before {
   content: '';
   display: block;
-  padding-top: 100%;
 }
 
 .circular {
@@ -121,26 +121,53 @@
 
 	<div class="container-fluid">
 		<div class="row">
-      <div class="col-xs-4"></div>
-      <div class="col-xs-4">
-        <div id="driver">
-            <h2>Waiting For Driver
-              <?php echo $order->id; ?>  
-            </h2>
+      <div class="col-xs-3"></div>
+      <div class="col-xs-6">
+
+        <!-- Waiting For Driver Text -->
+          <div id="driver">
+            <h1 class="waiting" id="textWait" align="center">WAITING FOR DRIVER</h1>
           </div>
-         <div class="showbox">
+
+        <!-- Loading Div -->
+         <div class="showbox" id="loading">
           <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
               <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
             </svg>
           </div>
-        </div>   
+        </div>
       </div>
-      <div class="col-xs-4"></div>
-			
+      <div class="col-xs-3"></div>
 		</div>
 	</div>
 
+  <div class="row">
+    <div class="col-xs-1 col-md-2"></div>
+    <div class="col-xs-10 col-md-8">
+        <!-- Order Details -->
+        <h2 class="roboto">Here Is Your Order Details</h2>
+        <table class="table table-bordered">
+          <tr>
+            <td>Order Number</td>
+            <td>#<?php echo $order->code ?></td>
+          </tr>
+          <tr>
+            <td>Your Order Items</td>
+            <td><?php echo $order->total_qty ?></td>
+          </tr>
+          <tr>
+            <td>Your Order Total</td>
+            <td>$<?php echo $order->total_price ?></td>
+          </tr>
+          <tr>
+            <td>Your Driver Will Deliver To</td>
+            <td><?php echo $order->address ?></td>
+          </tr>
+        </table>
+    </div>
+    <div class="col-xs-1 col-md-2"></div>
+  </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
