@@ -1,12 +1,12 @@
+/* Import Media Query */
+@import url('media.css');
+
 /*footer*/
 footer{
   background-color: #34495e;
   color: white;
+  margin-top: 20px;
 }
-
-/* Import Media Query */
-@import url('media.css');
-
 /*Panel Review*/
 .profile-picture{
   border-radius: 50px;
@@ -86,12 +86,12 @@ body{
   font-family: 'Muli', sans-serif;
 }
 .btn-primary{
-  background-color: #34495e !important; 
-  border-color: #34495e !important;
-  border-radius: 0px !important;
+  background-color: #34495e ; 
+  border-color: #34495e ;
+  border-radius: 0px ;
 }
 .btn-primary:hover{
-  background-color: #2c3e50 !important;
+  background-color: #2c3e50 ;
 }
 
 /*Content-tabs*/
@@ -220,7 +220,7 @@ width: 50%;
   background-color: #2c3e50;
 }
 .do-button p{
-  color: #fff !important;
+  color: #fff ;
   margin-bottom: 0px;
   padding: 5px;
 }
@@ -366,7 +366,7 @@ width: 50%;
 
 .roboto
 {
-  font-family: 'Roboto', sans-serif;\
+  font-family: 'Roboto', sans-serif;
   font-weight:100;
   padding:1em 0 0.5em 0;
 }
