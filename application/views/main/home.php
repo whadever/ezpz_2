@@ -1,5 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
+<style type="text/css">
+	.image-full{
+		height:500px;
+	}
+</style>
 
 
 <!--Full Div End, What you can do div-->
@@ -11,29 +15,29 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="panel panel-info text-center">
+				<div class="panel text-center food-panel">
 					<div class="panel-body">
 						Get Your Food Delivered
 						<p>Be a member of EZPZ and get food delivered to your reach fast, and easy with reasonable price.</p>
-						<a href="#" data-toggle="modal" data-target="#loginModal"><p class="btn btn-info do-button">Order Now</p></a>
+						<a href="#" data-toggle="modal" data-target="#loginModal" class="btn do-button"><p>Order Now</p></a>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-info text-center">
+				<div class="panel text-center food-panel">
 					<div class="panel-body">
 						Be Our Freelancer
 						<p>Work as a freelancer with EZPZ. Free working time, profit, easy.</p>
-						<a class="btn btn-info do-button" href="<?php echo base_url('login/register/driver') ?>">Sign Up as Freelancer</a>
+						<a class="btn do-button" href="<?php echo base_url('login/register/driver') ?>"><p>Sign Up as Freelancer</p></a>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-info text-center">
+				<div class="panel text-center food-panel">
 					<div class="panel-body">
 						Be Our Partner Restaurant
 						<p>Team up with us and get more profit and reach more customers.</p>
-						<a class="btn btn-info do-button" href="<?php echo base_url('login/register/client') ?>">Be a Partner</a>
+						<a class="btn do-button" href="<?php echo base_url('login/register/client') ?>"><p>Be a Partner</p></a>
 					</div>
 				</div>
 			</div>
@@ -59,7 +63,7 @@
 			<div class="row">
 		<?php endif; ?>
 
-			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+			<div class="col-lg-3 col-md-6 col-xs-6">
 			    <div class="hovereffect">
 			        <img class="img-responsive" src="<?php echo $cuisine->thumb ?>" alt="">
 			            <div class="overlay">

@@ -1,5 +1,4 @@
-
-<div class="container-fluid">
+<div class="container">
 	<h2 style="margin-left:1%;"><?php echo $cuisine_name ?></h2>
 	<hr>
 	<?php 
@@ -13,7 +12,7 @@
 			<div class="row">
 		<?php endif; ?>
 
-			<div class="col-md-4 col-xs-12">
+			<div class="col-lg-4 col-sm-6 col-xs-12">
 				<div class="panel panel-default panel-horizontal" style="height:200px;">
 				    <div class="panel-body" >
 				        <p class="brand">
