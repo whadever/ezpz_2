@@ -24,6 +24,12 @@
 	{
 	  font-size:48px;
 	}
+
+	#search_bar
+	{
+		padding-top: 7em;
+	}
+
 } 
 
 @media only screen and (max-device-width: 440px)
@@ -36,6 +42,6 @@
 	
 	#search_bar
 	{
-		padding-top: 50px;
+		padding-top: 5em;
 	}
 }

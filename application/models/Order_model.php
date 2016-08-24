@@ -73,7 +73,7 @@ class Order_model extends CI_Model{
 		
 		do
 		{
-			$flag == 0;
+			$flag = 0;
 			$code = substr(md5(microtime()),rand(0,26),5);
 			if($this->db->get_where('order_history', array('code' => $code))->num_rows() > 0 || $this->db->get_where('orders', array('code' => $code))->num_rows() > 0)
 			{
