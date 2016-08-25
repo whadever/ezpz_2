@@ -189,7 +189,11 @@ class User extends CI_Controller{
 		$this->stripe_model->pay();
 		$this->session->set_flashdata('success', 'Top Up Success! Your Credits Are Now Topped Up');
 
-		$this->crud_model->update_data('users', array('credits' => $this->input->post('amount')), array('id' => $this->session->userdata('user_id')));
+		$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
+
+		$amount = $credits + $this->input->post('amount');
+
+		$this->crud_model->update_data('users', array('credits' => $amount), array('id' => $this->session->userdata('user_id')));
 		redirect('main');
 	}
 	
