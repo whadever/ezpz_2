@@ -261,7 +261,7 @@ class Login extends CI_Controller{
 
 	                if ($this->upload->do_upload('photo'))
 	                {	
-	                	$image = $thiss->upload->data();
+	                	$image = $this->upload->data();
 	                    //Get the link for the database
 	                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
 	                }

@@ -19,7 +19,7 @@
 
 				if($this->session->userdata('type') == 'user'){
 
-					if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+					if($this->session->userdata('order_status') > 0 && $this->session->userdata('order_status') < 4){
 						redirect('order/find_driver/'.$this->session->userdata('order_id'));
 					}
 				}

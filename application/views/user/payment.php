@@ -43,8 +43,8 @@
 
 	<div class="row">
 		<div class="col-md-6">
-		<h2>Payment Detail</h2>
-			<table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-striped">
+		  <h2>Payment Detail</h2>
+			  <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-striped">
 
 		        <tr>    
 		                
@@ -113,13 +113,14 @@
 	        <input type="hidden" name="cost" id="cost" value="">
           <input type="hidden" name="payment" id="payment" value="">  
 
-            <input type="submit" name="submit" value="Pay Now" class="btn btn-primary btn-float">
+          
 		</div>
 
 		<div class="col-md-6">
 			<h2>Location</h2>
             <div id="map"></div>
 		</div>
+
 	</div>
         
        <!--  <?php if($this->session->flashdata('success')): ?>
@@ -137,9 +138,15 @@
 
         <?php endif; ?> -->
 
-	<?php echo form_close() ?>        
+   <div class="row" style="margin: 20px 0">
+      
+        <input type="submit" name="submit" value="Pay Now" class="btn btn-primary btn-float">
+      
+  </div>
 </div>
 
+  
+<?php echo form_close() ?> 
 
  <script>
       function initMap() {

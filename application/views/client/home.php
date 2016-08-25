@@ -125,7 +125,7 @@
 							<input type="hidden" name="username" id="username" value="<?php echo $restaurant->username; ?>">
 					    	<input type="submit" name="update" value="Update" class="btn btn-primary ">
 					    	</td>
-						</form>
+						<?php echo form_close() ?>
 						</div>
 					</div>
 				</div>

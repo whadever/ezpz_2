@@ -95,7 +95,7 @@
         width: 345px;
       }
       #map {
-        height: 600px;
+        height: 500px;
         width: 100%;
       }
       #right-panel {
