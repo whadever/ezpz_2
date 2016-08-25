@@ -118,7 +118,7 @@ $(document).ready(function(){
 <script>
 
     var waypoint = new Waypoint({
-      element: document.getElementById('body'),
+      element: document.getElementById('main'),
       handler: function(direction) {
         document.getElementById('navbar').style.backgroundColor = '#34495e'; 
       }

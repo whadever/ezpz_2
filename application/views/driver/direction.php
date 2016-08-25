@@ -29,8 +29,7 @@
           directionsDisplay.setMap(map);
           directionsDisplay.setPanel(document.getElementById('right-panel'));
 
-          //Test Info Window
-          var infoWindow = new google.maps.InfoWindow({map: map});
+          
 
           if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -41,9 +40,7 @@
 
               calculateAndDisplayRoute(directionsService, directionsDisplay, pos);
 
-              infoWindow.setPosition(pos);
-              infoWindow.setContent('Location found.');
-              map.setCenter(pos);
+              
             })
           }
 
@@ -64,7 +61,7 @@
           // origin: {lat: <?php echo $restaurant->latitude ?>, lng: <?php echo $restaurant->longitude ?>},  // Haight.
           // destination: {lat: <?php echo $order->latitude ?> , lng: <?php echo $order->longitude ?>},  // Ocean Beach.
           origin: {lat: curPos.lat, lng: curPos.lng},
-          destination: {lat: -6.174219 , lng: 106.827196},
+          destination: {lat: -6.201708 , lng: 106.781601},
           // Note that Javascript allows us to access the constant
           // using square brackets and a string value as its
           // "property."
