@@ -11,7 +11,6 @@
 </style>
 <div class="container" style="margin-top:20px;">
   
-  
   <div class="row">
     <div class="col-md-6">
       <h2>Order Detail</h2>

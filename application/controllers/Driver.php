@@ -15,6 +15,7 @@ class Driver extends CI_Controller{
 			redirect($this->session->userdata('type'));
 			
 		}
+
 		
 		
 		date_default_timezone_set('NZ');
@@ -22,9 +23,15 @@ class Driver extends CI_Controller{
 
 	public function index(){
 
-		if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+		
+		if($this->session->userdata('order_status') == 2 ){
 			redirect('driver/accept_order/'.$this->session->userdata('code'));
 		}
+		else if($this->session->userdata('order_status') == 3 ){
+			redirect('driver/delivery/'.$this->session->userdata('code'));
+		}
+
+
 		$data['page_title'] = 'Driver';
 		$data['background'] = base_url()."images/pihza.jpg";
 		$data['orders'] = $this->order_model->get_orders();

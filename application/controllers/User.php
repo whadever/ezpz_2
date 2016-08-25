@@ -16,8 +16,11 @@ class User extends CI_Controller{
 			
 		}
 
-		else if($this->session->userdata('order_status') > 0 && $this->session->userdata('order_status') < 4){
+		else if($this->session->userdata('order_status') == 1 ){
 			redirect('order/find_driver/'.$this->session->userdata('code'));
+		}
+		else if( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+			redirect('order/driver_found/'.$this->session->userdata('code'));
 		}
 		date_default_timezone_set('NZ');
 

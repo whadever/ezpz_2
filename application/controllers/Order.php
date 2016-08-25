@@ -5,8 +5,10 @@
 		public function __construct(){
 			parent::__construct();
 
-			if($this->session->userdata('isLogged') == FALSE || $this->session->userdata('type') !='user'){
+			if($this->session->userdata('isLogged') == FALSE){
 				redirect('main');
+			}else if($this->session->userdata('type') !='user'){
+				redirect($this->session->userdata('type'));
 			}
 			
 

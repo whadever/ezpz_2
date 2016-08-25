@@ -10,8 +10,15 @@
 				
 				if($this->session->userdata('type') != 'user'){
 
-					if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
-						redirect('driver/accept_order/'.$this->session->userdata('order_id'));
+					if($this->session->userdata('type') == 'driver'){
+
+						if($this->session->userdata('order_status') == 2 ){
+							redirect('driver/accept_order/'.$this->session->userdata('code'));
+						}
+						else if($this->session->userdata('order_status') == 3 ){
+							redirect('driver/delivery/'.$this->session->userdata('code'));
+						}
+
 					}
 
 					redirect($this->session->userdata('type'));
@@ -19,8 +26,11 @@
 
 				if($this->session->userdata('type') == 'user'){
 
-					if($this->session->userdata('order_status') > 0 && $this->session->userdata('order_status') < 4){
-						redirect('order/find_driver/'.$this->session->userdata('order_id'));
+					if($this->session->userdata('order_status') == 1 ){
+						redirect('order/find_driver/'.$this->session->userdata('code'));
+					}
+					else if( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+						redirect('order/driver_found/'.$this->session->userdata('code'));
 					}
 				}
 				

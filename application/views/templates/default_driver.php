@@ -151,13 +151,13 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span> 
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url('main') ?>"><img src="<?php echo base_url('assets/logo.png') ?>" width="40" alt="" style="margin-top:-10px;"></a>
+                <a class="navbar-brand" href="<?php echo base_url('driver') ?>"><img src="<?php echo base_url('assets/logo.png') ?>" width="40" alt="" style="margin-top:-10px;"></a>
               </div>
 
               <div class="collapse navbar-collapse" id="myNavbar">
 
                 <ul class="nav navbar-nav navbar-left">
-                  <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
+                  <li><a href="<?php echo base_url('driver') ?>" class="nav-link">Home</a></li>
                   
                   <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li>
                   
