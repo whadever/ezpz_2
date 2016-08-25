@@ -72,9 +72,9 @@
 				    			<!-- <div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> > -->
 				    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3>
 				    			  <?php $data = json_encode($dish) ?>
-				    			  <a href="#plus" class="pull-right" id="plus" onclick='add_cart(this,<?php echo $data; ?>)'><span class="glyphicon glyphicon-plus"></span></a>
+				    			  <a  class="pull-right" id="plus" onclick='add_cart(this,<?php echo $data; ?>)'><span class="glyphicon glyphicon-plus"></span></a>
 
-				    			  <a href="#min" class="pull-right" id="min" onclick='minus_cart(this,<?php echo $data; ?>)'><span class="glyphicon glyphicon-minus" style="margin-right: 10px"></span></a>
+				    			  <a  class="pull-right" id="min" onclick='minus_cart(this,<?php echo $data; ?>)'><span class="glyphicon glyphicon-minus" style="margin-right: 10px"></span></a>
 				    			  <div style="word-wrap: break-word; width: 80%">
 				    			  	<p><?php echo $dish->description ?></p>
 				    			  </div>
@@ -89,7 +89,7 @@
 							    <!-- Get URL -->
 							    <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
 				    			
-				    			<input type="submit" value="Add to Cart" class="btn btn-primary pull-right" onClick="checkCart()">
+				    			<!-- <input type="submit" value="Add to Cart" class="btn btn-primary pull-right" onClick="checkCart()"> -->
 
 				    		</div>
 				    	</div>
@@ -136,8 +136,9 @@
 				  <div class="col-sm-4 col-xs-12" style="padding: 20px 15px 10px 15px;">
 				  	<div class="col-xs-12" style="border:1px #ddd solid;padding-bottom:10px;">
 				  		<h3 class="text-center">Order Details</h3>
+				  		<div class="wrap">
 				  		<?php $this->load->view('cart/overview');?>
-
+						</div>
 				  	</div>
 				  </div>
 			</div>
@@ -201,6 +202,10 @@ $("#restaurant-search").typeahead({
           } 
         });
 	}
+
+	$(window).load(function() {
+      
+	});
 </script>
 
 <script>

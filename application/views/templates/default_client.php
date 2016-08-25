@@ -78,22 +78,22 @@
 
               <div class="collapse navbar-collapse" id="myNavbar">
 
-                <ul class="nav navbar-nav navbar-left">
+                <!-- <ul class="nav navbar-nav navbar-left">
                   <li><a href="<?php echo base_url('client') ?>" class="nav-link">Home</a></li>
                   
                  
                   
                   <li role="separator" class="divider" style="background-color: white; height: 1px"></li>
-                </ul>
+                </ul> -->
               
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#"><?php echo $this->session->userdata('username') ?></a></li>
+                      <!-- <li><a href="#"><?php echo $this->session->userdata('username') ?></a></li>
                      
                          
 
                       <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" >Edit Profile</a></li>
 
-                      <li><a href="#">Edit Menu</a></li>
+                      <li><a href="#">Edit Menu</a></li> -->
                        
                       
                       <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>

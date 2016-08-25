@@ -73,6 +73,7 @@
 								        </select>
 							        </div>
 								</div>
+								<div class="wrap">
 								<table class="table">
 						     		<thead>
 						     			<tr>
@@ -114,6 +115,7 @@
 						     		<?php endfor; ?> 			
 						     		</tbody>
 						     	</table> 
+						    	</div>
 					    	<div class="form-group">
 					            <label for="photo">Photo</label>
 					            <input type="file" name = "photo" class="form-control" placeholder="Profile Photo">
@@ -138,6 +140,7 @@
 							<hr>
 							<div class="panel panel-default">							  
 							  <div class="panel-body">
+							  		<div class="wrap">
 							    	<table class="table table-striped">
 							    		<thead>
 							    			<tr>
@@ -168,6 +171,7 @@
 							    			<?php endforeach; ?>
 							    		</tbody>
 							    	</table>
+							    	</div>
 							  </div>
 							</div>
 						</div>

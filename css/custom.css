@@ -1,6 +1,12 @@
 /* Import Media Query */
 @import url('media.css');
 
+/*wrap*/
+.wrap{
+  overflow-x: scroll;
+  width: inherit;
+}
+
 /*footer*/
 footer{
   background-color: #34495e;
