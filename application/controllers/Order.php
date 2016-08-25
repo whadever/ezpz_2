@@ -59,7 +59,7 @@
 					$data_order = array(
 							'status' => 1,
 							'distance'			=> $this->input->post('distance'),
-							'estimation_time'	=> $this->input->post('duration'),
+							'estimation_time'	=> $this->input->post('duration') + 15,
 							'delivery_cost'		=> $this->input->post('cost')
 						);
 					//update order status

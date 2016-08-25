@@ -156,20 +156,21 @@ class User extends CI_Controller{
 		$order = $this->crud_model->get_by_condition('orders', array('code' => $code))->row();
 
 		$data_insert = array(
-				'user_id' => $order->user_id,
-				'restaurant_id' => $order->restaurant_id,
-				'driver_id' => $order->driver_id,
-				'total_product' => $order->total_product,
-				'total_qty' => $order->total_qty,
-				'total_price' => $order->total_price,
-				'delivery_cost' => $order->delivery_cost,
-				'code' => $order->code,
-				'status' => $order->status,
-				'latitude' => $order->latitude,
-				'longitude' => $order->longitude,
-				'address' => $order->address,
-				'estimation_time' => $order->estimation_time,
-				'distance' => $order->distance
+				'user_id' 			=> $order->user_id,
+				'restaurant_id' 	=> $order->restaurant_id,
+				'driver_id' 		=> $order->driver_id,
+				'total_product' 	=> $order->total_product,
+				'total_qty' 		=> $order->total_qty,
+				'total_price' 		=> $order->total_price,
+				'delivery_cost' 	=> $order->delivery_cost,
+				'code' 				=> $order->code,
+				'status' 			=> $order->status,
+				'latitude' 			=> $order->latitude,
+				'longitude' 		=> $order->longitude,
+				'address' 			=> $order->address,
+				'estimation_time' 	=> $order->estimation_time,
+				'distance' 			=> $order->distance,
+				'date'				=> $order->date
 				
 
 			);

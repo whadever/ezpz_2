@@ -8,7 +8,7 @@
 		<div class="row text-center" id="status">
 			<h1 class="roboto headline">Order Status</h1>
 			<h2 class="roboto" id="statusDriver"  align="center">Driver Enroute to Restaurant</h2>
-
+		
 			<select name="" id="rate" onchange="rate_driver()" style="display:none">
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -57,7 +57,11 @@
 					</td>
 					<tr>
 						<td>Total Price</td>
-						<td>$<?php echo $order->total_price ?></td>
+						<td><?php echo NZD($order->total_price) ?></td>
+					</tr>
+					<tr>
+						<td>Delivery Cost</td>
+						<td><?php echo NZD($order->delivery_cost) ?></td>
 					</tr>
 					<tr>
 						<td>Deliver To</td>
@@ -65,7 +69,19 @@
 					</tr>
 					<tr>
 						<td>ETA</td>
-						<td><?php echo $order->estimation_time ?> Minutes</td>
+						<?php 
+						if($order->estimation_time < 60){
+			              echo '<td>'.$order->estimation_time.' Minutes</td>';
+			            }else{
+			              $hour = floor($order->estimation_time / 60);
+			              $min = $order->estimation_time % 60;
+
+			              echo '<td>'.$hour.' Hour(s) '.$min.' Minutes</td>';
+			              
+			            }
+
+						 ?>
+						
 					</tr>
 					<tr>
 						<td>Distance</td>

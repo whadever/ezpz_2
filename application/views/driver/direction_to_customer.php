@@ -11,9 +11,6 @@
 </style>
 <div class="container" style="margin-top:20px;">
   
-  <pre>
-  <?php print_r($this->session->userdata()) ?>
-</pre>
   <div class="row">
     <div class="col-md-6">
       <h2>Order Detail</h2>
