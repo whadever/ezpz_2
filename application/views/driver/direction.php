@@ -13,9 +13,8 @@
  		
  	</div>
  </div>
-    
-    
-    
+
+
     <script>
       function initMap() {
 
@@ -43,7 +42,7 @@
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
        
         directionsService.route({
-          origin: {lat: <?php echo $restaurant->latitude ?>, lng: <?php echo $restaurant->longitude ?>},  // Haight.
+          origin: {lat: <?php echo $restaurant->latitude ?> , lng: <?php echo $restaurant->longitude ?>},  // Haight.
           destination: {lat: <?php echo $order->latitude ?> , lng: <?php echo $order->longitude ?>},  // Ocean Beach.
           // Note that Javascript allows us to access the constant
           // using square brackets and a string value as its

@@ -108,9 +108,10 @@
             <p id="address_show"><?php echo $order->address ?></p>
             <input type="hidden" id="address" name="address">
 
-			<input type="hidden" name="lat" id="lat" value="">
+			    <input type="hidden" name="lat" id="lat" value="">
 	        <input type="hidden" name="lng" id="lng" value="">
-	        <input type="hidden" name="cost" id="cost" value="">  
+	        <input type="hidden" name="cost" id="cost" value="">
+          <input type="hidden" name="payment" id="payment" value="">  
 
             <input type="submit" name="submit" value="Pay Now" class="btn btn-primary btn-float">
 		</div>
@@ -189,6 +190,7 @@
             document.getElementById('total').innerHTML += 
             total.toFixed(2);
             $('#cost').val(cost.toFixed(2));
+            $('#payment').val(total.toFixed(2));
 
 
             /*get duration */
