@@ -153,6 +153,32 @@ class User extends CI_Controller{
 
 	public function rate_driver($driver_id,$code){
 		$this->crud_model->update_data('driver_rating', array('rating' => $this->input->post('rating')), array('driver_id' => $driver_id, 'code' => $code));
+		$order = $this->crud_model->get_by_condition('orders', array('code' => $code))->row();
+
+		$data_insert = array(
+				'user_id' => $order->user_id,
+				'restaurant_id' => $order->restaurant_id,
+				'driver_id' => $order->driver_id,
+				'total_product' => $order->total_product,
+				'total_qty' => $order->total_qty,
+				'total_price' => $order->total_price,
+				'delivery_cost' => $order->delivery_cost,
+				'code' => $order->code,
+				'status' => $order->status,
+				'latitude' => $order->latitude,
+				'longitude' => $order->longitude,
+				'address' => $order->address,
+				'estimation_time' => $order->estimation_time,
+				'distance' => $order->distance
+				
+
+			);
+
+		$this->crud_model->insert_data('order_history', $data_insert);
+		$this->crud_model->delete_data('orders',array('code' => $code));
+		$this->session->unset_userdata(array('order_status','code'));
+		redirect('user');
+	}
 
 	public function topup ()
 	{
