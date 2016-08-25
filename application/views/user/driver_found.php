@@ -38,7 +38,7 @@
 					</td>
 					<tr>
 						<td>Phone</td>
-						<td><?php echo $driver->telephone ?></td>
+						<td><a href="tel:<?php echo $driver->telephone ?>"><?php echo $driver->telephone ?></a></td>
 					</tr>
 				</table>
 			</div>
