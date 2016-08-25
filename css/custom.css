@@ -1,6 +1,8 @@
 /* Import Media Query */
 @import url('media.css');
 
+
+
 /*wrap*/
 .wrap{
   overflow-x: scroll;
@@ -142,45 +144,7 @@ body{
   color:#fff;
 }
 
-/* cart */
-.cart{
-  position:fixed; 
-  right: 0px; 
-  width: 50px; 
-  height: 50px; 
-  background-color: black; 
-  top: 50%; 
-  z-index: 3;
-  padding: 12px 7px;
-  opacity: 0.7;
-}
 
-.cart a{
-  text-decoration: none;
-  color: white;
-}
-
-.cart a:hover, a:focus {
-    color: white;
-    text-decoration: none;
-}
-
-.cart a:visited{
-  color: white;
-  text-decoration: none;
-}
-.cart a:focus{
-  color: white;
-  text-decoration: none;
-}
-
-.cart .fa{
-  color: white;
-  margin: auto;
-  display: inline;
-
-
-}
 
 /* typeahead */
 .typeahead {
