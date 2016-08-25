@@ -134,7 +134,7 @@ class Driver extends CI_Controller{
 
 	}
 
-	public function accept_order($order_id){
+	public function accept_order($code){
 		$data['page_title'] = 'Driver';
 		$data['background'] = base_url()."images/pihza.jpg";
 			$driver_id = $this->session->userdata('user_id');
@@ -143,13 +143,14 @@ class Driver extends CI_Controller{
 			$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 2));
 			
 			$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
-			$data['order'] = $this->crud_model->get_by_condition('orders',array('id' => $order_id))->row();
-			$data['order_detail'] = $this->order_model->get_order_detail($order_id);
+			$data['order'] = $this->crud_model->get_by_condition('orders',array('id' => $code))->row();
+			$data['order_detail'] = $this->order_model->get_order_detail($code);
 			$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
 			
 			$this->template->load('default_driver', 'driver/direction_to_restaurant', $data);
 		}
 
+	public function delivery($code)
 
 }
 

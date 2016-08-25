@@ -71,6 +71,8 @@
             <td style="max-width: 270px; text-align: justify;"><?php echo $restaurant->address ?></td>
           </tr>
         </table>
+
+        <a href="<?php echo base_url('order/') ?>" class="btn btn-primary">I have bought the food</a>
     </div>
     <div class="col-md-6">
       <div id="map"></div>

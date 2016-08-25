@@ -102,7 +102,7 @@ class Order_model extends CI_Model{
 		$this->db->insert('orders', $orders);
 
 		//Get order ID
-		$order_id = $this->db->get_where('orders', array('code' => $orders['code']))->row()->id;
+	
 
 		//Put into order_detail
 		foreach ($cart as $item)
@@ -129,7 +129,7 @@ class Order_model extends CI_Model{
 
 		$this->db->update('orders', array('restaurant_id' => $restaurant_id));
 
-		return $order_id;
+		return $orders['code'];
 
 	}
 
@@ -143,11 +143,11 @@ class Order_model extends CI_Model{
 
 	}
 	
-	public function get_order_detail($order_id = ''){
+	public function get_order_detail($code = ''){
 		$this->db->select('order_detail.*, dishes.name, dishes.price');
 		$this->db->from('order_detail');
 		$this->db->join('dishes','dishes.id = order_detail.product_id');
-		$this->db->where('order_detail.order_id',$order_id);
+		$this->db->where('order_detail.code',$code);
 		return $this->db->get()->result();
 	}
 

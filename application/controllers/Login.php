@@ -358,7 +358,7 @@ class Login extends CI_Controller{
 				
 				
 				if($order){
-					$this->session->set_userdata(array('order_status' => $order->status, 'order_id' => $order->id));
+					$this->session->set_userdata(array('order_status' => $order->status, 'code' => $order->code));
 				}
 
 				redirect($user->type);

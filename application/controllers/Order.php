@@ -16,18 +16,18 @@
 			if ($this->input->post()) {
 				
 				if($this->cart->total_items() > 0){
-					$order_id = $this->order_model->new_order($this->cart->contents());
-					$this->session->set_userdata(array('order_id' => $order_id));
+					$code = $this->order_model->new_order($this->cart->contents());
+					$this->session->set_userdata(array('code' => $code));
 
 				}
 				else{
-					$order_id = $this->session->userdata('order_id');
+					$code = $this->session->userdata('code');
 				}
 
-				$data['order_id'] = $order_id;
+				$data['code'] = $code;
 				$data['background'] = base_url().'images/pihza.jpg';
 				$data['page_title'] = 'Payment';
-				$data['order'] = $this->db->get_where('orders', array('id' => $order_id))->row();
+				$data['order'] = $this->db->get_where('orders', array('code' => $code))->row();
 				$data['order_details'] = $this->order_model->get_order_detail($data['order']->id);
 				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
 
@@ -42,9 +42,9 @@
 
 		}
 
-		public function find_driver($order_id){
-			if($order_id != $this->session->userdata('order_id')){
-				redirect('order/find_driver/'.$this->session->userdata('order_id'));
+		public function find_driver($code){
+			if($code != $this->session->userdata('code')){
+				redirect('order/find_driver/'.$this->session->userdata('code'));
 			}
 			if($this->input->post('submit')){
 				$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
@@ -63,13 +63,13 @@
 							'delivery_cost'		=> $this->input->post('cost')
 						);
 					//update order status
-					$this->crud_model->update_data('orders',$data_order,array('id' => $order_id));
+					$this->crud_model->update_data('orders',$data_order,array('code' => $code));
 
 					//update userdata
-					$this->session->set_userdata(array('order_id' => $order_id,'order_status' => 1));
+					$this->session->set_userdata(array('code' => $code,'order_status' => 1));
 
 					//Get Restaurant ID For emailing drivers
-					$data['order'] = $this->crud_model->get_by_condition('orders', array('id' => $order_id))->row();
+					$data['order'] = $this->crud_model->get_by_condition('orders', array('code' => $code))->row();
 
 					//Get Resto Info
 					$restaurant_data = $this->db->get_where('restaurants', array('id' => $data['order']->restaurant_id))->row();
@@ -96,7 +96,7 @@
 
 				}
 			}else{
-				$data['order'] = $this->crud_model->get_by_condition('orders', array('id' => $order_id))->row();
+				$data['order'] = $this->crud_model->get_by_condition('orders', array('code' => $code))->row();
 				$data['background'] = base_url().'images/pihza.jpg';
 				$data['page_title'] = 'Waiting for Driver';
 			
@@ -108,16 +108,16 @@
 		}
 
 		//Ajax
-		public function tracking ($order_id)
+		public function tracking ($code)
 		{
-			$status = $this->db->get_where('orders', array('id' => $order_id))->row()->status;
+			$status = $this->db->get_where('orders', array('code' => $code))->row()->status;
 			$this->session->set_userdata('order_status',$status);
 			echo $status;
 		}
 
-		public function driver_found($order_id){
+		public function driver_found($code){
 			$data['page_title'] = 'Driver Information';
-			$data['order'] = $this->crud_model->get_by_condition('orders',array('id' => $order_id))->row();	
+			$data['order'] = $this->crud_model->get_by_condition('orders',array('code' => $code))->row();	
 			if($data['order']->driver_id == 0){
 				redirect('user');
 			}

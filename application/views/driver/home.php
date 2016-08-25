@@ -47,7 +47,7 @@
 							<?php echo NZD($order->delivery_cost * 70 / 100 - ($order->delivery_cost * 70/100 * 20/100) )  ?>
 						</td>
 						<td>
-							<a class="btn btn-primary" href="<?php echo base_url('driver/accept_order/'.$order->id) ?>" >Accept</a>
+							<a class="btn btn-primary" href="<?php echo base_url('driver/accept_order/'.$order->code) ?>" >Accept</a>
 						</td>
 						
 						
