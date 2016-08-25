@@ -140,6 +140,7 @@ class User extends CI_Controller{
 		$data['background'] = base_url()."images/pihza.jpg";
 		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 		$data['page_title'] = "Credit Top Up";
+		$data['user_email'] = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row()->email;
 		$this->template->load('default','user/credits',$data);
 
 	}
@@ -149,10 +150,20 @@ class User extends CI_Controller{
 		redirect('user');
 	}
 
+
 	public function rate_driver($driver_id,$code){
 		$this->crud_model->update_data('driver_rating', array('rating' => $this->input->post('rating')), array('driver_id' => $driver_id, 'code' => $code));
-	}
 
+	public function topup ()
+	{
+		$this->stripe_model->pay();
+		$this->session->set_flashdata('success', 'Top Up Success! Your Credits Are Now Topped Up');
+
+		$this->crud_model->update_data('users', array('credits' => $this->input->post('amount')), array('id' => $this->session->userdata('user_id')));
+		redirect('main');
+	}
+	
+	
 }
 
  ?>
