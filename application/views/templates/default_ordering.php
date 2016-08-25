@@ -44,7 +44,7 @@
 	                  <span class="icon-bar"></span>
 	                  <span class="icon-bar"></span> 
 	                </button>
-	                <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
+	                <a class="navbar-brand" href="<?php echo base_url('main') ?>"><img src="<?php echo base_url('assets/logo.png') ?>" width="40" alt="" style="margin-top:-10px;"></a>
 	              </div>
 
 	              <div class="collapse navbar-collapse" id="myNavbar">
