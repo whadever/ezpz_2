@@ -140,6 +140,7 @@ class User extends CI_Controller{
 		$data['background'] = base_url()."images/pihza.jpg";
 		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 		$data['page_title'] = "Credit Top Up";
+		$data['user_email'] = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row()->email;
 		$this->template->load('default','user/credits',$data);
 
 	}
@@ -147,6 +148,15 @@ class User extends CI_Controller{
 	public function send_mail(){
 		$this->email_model->send_mail();
 		redirect('user');
+	}
+
+	public function topup ()
+	{
+		$this->stripe_model->pay();
+		$this->session->set_flashdata('success', 'Top Up Success! Your Credits Are Now Topped Up');
+
+		$this->crud_model->update_data('users', array('credits' => $this->input->post('amount')), array('id' => $this->session->userdata('user_id')));
+		redirect('main');
 	}
 }
 

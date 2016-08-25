@@ -1,30 +1,39 @@
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<link rel="stylesheet" href="<?php echo base_url() ?>js/themes/bars-reversed.css">
-
-
+<div id="main">
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
-            <select id="example">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-
-
+            <div class="cards">
+                <h3 align="center">We Accept </h3>
+            </div>
+            <?php echo form_open('user/topup', array('class' => 'inline')) ?>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Amount</td>
+                        <td>
+                            <div class="input-group">
+                              <div class="input-group-addon">$</div>
+                              <input type="number" name="amount" id="amount" class="form-control" placeholder="amount" required>
+                              <div class="input-group-addon">.00</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                           <script
+                              src="https://checkout.stripe.com/checkout.js" class="stripe-button pull-right"
+                              data-key="pk_test_WHJeocUki4v9PeEmVbhYedqV"
+                              data-email="<?php echo $user_email ?>"
+                              data-name="EZPZ Food Delivery"
+                              data-description="Wallet Top Up"
+                              data-locale="auto">
+                            </script>
+                        </td>
+                    </tr>
+                </table>
+            <?php echo form_close() ?>
         </div>
         <div class="col-xs-2"></div>
     </div>
 </div>
-
-<script src="<?php echo base_url() ?>js/jquery.barrating.min.js"></script>
-<script type="text/javascript">
-   $(function() {
-      $('#example').barrating({
-        theme: 'bars-reversed'
-      });
-   });
-</script>
+</div>
