@@ -138,6 +138,8 @@ class User extends CI_Controller{
 
 	public function credits(){
 		$data['background'] = base_url()."images/pihza.jpg";
+		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
+		$data['page_title'] = "Credit Top Up";
 		$this->template->load('default','user/credits',$data);
 
 	}
