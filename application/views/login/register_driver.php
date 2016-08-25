@@ -84,10 +84,8 @@
 		</form>
 
 	</div>
-<<<<<<< HEAD
-	<div class="col-md-4"></div>
-=======
+
 	<div class="col-md-4 col-xs-1"></div>
->>>>>>> origin/master
+
 </div>
 
