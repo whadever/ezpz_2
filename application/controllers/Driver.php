@@ -23,7 +23,7 @@ class Driver extends CI_Controller{
 	public function index(){
 
 		if($this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
-			redirect('driver/accept_order/'.$this->session->userdata('order_id'));
+			redirect('driver/accept_order/'.$this->session->userdata('code'));
 		}
 		$data['page_title'] = 'Driver';
 		$data['background'] = base_url()."images/pihza.jpg";
@@ -137,20 +137,58 @@ class Driver extends CI_Controller{
 	public function accept_order($code){
 		$data['page_title'] = 'Driver';
 		$data['background'] = base_url()."images/pihza.jpg";
-			$driver_id = $this->session->userdata('user_id');
+		$driver_id = $this->session->userdata('user_id');
 
-			$this->db->where('id',$order_id);
-			$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 2));
+		$this->db->where('code',$code);
+		$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 2));
+		$this->session->set_userdata(array('order_status' => 2));
+		$this->session->set_userdata(array('code' => $code));
+		
+		$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
+		$data['order'] = $this->crud_model->get_by_condition('orders',array('code' => $code))->row();
+		$data['order_detail'] = $this->order_model->get_order_detail($code);
+		$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
+		$data['customer'] = $this->crud_model->get_by_condition('users',array('id' => $data['order']->user_id))->row();
 			
-			$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
-			$data['order'] = $this->crud_model->get_by_condition('orders',array('id' => $code))->row();
-			$data['order_detail'] = $this->order_model->get_order_detail($code);
-			$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
-			
-			$this->template->load('default_driver', 'driver/direction_to_restaurant', $data);
+		$this->template->load('default_driver', 'driver/direction_to_restaurant', $data);
 		}
 
-	public function delivery($code)
+	public function delivery($code){
+		$data['page_title'] = 'Driver';
+		$data['background'] = base_url()."images/pihza.jpg";
+		$driver_id = $this->session->userdata('user_id');
+
+		$this->db->where('code',$code);
+		$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 3));
+		$this->session->set_userdata(array('order_status' => 3));
+		
+		$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
+		$data['order'] = $this->crud_model->get_by_condition('orders',array('code' => $code))->row();
+		$data['order_detail'] = $this->order_model->get_order_detail($code);
+		$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
+		$data['customer'] = $this->crud_model->get_by_condition('users',array('id' => $data['order']->user_id))->row();
+			
+		$this->template->load('default_driver', 'driver/direction_to_customer', $data);
+
+	}
+
+	public function finish_order($code){
+		$driver_id = $this->session->userdata('user_id');
+		$user_id = $this->crud_model->get_by_condition('orders',array('code' => $code))->row('user_id');	
+
+		$this->db->where('code',$code);
+		$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 4));
+		$this->session->unset_userdata(array('order_status','code'));
+		$data_rating = array(
+				'code' => $code,
+				'driver_id' => $driver_id,
+				'user_id' => $user_id
+
+			);
+		$this->crud_model->insert_data('driver_rating',$data_rating);
+
+		redirect('driver');
+	}
 
 }
 

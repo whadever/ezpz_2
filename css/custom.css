@@ -51,7 +51,7 @@ footer{
 
 /**/
 header .navbar-default{
-  background-color: rgba(44, 62, 80,0.2);
+  background-color: rgba(44, 62, 80,0.5);
 }
 header .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     color: white;

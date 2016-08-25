@@ -5,7 +5,7 @@
 		<div class="row text-center">
 			<h1 style="margin-bottom:25px;">Cuisine Selections</h1>
 		</div>
-		
+	
 		<?php 
 
 		$counter=0;

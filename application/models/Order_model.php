@@ -109,7 +109,7 @@ class Order_model extends CI_Model{
 		{		
 			$data = array (
 
-				'order_id' 		=> $order_id,
+				'code' 		=> $orders['code'],
 				'product_id'	=> $item['id'],
 				// 'options'		=> $item['options'],
 				'qty'			=> $item['qty'],

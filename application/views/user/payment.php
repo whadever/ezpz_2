@@ -37,7 +37,7 @@
       }
     </style>
 
-<?php echo form_open('order/find_driver/'.$order->id); ?>
+<?php echo form_open('order/find_driver/'.$order->code); ?>
 
 <div class="container padding-top-five" id="cart-info">
 

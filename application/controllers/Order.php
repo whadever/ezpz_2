@@ -28,7 +28,7 @@
 				$data['background'] = base_url().'images/pihza.jpg';
 				$data['page_title'] = 'Payment';
 				$data['order'] = $this->db->get_where('orders', array('code' => $code))->row();
-				$data['order_details'] = $this->order_model->get_order_detail($data['order']->id);
+				$data['order_details'] = $this->order_model->get_order_detail($data['order']->code);
 				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
 
 
@@ -95,13 +95,16 @@
 					$this->template->load('default_ordering','user/find_driver', $data);
 
 				}
-			}else{
+			}else if($this->session->userdata('order_status') == 1){
+
 				$data['order'] = $this->crud_model->get_by_condition('orders', array('code' => $code))->row();
 				$data['background'] = base_url().'images/pihza.jpg';
 				$data['page_title'] = 'Waiting for Driver';
 			
 
 				$this->template->load('default_ordering','user/find_driver', $data);
+			}else{
+				redirect('user');
 			}
 			
 

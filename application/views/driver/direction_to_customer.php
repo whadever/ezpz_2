@@ -11,7 +11,9 @@
 </style>
 <div class="container" style="margin-top:20px;">
   
-  
+  <pre>
+  <?php print_r($this->session->userdata()) ?>
+</pre>
   <div class="row">
     <div class="col-md-6">
       <h2>Order Detail</h2>
@@ -75,12 +77,12 @@
         
     </div>
     <div class="col-md-6">
-    <h2>Direction to Restaurant</h2>
+      <h2>Direction to Customer's address</h2>
       <div id="map"></div>
           <div id="distance">Distance: </div>
           <div id="duration">Arriving in </div>
         <div id="right-panel" style="width:100%"></div>
-        <a href="<?php echo base_url('driver/delivery/'.$order->code) ?>" class="btn btn-primary" style="margin: 10px 0">I have bought the food</a>
+        <a href="<?php echo base_url('driver/finish_order/'.$order->code) ?>" class="btn btn-primary" style="margin: 10px 0">Finish Order</a>
     </div>
   </div>
 
@@ -135,7 +137,7 @@
           // origin: {lat: <?php echo $restaurant->latitude ?>, lng: <?php echo $restaurant->longitude ?>},  // Haight.
           // destination: {lat: <?php echo $order->latitude ?> , lng: <?php echo $order->longitude ?>},  // Ocean Beach.
           origin: {lat: curPos.lat, lng: curPos.lng},
-          destination: {lat: <?php echo $restaurant->latitude ?> , lng: <?php echo $restaurant->longitude ?>},
+          destination: {lat: <?php echo $order->latitude ?> , lng: <?php echo $order->longitude ?>},
           // Note that Javascript allows us to access the constant
           // using square brackets and a string value as its
           // "property."

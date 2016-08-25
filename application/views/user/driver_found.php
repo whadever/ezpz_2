@@ -95,10 +95,11 @@
 
 function auto_load(){
         $.ajax({
-          url: "<?php echo base_url('order/tracking/'.$order->id) ?>",
+          url: "<?php echo base_url('order/tracking/'.$order->code) ?>",
           type: 'GET',
           cache: false,
           success: function(result){
+
           	if(result == 3)
           	{
              	document.getElementById("statusDriver").innerHTML = "Driver Have Bought Your Order and Now Enroute to Your Home";

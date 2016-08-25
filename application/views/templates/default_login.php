@@ -161,7 +161,7 @@ $(document).ready(function(){
     var waypoint = new Waypoint({
       element: document.getElementById('body'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = '#34495e';
+        document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.95)';
      
         
       }
@@ -173,7 +173,7 @@ $(document).ready(function(){
     var waypoint2 = new Waypoint({
       element: document.getElementById('top'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = "transparent";
+        document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.5)';
      
        
       },

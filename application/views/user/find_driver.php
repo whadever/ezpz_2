@@ -174,13 +174,13 @@
 
 function auto_load(){
         $.ajax({
-          url: "<?php echo base_url('order/tracking/'.$order->id) ?>",
+          url: "<?php echo base_url('order/tracking/'.$order->code) ?>",
           type: 'GET',
           cache: false,
           success: function(result){
           	if(result > 1)
           	{
-             	window.location.replace("<?php echo base_url('order/driver_found/'.$order->id); ?>");
+             	window.location.replace("<?php echo base_url('order/driver_found/'.$order->code); ?>");
           	}else{
           		setTimeout(auto_load,3000);
           	}

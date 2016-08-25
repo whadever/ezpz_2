@@ -12,7 +12,7 @@
 				redirect('main');
 			}
 			else if($this->session->userdata('order_status') > 0 && $this->session->userdata('order_status') < 4){
-				redirect('order/find_driver/'.$this->session->userdata('order_id'));
+				redirect('order/find_driver/'.$this->session->userdata('code'));
 			}
 			
 		}
