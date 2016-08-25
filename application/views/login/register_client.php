@@ -11,8 +11,8 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-3"></div>
-	<div class="col-xs-6">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
 		
 		<?php echo form_open_multipart('login/register_client') ?>
 
@@ -135,7 +135,7 @@
 		</form>
 
 	</div>
-	<div class="col-xs-3"></div>
+	<div class="col-md-3"></div>
 	
 </div>
 <script>
