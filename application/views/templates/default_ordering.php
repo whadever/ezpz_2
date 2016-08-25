@@ -15,6 +15,7 @@
   	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
   	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/themes/fontawesome-stars.css" rel="stylesheet">
 
     <!-- Begin Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -149,12 +149,10 @@ class User extends CI_Controller{
 		redirect('user');
 	}
 
-	public function rate_driver(){
-		$data['page_title'] = 'Rate Driver';
-		$data['background'] = base_url()."images/pihza.jpg";
-		$this->template->load('default','user/rate_driver',$data);
-
+	public function rate_driver($driver_id,$code){
+		$this->crud_model->update_data('driver_rating', array('rating' => $this->input->post('rating')), array('driver_id' => $driver_id, 'code' => $code));
 	}
+
 }
 
  ?>
