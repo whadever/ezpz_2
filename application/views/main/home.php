@@ -61,7 +61,7 @@
 		<?php endif; ?>
 
 			<div class="col-lg-3 col-md-6 col-xs-6">
-			    <a href="<?php echo base_url('restaurant/cuisine/'.$cuisine->name) ?>">
+			<a href="<?php echo base_url('restaurant/cuisine/'.$cuisine->name) ?>">
 			    <div class="hovereffect">
 			        <img class="img-responsive" src="<?php echo $cuisine->thumb ?>" alt="">
 			            <div class="overlay">
@@ -71,7 +71,7 @@
 							</p> 
 			            </div>
 			    </div>
-			    </a>
+			</a>
 			</div>
 		<?php
 		//Put Div close in every three of three 

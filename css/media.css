@@ -43,6 +43,10 @@
 	#search_bar
 	{
 		padding-top: 5em;
+		width: 100% !important;
+	}
+	.typeahead{
+		width: 100% !important;
 	}
 	
 	#ms-multi{
