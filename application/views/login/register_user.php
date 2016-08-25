@@ -1,6 +1,6 @@
 <div class="row">
-	<div class="col-xs-3"></div>
-	<div class="col-xs-6">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
 		<?php if(validation_errors()): ?>
             <ul class="alert alert-danger">
                 <?php echo validation_errors('<li>','</li>'); ?>
@@ -8,12 +8,12 @@
         <?php endif; ?>
         <h2>User Registration</h2>
 	</div>
-	<div class="col-xs-3"></div>
+	<div class="col-md-3"></div>
 </div>
 
 <div class="row">
-	<div class="col-xs-3"></div>
-	<div class="col-xs-6">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
 		
 		<?php echo form_open_multipart('login/register_user',array('name' => 'register_user','id' => 'registerUser','onsubmit' => "return form_validation()")) ?>
 
@@ -78,7 +78,7 @@
 		</form>
 
 	</div>
-	<div class="col-xs-3"></div>
+	<div class="col-md-3"></div>
 </div>
 
 <script>

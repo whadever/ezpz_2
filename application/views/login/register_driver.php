@@ -11,8 +11,8 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-4"></div>
-	<div class="col-xs-4">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 		
 		<?php echo form_open_multipart('login/register_driver') ?>
 
@@ -82,6 +82,6 @@
 		</form>
 
 	</div>
-	<div class="col-xs-4"></div>
+	<div class="col-md-4"></div>
 </div>
 
