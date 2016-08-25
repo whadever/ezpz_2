@@ -158,6 +158,12 @@ class User extends CI_Controller{
 		$this->crud_model->update_data('users', array('credits' => $this->input->post('amount')), array('id' => $this->session->userdata('user_id')));
 		redirect('main');
 	}
+	
+	public function rate_driver(){
+		$data['page_title'] = 'Rate Driver';
+		$data['background'] = base_url()."images/pihza.jpg";
+		$this->template->load('default','user/rate_driver',$data);
+	}
 }
 
  ?>
