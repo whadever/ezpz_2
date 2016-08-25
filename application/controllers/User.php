@@ -148,6 +148,13 @@ class User extends CI_Controller{
 		$this->email_model->send_mail();
 		redirect('user');
 	}
+
+	public function rate_driver(){
+		$data['page_title'] = 'Rate Driver';
+		$data['background'] = base_url()."images/pihza.jpg";
+		$this->template->load('default','user/rate_driver',$data);
+
+	}
 }
 
  ?>
