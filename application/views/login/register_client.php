@@ -11,8 +11,13 @@
 </div>
 
 <div class="row">
+<<<<<<< HEAD
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+=======
 	<div class="col-md-3 col-xs-1"></div>
 	<div class="col-md-6 col-xs-10">
+>>>>>>> origin/master
 		
 		<?php echo form_open_multipart('login/register_client') ?>
 
@@ -136,7 +141,11 @@
 		</form>
 
 	</div>
+<<<<<<< HEAD
+	<div class="col-md-3"></div>
+=======
 	<div class="col-md-3 col-xs-1"></div>
+>>>>>>> origin/master
 	
 </div>
 <script>

@@ -30,6 +30,15 @@
 		padding-top: 7em;
 	}
 
+	#do-row{
+		margin-bottom: 0px;
+		margin-top: 0px;
+	}
+
+	#food-row{
+		padding-top: 0px;
+		padding-bottom: 20px;
+	}
 } 
 
 @media only screen and (max-device-width: 440px)
@@ -52,4 +61,6 @@
 	#ms-multi{
 		width: 250px;
 	}
+	
+
 }
