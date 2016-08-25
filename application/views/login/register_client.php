@@ -49,7 +49,7 @@
 				<textarea id="address_show" disabled="1" class="form-control" required="1" ></textarea>
 				<input type="hidden" id="address" name="address">
 			</div>
-
+			<div class="wrap">
 	     	<table class="table">
 	     		<thead>
 	     			<tr>
@@ -109,6 +109,7 @@
 	     			</tr>
 	     		</tbody>
 	     	</table>
+	     	</div>
 
 	     	<div class="form-group">
 	     	<label for="cuisine">Cuisine</label>
