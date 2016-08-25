@@ -1,18 +1,23 @@
 <div class="row">
-	<div class="col-xs-4"></div>
-	<div class="col-xs-4">
+	<div class="col-md-4 col-xs-1"></div>
+	<div class="col-md-4 col-xs-10">
 		<?php if(validation_errors()): ?>
             <ul class="alert alert-danger">
                 <?php echo validation_errors('<li>','</li>'); ?>
             </ul>
         <?php endif; ?>
 	</div>
-	<div class="col-xs-4"></div>
+	<div class="col-md-4 col-xs-1"></div>
 </div>
 
 <div class="row">
+<<<<<<< HEAD
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
+=======
+	<div class="col-md-4 col-xs-1"></div>
+	<div class="col-md-4 col-xs-10">
+>>>>>>> origin/master
 		
 		<?php echo form_open_multipart('login/register_driver') ?>
 
@@ -82,6 +87,10 @@
 		</form>
 
 	</div>
+<<<<<<< HEAD
 	<div class="col-md-4"></div>
+=======
+	<div class="col-md-4 col-xs-1"></div>
+>>>>>>> origin/master
 </div>
 

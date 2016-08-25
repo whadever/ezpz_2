@@ -20,7 +20,8 @@
 				        	<?php echo $restaurant->name; ?>
 				        	</a>
 				        </p>
-						<p><?php echo $restaurant->address ?></p>
+						<p><?php echo wordlimiter($restaurant->address,4) ?></p>
+
 						<?php $closed = 1; ?>
 						<?php foreach ($restaurant_time as $time): ?>
 							<?php if($time->restaurant_id == $restaurant->id && $time->day == date('l')){
