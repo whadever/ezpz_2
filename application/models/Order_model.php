@@ -80,6 +80,7 @@ class Order_model extends CI_Model{
 				$flag = 1;
 			}
 		}while($flag == 1);
+		date_default_timezone_set('NZ');
 
 		$orders = array(
 
@@ -93,6 +94,7 @@ class Order_model extends CI_Model{
 			'latitude'			=> $this->input->post('lat'),
 			'longitude'			=> $this->input->post('lng'),
 			'address'			=> $this->input->post('address'),
+			'date'				=> date('Y-m-d H:i:s')
 
 			); 
 

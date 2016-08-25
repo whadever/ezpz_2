@@ -147,7 +147,7 @@ class Driver extends CI_Controller{
 			$data['order_detail'] = $this->order_model->get_order_detail($order_id);
 			$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
 			
-			$this->template->load('default_driver', 'driver/direction', $data);
+			$this->template->load('default_driver', 'driver/direction_to_restaurant', $data);
 		}
 
 

@@ -66,4 +66,12 @@
 	#restaurant-list{
 		font-size: 12px;
 	}
+
+	#pac-input {
+        top: 42px !important;
+        left: -1px !important;
+
+      }
+
+     
 }
