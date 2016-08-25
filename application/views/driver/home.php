@@ -60,9 +60,6 @@
 		
 </div>
 
-<pre>
-	<?php print_r($this->session->userdata()) ?>
-</pre>
 
 <script>
 	$(document).ready(function() {
