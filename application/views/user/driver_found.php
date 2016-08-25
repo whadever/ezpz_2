@@ -5,11 +5,11 @@
 	<div class="col-md-10 col-xs-12">
 		
 		
-		<div class="row text-center">
+		<div class="row text-center" id="status">
 			<h1 class="roboto headline">Order Status</h1>
 			<h2 class="roboto" id="statusDriver"  align="center">Driver Enroute to Restaurant</h2>
 
-			<select name="" id="rate" onchange="rate_driver()">
+			<select name="" id="rate" onchange="rate_driver()" style="display:none">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -89,11 +89,7 @@
 <script src="<?php echo base_url() ?>js/jquery.barrating.min.js"></script>
 
 <script type="text/javascript">
-   $(function() {
-      $('#rate').barrating({
-        theme: 'fontawesome-stars'
-      });
-   });
+   
 </script>
 <script>
 
@@ -106,10 +102,18 @@ function auto_load(){
           	if(result == 3)
           	{
              	document.getElementById("statusDriver").innerHTML = "Driver Have Bought Your Order and Now Enroute to Your Home";
+
              	setTimeout(auto_load,3000);
           	}else if(result == 4)
           	{
           		document.getElementById("statusDriver").innerHTML = "Your Order Have Been Completed!";
+          		
+          		
+          		
+			      $('#rate').barrating({
+			        theme: 'fontawesome-stars'
+			      });
+			  
           		
           	}else{
           		setTimeout(auto_load,3000);
@@ -132,7 +136,8 @@ function rate_driver(){
         	data: {rating : rating},
         	cache: false,
         	success: function(result){
-        		
+        		alert('Thank you for your participation');
+        		window.location.assign("<?php echo base_url('user') ?>");
         	}
         });
 }

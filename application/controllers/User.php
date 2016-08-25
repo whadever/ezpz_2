@@ -176,8 +176,8 @@ class User extends CI_Controller{
 
 		$this->crud_model->insert_data('order_history', $data_insert);
 		$this->crud_model->delete_data('orders',array('code' => $code));
-		$this->session->unset_userdata(array('order_status','code'));
-		redirect('user');
+		$this->session->unset_userdata(array('order_status','order_id'));
+		echo '2';
 	}
 
 	public function topup ()
