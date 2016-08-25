@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="restaurant-list">
 	<h2 style="margin-left:1%;"><?php echo $cuisine_name ?></h2>
 	<hr>
 	<?php 

@@ -39,6 +39,7 @@
 		padding-top: 0px;
 		padding-bottom: 20px;
 	}
+
 } 
 
 @media only screen and (max-device-width: 440px)
@@ -62,5 +63,7 @@
 		width: 250px;
 	}
 	
-
+	#restaurant-list{
+		font-size: 12px;
+	}
 }
