@@ -46,7 +46,7 @@
 	                  <span class="icon-bar"></span>
 	                  <span class="icon-bar"></span> 
 	                </button>
-	                <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
+	                <a class="navbar-brand" href="<?php echo base_url('main') ?>"><img src="<?php echo base_url('assets/logo.png') ?>" width="40" alt="" style="margin-top:-10px;"></a>
 	              </div>
 
 	              <div class="collapse navbar-collapse" id="myNavbar">
@@ -84,10 +84,10 @@
 
 
 <!--Full Div Image from div bg-->
-<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-attachment: fixed ;background-image: url(<?php echo $background ?>)" data-stellar-background-ratio="0.5">
+<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-attachment: fixed ;background-image: url(<?php echo $background ?>); padding-top:0px;" data-stellar-background-ratio="0.5">
     <div class="row" id="body">
         <form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
-        <div class="form-group center-block" id="search_bar">
+        <div class="form-group center-block" id="search_bar" style="margin-top:20%;">
             <div class="input-group">
                 <input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant" style="-webkit-box-shadow: none !important;  -moz-box-shadow: none !important;  box-shadow: none !important; border-radius:0px;">
                 <span class="input-group-btn">
@@ -142,7 +142,7 @@ $(document).ready(function(){
 <script>
 
     var waypoint = new Waypoint({
-      element: document.getElementById('body'),
+      element: document.getElementById('restaurant-search'),
       handler: function(direction) {
         document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.95)'; 
       }
@@ -158,7 +158,7 @@ $(document).ready(function(){
      
        
       },
-      offset: '-15%'
+      offset: '-20%'
     });
 </script>
 
