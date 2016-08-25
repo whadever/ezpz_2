@@ -11,8 +11,13 @@
 </div>
 
 <div class="row">
+<<<<<<< HEAD
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+=======
 	<div class="col-md-3 col-xs-1"></div>
 	<div class="col-md-6 col-xs-10">
+>>>>>>> origin/master
 		
 		<?php echo form_open_multipart('login/register_client') ?>
 
@@ -49,7 +54,7 @@
 				<textarea id="address_show" disabled="1" class="form-control" required="1" ></textarea>
 				<input type="hidden" id="address" name="address">
 			</div>
-
+			<div class="wrap">
 	     	<table class="table">
 	     		<thead>
 	     			<tr>
@@ -109,6 +114,7 @@
 	     			</tr>
 	     		</tbody>
 	     	</table>
+	     	</div>
 
 	     	<div class="form-group">
 	     	<label for="cuisine">Cuisine</label>
@@ -135,7 +141,11 @@
 		</form>
 
 	</div>
+<<<<<<< HEAD
+	<div class="col-md-3"></div>
+=======
 	<div class="col-md-3 col-xs-1"></div>
+>>>>>>> origin/master
 	
 </div>
 <script>

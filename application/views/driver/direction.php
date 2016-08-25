@@ -13,7 +13,6 @@
  		
  	</div>
  </div>
-    
     <script>
 
           //Initialize the map

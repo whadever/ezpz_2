@@ -31,10 +31,6 @@
 			    </div>
 			</div>
 
-			<pre>
-				<?php print_r($this->session->userdata()) ?>
-			</pre>
-
 			
 			<!-- Put Div close in every three of three  -->
 			<?php if($counter % 4 ==  3): ?>
