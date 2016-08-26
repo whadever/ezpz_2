@@ -24,6 +24,16 @@ class Login extends CI_Controller{
 				redirect('admin');
 			}else if($this->session->userdata('isLogged') == True)
 			{
+				//Delete All Pending Orders
+				if($this->crud_model->get_by_condition('orders', array('user_id' => $this->session->userdata('user_id'), 'status' => 0))->num_rows()>0)
+				{
+					//Delete Old Order
+					$code = $this->crud_model->get_by_condition('orders', array('user_id' => $this->session->userdata('user_id')))->row()->code;
+					$this->crud_model->delete_data('orders', array('user_id' => $this->session->userdata('user_id')));
+					$this->crud_model->delete_data('order_detail', array('code' => $code));
+
+				}
+
 				$this->session->sess_destroy();
 				redirect('main');
 			}else{

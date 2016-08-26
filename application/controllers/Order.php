@@ -18,8 +18,21 @@
 			if ($this->input->post()) {
 				
 				if($this->cart->total_items() > 0){
-					$code = $this->order_model->new_order($this->cart->contents());
-					$this->session->set_userdata(array('code' => $code));
+					if($this->crud_model->get_by_condition('orders', array('user_id' => $this->session->userdata('user_id')))->num_rows()>0)
+					{
+						//Delete Old Order
+						$code = $this->crud_model->get_by_condition('orders', array('user_id' => $this->session->userdata('user_id')))->row()->code;
+						$this->crud_model->delete_data('orders', array('user_id' => $this->session->userdata('user_id')));
+						$this->crud_model->delete_data('order_detail', array('code' => $code));
+
+						//Make The New Order
+						$code = $this->order_model->new_order($this->cart->contents());
+						$this->session->set_userdata(array('code' => $code));
+					}else
+					{
+						$code = $this->order_model->new_order($this->cart->contents());
+						$this->session->set_userdata(array('code' => $code));
+					}
 
 				}
 				else{

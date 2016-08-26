@@ -58,8 +58,7 @@ class Client extends CI_Controller{
 	            $config['max_size']             = 5000;
 	            // $config['max_width']            = 1000;
 	            // $config['max_height']           = 768;
-
-	            
+	           
 									
 				$config['upload_path']          = 'uploads/restaurant/' . $this->session->userdata('username').'/dishes';
 				$config['overwrite']			= True;
@@ -78,6 +77,12 @@ class Client extends CI_Controller{
                     //Get the link for the database
                     $photo = $this->upload->data();
                     $photo = $config ['upload_path'] . '/' . $photo ['file_name'];
+                }else
+                {
+                	echo '<pre>';
+                	print_r ($this->upload->display_errors());
+                	echo '</pre>';
+                	exit;
                 }
 
                 $data = array(
