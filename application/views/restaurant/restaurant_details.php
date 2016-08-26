@@ -33,7 +33,7 @@
 		
 	</div>
 	<div class="row">
-		<div class="container" >
+		<div class="container" style="margin-bottom:20px;">
 			<div class="row" style="padding-right:">
 				<div class="col-md-8 col-xs-12">
 					  <ul class="nav nav-tabs">
