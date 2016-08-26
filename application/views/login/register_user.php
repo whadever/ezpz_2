@@ -15,8 +15,8 @@
 </div>
 
 <div class="row">
-	<div class="col-md-1 col-xs-12"></div>
-	<div class="col-md-10 col-xs-12">
+	<div class="col-md-3 col-xs-1"></div>
+	<div class="col-md-6 col-xs-10">
 
 		
 		<?php echo form_open_multipart('login/register_user',array('name' => 'register_user','id' => 'registerUser','onsubmit' => "return form_validation()")) ?>
@@ -83,7 +83,7 @@
 
 	</div>
 
-	<div class="col-md-1 col-xs-12"></div>
+	<div class="col-md-3 col-xs-1"></div>
 
 </div>
 
