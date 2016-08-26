@@ -2,14 +2,14 @@
 <div class="modal fade" id="checkCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 20%">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      
+
+        <div class="modal-header heading"><h4>Confirm Empty Cart</h4></div>
       	<div class="modal-body">
-	
-			<p>Are YOU SURE YOU WANT TO DELETE CART</p>
+        
+      			<p>Your previous order will be cancelled if you make new order. Proceed?</p>
 
-			<a href="<?php echo base_url() ?>cart/destory">Yes</a>
-			<a href="<?php echo base_url() ?>cart/destory/no">No</a>
-
+      			<a href="<?php echo base_url() ?>cart/destory" class="btn btn-primary">Ok</a>
+      			<a href="<?php echo base_url() ?>cart/destory/no" class="btn btn-primary">Cancel</a>
       	</div>
 
       	<?php 

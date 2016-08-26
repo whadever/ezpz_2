@@ -33,6 +33,11 @@
       #map {
         height: 400px;
       }
+      .btn-primary{
+          background-color: #34495e ; 
+          border-color: #34495e ;
+          border-radius: 0px ;
+        }
       .controls {
         margin-top: 10px;
         border: 1px solid transparent;
