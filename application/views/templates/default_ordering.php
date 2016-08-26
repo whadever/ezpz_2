@@ -7,13 +7,15 @@
 	<title><?php echo $page_title; ?> - EZPZ</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto" rel="stylesheet">
     
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
   	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/themes/fontawesome-stars.css" rel="stylesheet">
 
@@ -22,8 +24,10 @@
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
     <script src="<?php echo base_url() ?>js/card.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
     
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	  <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>

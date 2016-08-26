@@ -146,22 +146,22 @@
     <div class="col-xs-1 col-md-2"></div>
     <div class="col-xs-10 col-md-8">
         <!-- Order Details -->
-        <h2 class="roboto">Here Is Your Order Details</h2>
-        <table class="table table-bordered">
+        <h2 class="roboto">Your Order Details</h2>
+        <table class="table table-striped">
           <tr>
-            <td>Order Number</td>
+            <th>Order Number</th>
             <td>#<?php echo $order->code ?></td>
           </tr>
           <tr>
-            <td>Your Order Items</td>
+            <th>Order Items</th>
             <td><?php echo $order->total_qty ?></td>
           </tr>
           <tr>
-            <td>Your Order Total</td>
+            <th>Order Total</th>
             <td>$<?php echo $order->total_price ?></td>
           </tr>
           <tr>
-            <td>Your Driver Will Deliver To</td>
+            <th>Delivery Address</th>
             <td><?php echo $order->address ?></td>
           </tr>
         </table>

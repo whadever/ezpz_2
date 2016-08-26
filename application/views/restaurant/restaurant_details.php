@@ -20,10 +20,6 @@
 				<div class="col-xs-12 restaurant-detail">
 						
 					<h2 style="display:inline;"><?php echo $restaurant->name.' ' ?></h2>
-					<span class="rating">
-						<h3 class="label label-info" style="font-size:12px;display:inline;line-height:15px;">3 / 5</h3>
-						<p style="font-size:10px;display:inline;margin-left:2px;">100 votes</p>
-					</span>
 					
 					<?php if($restaurant_time): ?>
 					<p><?php echo 'Open Today'.' '.date('H:i',strtotime($restaurant_time->opentime)).' - '.date('H:i',strtotime($restaurant_time->closetime)) ?></p>

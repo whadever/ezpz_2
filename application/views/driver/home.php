@@ -1,5 +1,6 @@
+<div class="container" style="padding-bottom:20px;padding-top:20px;">
 <div class="row">
-			<h1 style="margin-bottom:25px;">You have <?php echo count($orders) ?> requests</h1>
+			<h2 style="margin-bottom:25px; margin-left:10px;">You have <?php echo count($orders) ?> requests</h2>
 </div>
 <div class="row">
 	<div class="col-xs-12" id="tableHome">
@@ -59,7 +60,7 @@
 	</div>
 		
 </div>
-
+</div>
 
 <script>
 	$(document).ready(function() {
