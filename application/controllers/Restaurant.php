@@ -131,7 +131,9 @@
 					);
 				
 				$this->crud_model->insert_data('review', $data);
+				
 				redirect($this->input->post('url'));
+
 			}
 		}
 

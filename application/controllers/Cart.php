@@ -20,7 +20,7 @@
 		//Add Item To Basket
 		public function add()
 		{
-			
+			if($this->input->post()){
 				$dish = $this->crud_model->get_by_condition('dishes', array('id' => $this->input->post('id'), 'restaurant_id' => $this->input->post('resto_id')))->row();
 
 				$item  = array (
@@ -43,20 +43,18 @@
 					}
 					echo $rowid;
 					#redirect($this->input->post('url'));
-				
+				}else{
+				redirect('user');
+			}
 
 			
 		}
 
-		public function eko(){
-			echo 'sety';
-		}
 
 		//Cart update link
 		public function update()
 		{
-			if($this->input->post())
-			{
+			if($this->input->post()){	
 				$data = array (
 					
 				'rowid' 		=> $this->input->post('rowid'),
@@ -64,28 +62,26 @@
 
 					);
 
-				if($this->cart_model->update($data))
-				{
-					$this->session->set_flashdata('success', ' Updating Cart Success!');
-					redirect('cart/overview');
-				}
-				else
-				{
-					$this->session->set_flashdata('failed', ' Updating Cart Failed!');
-					redirect('cart/overview');
-				}
+				$this->cart_model->update($data);
+			}else{
+				redirect('user');
+			}	
 
-			}else
-			{
-				redirect ('main');
-			}
 		}
 
-		public function remove($rowid){
+		public function remove(){
+			if($this->input->post()){
 
-			$this->cart_model->remove($rowid);
+				$this->cart_model->remove($this->input->post('rowid'));
 			
-			redirect('main');
+
+			}else{
+				redirect('user');
+			}
+			
+			
+			
+			
 		}
 
 		//Checkout

@@ -89,7 +89,7 @@ class Client extends CI_Controller{
 						
 						'name' 			=> $this->input->post('name'),
 						'restaurant_id' => $this->session->userdata('user_id'),
-						'price' 		=> $this->input->post('price'),
+						'price' 		=> number_format($this->input->post('price'),2),
 						'description' 	=> $this->input->post('description'),
 						'photo' 		=> $photo,
 						'available' 	=> 1
@@ -130,7 +130,7 @@ class Client extends CI_Controller{
             $data = array(	
             			'id'			=>$this->input->post('id'),
 						'name'			=> $this->input->post('name'),
-						'price' 		=> $this->input->post('price'),
+						'price' 		=> number_format($this->input->post('price'),2),
 						'description' 	=> $this->input->post('description'),
 						'photo' 		=> $photo,
 						'available' 	=> 1

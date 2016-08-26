@@ -198,7 +198,7 @@
 					        	</div>
 					        	<div class="form-group">
 					        		<label for="price">Price</label>
-					        		<input type="number" class="form-control" name="price" value="" placeholder="Dish's Price" required="1">
+					        		<input type="text" class="form-control" name="price" value="" placeholder="Dish's Price" required="1">
 					        	</div>
 					        	<div class="form-group">
 					        		<label for="photo">Photo</label>
@@ -234,7 +234,7 @@
 					        	</div>
 					        	<div class="form-group">
 					        		<label for="price">Price</label>
-					        		<input type="number" class="form-control" name="price" id="price" value="" placeholder="Dish's Price" required="1">
+					        		<input type="text" class="form-control" name="price" id="price" value="" placeholder="Dish's Price" required="1">
 					        	</div>
 					        	<div class="form-group">
 					        		<label for="photo">Photo</label>

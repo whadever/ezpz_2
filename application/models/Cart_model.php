@@ -12,14 +12,9 @@
 
 		public function update ($data)
 		{
-			for($i = 0; $i < count($this->cart->contents()); $i++){
-				$data_update = array(
-						'rowid' => $data['rowid'][$i],
-						'qty' => $data['qty'][$i],
-						'options' => array('color' => $data['color'][$i] )
-					);
-				$this->cart->update($data_update);
-			}
+			
+			$this->cart->update($data);
+			
 		}
 
 		public function remove($rowid){

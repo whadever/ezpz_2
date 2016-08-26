@@ -68,7 +68,7 @@
 				    			<!-- <div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> > -->
 				    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3>
 				    			  <?php $data = json_encode($dish) ?>
-				    			  <a  class="pull-right" id="plus" onclick='add_cart(<?php echo $dish->id ?>,<?php echo $data; ?>)'><span class="glyphicon glyphicon-plus"></span></a>
+				    			  <a  class="pull-right" id="plus" onclick='add_cart(this,<?php echo $dish->id ?>,<?php echo $data; ?>)'><span class="glyphicon glyphicon-plus"></span></a>
 
 				    			  <div style="word-wrap: break-word; width: 80%">
 				    			  	<p><?php echo $dish->description ?></p>
@@ -129,8 +129,8 @@
 				    </div><!--End of Review Panel-->
 				    </div><!--End of Tabcontent-->	
 				  </div>
-				  <div class="col-md-4 col-xs-12" style="padding: 20px 15px 10px 15px;">
-				  	<div class="col-xs-12" style="border:1px #ddd solid;padding-bottom:10px;">
+				  <div class="col-md-4 col-xs-12" style="border:1px #ddd solid;padding: 20px 15px 20px 15px;">
+			
 				  		<h3 class="text-center">Order Details</h3>
 				  		<div class="wrap">
 				  			
@@ -154,20 +154,22 @@
 									
 							        <?php foreach ($this->cart->contents() as $items): ?>
 										<?php $id = $items['id'] ?>
+										<?php $data = json_encode($items) ?>
 							                <?php echo form_hidden('rowid[]', $items['rowid']); ?>
-
+									
 							                <tr id="cart_<?php echo $id ?>">
-							                        <td><a onclick="return confirm('Are you sure?')" href="<?php echo site_url('cart/remove/'.$items['rowid'])?>">&times;</a></td>
+							                        <td><a onclick='remove_item(<?php echo $data ?>)' style="cursor: pointer">&times;</a></td>
 							                        <td id="no_<?php echo $id ?>"><?php echo $i ?></td>
 							                        <td><?php echo $items['name']; ?> </td>
 							                        
-							                        <td><input type="text" id="quantity_<?php echo $id ?>" name="quantity[]" value="<?php echo $items['qty'] ?>" maxlength="3" size="5"></td>
-							                        <td id="price_<?php echo $id ?>" style="text-align:right"><?php echo NZD($items['price']); ?></td>
-							                        <td id="subtotal_<?php echo $id ?>" style="text-align:right"><?php echo NZD($items['subtotal']); ?></td>
+							                        <td><input type="text" id="quantity_<?php echo $id ?>" name="quantity[]" disabled="disabled" value="<?php echo $items['qty'] ?>" maxlength="3" size="3"></td>
+							                        <td id="price_<?php echo $id ?>" ><?php echo NZD($items['price']); ?></td>
+							                        <td id="subtotal_<?php echo $id ?>" ><?php echo NZD($items['subtotal']); ?></td>
 							                        <td>
-							                        <?php $data = json_encode($items) ?>
-							                        <a onclick="add_cart(this,<?php echo $data; ?>)">&plus;</a>
-							                        <a onclick="minus_cart(this,<?php echo $data; ?>)">&minus;</a>
+							                        
+							                       
+							                        <a onclick='add_cart1(<?php echo $items['id'] ?>,<?php echo $data; ?>)' style="cursor: pointer">&plus;</a>
+							                        <a onclick='minus_cart(<?php echo $items['id'] ?>,<?php echo $data; ?>)' style="cursor: pointer">&minus;</a>
 							                        </td>
 							                </tr>
 
@@ -177,7 +179,7 @@
 							        <tr>
 							                <td colspan="4"> </td>
 							                <td class="right"><strong>Total</strong></td>
-							                <td class="right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+							                <td class="right" id="total">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
 							        </tr>
 
 							        </table>
@@ -185,13 +187,13 @@
 							        <!-- Get URL -->
 							                <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
 							        
-							                <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary")); ?>
+							                
 							                <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
 							                <?php echo form_close() ?>
 
 
 						</div>
-				  	</div>
+				  
 				  </div>
 			</div>
 		</div>
@@ -217,40 +219,126 @@ $("#restaurant-search").typeahead({
 </script>
 
         <script>
-        function add_cart1(el,dish){
 
-
-
-                dish.quantity = 1;
-
-                dish.resto_id = <?php echo $restaurant->id ?>;
-        
-                $.ajax({
-                  url: "<?php echo base_url('cart/add') ?>",
+        function remove_item(dish){
+        	
+        	var result = confirm('are you sure ?');
+        	if(result){
+        		$.ajax({
+                  url: "<?php echo base_url('cart/remove')?>",
                   data: dish,
                   type: 'POST',
                   success: function(result){
+                  
                         
-                    
+                    location.reload();
+                  } 
+                });
+        	}
+        }
+
+        function add_cart1(id,dish){
+
+        		quantity = $('#quantity_'+id).val();
+			
+				quantity = quantity.replace(/,/g,'');
+
+				var subtotal = $('#subtotal_'+id).html();
+				subtotal = subtotal.replace('$','','');
+				subtotal = subtotal.replace(/,/g,'');
+
+				price = $('#price_'+id).html();
+				price = price.replace('$','','');
+				price = price.replace(/,/g,'');
+
+				var total = $('#total').html();
+				total = total.replace('$','','');
+				total = total.replace(/,/g,'');
+
+				total = +Number(total) - +Number(subtotal);
+
+				quantity = +quantity + +1;
+
+				subtotal = +Number(price) * (quantity);
+
+				total = subtotal + total;
+
+				dish.quantity = quantity;
+
+        
+                $.ajax({
+                  url: "<?php echo base_url('cart/update') ?>",
+                  data: dish,
+                  type: 'POST',
+                  success: function(result){
+
+                        
+                    $('#quantity_'+id).val(quantity);
+          		
+          		
+	          		total_val = Number(subtotal).toFixed(2).toLocaleString('en');
+	          		total = Number(total).toFixed(2).toLocaleString('en');
+					$('#subtotal_'+id).empty();
+					$('#subtotal_'+id).append('$ '+total_val);
+
+					$('#total').empty();
+					$('#total').append('$ '+total);
                   } 
                 });
         }
 
-        function minus_cart(el,dish){
+        function minus_cart(id,dish){
+        		quantity = $('#quantity_'+id).val();
+			
+				quantity = quantity.replace(/,/g,'');
+
+				if(quantity == 0){
+					
+					location.reload();
+					return false;
+				}
+
+				var subtotal = $('#subtotal_'+id).html();
+				subtotal = subtotal.replace('$','','');
+				subtotal = subtotal.replace(/,/g,'');
+
+				price = $('#price_'+id).html();
+				price = price.replace('$','','');
+				price = price.replace(/,/g,'');
+
+				var total = $('#total').html();
+				total = total.replace('$','','');
+				total = total.replace(/,/g,'');
+
+				total = +Number(total) - +Number(subtotal);
+
+				quantity = +quantity - +1;
+
+				subtotal = +Number(price) * (quantity);
+
+				total = subtotal + total;
+
+				dish.quantity = quantity;
 
 
-
-                dish.quantity = -1;
-
-                dish.resto_id = <?php echo $restaurant->id ?>;
+        		
 
                 $.ajax({
                 
-                  url: "<?php echo base_url('cart/add') ?>",
+                  url: "<?php echo base_url('cart/update') ?>",
                   data: dish,
                   type: 'POST',
                   success: function(result){
-                        
+                     $('#quantity_'+id).val(quantity);
+          		
+          		
+	          		total_val = Number(subtotal).toFixed(2).toLocaleString('en');
+	          		total = Number(total).toFixed(2).toLocaleString('en');
+					$('#subtotal_'+id).empty();
+					$('#subtotal_'+id).append('$ '+total_val);
+
+					$('#total').empty();
+					$('#total').append('$ '+total);
                     
                   } 
                 });
@@ -262,18 +350,59 @@ $("#restaurant-search").typeahead({
         </script>
 
 <script>
-	var no = 0;
-	function add_cart(id,dish){
+var number = <?php echo count($this->cart->contents()) ?>;
+	function add_cart(el,id,dish){
 		//alert('asd');
-
+		
 		var quantity = 0;
+		var price = 0;
+		
 
 		if($('#quantity_'+id).val()){
 			quantity = $('#quantity_'+id).val();
-
+			
 			quantity = quantity.replace(/,/g,'');
+
+			var subtotal = $('#subtotal_'+id).html();
+			subtotal = subtotal.replace('$','','');
+			subtotal = subtotal.replace(/,/g,'');
+
+			price = $('#price_'+id).html();
+			price = price.replace('$','','');
+			price = price.replace(/,/g,'');
+
+			var total = $('#total').html();
+			total = total.replace('$','','');
+			total = total.replace(/,/g,'');
+
+			total = +Number(total) - +Number(subtotal);
+
+			quantity = +quantity + +1;
+
+			subtotal = +Number(price) * (quantity);
+
+			total = subtotal + total;
+      	
+          	
 		}
+		else if(number == 0){
+			var total = $('#total').html();
+			total = total.replace('$','','');
+			total = total.replace(/,/g,'');
+
+			total = +Number(dish.price);
+		}
+
+		else if(!$('#quantity_'+id).val() && number > 0){
+			var total = $('#total').html();
+			total = total.replace('$','','');
+			total = total.replace(/,/g,'');
+
+			total = +Number(total) + +Number(dish.price);
+		}
+
 		
+
 
 		dish.quantity = 1;
 
@@ -285,20 +414,36 @@ $("#restaurant-search").typeahead({
           type: 'POST',
           success: function(result){
           	if(quantity != 0){
-          		quantity = +quantity + +1;
+          		
           		$('#quantity_'+id).val(quantity);
           		
+          		
+          		total_val = Number(subtotal).toFixed(2).toLocaleString('en');
+          		total = Number(total).toFixed(2).toLocaleString('en');
+				$('#subtotal_'+id).empty();
+				$('#subtotal_'+id).append('$ '+total_val);
+
+				$('#total').empty();
+				$('#total').append('$ '+total);
+
           	}
           	else if(quantity ==0){
-          		var price = Number(dish.price).toFixed(2);
-          		no = +no + +1;
-          		quantity = 1;
-          		$('#items').append('<tr id="cart_"'+id+'><td><a onclick="return confirm('+'Are you sure?'+')" href="<?php echo base_url() ?>'+'cart/remove/'+result+'">&times;</a></td><td id="no_'+id+'">'+no+'</td><td>'+dish.name+' </td><td><input type="text" id="quantity_'+id+'" name="quantity[]" value="'+quantity+'" maxlength="3" size="5"></td><td id="price_'+dish.price+'" style="text-align:right">'+'$ '+price+'</td><td id="subtotal_'+id+'" style="text-align:right">'+'$ '+price+'</td><td><a onclick="add_cart('+dish+')">&plus;</a><a onclick="minus_cart('+dish+')">&minus;</a></td></tr>')
+          		// var price = Number(dish.price).toFixed(2);
+          		// number = +number + +1;
+          		// quantity = 1;
+          		// $('#items').append("<tr id='cart_'"+id+"><td><a onclick='return confirm("+"Are you sure?"+")' href='<?php echo base_url() ?>"+"cart/remove/"+result+"'>&times;</a></td><td id='no_"+id+"'>"+number+"</td><td>"+dish.name+" </td><td><input type='text' id='quantity_"+id+"' disabled='disabled' name='quantity[]' value='"+quantity+"' maxlength='3' size='5'></td><td id='price_"+id+"' style='text-align:right'>"+"$ "+price+"</td><td id='subtotal_"+id+"' style='text-align:right'>"+"$ "+price+"</td><td><a onclick='add_cart1("+id+","+dish+")'>&plus;</a><a onclick='minus_cart("+id+","+dish+")'>&minus;</a></td></tr>")
           		
-                    
+    //       		total = Number(total).toFixed(2).toLocaleString('en');
+    //       		$('#total').empty();
+				// $('#total').append('$ '+total);
+				$(el).click(function() { return false; });
+                location.reload();
           	}
           	
       
+          },
+          error: function(){
+          	alert('please login to place an order');
           }
          
         });
