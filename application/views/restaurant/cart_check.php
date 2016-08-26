@@ -7,8 +7,8 @@
 	
 			<p>Are YOU SURE YOU WANT TO DELETE CART</p>
 
-			<a href="<?php echo base_url() ?>cart/destory">Yes</a>
-			<a href="<?php echo base_url() ?>cart/destory/no">No</a>
+			<a href="<?php echo base_url() ?>cart/destroy">Yes</a>
+			<a href="<?php echo base_url() ?>cart/destroy/no">No</a>
 
       	</div>
 

@@ -35,17 +35,20 @@
 
 				if($this->cart_model->add($item))
 				{
+					$carts = $this->cart->contents();
 
-					$this->session->set_flashdata('success', ' Updating Cart Success!');
-					redirect($this->input->post('url'));
+					foreach($carts as $cart){
+						if($cart['id'] == $item['id']){
+							$rowid = $cart['name'];
+						}
+					}
+					echo '1';
+					#redirect($this->input->post('url'));
 				}else
 				{
 					$this->session->set_flashdata('failed', ' Updating Cart Failed!');
-					redirect($this->input->post('url'));
+					#redirect($this->input->post('url'));
 				}
-			}else
-			{
-				redirect ('main');
 			}
 		}
 
@@ -105,7 +108,7 @@
 		}
 
 		//destroy Cart
-		public function destory ($param = 'yes')
+		public function destroy ($param = 'yes')
 		{	
 			//Get Resto id from cart
 			$restaurant_id 		= $this->cart_model->getRestaurantId();
