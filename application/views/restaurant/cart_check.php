@@ -3,13 +3,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
+
         <div class="modal-header heading"><h4>Confirm Empty Cart</h4></div>
       	<div class="modal-body">
         
       			<p>Your previous order will be cancelled if you make new order. Proceed?</p>
 
-      			<a href="<?php echo base_url() ?>cart/destory" class="btn btn-primary">Ok</a>
-      			<a href="<?php echo base_url() ?>cart/destory/no" class="btn btn-primary">Cancel</a>
+
+      			<a href="<?php echo base_url() ?>cart/destroy" class="btn btn-primary">Ok</a>
+      			<a href="<?php echo base_url() ?>cart/destroy/no" class="btn btn-primary">Cancel</a>
       	</div>
 
       	<?php 
