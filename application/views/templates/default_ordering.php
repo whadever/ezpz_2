@@ -81,6 +81,7 @@
 
 <!--Full Div Image from div bg-->
 <div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-attachment: fixed ;background-image: url(<?php echo $background ?>);" data-stellar-background-ratio="0.5">
+<div class="row" id="body" style="width:100%; height: 20px">&nbsp;</div>
 </div>
 
 
@@ -119,10 +120,11 @@ $(document).ready(function(){
 <script>
 
     var waypoint = new Waypoint({
-      element: document.getElementById('main'),
+      element: document.getElementById('body'),
       handler: function(direction) {
         document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.95)';
-      }
+      },
+      offset: '20%'
     });
 
 </script>
