@@ -6,10 +6,12 @@
 	<meta charset="utf-8">
 	<title><?php echo $page_title; ?> - EZPZ</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--Font-->
     <link href="https://fonts.googleapis.com/css?family=Muli|Roboto" rel="stylesheet">
+
     
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -85,6 +87,7 @@
 
 <!--Full Div Image from div bg-->
 <div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-attachment: fixed ;background-image: url(<?php echo $background ?>);" data-stellar-background-ratio="0.5">
+<div class="row" id="body" style="width:100%; height: 20px">&nbsp;</div>
 </div>
 
 
@@ -123,10 +126,11 @@ $(document).ready(function(){
 <script>
 
     var waypoint = new Waypoint({
-      element: document.getElementById('main'),
+      element: document.getElementById('body'),
       handler: function(direction) {
         document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.95)';
-      }
+      },
+      offset: '20%'
     });
 
 </script>

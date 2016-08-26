@@ -73,5 +73,10 @@
 
       }
 
+	/*wrap*/
+	.wrap{
+	  overflow-x: scroll;
+	  width: inherit;
+	}
      
 }
