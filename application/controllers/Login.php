@@ -380,6 +380,29 @@ class Login extends CI_Controller{
 	}
 
 
+	public function email_verify($md5 = '')
+		{
+			if($md5 == '')
+			{
+				redirect('accounts/');
+			}else
+			{
+				
+				if($this->login_model->verify_account($md5))
+				{
+					$this->session->set_flashdata('success', 'Account Verification is Successful!');
+					redirect('main');
+				}else
+				{
+					$this->session->set_flashdata('error', 'Account Verification is not Successful!');
+					session_destroy();
+					redirect('accounts/');
+				}
+			}
+
+		}
+
+
 }
 
  ?>

@@ -76,6 +76,13 @@ body.modal-open[style] {
 }
 
 /*General*/
+.panel-default{
+  border-radius: 0px;
+}
+.modal-content{
+  border-radius: 0px;
+}
+
 .padding-top-five{
   padding-top: 5%;
 }
@@ -326,7 +333,6 @@ width: 50%;
 /* Waiting for Drivers */
 .waiting
 {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight:100;
   font-size:72px;
 }

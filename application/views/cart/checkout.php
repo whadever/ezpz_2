@@ -35,7 +35,7 @@
 
 
 
-<div class="container padding-top-five" id="cart-info">
+<div class="container" id="cart-info" style="margin-bottom:20px; margin-top:20px;">
         
        <!--  <?php if($this->session->flashdata('success')): ?>
                 
@@ -51,7 +51,11 @@
                 </div>
 
         <?php endif; ?> -->
-
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h1 class="text-center" >Confirm Delivery Order</h1>
+        <h3 style="margin-top:0px;margin-left:0px;">Order Detail</h3>
         <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered table-striped">
 
         <tr>    
@@ -88,9 +92,9 @@
         </tr>
 
         </table>
-        <?php echo form_open('order/payment',array('id' => 'checkoutForm','name' => 'checkout_form','onsubmit' => "return form_validation()")); ?>
     
-
+        <h3 style="margin-top:0px;margin-left:0px;">Delivery Destination Address</h3>
+        <?php echo form_open('order/payment',array('id' => 'checkoutForm','name' => 'checkout_form','onsubmit' => "return form_validation()")); ?>
         <div class="form-group" id="#mapBody">
                 <label for="">Location</label>
                 <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
@@ -111,6 +115,9 @@
             <input type="submit" class="btn btn-primary" name="submit" value="Go to Payment" >
         </p>
         <?php echo form_close() ?>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
 </div>
 
 

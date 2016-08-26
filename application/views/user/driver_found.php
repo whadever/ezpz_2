@@ -1,4 +1,4 @@
-<div class="row" style="margin-bottom:10%;">
+	<div class="row" style="margin-bottom:10%;">
 
 	<div class="col-md-1 col-xs-12"></div>
 	
@@ -6,7 +6,8 @@
 		
 		
 		<div class="row text-center" id="status">
-			<h1 class="roboto headline">Order Status</h1>
+			<h2 class="roboto headline">Order Status</h2>
+			<h2 class="roboto headline">Your order has been made</h2>
 			<h2 class="roboto" id="statusDriver"  align="center">Driver Enroute to Restaurant</h2>
 		
 			<select name="" id="rate" onchange="rate_driver()" style="display:none">
@@ -22,22 +23,22 @@
 		<div class="row">
 
 			<div class="col-md-6 col-xs-12">
-				<h1 class="roboto headline">Driver Information</h1>
+				<h2 class="roboto headline">Driver Information</h2>
 				<p align="center">
 				<div class="profile-picture" style="background-image : url(<?php echo base_url().$driver->photo ?>); " id="edit-prof-pic"></div>
 				</p>
 
-				<table class="table table-bordered driver-info">
+				<table class="table table-striped driver-info">
 					<tr>
-						<td>Name</td>
+						<th>Name</th>
 						<td><?php echo $driver->firstname.' '.$driver->lastname ?></td>
 					</td>
 					<tr>
-						<td>Email</td>
+						<th>Email</th>
 						<td><?php echo $driver->email ?></td>
 					</td>
 					<tr>
-						<td>Phone</td>
+						<th>Phone</th>
 						<td><a href="tel:<?php echo $driver->telephone ?>"><?php echo $driver->telephone ?></a></td>
 					</tr>
 				</table>
@@ -45,30 +46,30 @@
 
 			<div class="col-md-6 col-xs-12">
 				
-				<h1 class="roboto headline">Order Information</h1>
-				<table class="table table-bordered driver-info">
+				<h2 class="roboto headline">Order Information</h2>
+				<table class="table table-striped driver-info">
 					<tr>
-						<td>Order ID</td>
+						<th width="30%">Order ID</th>
 						<td><?php echo $order->id ?></td>
 					</td>
 					<tr>
-						<td>Total Quantity</td>
+						<th>Total Quantity</th>
 						<td><?php echo $order->total_qty ?></td>
 					</td>
 					<tr>
-						<td>Total Price</td>
+						<th>Total Price</th>
 						<td><?php echo NZD($order->total_price) ?></td>
 					</tr>
 					<tr>
-						<td>Delivery Cost</td>
+						<th>Delivery Cost</th>
 						<td><?php echo NZD($order->delivery_cost) ?></td>
 					</tr>
 					<tr>
-						<td>Deliver To</td>
+						<th>Deliver To</th>
 						<td><?php echo $order->address ?></td>
 					</tr>
 					<tr>
-						<td>ETA</td>
+						<th>ETA</th>
 						<?php 
 						if($order->estimation_time < 60){
 			              echo '<td>'.$order->estimation_time.' Minutes</td>';
@@ -84,7 +85,7 @@
 						
 					</tr>
 					<tr>
-						<td>Distance</td>
+						<th>Distance</th>
 						<td><?php echo $order->distance ?> Km</td>
 					</tr>
 				</table>

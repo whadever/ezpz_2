@@ -39,7 +39,7 @@
 
 <?php echo form_open('order/find_driver/'.$order->code); ?>
 
-<div class="container padding-top-five" id="cart-info">
+<div class="container" id="cart-info" style="padding-bottom:20px; padding-top:20px;">
 
 	<div class="row">
 		<div class="col-md-6">

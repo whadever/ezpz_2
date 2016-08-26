@@ -6,14 +6,18 @@
 	<meta charset="utf-8">
 	<title><?php echo $page_title; ?> - EZPZ</title>
 
+
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto" rel="stylesheet">
+
     
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
   	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/themes/fontawesome-stars.css" rel="stylesheet">
 
@@ -22,8 +26,10 @@
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
     <script src="<?php echo base_url() ?>js/card.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
     
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	  <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
@@ -81,6 +87,7 @@
 
 <!--Full Div Image from div bg-->
 <div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; background-attachment: fixed ;background-image: url(<?php echo $background ?>);" data-stellar-background-ratio="0.5">
+<div class="row" id="body" style="width:100%; height: 20px">&nbsp;</div>
 </div>
 
 
@@ -119,10 +126,11 @@ $(document).ready(function(){
 <script>
 
     var waypoint = new Waypoint({
-      element: document.getElementById('main'),
+      element: document.getElementById('body'),
       handler: function(direction) {
         document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.95)';
-      }
+      },
+      offset: '20%'
     });
 
 </script>
