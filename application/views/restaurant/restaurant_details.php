@@ -151,8 +151,7 @@
 							        </tr>
 									<tbody id="items">
 							        <?php $i = 1; ?>
-									<?php $cart = $this->cart->contents() ?>
-									<?php print_r($cart) ?>
+									
 							        <?php foreach ($this->cart->contents() as $items): ?>
 										<?php $id = $items['id'] ?>
 							                <?php echo form_hidden('rowid[]', $items['rowid']); ?>
@@ -163,8 +162,8 @@
 							                        <td><?php echo $items['name']; ?> </td>
 							                        
 							                        <td><input type="text" id="quantity_<?php echo $id ?>" name="quantity[]" value="<?php echo $items['qty'] ?>" maxlength="3" size="5"></td>
-							                        <td id="price_<?php echo $id ?>" style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
-							                        <td id="subtotal_<?php echo $id ?>" style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+							                        <td id="price_<?php echo $id ?>" style="text-align:right"><?php echo NZD($items['price']); ?></td>
+							                        <td id="subtotal_<?php echo $id ?>" style="text-align:right"><?php echo NZD($items['subtotal']); ?></td>
 							                        <td>
 							                        <?php $data = json_encode($items) ?>
 							                        <a onclick="add_cart(this,<?php echo $data; ?>)">&plus;</a>
@@ -263,7 +262,9 @@ $("#restaurant-search").typeahead({
         </script>
 
 <script>
+	var no = 0;
 	function add_cart(id,dish){
+		//alert('asd');
 
 		var quantity = 0;
 
@@ -286,17 +287,20 @@ $("#restaurant-search").typeahead({
           	if(quantity != 0){
           		quantity = +quantity + +1;
           		$('#quantity_'+id).val(quantity);
-          		alert(result);
+          		
           	}
           	else if(quantity ==0){
+          		var price = Number(dish.price).toFixed(2);
+          		no = +no + +1;
           		quantity = 1;
-          		$('#items').append('<tr id="cart_"'+id+'><td><a onclick="return confirm('+'Are you sure?'+')" href="">&times;</a></td><td id="no_'+id+'"><?php echo "1" ?></td><td>'+dish.name+' </td><td><input type="text" id="quantity_'+id+'" name="quantity[]" value="'+quantity+'" maxlength="3" size="5"></td><td id="price_'+dish.price+'" style="text-align:right">'+dish.price+'</td><td id="subtotal_'+id+'" style="text-align:right">'+dish.price+'</td><td><a onclick="add_cart('+dish+')">&plus;</a><a onclick="minus_cart('+dish+')">&minus;</a></td></tr>')
-          		alert(result);
+          		$('#items').append('<tr id="cart_"'+id+'><td><a onclick="return confirm('+'Are you sure?'+')" href="<?php echo base_url() ?>'+'cart/remove/'+result+'">&times;</a></td><td id="no_'+id+'">'+no+'</td><td>'+dish.name+' </td><td><input type="text" id="quantity_'+id+'" name="quantity[]" value="'+quantity+'" maxlength="3" size="5"></td><td id="price_'+dish.price+'" style="text-align:right">'+'$ '+price+'</td><td id="subtotal_'+id+'" style="text-align:right">'+'$ '+price+'</td><td><a onclick="add_cart('+dish+')">&plus;</a><a onclick="minus_cart('+dish+')">&minus;</a></td></tr>')
+          		
                     
           	}
           	
-           
-          } 
+      
+          }
+         
         });
 	}
 
