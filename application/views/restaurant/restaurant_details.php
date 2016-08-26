@@ -39,7 +39,7 @@
 	<div class="row">
 		<div class="container" >
 			<div class="row" style="padding-right:">
-				<div class="col-sm-8 col-xs-12">
+				<div class="col-md-8 col-xs-12">
 					  <ul class="nav nav-tabs">
 					    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
 					    <li><a data-toggle="tab" href="#review">Reviews</a></li>
@@ -96,6 +96,7 @@
 				    	<?php echo form_close() ?>					    	
 				    	<?php endforeach; ?>
 				    </div><!--End of Menu tab-->
+
 				    <!--Review Tab-->
 				    <div id="review" class="tab-pane fade">
 				      	<h3>Reviews</h3>
@@ -133,7 +134,7 @@
 				    </div><!--End of Review Panel-->
 				    </div><!--End of Tabcontent-->	
 				  </div>
-				  <div class="col-sm-4 col-xs-12" style="padding: 20px 15px 10px 15px;">
+				  <div class="col-md-4 col-xs-12" style="padding: 20px 15px 10px 15px;">
 				  	<div class="col-xs-12" style="border:1px #ddd solid;padding-bottom:10px;">
 				  		<h3 class="text-center">Order Details</h3>
 				  		<div class="wrap">

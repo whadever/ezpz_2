@@ -61,8 +61,7 @@
       border-bottom : 1px solid white;
       border-color: #FFF;
       border-radius: 0;
-      outline: none;
-    
+      outline: none;    
       box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #FFF;
       }
     

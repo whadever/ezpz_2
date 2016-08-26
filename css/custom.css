@@ -84,6 +84,10 @@ body.modal-open[style] {
 }
 
 /*General*/
+.modal-content{
+  border-radius: 0px;
+}
+
 .padding-top-five{
   padding-top: 5%;
 }
