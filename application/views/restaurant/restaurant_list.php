@@ -14,28 +14,31 @@
 
 			<div class="col-lg-4 col-sm-6 col-xs-12">
 				<div class="panel panel-default panel-horizontal" style="height:200px;">
-				    <div class="panel-body" >
-				        <p class="brand">
-				        	<a href="<?php echo base_url('restaurant/detail/'.$restaurant->name) ?>">
-				        	<?php echo $restaurant->name; ?>
-				        	</a>
-				        </p>
-						<p><?php echo wordlimiter($restaurant->address,3) ?></p>
-						<div class="hidden-xs">
-						<?php $closed = 1; ?>
-						<?php foreach ($restaurant_time as $time): ?>
-							<?php if($time->restaurant_id == $restaurant->id && $time->day == date('l')){
-								
-								echo "<p>".$time->opentime." - ".$time->closetime."</p>";
-								$closed = 0;
-							} 
-							?>
-						<?php endforeach ?></div>
-						<?php echo $closed == 1 ? "<p>Closed Today</p>" : "<p>Open Today</p>" ?>
-				    </div>
-				    <div class="panel-heading" style="background-image: url('<?php echo base_url().$restaurant->photo ?>');background-size: cover;background-repeat: no-repeat;background-position: center center; height:198px;">
-				        &nbsp;
-				    </div>
+					
+					    <div class="panel-body" >
+					        <p class="brand">
+					        	<a href="<?php echo base_url('restaurant/detail/'.$restaurant->name) ?>">
+					        	<?php echo $restaurant->name; ?>
+					        	</a>
+					        </p>
+							<p><?php echo wordlimiter($restaurant->address,5).'...' ?></p>
+							<div class="hidden-xs">
+							<?php $closed = 1; ?>
+							<?php foreach ($restaurant_time as $time): ?>
+								<?php if($time->restaurant_id == $restaurant->id && $time->day == date('l')){
+									
+									echo "<p>".$time->opentime." - ".$time->closetime."</p>";
+									$closed = 0;
+								} 
+								?>
+							<?php endforeach ?></div>
+							<?php echo $closed == 1 ? "<p style='color:red'>Closed Today</p>" : "<p style='color:green'>Open Today</p>" ?>
+					    </div>
+					    <a href="<?php echo base_url('restaurant/detail/'.$restaurant->name) ?>">
+						    <div class="panel-heading" style="background-image: url('<?php echo base_url().$restaurant->photo ?>');background-size: cover;background-repeat: no-repeat;background-position: center center; height:198px;">
+						        &nbsp;
+						    </div>
+				    	</a>
 				</div>
 			</div>
 		

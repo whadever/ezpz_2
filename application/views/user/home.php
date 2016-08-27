@@ -20,15 +20,17 @@
 			<?php endif; ?>
 
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-			    <div class="hovereffect">
-			        <img class="img-responsive" src="<?php echo $cuisine->thumb ?>" alt="">
-			            <div class="overlay">
-			                <h2><?php echo "$cuisine->name"; ?></h2>
-							<p> 
-								<a href="<?php echo base_url('restaurant/cuisine/'.$cuisine->name) ?>">View Restaurants</a>
-							</p> 
-			            </div>
-			    </div>
+				<a href="<?php echo base_url('restaurant/cuisine/'.$cuisine->name) ?>">
+				    <div class="hovereffect">
+				        <img class="img-responsive" src="<?php echo $cuisine->thumb ?>" alt="">
+				            <div class="overlay">
+				                <h2><?php echo "$cuisine->name"; ?></h2>
+								<p> 
+									View Restaurants
+								</p> 
+				            </div>
+				    </div>
+			    </a>
 			</div>
 
 	

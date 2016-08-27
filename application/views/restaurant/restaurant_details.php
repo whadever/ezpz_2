@@ -1,3 +1,15 @@
+<style>
+	h2{
+		margin: 20px 0;
+		padding: 0;
+	}
+
+	p{
+		margin: 10px 0px;
+		padding: 0;
+	}
+</style>
+
 <?php if($cartDestroy == TRUE): ?>
 	
 <script>
@@ -21,12 +33,14 @@
 						
 					<h2 style="display:inline;"><?php echo $restaurant->name.' ' ?></h2>
 					
+					<p><?php echo $restaurant->address ?></p>
+
 					<?php if($restaurant_time): ?>
-					<p><?php echo 'Open Today'.' '.date('H:i',strtotime($restaurant_time->opentime)).' - '.date('H:i',strtotime($restaurant_time->closetime)) ?></p>
+					<p style="margin: 10px 0;"><?php echo 'Open Today'.' '.date('H:i',strtotime($restaurant_time->opentime)).' - '.date('H:i',strtotime($restaurant_time->closetime)) ?></p>
 					<?php else: ?>
 						<p>Closed Today</p>
 					<?php endif; ?>
-					<p><?php echo $restaurant->telephone.' ' ?></p>
+					<p><a href="tel: <?php echo $restaurant->telephone ?>"><?php echo $restaurant->telephone ?></a></p>
 				</div>
 			</div>	
 		</div>
