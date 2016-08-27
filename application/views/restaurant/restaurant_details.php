@@ -142,7 +142,7 @@
 
 							        <tr>
 							                <th>&nbsp;</th>
-							                <th>No.</th>
+							                <th style="padding:8px 1px">No.</th>
 							                <th>Item Name</th>
 							                <th>Qty</th>
 							                <th style="text-align:right">Item Price</th>
@@ -151,6 +151,11 @@
 							        </tr>
 									<tbody id="items">
 							        <?php $i = 1; ?>
+							        <?php if (count($this->cart->contents()) == 0): ?>
+							        	<tr>
+							        		<td colspan="6" class="text-center">You haven't place an order yet</td>
+							        	</tr>
+							        <?php endif ?>
 									
 							        <?php foreach ($this->cart->contents() as $items): ?>
 										<?php $id = $items['id'] ?>
@@ -162,9 +167,9 @@
 							                        <td id="no_<?php echo $id ?>"><?php echo $i ?></td>
 							                        <td><?php echo $items['name']; ?> </td>
 							                        
-							                        <td><input type="text" id="quantity_<?php echo $id ?>" name="quantity[]" disabled="disabled" value="<?php echo $items['qty'] ?>" maxlength="3" size="3"></td>
-							                        <td id="price_<?php echo $id ?>" ><?php echo NZD($items['price']); ?></td>
-							                        <td id="subtotal_<?php echo $id ?>" ><?php echo NZD($items['subtotal']); ?></td>
+							                        <td><input type="text" id="quantity_<?php echo $id ?>" name="quantity[]" disabled="disabled" value="<?php echo $items['qty'] ?>" maxlength="3" size="3" style="background:transparent; border:none"></td>
+							                        <td id="price_<?php echo $id ?>" style ="min-width:74px; text-align:right"><?php echo NZD($items['price']); ?></td>
+							                        <td id="subtotal_<?php echo $id ?>" style="min-width:74px; text-align: right" ><?php echo NZD($items['subtotal']); ?></td>
 							                        <td>
 							                        
 							                       
@@ -178,8 +183,8 @@
 									</tbody>
 							        <tr>
 							                <td colspan="4"> </td>
-							                <td class="right"><strong>Total</strong></td>
-							                <td class="right" id="total">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+							                <td style="text-align:right"><strong>Total</strong></td>
+							                <td style="text-align:right" id="total">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
 							        </tr>
 
 							        </table>
