@@ -56,7 +56,7 @@
     <div class="col-md-8">
         <h1 class="text-center" >Confirm Delivery Order</h1>
         <h3 style="margin-top:0px;margin-left:0px;">Order Detail</h3>
-        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered table-striped">
+        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered  ">
 
         <tr>    
 
@@ -95,9 +95,16 @@
     
         <h3 style="margin-top:0px;margin-left:0px;">Delivery Destination Address</h3>
         <?php echo form_open('order/payment',array('id' => 'checkoutForm','name' => 'checkout_form','onsubmit' => "return form_validation()")); ?>
-        <div class="form-group" id="#mapBody">
+        <div class="checkbox">
+          <label><input type="checkbox" id="myAddress" onchange='my_address(this)' value="">Use my registered address</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" id="newAddress" onchange='new_address(this)' value="">Deliver to new address</label>
+        </div>
+
+        <div class="form-group" id="mapBody">
                 <label for="">Location</label>
-                <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+                <input id="pac-input" class="controls" type="text" placeholder="Enter a location" style="display:none">
                 <div id="map"></div>
         </div>
 
@@ -119,6 +126,7 @@
     <div class="col-md-2"></div>
   </div>
 </div>
+
 
 
 <script>
@@ -214,5 +222,42 @@
       return false;
     }
 
+  }
+</script>
+
+<script>
+  function my_address(el){
+    if($(el).is(":checked") ){
+      $('#newAddress').removeAttr('checked');
+      $('#pac-input').hide();
+       $('#lat').val(<?php echo $user->latitude ?>);
+
+      $('#lng').val(<?php echo $user->longitude ?>);
+      $('#address').val("<?php echo $user->address ?>");
+      $('#address_show').val("<?php echo $user->address ?>");
+      
+    }else{
+      $('#lat').val('');
+      $('#lng').val('');
+      $('#address').val('');
+      $('#address_show').val('');
+    }
+  }
+
+  function new_address(el){
+    if($(el).is(":checked") ){
+      $('#myAddress').removeAttr('checked');
+      $('#pac-input').show();
+      $('#lat').val('');
+      $('#lng').val('');
+      $('#address').val('');
+      $('#address_show').val('');
+    }else{
+      $('#pac-input').hide();
+      $('#lat').val('');
+      $('#lng').val('');
+      $('#address').val('');
+      $('#address_show').val('');
+    }
   }
 </script>

@@ -157,8 +157,7 @@
            
           } else {
             window.alert('Directions request failed due to ' + status);
-            alert(curPos.lat);
-            alert(curPos.lng);
+            
             }
         });
      
