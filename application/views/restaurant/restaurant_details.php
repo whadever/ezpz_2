@@ -54,17 +54,7 @@
 					    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
 					    <li><a data-toggle="tab" href="#review">Reviews</a></li>
 					  </ul>
-					  <?php if($restaurant_time): ?>
-					  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) || 
-							date('H:i') > date('H:i',strtotime($restaurant_time->closetime))){
-					  		$disabled = 'disabled';?>
-					  		
-							<?php }else{
-					  		$disabled = '';
-					  	}?>
-					  <?php else: ?>
-							<?php $disabled = 'disabled'; ?>
-					  <?php endif ?>
+					 
 				  
 					<div class="tab-content">
 				    
@@ -82,7 +72,21 @@
 				    			<!-- <div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> > -->
 				    			  <h3 style="display:inline;" ><?php echo $dish->name ?></h3>
 				    			  <?php $data = json_encode($dish) ?>
-				    			  <a  class="pull-right" id="plus" onclick='add_cart(this,<?php echo $dish->id ?>,<?php echo $data; ?>)'><span class="glyphicon glyphicon-plus"></span></a>
+
+								 <?php if($restaurant_time): ?>
+								  <?php if(date('H:i') < date('H:i',strtotime($restaurant_time->opentime)) || 
+										date('H:i') > date('H:i',strtotime($restaurant_time->closetime))){
+								  		$closed = 'restaurant_still_closed()' ?>
+								  		
+										<?php }else{
+								  		$closed = 'add_cart(this,'.$dish->id .','.$data.')';
+								  	}?>
+								  <?php else: ?>
+									<?php $closed = 'restaurant_closed()' ?>
+								  <?php endif ?>
+								
+							
+				    			  <a  class="pull-right" id="plus" onclick='<?php echo $closed ?>'><span class="glyphicon glyphicon-plus"></span></a>
 
 				    			  <div style="word-wrap: break-word; width: 80%">
 				    			  	<p><?php echo $dish->description ?></p>
@@ -371,7 +375,7 @@ $("#restaurant-search").typeahead({
 <script>
 var number = <?php echo count($this->cart->contents()) ?>;
 	function add_cart(el,id,dish){
-		//alert('asd');
+		
 		
 		var quantity = 0;
 		var price = 0;
@@ -474,6 +478,14 @@ var number = <?php echo count($this->cart->contents()) ?>;
 </script>
 
 <script>
+
+	function restaurant_still_closed(){
+		alert('Restaurant is closed at the moment. Please come back later')
+	}
+
+	function restaurant_closed(){
+		alert('Restaurant is closed today')
+	}
 
     function submit(){
 
