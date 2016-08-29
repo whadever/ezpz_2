@@ -19,7 +19,7 @@
 				<div class="row">
 			<?php endif; ?>
 
-			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+			<div class="col-lg-3 col-md-6 col-xs-6">
 				<a href="<?php echo base_url('restaurant/cuisine/'.$cuisine->name) ?>">
 				    <div class="hovereffect">
 				        <img class="img-responsive" src="<?php echo $cuisine->thumb ?>" alt="">

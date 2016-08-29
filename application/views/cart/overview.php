@@ -1,4 +1,4 @@
-
+<div style="margin:20px 20px 20px 20px;">
 <?php echo form_open('cart/update'); ?>
       
        
@@ -52,7 +52,7 @@
                 <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary")); ?>
                 <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
                 <?php echo form_close() ?>
-
+</div>
         <script>
         function add_cart(el,dish){
 
