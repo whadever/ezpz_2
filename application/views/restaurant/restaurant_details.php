@@ -150,7 +150,7 @@
 				  <div class="col-md-4 col-xs-12">
 					<div style="border:1px #ddd solid;">
 				  		<h3 class="text-center">Order Details</h3>
-				  		<div class="wrap">
+				  		<div class="wrap" style="padding-bottom:10px">
 				  			
 							<?php echo form_open('cart/update'); ?>
 							      
@@ -209,7 +209,7 @@
 							                <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
 							        
 							                <?php if($this->cart->total_items()>0): ?>
-							                <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
+							                <a href="<?php echo base_url('cart/checkout'); ?>" style="margin-left:10px;"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
 							            	<?php endif; ?>
 
 							                <?php echo form_close() ?>
