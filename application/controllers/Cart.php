@@ -22,13 +22,16 @@
 		{
 			if($this->input->post()){
 				$dish = $this->crud_model->get_by_condition('dishes', array('id' => $this->input->post('id'), 'restaurant_id' => $this->input->post('resto_id')))->row();
+				$restaurant = $this->crud_model->get_by_condition('restaurants', array('id' => $this->input->post('resto_id')))->row();
 
 				$item  = array (
 
 					'id' 	=> $dish->id,
 					'qty'	=> $this->input->post('quantity'),
 					'price'	=> $dish->price,
-					'name'	=> $dish->name
+					'name'	=> $dish->name,
+					'resto_id' => $this->input->post('resto_id'),
+					'restaurant_name' => $restaurant->name, 
 
 				);
 

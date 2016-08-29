@@ -208,8 +208,9 @@
 							        <!-- Get URL -->
 							                <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
 							        
-							                
+							                <?php if($this->cart->total_items()>0): ?>
 							                <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
+							            	<?php endif; ?>
 							                <?php echo form_close() ?>
 							</div>
 

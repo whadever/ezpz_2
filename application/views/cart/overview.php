@@ -17,6 +17,7 @@
                     <th style="text-align:right">Item Price</th>
                     <th style="text-align:right">Sub-Total</th>
                     <th></th>
+                    
             </tr>
 
             <?php $i = 1; ?>
@@ -54,7 +55,11 @@
             <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
     
             <!-- <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary")); ?> -->
+            
+            <?php if($this->cart->total_items()>0): ?>
             <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
+            <?php endif; ?>
+            
             <?php echo form_close() ?>
         </div>
         <div class="col-md-1"></div>

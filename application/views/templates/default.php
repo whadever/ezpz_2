@@ -84,6 +84,12 @@
       </div>
   </header>
 
+  <!-- <?php if($this->session->flashdata('failed')): ?>
+  <div class="alert alert-danger">
+    <?php echo $this->session->flashdata('failed'); ?>
+  </div>
+  <?php endif; ?> -->
+
 
 
 <!--Full Div Image from div bg-->
