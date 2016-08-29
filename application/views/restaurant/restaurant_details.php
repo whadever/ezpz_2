@@ -154,7 +154,7 @@
 				  			
 							<?php echo form_open('cart/update'); ?>
 							      
-							        <table cellpadding="6" cellspacing="1" border="0" class="table" >
+							        <table cellpadding="4" cellspacing="0" border="0" class="table" >
 
 							        <tr>
 							                <th>&nbsp;</th>
@@ -163,7 +163,7 @@
 							                <th>Qty</th>
 							                <th style="text-align:right">Item Price</th>
 							                <th style="text-align:right">Sub-Total</th>
-							                <th></th>
+							                <th>&nbsp;</th>
 							        </tr>
 									<tbody id="items">
 							        <?php $i = 1; ?>
