@@ -15,6 +15,7 @@
   	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
   	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/themes/bars-reversed.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/logo.png ?>">
 
     <!-- Begin Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -116,7 +117,7 @@
 <footer>
   <div class="container-fluid">
     <div class="row text-center" style="padding: 10px; font-size:80%;">
-      <img src="<?php echo base_url()?>images/logo.png" width="50px" style="margin-right:1em;">&copy; Hassee 2016. All Rights Reserved under LRM Corporation
+      <img src="<?php echo base_url()?>images/logo.png" width="50px" style="margin-right:1em;">&copy; Hassee 2016. All Rights Reserved under LRM Corporation.
     </div>
   </div>
 </footer>
