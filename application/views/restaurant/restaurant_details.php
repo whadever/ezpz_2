@@ -147,15 +147,13 @@
 				    </div><!--End of Review Panel-->
 				    </div><!--End of Tabcontent-->	
 				  </div>
-				  <div class="col-md-4 col-xs-12" style="border:1px #ddd solid;padding: 20px 15px 20px 15px;">
-			
+				  <div class="col-md-4 col-xs-12" style="padding:20px 20px auto 20px;">
+					<div style="border:1px #ddd solid;">
 				  		<h3 class="text-center">Order Details</h3>
 				  		<div class="wrap">
 				  			
 							<?php echo form_open('cart/update'); ?>
 							      
-							       
-
 							        <table cellpadding="6" cellspacing="1" border="0" class="table" >
 
 							        <tr>
@@ -213,7 +211,7 @@
 							                
 							                <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
 							                <?php echo form_close() ?>
-
+							</div>
 
 						</div>
 				  

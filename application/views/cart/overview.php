@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row" style="padding:3% 0;">
         <div class="col-md-1"></div>
@@ -50,11 +51,11 @@
             </table>
 
             <!-- Get URL -->
-                    <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
-            
-                    <!-- <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary")); ?> -->
-                    <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
-                    <?php echo form_close() ?>
+            <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
+    
+            <!-- <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary")); ?> -->
+            <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
+            <?php echo form_close() ?>
         </div>
         <div class="col-md-1"></div>
     </div>
