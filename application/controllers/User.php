@@ -48,6 +48,7 @@ class User extends CI_Controller{
 		$data['page_title'] = 'Profile';
 		$data['background'] = base_url()."images/pihza.jpg";
 		$data['user'] = $this->crud_model->get_by_condition('users',array('id' => $id))->row();
+		$data['order_history'] = $this->crud_model->get_by_condition('order_history')->result();
 		$this->template->load('default','user/profile', $data);
 	}
 
