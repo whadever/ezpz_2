@@ -374,6 +374,7 @@ class Login extends CI_Controller{
 				redirect($user->type);
 			}else{
 				redirect('main');
+				$this->session->set_flashdata('failed','Incorret Username or Password');
 			}
 		}
 

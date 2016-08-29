@@ -48,8 +48,8 @@
 	</div>
 	<div class="row">
 		<div class="container" style="margin-bottom:20px;">
-			<div class="row" style="padding-right:">
-				<div class="col-md-8 col-xs-12">
+			<div class="row">
+				<div class="col-md-8 col-xs-12" style="margin-bottom:20px;">
 					  <ul class="nav nav-tabs">
 					    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
 					    <li><a data-toggle="tab" href="#review">Reviews</a></li>
@@ -147,16 +147,14 @@
 				    </div><!--End of Review Panel-->
 				    </div><!--End of Tabcontent-->	
 				  </div>
-				  <div class="col-md-4 col-xs-12" style="border:1px #ddd solid;padding: 20px 15px 20px 15px;">
-			
+				  <div class="col-md-4 col-xs-12">
+					<div style="border:1px #ddd solid;">
 				  		<h3 class="text-center">Order Details</h3>
-				  		<div class="wrap">
+				  		<div class="wrap" style="padding-bottom:10px">
 				  			
 							<?php echo form_open('cart/update'); ?>
 							      
-							       
-
-							        <table cellpadding="6" cellspacing="1" border="0" class="table" >
+							        <table cellpadding="4" cellspacing="0" border="0" class="table" >
 
 							        <tr>
 							                <th>&nbsp;</th>
@@ -165,7 +163,7 @@
 							                <th>Qty</th>
 							                <th style="text-align:right">Item Price</th>
 							                <th style="text-align:right">Sub-Total</th>
-							                <th></th>
+							                <th>&nbsp;</th>
 							        </tr>
 									<tbody id="items">
 							        <?php $i = 1; ?>
@@ -210,10 +208,12 @@
 							        <!-- Get URL -->
 							                <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
 							        
-							                
-							                <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
-							                <?php echo form_close() ?>
+							                <?php if($this->cart->total_items()>0): ?>
+							                <a href="<?php echo base_url('cart/checkout'); ?>" style="margin-left:10px;"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
+							            	<?php endif; ?>
 
+							                <?php echo form_close() ?>
+							</div>
 
 						</div>
 				  
