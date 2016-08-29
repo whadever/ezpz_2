@@ -1,5 +1,87 @@
 
+<div class="container">
+	<div class="row">
+		<div class="col-lg-2">
+			
+		</div>
+		<div class="col-lg-8">
+			<?php foreach($order_history as $history) : ?>
+				<pre>
+					<?php print_r($history) ?>
+				</pre>
+				<table class="table" id="orders">
+					<thead>
+						<tr>
+							<th>
+								Order Number	
+							</th>
+							<th>
+								Restaurant
+							</th>
+							<th>
+								Driver Name
+							</th>
+							<th>
+								Address
+							</th>
+							<th>
+								Date
+							</th>
+						</tr>	
+					</thead>	
+					<tbody>
+						<tr>
+							<td>
+								<a href="#" data-toggle="modal" data-target="#order_details" data-code="<?php echo $history->code ?>">
+									<?php echo $history->code ?>
+								</a>
+							</td>
+							<td>
+								<?php echo $history->name ?>
+							</td>
+							<td>
+								<?php echo $history->firstname . ' ' . $history->lastname?>
+							</td>
+							<td>
+								<?php echo $history->address ?>
+							</td>
+							<td>
+								<?php echo $history->date ?>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
+				
+			<?php endforeach; ?>
+
+		</div>
+		<div class="col-lg-2">
+			
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="order_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 20%">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <input type="hidden" name="code" id="code">
+      <input type="hidden" name="as" id="as">
+		<?php echo "<script>document.writeln($(e.relatedTarget).data('code'))</script>" ?>
+      	<div class="modal-body">
+			
+			<table class="table">
+				
+			</table>
+			
+
+    	</div>
+    	
+    </div>
+  </div>
+</div>
 
 
 
@@ -48,3 +130,22 @@ $("#restaurant-search").typeahead({
 
 </script>
 
+<script>
+	$(document).ready(function() {
+   	 $('#orders').DataTable();
+	} );
+</script>
+
+<script>
+//triggered when modal is about to be shown
+$('#order_details').on('show.bs.modal', function(e) {
+
+    //get data-id attribute of the clicked element
+     var code = $(e.relatedTarget).data('code');
+     
+     //populate the textbox
+     $(e.currentTarget).find('input[name="code"]').val(code);
+
+     test = code.replace(/,/g,'');
+});
+</script>

@@ -16,6 +16,7 @@
   	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/themes/bars-reversed.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/logo.png ?>">
+    <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
 
     <!-- Begin Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -27,6 +28,8 @@
 	  <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
 
     <!--FOnt-->
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
