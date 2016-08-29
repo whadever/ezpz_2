@@ -48,8 +48,8 @@
 	</div>
 	<div class="row">
 		<div class="container" style="margin-bottom:20px;">
-			<div class="row" style="padding-right:">
-				<div class="col-md-8 col-xs-12">
+			<div class="row">
+				<div class="col-md-8 col-xs-12" style="margin-bottom:20px;">
 					  <ul class="nav nav-tabs">
 					    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
 					    <li><a data-toggle="tab" href="#review">Reviews</a></li>
@@ -147,7 +147,7 @@
 				    </div><!--End of Review Panel-->
 				    </div><!--End of Tabcontent-->	
 				  </div>
-				  <div class="col-md-4 col-xs-12" style="padding:20px 20px auto 20px;">
+				  <div class="col-md-4 col-xs-12">
 					<div style="border:1px #ddd solid;">
 				  		<h3 class="text-center">Order Details</h3>
 				  		<div class="wrap">
@@ -211,6 +211,7 @@
 							                <?php if($this->cart->total_items()>0): ?>
 							                <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
 							            	<?php endif; ?>
+
 							                <?php echo form_close() ?>
 							</div>
 
