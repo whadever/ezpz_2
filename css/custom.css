@@ -110,6 +110,34 @@ body{
 }
 
 /*For navbar*/
+.nav.navbar-nav a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav.navbar-nav a:hover {
+  color: #fff;
+}
+.nav.navbar-nav a:before {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: 2px;
+  bottom: 0;
+  left: 2px;
+  background-color: #fff;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.nav.navbar-nav a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
 #myNavbar{
   padding-right: 10px;
 }
@@ -119,10 +147,7 @@ body{
 .nav.navbar-nav.navbar-left a,.nav.navbar-nav.navbar-right a{
 	color: #fff;
 }
-.nav.navbar-nav.navbar-left a:hover,.nav.navbar-nav.navbar-right a:hover{
-	text-decoration: underline;
-  color: #fff;
-}
+
 .nav .navbar-nav .dropdown .dropdown-menu ul li a:hover{
   background-color: transparent;
 }
