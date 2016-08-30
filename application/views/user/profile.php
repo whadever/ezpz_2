@@ -35,18 +35,17 @@
 
       .nav-pills>li>a{
       	border-radius: 0px;
-      }
-      .nav-pills>li>a:active{
-      	background-color: transparent;
+      	color: #95a5a6;
       }
       .nav-pills>li>a:hover{
-      	text-decoration: underline;
+      	color: #34495e;
       	background-color: transparent;
       }
       .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-	    color:#fff;
-	    background-color:#34495e;
-	    }
+	    color:#34495e;
+	    background-color:transparent;
+	    border-right: 4px solid #34495e;
+    	}
       .tab-content{
       	padding-left: 5%;
       	padding-right: 5%;
@@ -56,11 +55,8 @@
       }
 
       #header{
-	    background-color: #2c3e50;
-	    color: white;
 	    padding: 10px 5px;
 	    margin-bottom: 10px;
-	    font-family: 'Wingdings'; 
 	}
 
       .tab-content h2{
@@ -74,7 +70,7 @@
 
 		<div class="col-lg-10" style="padding:3% 0;">
 			
-			<div class="col-xs-2" style="padding-right:0px;">
+			<div class="col-sm-2" style="padding-right:0px;">
 				<div class="row">
 					<ul class="nav nav-pills nav-stacked">
 					  <li role="presentation" class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
@@ -83,7 +79,7 @@
 				</div>
 			</div>
 
-			<div class="col-xs-10">
+			<div class="col-sm-10">
 				<div class="tab-content">
 					<div id="profile" class="tab-pane fade in active" >
 							<?php if(validation_errors()): ?>
