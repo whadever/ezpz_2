@@ -118,7 +118,7 @@
 					    	<input type="hidden" name="lat" id="lat" value="<?php echo $restaurant->latitude; ?>">
 							<input type="hidden" name="lng" id="lng" value="<?php echo $restaurant->longitude; ?>">
 							<input type="hidden" name="username" id="username" value="<?php echo $restaurant->username; ?>">
-					    	<input type="submit" name="update" value="Update" class="btn btn-primary ">
+					    	
 					    	</td>
 					    </div>
 					    <div class="col-md-6 col-xs-12">
@@ -135,9 +135,16 @@
 								<input type="hidden" id="address" name="address" value="<?php echo $restaurant->address; ?>">					      
 						    </div>
 						</div>
-						<?php echo form_close() ?>
+						
 						
 					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<input type="submit" name="update" value="Update" class="btn btn-primary ">
+						</div>
+					</div>
+					<?php echo form_close() ?>
 				</div>
 				<!--End of Restaurant info update-->
 				<!--Menu Tab-->
