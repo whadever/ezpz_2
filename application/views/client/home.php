@@ -1,17 +1,17 @@
 <div class="row" style="padding-top:10px;">
 		<!--The content tabs-->
-		<div class="col-sm-12" style="margin-top:10px;">
+		<div class="col-sm-12" style="margin-top:20px;">
 			<ul class="nav nav-tabs">
-			    <li class="active"><a data-toggle="tab" href="#info">Update Restaurant Info</a></li>
+			    <li class="active"><a data-toggle="tab" href="#info">Restaurant Detail</a></li>
 			    <li><a data-toggle="tab" href="#menu">Update Menu</a></li>
 			    <li><a data-toggle="tab" href="#pass">Change Password</a></li>
 		  	</ul>
 		  	<!--Restaurant Detail Tab-->
-		  	<div class="tab-content">
+		  	<div class="tab-content" style="margin-bottom:30px;">
 				<div id="info" class="login tab-pane fade in active" style="margin-top:0px;">
 					<?php echo form_open_multipart('client/edit_profile/'.$this->session->userdata('user_id')) ?>
 					<div class="row">
-						<div class="col-md-7 col-xs-12">
+						<div class="col-xs-12">
 				        	<div class="heading">
 				            	<h3>Update Restaurant Info</h3>
 				            </div>
@@ -19,7 +19,7 @@
 					</div><!--End of tab header row-->   
 					<hr>   
 					<div class="row">
-						<div class="col-md-7 col-xs-12">
+						<div class="col-md-6 col-xs-12" style="padding-right:25px;">
 								<div class="form-group">
 							        <label for="name">Restaurant Name</label>
 							        <input type="text" name ="name" class="form-control" value="<?php echo $restaurant->name; ?>">
@@ -33,21 +33,7 @@
 							        <label for="tel">Telephone</label>
 							        <input type='tel' pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +9999-9999-9999)' class="form-control" name="telephone" value="<?php echo $restaurant->telephone; ?>">
 							        <!-- <input type="text" name = "telephone" class="form-control"> -->
-							    </div>
-						
-								<div class="form-group" id="#mapBody">
-						     		<label for="">Location</label>
-						     		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-								    <div id="map"></div>
-						     	</div>
-
-						     	<div class="form-group">
-							        <label for="address">Address</label>
-							        <div class="col-sm-13">
-									<textarea name="address_show" id="address_show" disabled="disabled" class="form-control" rows="3"><?php echo $restaurant->address; ?></textarea></div>
-									<input type="hidden" id="address" name="address" value="<?php echo $restaurant->address; ?>">					      
-							    </div>
-						
+							    </div>				
 							    <div class="form-group">
 							     	<label for="cuisine">Cuisine</label>
 							     	<div class="input-group ">   
@@ -125,8 +111,23 @@
 							<input type="hidden" name="username" id="username" value="<?php echo $restaurant->username; ?>">
 					    	<input type="submit" name="update" value="Update" class="btn btn-primary ">
 					    	</td>
-						<?php echo form_close() ?>
+					    </div>
+					    <div class="col-md-6 col-xs-12">
+							<div class="form-group" id="#mapBody">
+					     		<label for="">Location</label>
+					     		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+							    <div id="map"></div>
+					     	</div>
+
+					     	<div class="form-group">
+						        <label for="address">Address</label>
+						        <div class="col-sm-13">
+								<textarea name="address_show" id="address_show" disabled="disabled" class="form-control" rows="3"><?php echo $restaurant->address; ?></textarea></div>
+								<input type="hidden" id="address" name="address" value="<?php echo $restaurant->address; ?>">					      
+						    </div>
 						</div>
+						<?php echo form_close() ?>
+						
 					</div>
 				</div>
 				<!--End of Restaurant info update-->

@@ -83,12 +83,6 @@ body.modal-open[style] {
   outline: none;    
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #FFF;
 }
-hr{
-  background-color: #34495e; 
-  height: 1px; 
-  border: 0;
-}
-
 .form-control{
   border-radius: 0px !important;
 }

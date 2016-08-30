@@ -39,7 +39,9 @@
 		padding-top: 0px;
 		padding-bottom: 20px;
 	}
-
+	ul.nav-tabs > li {
+		max-width: 100px;
+	}
 } 
 
 @media only screen and (max-device-width: 440px)
@@ -79,6 +81,6 @@
 	  width: inherit;
 	}
 
-	
+
      
 }

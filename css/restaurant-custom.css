@@ -25,6 +25,11 @@
 
 /*Restaurant Details*/
 /*The tabs*/
+ul.nav-tabs > li > a:hover {
+	background-color: transparent;
+	border-style: none;
+	text-decoration: underline;
+}
 .restaurant-photo{
 	height: 400px;
 }
@@ -47,7 +52,7 @@
     border-left: 1px solid #2C3E50;
     border-right: 1px solid #2C3E50;
     border-bottom: 1px solid #2C3E50;
-    padding: 10px;
+    padding: 20px;
 
 }
 .nav-tabs {
