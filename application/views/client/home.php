@@ -1,4 +1,13 @@
 <div class="row" style="padding-top:10px;">
+
+		<?php if($this->session->flashdata('success')) : ?>
+			<div class="alert alert-success">
+				 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<?php echo $this->session->flashdata('success') ?>
+			</div>
+
+		<?php endif; ?>	
+
 		<!--The content tabs-->
 		<div class="col-sm-12" style="margin-top:20px;">
 			<ul class="nav nav-tabs">

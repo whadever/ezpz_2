@@ -138,13 +138,21 @@ class Login extends CI_Controller{
 					'verification_code'	=> $verification_code,
 					'created'			=> date('Y-m-d')
 
-					); 
+					);
+
+				$data_session = array(
+					//Set the session for login
+					'username'		=> $this->input->post('username'),
+					);
+
+				$this->session->set_userdata($data_session);	 
 
 				$this->crud_model->insert_data('users',$data);
 				$this->email_model->verification_email($data['email'], $verification_string);
+
 				$this->session->set_flashdata('success', 'User has been added');
 
-				redirect('login');
+				redirect('login/verify_account/'.$this->input->post('username'));
 			}
 			else{
 				redirect('login/register/user');
@@ -218,7 +226,7 @@ class Login extends CI_Controller{
 				$this->email_model->verification_email($data['email'], $verification_string);
 				$this->session->set_flashdata('success','Driver has been added');
 
-				redirect('login');
+				redirect('login/verify_account/'.$this->input->post('username'));
 			}
 			else{
 				redirect('login/register/driver');
@@ -372,7 +380,23 @@ class Login extends CI_Controller{
 				}
 
 				redirect($user->type);
-			}else{
+			}
+			else if($user && $user->is_verified == 0 && $user->type == 'user'){
+				$data_session = array(
+
+					//Set the session for login
+							
+
+					'username'		=> $user->username,
+					
+								
+
+					);
+				$this->session->set_userdata($data_session);
+
+				redirect('login/verify_account/'.$user->username);
+			}
+			else{
 				redirect('main');
 				$this->session->set_flashdata('failed','Incorret Username or Password');
 			}
@@ -402,6 +426,36 @@ class Login extends CI_Controller{
 			}
 
 		}
+
+	public function verify_account($username = ''){
+		if($username != $this->session->userdata('username')){
+			$username = $this->session->userdata('username');
+		}
+
+		$data['background'] = base_url()."images/pihza.jpg";
+		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
+		$data['page_title'] = "Verify Account";
+
+		$data['user'] = $this->crud_model->get_by_condition('users',array('username' => $username))->row();
+
+		$this->template->load('default', 'login/verify_account',$data);
+		
+	}
+
+	public function resend_email($username = ''){
+		if($username != $this->session->userdata('username')){
+			$username = $this->session->userdata('username');
+		}
+
+		$user = $this->crud_model->get_by_condition('users',array('username' => $username))->row();
+
+		$verification_string = $user->username . '~' . $user->verification_code;
+
+		$this->email_model->verification_email('setyawansusanto99@outlook.com',$verification_string);
+
+		redirect('login/verify_account/'.$this->session->userdata('username'));
+
+	}
 
 
 }
