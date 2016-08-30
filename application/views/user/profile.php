@@ -52,8 +52,17 @@
       	padding-right: 5%;
       	padding-top: 0px;
       	border:0px;
-      	border-left: 3px solid #34495e;
+      	
       }
+
+      #header{
+	    background-color: #2c3e50;
+	    color: white;
+	    padding: 10px 5px;
+	    margin-bottom: 10px;
+	    font-family: 'Wingdings'; 
+	}
+
       .tab-content h2{
       	margin-top: 0px;
       }
@@ -65,7 +74,7 @@
 
 		<div class="col-lg-10" style="padding:3% 0;">
 			
-			<div class="col-lg-2" style="padding-right:0px;">
+			<div class="col-xs-2" style="padding-right:0px;">
 				<div class="row">
 					<ul class="nav nav-pills nav-stacked">
 					  <li role="presentation" class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
@@ -74,16 +83,16 @@
 				</div>
 			</div>
 
-			<div class="col-lg-10">
+			<div class="col-xs-10">
 				<div class="tab-content">
 					<div id="profile" class="tab-pane fade in active" >
-							
-						<div class="row">
-								<?php if(validation_errors()): ?>
+							<?php if(validation_errors()): ?>
 						            <ul class="alert alert-danger">
 						                <?php echo validation_errors('<li>','</li>'); ?>
 						            </ul>
-						        <?php endif; ?>
+						     <?php endif; ?>
+						<div class="row" id="header">
+								
 						        <h2>Edit Profile</h2>
 						</div>
 
