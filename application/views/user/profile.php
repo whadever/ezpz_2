@@ -32,6 +32,31 @@
       .pac-container {
         font-family: Roboto;
       }
+
+      .nav-pills>li>a{
+      	border-radius: 0px;
+      }
+      .nav-pills>li>a:active{
+      	background-color: transparent;
+      }
+      .nav-pills>li>a:hover{
+      	text-decoration: underline;
+      	background-color: transparent;
+      }
+      .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	    color:#fff;
+	    background-color:#34495e;
+	    }
+      .tab-content{
+      	padding-left: 5%;
+      	padding-right: 5%;
+      	padding-top: 0px;
+      	border:0px;
+      	border-left: 3px solid #34495e;
+      }
+      .tab-content h2{
+      	margin-top: 0px;
+      }
 </style>
 
 <div class="container">
@@ -40,7 +65,7 @@
 
 		<div class="col-lg-10" style="padding:3% 0;">
 			
-			<div class="col-lg-2">
+			<div class="col-lg-2" style="padding-right:0px;">
 				<div class="row">
 					<ul class="nav nav-pills nav-stacked">
 					  <li role="presentation" class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
