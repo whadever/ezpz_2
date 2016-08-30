@@ -76,7 +76,7 @@
 
 			<div class="col-lg-3 col-md-6 col-xs-6">
 			<a href="<?php echo base_url('restaurant/cuisine/'.$cuisine->name) ?>">
-			    <div class="hovereffect">
+			    <div class="hovereffect" style="cursor: pointer">
 			        <img class="img-responsive" src="<?php echo $cuisine->thumb ?>" alt="">
 			            <div class="overlay">
 			                <h2><?php echo "$cuisine->name"; ?></h2>
