@@ -77,13 +77,13 @@ EOD;
 		<table style="width:100%; height:100%;">
 			<tr>
 				<td style="background:#34495e; padding:2em 1em 1em 1em;">
-					<p align="center"><img src="http://ezpztest.gethassee.com/assets/logo.png" style="height:100px;"></p>
+					<p align="center"><img src="http://ezpztest.gethassee.com/assets/logo.png" width="80"></p>
 				</td>
 			</tr>
 			<tr>
 				<td style="padding:2em">
 					<h1>Hello!</h1><br>
-					<p>Here is the order detail, to accept this order please login into the website.
+					<p>Here is the order detail, to accept this order please login into the website.<a href="base_url()">Click Here</a>
 							<br><br>
 								 Restaurant :<p style="color: #16a085">$name</p>
 							<br><br>
@@ -95,9 +95,99 @@ EOD;
 			</tr>
 			<tr>
 				<td style="background:#34495e; color:#fff; height:20%; padding:1em 0 1em 0">
-					<div class="row text-center" style="padding: 10px;">
-				      <img src="http://ezpztest.gethassee.com/images/logo.png" style="margin-right:1em; height:50px;">&copy; Hassee 2016. All Rights Reserved under LRM Corporation
-				    </div>
+					<div class="row" style="padding: 10px; text-align:center">
+					 
+				      <img src="http://ezpztest.gethassee.com/images/logo.png" width="50" style="margin-right:1em;">
+				      &copy; Hassee 2016. All Rights Reserved under LRM Corporation
+				      </div>
+				    
+				</td>
+			</tr>
+		</table>
+EOD;
+
+		$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+		$headers .= 'From: ordering@ezpzdelivery.co.nz' . "\r\n" .
+					'Reply-To: contact@ezpzdelivery.co.nz' . "\r\n" .
+					'X-Mailer: PHP/' . phpversion();
+		
+		if(!mail($to, $subject, $message, $headers))
+		{
+			return false;
+		}else
+		{
+			return true;
+		}
+	}
+
+	public function receipt($email)
+	{
+		$to = 'irpanwinata@gmail.com';
+		$subject = "New Food Order";
+		$name = 'irvan';
+		$address = 'gading';
+		$url = base_url();
+		$message = <<<EOD
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		
+		<table style="width:100%; height:100%;">
+			<tr>
+				<td colspan="5" style="background:#34495e; padding:2em 1em 1em 1em;">
+					<p align="center"><img src="http://ezpztest.gethassee.com/assets/logo.png" width="80"></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<center><h1>Your Order Receipt</h1></center>
+
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<h2>Order Detail</h2>
+				</td>
+			</tr>
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Qty</th>
+				<th>Price</th>
+				<th>Sub Total</th>
+			</tr>
+			<tr>
+				<td style="text-align:center">1.</td>
+				<td style="text-align:center">Ayam Goreng</td>
+				<td style="text-align:center">2</td>
+				<td style="text-align:center">$ 2.00</td>
+				<td style="text-align:center">$ 4.00</td>
+			</tr>
+			<tr style="margin-top:20px">
+				<td colspan="5">
+					<h2>Delivery Detail</h2>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Distance:</b></td>
+				<td colspan="3">9.4km</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Delivery Cost:</b></td>
+				<td colspan="3">$ 5.00</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Total Cost:</b></td>
+				<td colspan="3">$ 9.00</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="background:#34495e; color:#fff; height:20%; padding:1em 0 1em 0">
+					<div class="row" style="padding: 10px; " >
+					 
+				      <center style="overflow:hidden"><div><img src="http://ezpztest.gethassee.com/images/logo.png" width="50" style="margin-right:1em;"></div>
+				      <div style="vertical-align: middle;">&copy; Hassee 2016. All Rights Reserved under LRM Corporation</div>
+				      </center>
+				      </div>
+				    
 				</td>
 			</tr>
 		</table>

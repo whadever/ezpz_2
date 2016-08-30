@@ -230,7 +230,9 @@
     if($(el).is(":checked") ){
       $('#newAddress').removeAttr('checked');
       $('#pac-input').hide();
-       $('#lat').val(<?php echo $user->latitude ?>);
+      $('#pac-input').val('');
+      
+      $('#lat').val(<?php echo $user->latitude ?>);
 
       $('#lng').val(<?php echo $user->longitude ?>);
       $('#address').val("<?php echo $user->address ?>");
@@ -258,6 +260,7 @@
       $('#lng').val('');
       $('#address').val('');
       $('#address_show').val('');
+      $('#pac-input').val('');
     }
   }
 </script>

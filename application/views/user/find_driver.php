@@ -168,6 +168,13 @@
     </div>
     <div class="col-xs-1 col-md-2"></div>
   </div>
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-lg-2"></div>
+      <div class="col-lg-8 text-center">
+        <a href="<?php echo base_url('order/cancel_order/'.$order->code) ?>" class="btn btn-primary">Cancel Order</a>
+      </div>
+    <div class="col-lg-2"></div>
+  </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>

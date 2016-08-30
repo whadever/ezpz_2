@@ -11,7 +11,7 @@
 			{
 				redirect('main');
 			}
-			else if($this->session->userdata('order_status') > 0 && $this->session->userdata('order_status') < 4){
+			else if($this->session->userdata('order_status') > 0 && $this->session->userdata('order_status') < 5){
 				redirect('order/find_driver/'.$this->session->userdata('code'));
 			}
 			
@@ -90,6 +90,9 @@
 		//Checkout
 		public function checkout ()
 		{
+			if(count($this->cart->contents()) == 0){
+				redirect('user');
+			}
 			$data['page_title']	= 'Your Shopping';
 			$data['items']		= $this->cart->contents();
 			$data['background'] = base_url()."images/pihza.jpg";
@@ -101,6 +104,9 @@
 		//Cart Overview and Check out
 		public function overview()
 		{
+			if(count($this->cart->contents()) == 0){
+				redirect('user');
+			}
 			$data['page_title'] = 'Your Shopping Cart';
 			$data['items'] 		= $this->cart->contents() ;
 			$data['background'] = base_url()."images/pihza.jpg";

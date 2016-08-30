@@ -2,8 +2,8 @@
 <div id="main">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
             <div class="cards">
                 <h3 align="center">We Accept </h3>
             </div>
@@ -34,7 +34,7 @@
                 </table>
             <?php echo form_close() ?>
         </div>
-        <div class="col-xs-2"></div>
+        <div class="col-lg-2"></div>
     </div>
 </div>
 </div>

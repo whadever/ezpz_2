@@ -11,7 +11,7 @@
 				if($this->session->userdata('order_status') == 1 ){
 					redirect('order/find_driver/'.$this->session->userdata('code'));
 				}
-				else if( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+				else if( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 5){
 					redirect('order/driver_found/'.$this->session->userdata('code'));
 				}
 
@@ -48,6 +48,10 @@
 			$this->template->load('default','main/about' ,$data);	
 		}
 
+		public function send(){
+			$this->email_model->test_mail();
+			redirect('main');
+		}
 		
 
 

@@ -81,7 +81,10 @@ body.modal-open[style] {
 }
 .panel-default{
   border-radius: 0px;
+  border-color: #2C3E50;
 }
+
+
 .modal-content{
   border-radius: 0px;
 }

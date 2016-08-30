@@ -31,14 +31,22 @@
 .restaurant-detail{
 	padding-top: 15px;
 }
-.restaurant-detail p,h2{
-	
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #2C3E50;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #2C3E50;
 }
 
 .tab-content {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #2C3E50;
+    border-right: 1px solid #2C3E50;
+    border-bottom: 1px solid #2C3E50;
     padding: 10px;
 
 }
@@ -48,3 +56,11 @@
 .food-number{
 	width: 45px;
 }
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #2C3E50;
+}
+

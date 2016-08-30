@@ -44,7 +44,7 @@
 	<div class="row">
 		<div class="col-md-6">
 		  <h2>Payment Detail</h2>
-			  <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-striped">
+			  <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table ">
 
 		        <tr>    
 		                
@@ -97,7 +97,7 @@
 	        </table>
 
 	        <label for="">Detail</label>
-          <div id="fare">Fare: $ 2.00</div>
+          <div id="fare">Fare: $ 2.00 / Km</div>
 	        <div id="distance_show">Distance: </div>
  			    <div id="duration_show">Arriving in: </div>
           <input type="hidden" name="distance" id="distance" value="">
@@ -190,12 +190,16 @@
             //get total cost
 
             cost = distance * <?php echo 2 ?>;
+             if(cost < 5){
+              cost = 5;
+            }
             document.getElementById('cost_show').innerHTML += 
             cost.toFixed(2);
 
             total = cost + <?php echo $order->total_price ?>;         
             document.getElementById('total').innerHTML += 
             total.toFixed(2);
+           
             $('#cost').val(cost.toFixed(2));
             $('#payment').val(total.toFixed(2));
 

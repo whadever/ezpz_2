@@ -1,4 +1,4 @@
-	<div class="row" style="margin-bottom:10%;">
+	<div class="row" style="margin-bottom:5%;">
 
 	<div class="col-md-1 col-xs-12"></div>
 	
@@ -102,6 +102,14 @@
 
 </div>
 
+<div class="row" id="cancel" style="margin-bottom: 20px">
+    <div class="col-lg-2"></div>
+      <div class="col-lg-8 text-center">
+        <a href="<?php echo base_url('order/cancel_order/'.$order->code) ?>" class="btn btn-primary">Cancel Order</a>
+      </div>
+    <div class="col-lg-2"></div>
+  </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="<?php echo base_url() ?>js/jquery.barrating.min.js"></script>
 
@@ -120,7 +128,7 @@ function auto_load(){
           	if(result == 3)
           	{
              	document.getElementById("statusDriver").innerHTML = "Driver Have Bought Your Order and Now Enroute to Your Home";
-
+             	$('#cancel').hide();
              	setTimeout(auto_load,3000);
           	}else if(result == 4)
           	{

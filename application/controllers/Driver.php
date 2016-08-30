@@ -195,12 +195,15 @@ class Driver extends CI_Controller{
 
 		$delivery_cost = $this->crud_model->get_by_condition('orders',array('code' => $code))->row()->delivery_cost;
 
+		$driver_earnings = number_format($delivery_cost * 70 / 100 - ($delivery_cost * 70/100 * 20/100),2);
+		$ezpz_earnings = number_format($delivery_cost - ($delivery_cost * 70 / 100 - ($delivery_cost * 70/100 * 20/100)),2);
+
 		$transaction_data = array (
 
 			'code'				=> $code,
 			'driver_id'			=> $driver_id,
-			'driver_earnings'	=> $delivery_cost * 70 / 100 - ($delivery_cost * 70/100 * 20/100),
-			'ezpz_earnings'		=> $delivery_cost - ($delivery_cost * 70 / 100 - ($delivery_cost * 70/100 * 20/100))
+			'driver_earnings'	=> $driver_earnings,
+			'ezpz_earnings'		=> $ezpz_earnings
 
 			);
 

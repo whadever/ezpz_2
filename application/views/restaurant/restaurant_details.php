@@ -49,7 +49,7 @@
 	<div class="row">
 		<div class="container" style="margin-bottom:20px;">
 			<div class="row">
-				<div class="col-md-8 col-xs-12" style="margin-bottom:20px;">
+				<div class="col-lg-8 col-xs-12" style="margin-bottom:20px;">
 					  <ul class="nav nav-tabs">
 					    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
 					    <li><a data-toggle="tab" href="#review">Reviews</a></li>
@@ -61,7 +61,7 @@
 				    <div id="home" class="tab-pane fade in active" style="padding:15px;">
 				    	<?php foreach($dishes as $dish): ?>
 				    	<?php echo form_open('cart/add') ?>
-				    	<div class="row" style="padding-bottom:15px; padding-top:10px; border-bottom:1px solid #ddd;">
+				    	<div class="row" style="padding-bottom:15px; padding-top:10px; border-bottom:1px solid #2C3E50;">
 				    		<div class="col-sm-2 hidden-xs" style="padding-right:0;">
 				    			<div class="menu-image" style="border-radius:20px; width:100px; height:100px; background-size:cover; background-position:center center; margin:auto; background-image:url(<?php echo base_url().$dish->photo ?>);">
 				    				
@@ -147,14 +147,14 @@
 				    </div><!--End of Review Panel-->
 				    </div><!--End of Tabcontent-->	
 				  </div>
-				  <div class="col-md-4 col-xs-12">
-					<div style="border:1px #ddd solid;">
+				  <div class="col-lg-4 col-xs-12">
+					<div style="border:1px solid #2C3E50;">
 				  		<h3 class="text-center">Order Details</h3>
 				  		<div class="wrap" style="padding-bottom:10px">
 				  			
 							<?php echo form_open('cart/update'); ?>
 							      
-							        <table cellpadding="4" cellspacing="0" border="0" class="table" >
+							        <table cellpadding="2" cellspacing="0" border="0" class="table" >
 
 							        <tr>
 							                <th>&nbsp;</th>
@@ -169,7 +169,7 @@
 							        <?php $i = 1; ?>
 							        <?php if (count($this->cart->contents()) == 0): ?>
 							        	<tr>
-							        		<td colspan="6" class="text-center">You haven't place an order yet</td>
+							        		<td colspan="7" class="text-center">You haven't place an order yet</td>
 							        	</tr>
 							        <?php endif ?>
 									
@@ -198,9 +198,10 @@
 							        <?php endforeach; ?>
 									</tbody>
 							        <tr>
-							                <td colspan="4"> </td>
+							                <td colspan="4"></td>
 							                <td style="text-align:right"><strong>Total</strong></td>
 							                <td style="text-align:right" id="total">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+							                <td></td>
 							        </tr>
 
 							        </table>

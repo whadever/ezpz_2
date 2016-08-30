@@ -25,6 +25,7 @@
 						</div>
 					</div>
 				</div>
+				<a href="<?php echo base_url('main/send') ?>" class="btn btn-warning">send mail</a>
 			</div>
 			<div class="col-sm-4">
 				<div class="panel text-center food-panel">
@@ -55,6 +56,7 @@
 		</div>
 	</div>
 </div>
+
 <!--What you can do div end, cuisine selection start-->
 <div class="row food" id="food-row">
 	<div class="container">
@@ -93,6 +95,8 @@
 	<?php endforeach;?>
 	</div>
 </div>
+
+
 <script>
 
 var test = [""];
