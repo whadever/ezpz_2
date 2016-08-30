@@ -23,7 +23,13 @@ class Crud_model extends CI_Model{
 	}
 
 	public function get_order_history($user_id){
-		$this->db->select('order_history.*, drivers.firstname, drivers.lastname, restaurants.name');
+		$this->db->select('order_history.*, 
+			drivers.firstname, 
+			drivers.lastname,
+			drivers.email,
+			drivers.telephone, 
+			restaurants.name'
+			);
 		$this->db->from('order_history');
 		$this->db->join('drivers', 'drivers.id = order_history.driver_id');
 		$this->db->join('restaurants', 'restaurants.id = order_history.restaurant_id');

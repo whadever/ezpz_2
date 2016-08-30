@@ -75,6 +75,7 @@ body.modal-open[style] {
     /* reference: http://stackoverflow.com/a/26500272/2259400 */
 }
 
+
 /*General*/
 .form-control:focus {
   border-bottom : 1px solid white;
@@ -94,6 +95,19 @@ body.modal-open[style] {
 
 .modal-content{
   border-radius: 0px;
+}
+
+.modal .modal-header{
+  background-color: #2c3e50; 
+  color:white;
+}
+
+.modal .modal-header .close{
+  color:white;
+}
+
+.modal{
+  top: 20%;
 }
 
 .padding-top-five{

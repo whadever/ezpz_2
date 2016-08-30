@@ -35,10 +35,10 @@
 						<?php echo $detail->qty ?>
 					</td>
 					<td>
-						<?php echo $detail->price ?>
+						<?php echo NZD($detail->price) ?>
 					</td>
 					<td>
-						<?php echo $detail->sub_total ?>
+						<?php echo NZD($detail->sub_total) ?>
 					</td>
 				</tr>
 

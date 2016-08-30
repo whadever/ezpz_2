@@ -7,7 +7,12 @@
 			parent::__construct();
 			date_default_timezone_set('NZ');
 			if($this->session->userdata('isLogged') == TRUE){
-				
+
+				if($this->session->userdata('isVerified') == 0){
+					redirect('login/verify_account/'.$this->session->userdata('username'));
+
+				}
+						
 				if($this->session->userdata('type') != 'user'){
 
 					if($this->session->userdata('type') == 'driver'){
@@ -35,6 +40,7 @@
 				}
 				
 			}
+
 			
 		}
 

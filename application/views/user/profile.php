@@ -45,6 +45,7 @@
 	    color:#34495e;
 	    background-color:transparent;
 	    border-right: 4px solid #34495e;
+	    
     	}
       .tab-content{
       	padding-left: 5%;
@@ -181,6 +182,7 @@
 							</thead>	
 							<tbody>
 								<?php foreach($order_history as $history) : ?>
+								
 								<tr>
 									<td>
 										<a href="<?php echo base_url('user/order_detail/'.$history->code) ?>">
@@ -191,7 +193,8 @@
 										<?php echo $history->name ?>
 									</td>
 									<td>
-										<?php echo $history->firstname . ' ' . $history->lastname?>
+										
+										 <a href="" data-toggle="modal" data-target="#driver_info" data-firstname="<?php echo $history->firstname?>" data-lastname="<?php echo $history->lastname ?>" data-email="<?php echo $history->email?>" data-telephone="<?php echo $history->telephone?>" ><?php echo $history->firstname . ' ' . $history->lastname?></a>
 									</td>
 									<td>
 										<?php echo $history->address ?>
@@ -214,6 +217,34 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal Seller Info  -->
+<div id="driver_info" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+<!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+
+        <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Driver Information</h4>
+      </div>
+      <div class="modal-body">
+          <strong>Driver Name :</strong>
+          <p id="name"></p>
+          <strong>Driver E-mail :</strong>
+          <p id="email"></p>
+          <strong>Driver Phone :</strong>
+          <p id="phone"></p>
+        
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div><!-- Modal Seller Info end -->
 
 <script>
       // This example requires the Places library. Include the libraries=places
@@ -352,5 +383,25 @@ $('#order_details').on('show.bs.modal', function(e) {
 
      test = code.replace(/,/g,'');
 });
+</script>
+
+<script>
+	//triggered when modal is about to be shown
+	$('#driver_info').on('show.bs.modal', function(e) {
+
+	    //get data-id attribute of the clicked element
+	    var name = $(e.relatedTarget).data('firstname') + ' ' + $(e.relatedTarget).data('lastname');
+	    var email = $(e.relatedTarget).data('email');
+	    var phone = $(e.relatedTarget).data('telephone');
+
+	    $(e.currentTarget).find('p[id="name"]').empty();
+	    $(e.currentTarget).find('p[id="email"]').empty();
+	    $(e.currentTarget).find('p[id="phone"]').empty();
+	    //populate the textbox
+	    $(e.currentTarget).find('p[id="name"]').append(name);
+	    $(e.currentTarget).find('p[id="email"]').append(email);
+	    $(e.currentTarget).find('p[id="phone"]').append(phone);
+	});
+
 </script>
 

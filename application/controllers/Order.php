@@ -7,6 +7,10 @@
 
 			if($this->session->userdata('isLogged') == FALSE){
 				redirect('main');
+			}
+			else if($this->session->userdata('isVerified') == 0){
+				redirect('login/verify_account/'.$this->session->userdata('username'));
+
 			}else if($this->session->userdata('type') !='user'){
 				redirect($this->session->userdata('type'));
 			}

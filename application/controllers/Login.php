@@ -139,20 +139,33 @@ class Login extends CI_Controller{
 					'created'			=> date('Y-m-d')
 
 					);
+				$this->crud_model->insert_data('users',$data);
+
+				$user = $this->crud_model->get_by_condition('users',array('username' => $this->input->post('username')))->row();
+
+				$name = $user->firstname .' '. $user->lastname;
 
 				$data_session = array(
-					//Set the session for login
-					'username'		=> $this->input->post('username'),
-					);
 
+					//Set the session for login
+							
+
+					'username'		=> $user->username,
+					'name'			=> $name,
+					'user_id'		=> $user->id,
+					'isLogged'		=> TRUE,
+					'type'			=> $user->type,
+					'isVerified'	=> 0
+
+					);
 				$this->session->set_userdata($data_session);	 
 
-				$this->crud_model->insert_data('users',$data);
+				
 				$this->email_model->verification_email($data['email'], $verification_string);
 
 				$this->session->set_flashdata('success', 'User has been added');
 
-				redirect('login/verify_account/'.$this->input->post('username'));
+				redirect('login/verify_account/'.$user->username);
 			}
 			else{
 				redirect('login/register/user');
@@ -223,10 +236,10 @@ class Login extends CI_Controller{
 						);
 				
 				$this->crud_model->insert_data('drivers', $data);
-				$this->email_model->verification_email($data['email'], $verification_string);
+				//$this->email_model->verification_email($data['email'], $verification_string);
 				$this->session->set_flashdata('success','Driver has been added');
 
-				redirect('login/verify_account/'.$this->input->post('username'));
+				redirect('main');
 			}
 			else{
 				redirect('login/register/driver');
@@ -360,6 +373,7 @@ class Login extends CI_Controller{
 					'user_id'		=> $user->id,
 					'isLogged'		=> TRUE,
 					'type'			=> $user->type,
+					'isVerified'	=> 1
 					
 								
 
@@ -382,14 +396,19 @@ class Login extends CI_Controller{
 				redirect($user->type);
 			}
 			else if($user && $user->is_verified == 0 && $user->type == 'user'){
+				$name = $user->firstname .' '. $user->lastname;
+
 				$data_session = array(
 
 					//Set the session for login
 							
 
 					'username'		=> $user->username,
-					
-								
+					'name'			=> $name,
+					'user_id'		=> $user->id,
+					'isLogged'		=> TRUE,
+					'type'			=> $user->type,
+					'isVerified'	=> 0
 
 					);
 				$this->session->set_userdata($data_session);
@@ -415,6 +434,15 @@ class Login extends CI_Controller{
 				
 				if($this->login_model->verify_account($md5))
 				{
+
+					$data_session = array(
+
+						//Set the session for login
+						'isVerified'	=> 1
+
+						);
+					$this->session->set_userdata($data_session);
+
 					$this->session->set_flashdata('success', 'Account Verification is Successful!');
 					redirect('main');
 				}else
@@ -430,6 +458,8 @@ class Login extends CI_Controller{
 	public function verify_account($username = ''){
 		if($username != $this->session->userdata('username')){
 			$username = $this->session->userdata('username');
+		}else if($this->session->userdata('isVerified') == 1){
+			redirect($this->session->userdata('type'));
 		}
 
 		$data['background'] = base_url()."images/pihza.jpg";
