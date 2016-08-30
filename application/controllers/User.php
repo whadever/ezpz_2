@@ -201,7 +201,7 @@ class User extends CI_Controller{
 		$amount = $credits + $this->input->post('amount');
 
 		$this->crud_model->update_data('users', array('credits' => $amount), array('id' => $this->session->userdata('user_id')));
-		redirect('main');
+		redirect('user');
 	}
 
 	public function order_detail($order_code){

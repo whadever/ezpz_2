@@ -74,7 +74,7 @@ class Admin extends CI_Controller{
 								'name'			=> $data_user->firstname .' '. $data_user->lastname,
 								'user_id'		=> $data_user->id,
 								'data_complete'	=> $complete,
-								'is_verified'	=> $data_user->is_verified,
+								'isVerified'	=> $data_user->is_verified,
 								'isLogged'		=> TRUE,
 								'type'			=> 'user'
 								
@@ -108,7 +108,7 @@ class Admin extends CI_Controller{
 								'name'			=> $data_user->firstname .' '. $data_user->lastname,
 								'user_id'		=> $data_user->id,
 								'data_complete'	=> $complete,
-								'is_verified'	=> $data_user->is_verified,
+								'isVerified'	=> $data_user->is_verified,
 								'isLogged'		=> TRUE,
 								'type'			=> 'driver'
 								

@@ -159,15 +159,17 @@
                 <ul class="nav navbar-nav navbar-left">
                   <li><a href="<?php echo base_url('driver') ?>" class="nav-link">Home</a></li>
                   
-                  <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li>
+                  <li><a href="#" class="nav-link">My Earnings</a></li>
+
+                  <li><a href="<?php echo base_url('driver/order_history/'.$this->session->userdata('user_id')) ?>" class="nav-link">Order History</a></li>
                   
                   <li role="separator" class="divider" style="background-color: white; height: 1px"></li>
                 </ul>
                   <ul class="nav navbar-nav navbar-right">
                       <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/profile/<?php echo $this->session->userdata('user_id') ?>"><?php echo $this->session->userdata('username') ?></a></li>
                      
-                         
-
+                      <li><a href="<?php echo base_url('driver/credits') ?>"><?php echo NZD($this->crud_model->get_by_condition('drivers', array('id' => $this->session->userdata('user_id')))->row('credits')) ?></a></li>   
+                      
                       <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" >Edit Profile</a></li>
 
                       <li><a href="#">Top Up Wallet</a></li>

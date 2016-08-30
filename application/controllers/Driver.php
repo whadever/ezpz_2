@@ -181,6 +181,7 @@ class Driver extends CI_Controller{
 
 	public function finish_order($code){
 		$driver_id = $this->session->userdata('user_id');
+		$driver = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
 		$user_id = $this->crud_model->get_by_condition('orders',array('code' => $code))->row('user_id');	
 
 		$this->db->where('code',$code);
@@ -193,10 +194,14 @@ class Driver extends CI_Controller{
 
 			);
 
-		$delivery_cost = $this->crud_model->get_by_condition('orders',array('code' => $code))->row()->delivery_cost;
+		$order = $this->crud_model->get_by_condition('orders',array('code' => $code))->row();
 
-		$driver_earnings = number_format($delivery_cost * 70 / 100 - ($delivery_cost * 70/100 * 20/100),2);
-		$ezpz_earnings = number_format($delivery_cost - ($delivery_cost * 70 / 100 - ($delivery_cost * 70/100 * 20/100)),2);
+		$driver_earnings = number_format($order->delivery_cost * 70 / 100 - ($order->delivery_cost * 70/100 * 20/100),2);
+		$ezpz_earnings = number_format($order->delivery_cost - ($order->delivery_cost * 70 / 100 - ($order->delivery_cost * 70/100 * 20/100)),2);
+
+		$driver_credits = $driver_earnings + $order->total_price;
+
+		$this->crud_model->update_data('drivers',array('credits' => $driver->credits + $driver_credits), array('id' => $driver_id));
 
 		$transaction_data = array (
 
@@ -213,6 +218,41 @@ class Driver extends CI_Controller{
 		redirect('driver');
 	}
 
+
+	public function credits(){
+		$data['background'] = base_url()."images/pihza.jpg";
+	
+		$data['page_title'] = "Credit Top Up";
+		$data['driver_email'] = $this->crud_model->get_by_condition('drivers', array('id' => $this->session->userdata('user_id')))->row()->email;
+		$this->template->load('default_driver','driver/credits',$data);
+
+	}
+
+	public function topup ()
+	{
+		$this->stripe_model->pay();
+		$this->session->set_flashdata('success', 'Top Up Success! Your Credits Are Now Topped Up');
+
+		$credits = $this->crud_model->get_by_condition('drivers', array('id' => $this->session->userdata('user_id')))->row('credits');
+
+		$amount = $credits + $this->input->post('amount');
+
+		$this->crud_model->update_data('drivers', array('credits' => $amount), array('id' => $this->session->userdata('user_id')));
+		redirect('driver');
+	}
+
+	public function order_history($id){
+		if($id != $this->session->userdata('user_id')){
+			$id = $this->session->userdata('user_id');
+		}
+
+		$data['background'] = base_url()."images/pihza.jpg";	
+		$data['page_title'] = "Order History";
+
+		$data['order_history'] = $this->driver_model->get_order_history($id)->result();
+
+		$this->template->load('default_driver','driver/order_history',$data);
+	}
 }
 
  ?>

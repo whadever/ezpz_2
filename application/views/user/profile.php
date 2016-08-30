@@ -371,19 +371,7 @@ $(document).ready(function() {
 	} );
 </script>
 
-<script>
-//triggered when modal is about to be shown
-$('#order_details').on('show.bs.modal', function(e) {
 
-    //get data-id attribute of the clicked element
-     var code = $(e.relatedTarget).data('code');
-     
-     //populate the textbox
-     $(e.currentTarget).find('input[name="code"]').val(code);
-
-     test = code.replace(/,/g,'');
-});
-</script>
 
 <script>
 	//triggered when modal is about to be shown

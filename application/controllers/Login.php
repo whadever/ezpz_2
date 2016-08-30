@@ -428,7 +428,7 @@ class Login extends CI_Controller{
 		{
 			if($md5 == '')
 			{
-				redirect('accounts/');
+				redirect('login/');
 			}else
 			{
 				
@@ -475,13 +475,15 @@ class Login extends CI_Controller{
 	public function resend_email($username = ''){
 		if($username != $this->session->userdata('username')){
 			$username = $this->session->userdata('username');
+		}else if($this->session->userdata('type') != 'user' || $this->session->userdata('isVerified') == 1){
+			redirect($this->session->userdata('type'));
 		}
 
 		$user = $this->crud_model->get_by_condition('users',array('username' => $username))->row();
 
 		$verification_string = $user->username . '~' . $user->verification_code;
 
-		$this->email_model->verification_email('setyawansusanto99@outlook.com',$verification_string);
+		$this->email_model->verification_email($user->email,$verification_string);
 
 		redirect('login/verify_account/'.$this->session->userdata('username'));
 
