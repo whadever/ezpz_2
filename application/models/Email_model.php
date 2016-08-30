@@ -120,10 +120,10 @@ EOD;
 		}
 	}
 
-	public function receipt($email)
+	public function test_mail()
 	{
 		$to = 'irpanwinata@gmail.com';
-		$subject = "New Food Order";
+		$subject = "Your Order Receipt";
 		$name = 'irvan';
 		$address = 'gading';
 		$url = base_url();

@@ -128,7 +128,7 @@ function auto_load(){
           	if(result == 3)
           	{
              	document.getElementById("statusDriver").innerHTML = "Driver Have Bought Your Order and Now Enroute to Your Home";
-             	$('#cancel').hide();
+             	$('#cancel').empty();
              	setTimeout(auto_load,3000);
           	}else if(result == 4)
           	{
