@@ -5,11 +5,10 @@
 			
 		</div>
 		<div class="col-lg-8">
+			<div class="row">
 			<?php foreach($order_history as $history) : ?>
-				<pre>
-					<?php print_r($history) ?>
-				</pre>
-				<table class="table" id="orders">
+				
+				<table class="table table-bordered" id="orders">
 					<thead>
 						<tr>
 							<th>
@@ -32,7 +31,7 @@
 					<tbody>
 						<tr>
 							<td>
-								<a href="#" data-toggle="modal" data-target="#order_details" data-code="<?php echo $history->code ?>">
+								<a href="<?php echo base_url('user/order_detail/'.$history->code) ?>">
 									<?php echo $history->code ?>
 								</a>
 							</td>
@@ -54,62 +53,13 @@
 
 				
 			<?php endforeach; ?>
-
+			</div>
 		</div>
 		<div class="col-lg-2">
 			
 		</div>
 	</div>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="order_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 20%">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-      <input type="hidden" name="code" id="code">
-      <input type="hidden" name="as" id="as">
-		<?php echo "<script>document.writeln($(e.relatedTarget).data('code'))</script>" ?>
-      	<div class="modal-body">
-			
-			<table class="table">
-				
-			</table>
-			
-
-    	</div>
-    	
-    </div>
-  </div>
-</div>
-
-
-
-<!-- <div class="container-fluid" style="padding-top:20px;">
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8 text-center">
-			<div class="row">
-				<div class="profile-picture" style="background-image : url(<?php echo base_url().$user->photo ?>); " id="edit-prof-pic">
-				</div>
-			</div>
-			<div class="row">
-				<p id="profile-name"><?php echo $user->username ?></p>
-			</div>
-		</div>
-		<div class="col-md-2"></div>
-	</div>
-</div>
-
-	<div class="col-md-6"></div>
-</div>
-
-<div class="row">
-	<iframe width="600" height="450" src="https://www.google.com/maps/embed/v1/place?q=<?php echo urlencode($user->address) ?> 
-      &zoom=17
-      &key=AIzaSyBcbISjaXDKeBwFCoxybJ_4cbvJs1SOi4w">
-  </iframe>
-</div> -->
 
 <script>
 

@@ -197,6 +197,13 @@ class User extends CI_Controller{
 		$this->crud_model->update_data('users', array('credits' => $amount), array('id' => $this->session->userdata('user_id')));
 		redirect('main');
 	}
+
+	public function order_detail($order_code){
+		$data['page_title'] = 'Order Details';
+		$data['background'] = base_url()."images/pihza.jpg";
+		$data['order_detail'] = $this->order_model->get_order_detail($order_code);
+		$this->template->load('default', 'user/order_detail', $data);
+	}
 	
 	
 }
