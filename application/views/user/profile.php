@@ -6,7 +6,7 @@
 		</div>
 		<div class="col-lg-8">
 			<div class="row">
-			<?php foreach($order_history as $history) : ?>
+			
 				
 				<table class="table table-bordered" id="orders">
 					<thead>
@@ -29,6 +29,7 @@
 						</tr>	
 					</thead>	
 					<tbody>
+						<?php foreach($order_history as $history) : ?>
 						<tr>
 							<td>
 								<a href="<?php echo base_url('user/order_detail/'.$history->code) ?>">
@@ -48,11 +49,12 @@
 								<?php echo $history->date ?>
 							</td>
 						</tr>
+						<?php endforeach; ?>
 					</tbody>
 				</table>
 
 				
-			<?php endforeach; ?>
+			
 			</div>
 		</div>
 		<div class="col-lg-2">
