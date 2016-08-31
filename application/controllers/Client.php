@@ -76,9 +76,12 @@ class Client extends CI_Controller{
                 {
                     //Get the link for the database
                     $photo = $this->upload->data();
+
                     $photo = $config ['upload_path'] . '/' . $photo ['file_name'];
+                    
                 }else
                 {
+                	
                 	echo '<pre>';
                 	print_r ($this->upload->display_errors());
                 	echo '</pre>';
@@ -123,10 +126,14 @@ class Client extends CI_Controller{
                 //Get the link for the database
                 $photo = $this->upload->data();
                 $photo = $config['upload_path'] . '/' . $photo['file_name'];
+
+
             }
+
             else{
             	$photo= $this->crud_model->get_by_condition('dishes',array('id' => $this->input->post('id')))->row('photo');
             }
+
             $data = array(	
             			'id'			=>$this->input->post('id'),
 						'name'			=> $this->input->post('name'),
