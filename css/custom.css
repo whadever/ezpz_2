@@ -86,6 +86,10 @@ body.modal-open[style] {
     padding-top: 5px;
 }
 
+#map{
+  height: 400px;
+}
+
 label{
   letter-spacing: 1px;
 }
@@ -100,8 +104,9 @@ label{
 .form-control{
   border-radius: 0px !important;
   box-shadow: none !important;
-  border-color: #34495e;    
+  border-color: #34495e;
 }
+
 
 .panel-default{
   border-radius: 0px;

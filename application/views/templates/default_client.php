@@ -25,9 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
     <style>
-      #map {
-        height: 400px;
-      }
+      
       .controls {
         margin-top: 10px;
         border: 1px solid transparent;

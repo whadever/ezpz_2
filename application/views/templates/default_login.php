@@ -75,7 +75,7 @@
   <!--NavBar-->
       <div class="container-fluid">
           
-          <nav class="navbar navbar-default navbar-fixed-top" id="navbar" style="background-color: transparent; border-color: transparent">
+          <nav class="navbar navbar-default navbar-fixed-top" id="navbar" style="background-color: rgba(44, 62, 80,0.5); border-color: transparent">
             <div class="container">
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">

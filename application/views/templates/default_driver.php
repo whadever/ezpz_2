@@ -94,10 +94,6 @@
       #target {
         width: 345px;
       }
-      #map {
-        height: 500px;
-        width: 100%;
-      }
       #right-panel {
         font-family: 'Roboto','sans-serif';
         line-height: 30px;

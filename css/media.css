@@ -90,6 +90,9 @@
 	  width: inherit;
 	}
 
+	#map{
+		height: 200px !important;
+	}
 
      
 }

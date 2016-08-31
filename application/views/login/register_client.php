@@ -21,22 +21,22 @@
 			<h1 class="text-center" style="margin-bottom:30px;">Partner Registration</h1>
 
 			<div class="form-group">
-				<label for="">Username:</label>
+				<label for="">Username</label>
 				<input type="text" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' name="username" class="form-control" required="1" >
 			</div>
 
 			<div class="form-group">
-				<label for="">Restaurant Name:</label>
+				<label for="">Restaurant Name</label>
 				<input type="text" name="name" class="form-control" required="1" >
 			</div>
 		
 			<div class="form-group">
-				<label for="">Email:</label>
+				<label for="">Email</label>
 				<input type="text" name="email" class="form-control" required="1" >
 			</div>
 
 			<div class="form-group">
-				<label for="">Phone:</label>
+				<label for="">Phone</label>
 				<input type="tel" pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +XXXX-XXXX-XXXX)' name="telephone" class="form-control" required="1" >
 			</div>
 			
@@ -47,7 +47,7 @@
 	     	</div>
 
 			<div class="form-group">
-				<label for="">Address:</label>
+				<label for="">Address</label>
 				<textarea id="address_show" disabled="1" class="form-control" required="1" ></textarea>
 				<input type="hidden" id="address" name="address">
 			</div>
