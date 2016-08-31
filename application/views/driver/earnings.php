@@ -1,0 +1,2 @@
+<a href="<?php echo base_url('driver/my_earnings/'.$this->session->userdata('user_id').'/monthly') ?>">Monthly</a>
+<a href="<?php echo base_url('driver/my_earnings/'.$this->session->userdata('user_id').'/daily') ?>">Daily</a>

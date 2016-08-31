@@ -159,7 +159,7 @@
                 <ul class="nav navbar-nav navbar-left">
                   <li><a href="<?php echo base_url('driver') ?>" class="nav-link">Home</a></li>
                   
-                  <li><a href="#" class="nav-link">My Earnings</a></li>
+                  <li><a href="<?php echo base_url('driver/my_earnings/'.$this->session->userdata('user_id')) ?>" class="nav-link">My Earnings</a></li>
 
                   <li><a href="<?php echo base_url('driver/order_history/'.$this->session->userdata('user_id')) ?>" class="nav-link">Order History</a></li>
                   

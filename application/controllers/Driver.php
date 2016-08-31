@@ -253,6 +253,49 @@ class Driver extends CI_Controller{
 
 		$this->template->load('default_driver','driver/order_history',$data);
 	}
+
+	public function my_earnings($id,$param1='daily'){
+		if($id != $this->session->userdata('user_id')){
+			$id = $this->session->userdata('user_id');
+		}
+
+		//default
+		if($param1 == 'daily'){
+
+			if($this->input->post()){
+
+
+			}else{
+
+				$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m-d'))->result();
+
+				$data['background'] = base_url()."images/pihza.jpg";	
+				$data['page_title'] = "My Earnings";
+
+				
+
+				$this->template->load('default_driver','driver/earnings',$data);
+			}
+		}
+		else if($param1 == 'monthly'){
+
+			if($this->input->post()){
+
+
+			}else{
+
+				$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m'))->result();
+
+				$data['background'] = base_url()."images/pihza.jpg";	
+				$data['page_title'] = "My Earnings";
+
+				
+
+				$this->template->load('default_driver','driver/earnings',$data);
+			}
+
+		}
+	}
 }
 
  ?>
