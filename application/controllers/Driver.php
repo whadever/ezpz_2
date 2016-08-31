@@ -29,6 +29,8 @@ class Driver extends CI_Controller{
 		}
 		else if($this->session->userdata('order_status') == 3 ){
 			redirect('driver/delivery/'.$this->session->userdata('code'));
+		}else if($this->session->userdata('paid')){
+			redirect('driver/waiting_payment/'.$this->session->userdata('code'));
 		}
 
 
@@ -203,7 +205,8 @@ class Driver extends CI_Controller{
 		$this->db->where('code',$code);
 		$this->db->update('orders',array('driver_id' => $this->session->userdata('user_id'), 'status' => 4));
 
-		$this->session->unset_userdata(array('order_status','code'));
+		
+		$this->session->set_userdata('paid' , 0);
 		$data_rating = array(
 				'code' => $code,
 				'driver_id' => $this->session->userdata('user_id'),
@@ -223,7 +226,8 @@ class Driver extends CI_Controller{
 		$driver = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
 		$user_id = $this->crud_model->get_by_condition('order_history',array('code' => $code))->row('user_id');	
 
-		
+		$this->session->unset_userdata(array('order_status','code'));
+		$this->session->unset_userdata(array('paid'));
 
 		$order = $this->crud_model->get_by_condition('order_history',array('code' => $code))->row();
 
