@@ -40,7 +40,9 @@
 		padding-bottom: 20px;
 	}
 	ul.nav-tabs > li {
-		max-width: 100px;
+		max-width: 90px;
+		font-size: 12px!important;
+
 	}
 	.nav-pills>li{
      	max-width: 300px;

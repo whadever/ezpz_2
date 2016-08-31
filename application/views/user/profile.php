@@ -59,7 +59,9 @@
       	background-color: #2c3e50;
       	color: white;
 	    padding: 10px 5px;
+	    padding-left: 15px;
 	    margin-bottom: 10px;
+
 	}
 
       .tab-content h2{
@@ -74,7 +76,7 @@
 
 		<div class="col-lg-10" style="padding:3% 0;">
 			
-			<div class="col-sm-2" style="padding-right:0px;">
+			<div class="col-sm-2">
 				<div class="row">
 					<ul class="nav nav-pills nav-stacked">
 					  <li role="presentation" class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
@@ -93,11 +95,11 @@
 									</div>
 						 <?php endif; ?>
 						
-						<div class="row" id="header" >
+						<div class="row" id="header">
 						        <h2>Profile</h2>
 						</div>
 
-						<div class="row" style="margin-top:5%;">
+						<div class="row">
 							<div class="row">
 								<div class="col-lg-4">
 									
@@ -125,21 +127,21 @@
 							</div>
 						</div>
 
-						<div class="row" id="#mapBody" style="margin-top:10%;">
-				     		<div class="row" id="header" >
+						<div class="row" id="#mapBody" style="margin-top:10%;"  >
+				     		<div  id="header">
 						        <h2>Address</h2>
 							</div>
 				     		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
 						    <div id="map" style="margin-top:5%;"></div>
 						</div>
 
-						<div class="row" style="margin-top:5%;">
+						<div class="row">
 					        <div class="col-sm-13">
 							<textarea name="address_show" id="address_show" disabled="disabled" class="form-control" rows="3"><?php echo $user->address; ?></textarea></div>
 							<input type="hidden" id="address" name="address" value="<?php echo $user->address; ?>">		     
 						</div>
 
-						<div class="row pull-right" style="margin-top:5%;">
+						<div class="row text-center" style="margin-top:5%;">
 							<button class="btn btn-primary">
 							<span class="glyphicon glyphicon-edit"></span><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" style="color:white;"> Edit Profile</a>
 							</button>

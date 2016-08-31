@@ -96,7 +96,7 @@
 						        <h2>Profile</h2>
 						</div>
 
-						<div class="row" style="margin-top:5%;">
+						<div style="margin-top:5%;">
 							<div class="row">
 								<div class="col-lg-4">
 									
@@ -124,7 +124,7 @@
 							</div>
 						</div>
 
-						<div class="row pull-right" style="margin-top:5%;">
+						<div class="row text-center" style="margin-top:5%;">
 							<button class="btn btn-primary">
 							<span class="glyphicon glyphicon-edit"></span><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" style="color:white;"> Edit Profile</a>
 							</button>
