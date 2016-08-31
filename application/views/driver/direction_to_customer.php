@@ -79,7 +79,7 @@
           <div id="distance">Distance: </div>
           <div id="duration">Arriving in </div>
         <div id="right-panel" style="width:100%"></div>
-        <a href="<?php echo base_url('driver/finish_order/'.$order->code) ?>" class="btn btn-primary" style="margin: 10px 0">Finish Order</a>
+        <a href='<?php echo base_url('driver/waiting_payment/'.$order->code) ?>' class='btn btn-primary' style='margin: 10px 0'>Finish Order</a>
     </div>
   </div>
 
@@ -167,3 +167,5 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5r3Vc2ohLE1naIZaaYLjfAifThGzAHwc&callback=initMap">
     </script>
+
+

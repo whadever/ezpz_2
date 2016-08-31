@@ -180,22 +180,52 @@ class Driver extends CI_Controller{
 
 	}
 
-	public function finish_order($code){
-		$driver_id = $this->session->userdata('user_id');
-		$driver = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
-		$user_id = $this->crud_model->get_by_condition('orders',array('code' => $code))->row('user_id');	
+	//Ajax
+	public function tracking ($code)
+	{
+		$rate = $this->db->get_where('driver_rating', array('code' => $code))->row()->rating;
+		
+		echo $rate;
+	}
+
+	public function waiting_payment($code){
+		$data['page_title'] = 'Waiting Payment';
+		$data['background'] = base_url()."images/pihza.jpg";
+
+		$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $this->session->userdata('user_id')))->row();
+		$data['order'] = $this->crud_model->get_by_condition('orders',array('code' => $code))->row();
+		$data['order_detail'] = $this->order_model->get_order_detail($code);
+
+		
+		//$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
+		//$data['customer'] = $this->crud_model->get_by_condition('users',array('id' => $data['order']->user_id))->row();
 
 		$this->db->where('code',$code);
-		$this->db->update('orders',array('driver_id' => $driver_id, 'status' => 4));
+		$this->db->update('orders',array('driver_id' => $this->session->userdata('user_id'), 'status' => 4));
+
 		$this->session->unset_userdata(array('order_status','code'));
 		$data_rating = array(
 				'code' => $code,
-				'driver_id' => $driver_id,
-				'user_id' => $user_id
+				'driver_id' => $this->session->userdata('user_id'),
+				'user_id' => $data['order']->user_id
 
 			);
 
-		$order = $this->crud_model->get_by_condition('orders',array('code' => $code))->row();
+		$this->crud_model->insert_data('driver_rating',$data_rating);
+
+		
+
+		$this->template->load('default_driver', 'driver/waiting_payment', $data);
+	}
+
+	public function finish_order($code){
+		$driver_id = $this->session->userdata('user_id');
+		$driver = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
+		$user_id = $this->crud_model->get_by_condition('order_history',array('code' => $code))->row('user_id');	
+
+		
+
+		$order = $this->crud_model->get_by_condition('order_history',array('code' => $code))->row();
 
 		$driver_earnings = number_format($order->delivery_cost * 70 / 100 - ($order->delivery_cost * 70/100 * 20/100),2);
 		$ezpz_earnings = number_format($order->delivery_cost - ($order->delivery_cost * 70 / 100 - ($order->delivery_cost * 70/100 * 20/100)),2);
@@ -214,7 +244,7 @@ class Driver extends CI_Controller{
 			);
 
 		$this->crud_model->insert_data('transaction', $transaction_data);
-		$this->crud_model->insert_data('driver_rating',$data_rating);
+		
 
 		redirect('driver');
 	}
@@ -255,20 +285,20 @@ class Driver extends CI_Controller{
 		$this->template->load('default_driver','driver/order_history',$data);
 	}
 
-	public function my_earnings($id,$param1='daily'){
+	public function my_earnings($id,$param1='monthly'){
 		if($id != $this->session->userdata('user_id')){
 			$id = $this->session->userdata('user_id');
 		}
 
 		//default
-		if($param1 == 'daily'){
+		if($param1 == 'monthly'){
 
 			if($this->input->post()){
 
 
 			}else{
 
-				$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m-d'))->result();
+				$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m'))->result();
 
 				$data['background'] = base_url()."images/pihza.jpg";	
 				$data['page_title'] = "My Earnings";
@@ -278,14 +308,14 @@ class Driver extends CI_Controller{
 				$this->template->load('default_driver','driver/earnings',$data);
 			}
 		}
-		else if($param1 == 'monthly'){
+		else if($param1 == 'daily'){
 
 			if($this->input->post()){
 
 
 			}else{
 
-				$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m'))->result();
+				$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m-d'))->result();
 
 				$data['background'] = base_url()."images/pihza.jpg";	
 				$data['page_title'] = "My Earnings";

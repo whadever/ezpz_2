@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<title><?php echo $page_title; ?> - EZPZ</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
