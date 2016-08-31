@@ -34,22 +34,26 @@
 					'qty'	=> $this->input->post('quantity'),
 					'price'	=> $dish->price,
 					'name'	=> $dish->name,
-					'resto_id' => $this->input->post('resto_id'),
-					'restaurant_name' => $restaurant->name, 
+					 
 
 				);
 
-				$this->cart_model->add($item);
-			
-					$carts = $this->cart->contents();
 
-					foreach($carts as $cart){
-						if($cart['id'] == $item['id']){
-							$rowid = $cart['rowid'];
-						}
+
+				$this->cart_model->add($item);
+				
+				$this->session->set_userdata('restaurant_name', $restaurant->name);
+
+				$carts = $this->cart->contents();
+
+				foreach($carts as $cart){
+					if($cart['id'] == $item['id']){
+						$rowid = $cart['rowid'];
 					}
-					echo $rowid;
-					#redirect($this->input->post('url'));
+				}
+				echo $rowid;
+
+				#redirect($this->input->post('url'));
 				}else{
 				redirect('user');
 			}

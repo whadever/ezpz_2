@@ -71,7 +71,7 @@
 	                <?php else: ?>
 	                  <ul class="nav navbar-nav navbar-right">
                       <?php if($this->cart->total_items() > 0) : ?>
-	                    <li><a href="<?php echo base_url('cart/overview') ?>" ><?php echo $this->cart->total_items() ?>
+	                    <li><a href="<?php echo base_url('restaurant/detail/'.$this->session->userdata('restaurant_name')) ?>" ><?php echo $this->cart->total_items() ?>
 	                      <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i>
 	                    </a></li>
                     <?php endif; ?>
