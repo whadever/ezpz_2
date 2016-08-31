@@ -56,12 +56,15 @@
       }
 
       #header{
+      	background-color: #2c3e50;
+      	color: white;
 	    padding: 10px 5px;
 	    margin-bottom: 10px;
 	}
 
       .tab-content h2{
       	margin-top: 0px;
+      	margin-bottom: 0px;
       }
 </style>
 
@@ -82,12 +85,80 @@
 
 			<div class="col-sm-10">
 				<div class="tab-content">
-					<div id="profile" class="tab-pane fade in active" >
+					<div id="profile" class="tab-pane fade in active">
+						<?php if($this->session->flashdata('success')): ?>
+									<div class="alert alert-success alert-dismissible">
+										<?php echo $this->session->flashdata('success') ?>
+										 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									</div>
+						 <?php endif; ?>
+						
+						<div class="row" id="header" >
+						        <h2>Profile</h2>
+						</div>
+
+						<div class="row" style="margin-top:5%;">
+							<div class="row">
+								<div class="col-lg-4">
+									
+								</div>
+								<div class="col-lg-4">
+									<div class="profile-picture" style="background-image : url(<?php echo base_url().$user->photo ?>); " id="edit-prof-pic">
+									</div>
+								</div>
+								<div class="col-lg-4"></div>
+							</div>
+
+							<div class="row text-center" style="margin-top:5%;">
+								<div class="col-lg-4">
+									<p style="border-bottom: 1px solid #2c3e50; padding-bottom:5px;">Name</p>
+									<p><?php echo $user->username ?></p>
+								</div>
+								<div class="col-lg-4">
+									<p style="border-bottom: 1px solid #2c3e50; padding-bottom:5px;">Email</p>
+									<p><?php echo $user->email ?></p>
+								</div>
+								<div class="col-lg-4">
+									<p style="border-bottom: 1px solid #2c3e50; padding-bottom:5px;">Telephone</p>
+									<p><?php echo $user->telephone ?></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="row" id="#mapBody" style="margin-top:10%;">
+				     		<div class="row" id="header" >
+						        <h2>Address</h2>
+							</div>
+				     		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+						    <div id="map" style="margin-top:5%;"></div>
+						</div>
+
+						<div class="row" style="margin-top:5%;">
+					        <div class="col-sm-13">
+							<textarea name="address_show" id="address_show" disabled="disabled" class="form-control" rows="3"><?php echo $user->address; ?></textarea></div>
+							<input type="hidden" id="address" name="address" value="<?php echo $user->address; ?>">		     
+						</div>
+
+						<div class="row pull-right" style="margin-top:5%;">
+							<button class="btn btn-primary">
+							<span class="glyphicon glyphicon-edit"></span><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" style="color:white;"> Edit Profile</a>
+							</button>
+						</div>
+
+					</div>
+
+					<!-- <div id="profile" class="tab-pane fade in active" >
 							<?php if(validation_errors()): ?>
 						            <ul class="alert alert-danger">
 						                <?php echo validation_errors('<li>','</li>'); ?>
 						            </ul>
-						     <?php endif; ?>
+						    <?php endif; ?>
+						    <?php if($this->session->flashdata('success')): ?>
+									<div class="alert alert-success alert-dismissible">
+										<?php echo $this->session->flashdata('success') ?>
+										 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									</div>
+						    <?php endif; ?>
 						<div class="row" id="header">
 								
 						        <h2>Edit Profile</h2>
@@ -157,7 +228,7 @@
 						</div>
 
 						
-					</div>
+					</div> -->
 
 					<div id="order_history" class="tab-pane fade">
 						<table class="table table-bordered" id="orders">

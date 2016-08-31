@@ -376,9 +376,11 @@ width: 50%;
 
 /*Edit Profile Page*/
 #edit-prof-pic{
-  width: 200px; 
-  height:200px; 
+  width: 150px; 
+  height:150px; 
   border-radius:100px;
+  margin-bottom:20px;
+  border: 1px solid #2c3e50;
 }
 #profile-name{
   font-weight: bold;

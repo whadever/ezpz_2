@@ -101,7 +101,7 @@ class User extends CI_Controller{
 
             	$data_update = array(
 
-					'username' 			=> $this->input->post('username'),
+					// 'username' 			=> $this->input->post('username'),
 					'firstname'			=> $this->input->post('firstname'),
 					'lastname'			=> $this->input->post('lastname'),
 					'email' 			=> $this->input->post('email'),
