@@ -13,12 +13,12 @@
 <div class="row">
 
 	<div class="col-md-3"></div>
-	<div class="col-md-6">
+	<div class="col-md-6 col-form">
 
 		
 		<?php echo form_open_multipart('login/register_client') ?>
 
-			<h1>Partner Registration</h1>
+			<h1 class="text-center" style="margin-bottom:30px;">Partner Registration</h1>
 
 			<div class="form-group">
 				<label for="">Username:</label>
