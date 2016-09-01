@@ -11,11 +11,11 @@
 			{
 				redirect('main');
 			}
-			else if($this->session->userdata('isVerified') == 0){
+			elseif($this->session->userdata('isVerified') == 0){
 				redirect('login/verify_account/'.$this->session->userdata('username'));
 
 			}
-			else if($this->session->userdata('order_status') > 0 && $this->session->userdata('order_status') < 5){
+			elseif($this->session->userdata('order_status') > 0 && $this->session->userdata('order_status') < 5){
 				redirect('order/find_driver/'.$this->session->userdata('code'));
 			}
 			

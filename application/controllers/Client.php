@@ -10,7 +10,7 @@ class Client extends CI_Controller{
 			
 			redirect('main');	
 		
-		}else if($this->session->userdata('type') != 'client'){
+		}elseif($this->session->userdata('type') != 'client'){
 
 			redirect($this->session->userdata('type'));
 			
