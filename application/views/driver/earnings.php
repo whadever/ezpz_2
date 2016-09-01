@@ -20,20 +20,29 @@
 	<div class="col-xs-12 col-sm-4">
 		<?php echo form_open('driver/my_earnings/'.$this->session->userdata('user_id').'/monthly') ?>
 			
-				<select name="year"  id="year" style="width:40%">
-					<?php 
-						$year = 2016;
-						for($i = $year; $i <= date('Y'); $i++){
-							echo '<option value="'.$i.'">'.$i.'</option>';
-						}
-
-
-					 ?>
-				</select>
+			<select name="year"  id="year" style="width:40%">
+				<?php 
+					$year = 2016;
+					for($i = $year; $i <= date('Y'); $i++){
+						echo '<option value="'.$i.'">'.$i.'</option>';
+					}
+				 ?>
+			</select>
 			
-
-			
-			<select name="month" id="month"></select>
+			<select name="month" id="month">
+				<option selected value='1'>January</option>
+			    <option value='2'>February</option>
+			    <option value='3'>March</option>
+			    <option value='4'>April</option>
+			    <option value='5'>May</option>
+			    <option value='6'>June</option>
+			    <option value='7'>July</option>
+			    <option value='8'>August</option>
+			    <option value='9'>September</option>
+			    <option value='10'>October</option>
+			    <option value='11'>November</option>
+			    <option value='12'>December</option>
+			</select>
 			
 		<?php echo form_close() ?>
 	</div>
