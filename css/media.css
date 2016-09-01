@@ -96,5 +96,9 @@
 		height: 200px !important;
 	}
 
+	.modal{
+		top: 5%;
+	}
+
      
 }
