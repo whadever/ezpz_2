@@ -8,10 +8,10 @@
 			if($this->session->userdata('isLogged') == FALSE){
 				redirect('main');
 			}
-			else if($this->session->userdata('isVerified') == 0){
+			elseif($this->session->userdata('isVerified') == 0){
 				redirect('login/verify_account/'.$this->session->userdata('username'));
 
-			}else if($this->session->userdata('type') !='user'){
+			}elseif($this->session->userdata('type') !='user'){
 				redirect($this->session->userdata('type'));
 			}
 			
@@ -117,7 +117,7 @@
 					$this->template->load('default_ordering','user/find_driver', $data);
 
 				}
-			}else if($this->session->userdata('order_status') == 1){
+			}elseif($this->session->userdata('order_status') == 1){
 
 				$data['order'] = $this->crud_model->get_by_condition('orders', array('code' => $code))->row();
 				$data['background'] = base_url().'images/pihza.jpg';
@@ -168,7 +168,7 @@
 				$this->crud_model->delete_data('orders',array('code' => $code));
 				$this->session->unset_userdata(array('order_status','code'));
 
-			}else if($order->status == 2){ //if driver has accept the order
+			}elseif($order->status == 2){ //if driver has accept the order
 				$driver_id = $order->driver_id;
 				$user = $this->crud_model->get_by_condition('users', array('id' => $user_id))->row();
 

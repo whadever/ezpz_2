@@ -22,7 +22,7 @@ class Login extends CI_Controller{
 				$session_des = array('username', 'name', 'user_id', 'data_complete', 'is_verified', 'isLogged', 'type');	
 				$this->session->unset_userdata($session_des);
 				redirect('admin');
-			}else if($this->session->userdata('isLogged') == True)
+			}elseif($this->session->userdata('isLogged') == True)
 			{
 				//Delete All Pending Orders
 				if($this->crud_model->get_by_condition('orders', array('user_id' => $this->session->userdata('user_id'), 'status' => 0))->num_rows()>0)
@@ -53,12 +53,12 @@ class Login extends CI_Controller{
 					$data['page_title'] = 'Register User';
 					$this->template->load('default_login','login/register_user', $data);
 				}
-				else if($type == 'driver')
+				elseif($type == 'driver')
 				{
 					$data['page_title'] = 'Register Driver';
 					$this->template->load('default_login','login/register_driver', $data);
 				}
-				else if($type == 'client')
+				elseif($type == 'client')
 				{
 					$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 				
@@ -388,7 +388,7 @@ class Login extends CI_Controller{
 					}
 					
 
-				}else if($user->type == 'driver'){
+				}elseif($user->type == 'driver'){
 					$order = $this->crud_model->get_by_condition('orders',array('driver_id' => $user->id))->row();
 				}
 				
@@ -399,7 +399,7 @@ class Login extends CI_Controller{
 
 				redirect($user->type);
 			}
-			else if($user && $user->is_verified == 0 && $user->type == 'user'){
+			elseif($user && $user->is_verified == 0 && $user->type == 'user'){
 				$name = $user->firstname .' '. $user->lastname;
 
 				$data_session = array(
@@ -462,7 +462,7 @@ class Login extends CI_Controller{
 	public function verify_account($username = ''){
 		if($username != $this->session->userdata('username')){
 			$username = $this->session->userdata('username');
-		}else if($this->session->userdata('isVerified') == 1){
+		}elseif($this->session->userdata('isVerified') == 1){
 			redirect($this->session->userdata('type'));
 		}
 
@@ -479,7 +479,7 @@ class Login extends CI_Controller{
 	public function resend_email($username = ''){
 		if($username != $this->session->userdata('username')){
 			$username = $this->session->userdata('username');
-		}else if($this->session->userdata('type') != 'user' || $this->session->userdata('isVerified') == 1){
+		}elseif($this->session->userdata('type') != 'user' || $this->session->userdata('isVerified') == 1){
 			redirect($this->session->userdata('type'));
 		}
 
