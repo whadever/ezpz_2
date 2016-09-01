@@ -56,12 +56,22 @@
 					  </ul>
 					 
 				  
-					<div class="tab-content">
+					<div class="tab-content" style="padding: 10px 20px">
 				    
-				    <div id="home" class="tab-pane fade in active" style="padding:15px;">
+				    <div id="home" class="tab-pane fade in active" style="padding:0px 20px;">
+				    	<?php $flag = 1; ?>
 				    	<?php foreach($dishes as $dish): ?>
+				    	<?php if($flag == count($dishes)){
+
+				    			$border = '';
+
+				    		}else{
+
+				    			$border = 'border-bottom:1px solid #2C3E50;';
+
+			    			}  ?>
 				    	<?php echo form_open('cart/add') ?>
-				    	<div class="row" style="padding-bottom:15px; padding-top:10px; border-bottom:1px solid #2C3E50;">
+				    	<div class="row" style="padding-bottom:15px; padding-top:15px; <?php echo $border ?> ">
 				    		<div class="col-sm-2 hidden-xs" style="padding-right:0;">
 				    			<div class="menu-image" style="border-radius:20px; width:100px; height:100px; background-size:cover; background-position:center center; margin:auto; background-image:url(<?php echo base_url().$dish->photo ?>);">
 				    				
@@ -106,6 +116,7 @@
 
 				    		</div>
 				    	</div>
+				    	<?php $flag ++; ?>
 				    	<?php echo form_close() ?>					    	
 				    	<?php endforeach; ?>
 				    </div><!--End of Menu tab-->
