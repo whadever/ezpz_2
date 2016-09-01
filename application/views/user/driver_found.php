@@ -7,7 +7,7 @@
 		
 		<div class="row text-center" id="status">
 			<h2 class="roboto headline">Order Status</h2>
-			<h2 class="roboto">Your order has been made</h2>
+			<h2 class="roboto" id="statusOrder">Your order has been made</h2>
 			<h2 class="roboto" id="statusDriver"  align="center">Driver Enroute to Restaurant</h2>
 			
 			<select name="" id="rate" onchange="rate_driver()" style="display:none">
@@ -132,6 +132,7 @@ function auto_load(){
              	setTimeout(auto_load,3000);
           	}else if(result == 4)
           	{
+          		document.getElementById("statusOrder").innerHTML = " ";
           		document.getElementById("statusDriver").innerHTML = "Your Order Have Been Completed!";
           		
           		
