@@ -45,6 +45,7 @@
 		public function about(){
 			$data['page_title'] = 'About';
 			$data['background'] = base_url()."images/pihza.jpg";
+			$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 			$this->template->load('default','main/about' ,$data);	
 		}
 

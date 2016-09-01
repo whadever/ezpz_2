@@ -137,6 +137,9 @@
 		{
 			$status = $this->db->get_where('orders', array('code' => $code))->row()->status;
 			$this->session->set_userdata('order_status',$status);
+			if($status == 4){
+				$this->session->set_userdata('rating', 0);
+			}
 			echo $status;
 		}
 

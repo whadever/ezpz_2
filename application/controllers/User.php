@@ -26,6 +26,9 @@ class User extends CI_Controller{
 		else if( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
 			redirect('order/driver_found/'.$this->session->userdata('code'));
 		}
+		else if($this->session->userdata('rating') && $this->session->userdata('order_status') == 4){
+			redirect('order/driver_found/'.$this->session->userdata('code'));
+		}
 		date_default_timezone_set('NZ');
 
 
@@ -187,7 +190,7 @@ class User extends CI_Controller{
 
 		$this->crud_model->insert_data('order_history', $data_insert);
 		$this->crud_model->delete_data('orders',array('code' => $code));
-		$this->session->unset_userdata(array('order_status','order_id'));
+		$this->session->unset_userdata(array('order_status','order_id','rating'));
 	
 	}
 

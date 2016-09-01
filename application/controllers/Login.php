@@ -383,6 +383,10 @@ class Login extends CI_Controller{
 				if($user->type == 'user'){
 
 					$order = $this->crud_model->get_by_condition('orders',array('user_id' => $user->id))->row();
+					if($order->status == 4){
+						$this->session->set_userdata(array('rating' => 1));
+					}
+					
 
 				}else if($user->type == 'driver'){
 					$order = $this->crud_model->get_by_condition('orders',array('driver_id' => $user->id))->row();
