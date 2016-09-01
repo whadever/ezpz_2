@@ -20,7 +20,7 @@
 						if($this->session->userdata('order_status') == 2 ){
 							redirect('driver/accept_order/'.$this->session->userdata('code'));
 						}
-						else if($this->session->userdata('order_status') == 3 ){
+						elseif($this->session->userdata('order_status') == 3 ){
 							redirect('driver/delivery/'.$this->session->userdata('code'));
 						}
 
@@ -34,7 +34,7 @@
 					if($this->session->userdata('order_status') == 1 ){
 						redirect('order/find_driver/'.$this->session->userdata('code'));
 					}
-					else if( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 5){
+					elseif( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 5){
 						redirect('order/driver_found/'.$this->session->userdata('code'));
 					}
 				}
@@ -81,7 +81,7 @@
 
 				}
 			}
-			else if($this->input->post('restaurant-search') == '' && $name ==''){
+			elseif($this->input->post('restaurant-search') == '' && $name ==''){
 				redirect('main');
 			}
 

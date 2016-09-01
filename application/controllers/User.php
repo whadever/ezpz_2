@@ -11,22 +11,22 @@ class User extends CI_Controller{
 			redirect('main');	
 		
 		}
-		else if($this->session->userdata('isVerified') == 0){
+		elseif($this->session->userdata('isVerified') == 0){
 			redirect('login/verify_account/'.$this->session->userdata('username'));
 
-		}else if($this->session->userdata('type') != 'user'){
+		}elseif($this->session->userdata('type') != 'user'){
 
 			redirect($this->session->userdata('type'));
 			
 		}
 
-		else if($this->session->userdata('order_status') == 1 ){
+		elseif($this->session->userdata('order_status') == 1 ){
 			redirect('order/find_driver/'.$this->session->userdata('code'));
 		}
-		else if( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
+		elseif( $this->session->userdata('order_status') > 1 && $this->session->userdata('order_status') < 4){
 			redirect('order/driver_found/'.$this->session->userdata('code'));
 		}
-		else if($this->session->userdata('rating') && $this->session->userdata('order_status') == 4){
+		elseif($this->session->userdata('rating') && $this->session->userdata('order_status') == 4){
 			redirect('order/driver_found/'.$this->session->userdata('code'));
 		}
 		date_default_timezone_set('NZ');
