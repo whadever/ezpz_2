@@ -1,9 +1,24 @@
-<div class="row" style="margin-top: 10px">
+<style>
+	.form-control{
+		background-color: #2c3e50;
+		color: white;
+		border:none;
+	}
+
+	#go{
+		background-color: white;
+		color: #2c3e50;
+		border:1px solid #2c3e50;
+		border-radius: 0px;
+	}
+</style>
+
+<div class="row" style="margin-top: 10px;">
 	<div class="col-sm-4"></div>
 		<div class="col-xs-12 col-sm-4">
 			
 			<div class="form-group">
-				<select name="period" onchange="change_period()" class="form-control" id="period" style="background-color: #2c3e50; color: white">
+				<select name="period" onchange="change_period()" class="form-control" id="period" >
 					<option value="monthly" <?php if($this->uri->segment(4) == 'monthly' || $this->uri->segment(4) == '')echo 'selected';?>>Monthly</option>
 					<option value="daily" <?php if($this->uri->segment(4) == 'daily') echo 'selected';?>>Daily</option>
 				</select>
@@ -15,12 +30,12 @@
 
 <!--if monthly-->
 <?php if($this->uri->segment(4) == 'monthly' ||  $this->uri->segment(4) == ''): ?>
-<div class="row">
+<div class="row" style="margin-bottom: 10px ">
 	<div class="col-sm-4"></div>
 	<div class="col-xs-12 col-sm-4">
 		<?php echo form_open('driver/my_earnings/'.$this->session->userdata('user_id').'/monthly') ?>
 			
-			<select name="year"  id="year" style="width:40%">
+			<select name="year" class="form-control" id="year" style="width:30%; display:inline">
 				<?php 
 					$year = 2016;
 					for($i = $year; $i <= date('Y'); $i++){
@@ -29,7 +44,7 @@
 				 ?>
 			</select>
 			
-			<select name="month" id="month">
+			<select name="month" class="form-control" id="month" style="width:40%; display:inline">
 				<option selected value='01'>January</option>
 			    <option value='02'>February</option>
 			    <option value='03'>March</option>
@@ -43,7 +58,7 @@
 			    <option value='11'>November</option>
 			    <option value='12'>December</option>
 			</select>
-			<input type="submit" name="submit" value="GO" class="btn btn-primary">	
+			<input type="submit" name="submit" value="GO" id="go" class="btn pull-right">	
 		<?php echo form_close() ?>
 	</div>
 	<div class="col-sm-4"></div>
