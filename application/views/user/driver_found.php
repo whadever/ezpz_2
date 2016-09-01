@@ -1,10 +1,19 @@
-	<div class="row" style="margin-bottom:5%;">
-
-	<div class="col-md-1 col-xs-12"></div>
-	
-	<div class="col-md-10 col-xs-12">
-		
-		
+	<style>
+		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+		    padding: 8px;
+		    line-height: 1.42857143;
+		    vertical-align: top;
+		    border-top: none;
+		}
+		.found-info{
+			padding:15px;
+			height: 490px;
+			border-top:4px solid #34495e;
+		}
+	</style>
+	<div class="row" style="margin-bottom:3%;margin-top:3%;">
+	<div class="col-md-4 col-xs-12">
+		<div class="found-info">
 		<div class="row text-center" id="status">
 			<h2 class="roboto headline">Order Status</h2>
 			<h2 class="roboto" id="statusOrder">Your order has been made</h2>
@@ -18,18 +27,24 @@
 				<option value="5">5</option>
 			</select>
 			<a class="btn btn-primary" style="margin:10px;" href="tel:<?php echo $driver->telephone?>" ><span class="fa fa-phone" style="margin-right:10px;"></span>Call Driver</a>
-			<a class="btn btn-primary" style="margin:10px;"><span class="fa fa-envelope" style="margin-right:10px;"></span>Text Driver</a>
-		</div>
-		
-		<div class="row">
+			<a class="btn btn-primary" style="margin:10px;" href="tel:<?php echo $driver->telephone?>"><span class="fa fa-envelope" style="margin-right:10px;"></span>Text Driver</a>
 
-			<div class="col-md-6 col-xs-12" >
+		</div>
+		<?php if($this->session->userdata('order_status') < 3): ?>
+		<div class="row text-center" id="cancelorder">
+			<a href="<?php echo base_url('order/cancel_order/'.$order->code) ?>" class="btn btn-primary">Cancel Order</a>
+		</div>
+		<?php endif; ?>
+		</div>
+	</div>
+	<div class="col-md-4 col-xs-12">
+		<div class="found-info">	
 				<h2 class="roboto headline">Driver Information</h2>
 				<p align="center">
 				<div class="profile-picture" style="background-image : url(<?php echo base_url().$driver->photo ?>); " id="edit-prof-pic"></div>
 				</p>
 
-				<table class="table table-striped driver-info">
+				<table class="table driver-info">
 					<tr>
 						<th>Name</th>
 						<td><?php echo $driver->firstname.' '.$driver->lastname ?></td>
@@ -42,16 +57,16 @@
 						<th>Phone</th>
 						<td><a href="tel:<?php echo $driver->telephone ?>"><?php echo $driver->telephone ?></a></td>
 					</tr>
-				</table>
-			</div>
-
-			<div class="col-md-6 col-xs-12">
-				
+				</table>	
+		</div>
+	</div>
+	<div class="col-md-4 col-xs-12">
+		<div class="found-info">
 				<h2 class="roboto headline">Order Information</h2>
-				<table class="table table-striped driver-info">
+				<table class="table driver-info">
 					<tr>
-						<th width="30%">Order ID</th>
-						<td><?php echo $order->id ?></td>
+						<th width="30%">Order Number</th>
+						<td><?php echo $order->code ?></td>
 					</td>
 					<tr>
 						<th>Total Quantity</th>
@@ -90,26 +105,9 @@
 						<td><?php echo $order->distance ?> Km</td>
 					</tr>
 				</table>
-
 			</div>
-
-		</div>		
-
-
-	</div>
-
-
-	<div class="col-md-1 col-xs-12"></div>
-
+		</div>	
 </div>
-
-<div class="row" id="cancel" style="margin-bottom: 20px">
-    <div class="col-lg-2"></div>
-      <div class="col-lg-8 text-center">
-        <a href="<?php echo base_url('order/cancel_order/'.$order->code) ?>" class="btn btn-primary">Cancel Order</a>
-      </div>
-    <div class="col-lg-2"></div>
-  </div>
 
 <script src="<?php echo base_url() ?>js/jquery.barrating.min.js"></script>
 
@@ -128,11 +126,14 @@ function auto_load(){
           	if(result == 3)
           	{
              	document.getElementById("statusDriver").innerHTML = "Driver Have Bought Your Order and Now Enroute to Your Home";
-             	$('#cancel').empty();
+             	
+             	$('#cancelorder').empty();
              	setTimeout(auto_load,3000);
+
           	}else if(result == 4)
           	{
           		document.getElementById("statusOrder").innerHTML = " ";
+          		
           		document.getElementById("statusDriver").innerHTML = "Your Order Have Been Completed!";
           		
           		
