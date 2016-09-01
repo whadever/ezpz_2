@@ -13,6 +13,46 @@
 	<div class="col-sm-4"></div>
 </div>
 
+<!--if monthly-->
+<?php if($this->uri->segment(4) == 'monthly' ||  $this->uri->segment(4) == ''): ?>
+<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-xs-12 col-sm-4">
+		<?php echo form_open('driver/my_earnings/'.$this->session->userdata('user_id').'/monthly') ?>
+			
+				<select name="year"  id="year" style="width:40%">
+					<?php 
+						$year = 2016;
+						for($i = $year; $i <= date('Y'); $i++){
+							echo '<option value="'.$i.'">'.$i.'</option>';
+						}
+
+
+					 ?>
+				</select>
+			
+
+			
+			<select name="month" id="month"></select>
+			
+		<?php echo form_close() ?>
+	</div>
+	<div class="col-sm-4"></div>
+</div>
+<!--if daily-->
+<?php elseif($this->uri->segment(4) == 'daily'): ?>
+<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-xs-12 col-sm-4">
+		<?php echo form_open('driver/my_earnings'.$this->session->userdata('user_id').'/daily') ?>
+		
+		<?php echo form_close() ?>
+	</div>
+	<div class="col-sm-4"></div>
+</div>
+
+<?php endif; ?>
+
 <div class="row">
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8">

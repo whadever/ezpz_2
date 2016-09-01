@@ -10,7 +10,7 @@ class Driver extends CI_Controller{
 			
 			redirect('main');	
 		
-		}else if($this->session->userdata('type') != 'driver'){
+		}elseif($this->session->userdata('type') != 'driver'){
 
 			redirect($this->session->userdata('type'));
 			
@@ -27,9 +27,9 @@ class Driver extends CI_Controller{
 		if($this->session->userdata('order_status') == 2 ){
 			redirect('driver/accept_order/'.$this->session->userdata('code'));
 		}
-		else if($this->session->userdata('order_status') == 3 ){
+		elseif($this->session->userdata('order_status') == 3 ){
 			redirect('driver/delivery/'.$this->session->userdata('code'));
-		}else if($this->session->userdata('paid')){
+		}elseif($this->session->userdata('paid')){
 			redirect('driver/waiting_payment/'.$this->session->userdata('code'));
 		}
 
@@ -298,7 +298,7 @@ class Driver extends CI_Controller{
 		if($param1 == 'monthly'){
 
 			if($this->input->post()){
-
+				
 
 			}else{
 
@@ -312,7 +312,7 @@ class Driver extends CI_Controller{
 				$this->template->load('default_driver','driver/earnings',$data);
 			}
 		}
-		else if($param1 == 'daily'){
+		elseif($param1 == 'daily'){
 
 			if($this->input->post()){
 
