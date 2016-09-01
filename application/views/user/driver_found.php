@@ -7,9 +7,9 @@
 		
 		<div class="row text-center" id="status">
 			<h2 class="roboto headline">Order Status</h2>
-			<h2 class="roboto headline">Your order has been made</h2>
+			<h2 class="roboto">Your order has been made</h2>
 			<h2 class="roboto" id="statusDriver"  align="center">Driver Enroute to Restaurant</h2>
-		
+			
 			<select name="" id="rate" onchange="rate_driver()" style="display:none">
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -17,12 +17,13 @@
 				<option value="4">4</option>
 				<option value="5">5</option>
 			</select>
-
+			<a class="btn btn-primary" style="margin:10px;" href="tel:<?php echo $driver->telephone?>" ><span class="fa fa-phone" style="margin-right:10px;"></span>Call Driver</a>
+			<a class="btn btn-primary" style="margin:10px;"><span class="fa fa-envelope" style="margin-right:10px;"></span>Text Driver</a>
 		</div>
 		
 		<div class="row">
 
-			<div class="col-md-6 col-xs-12">
+			<div class="col-md-6 col-xs-12" >
 				<h2 class="roboto headline">Driver Information</h2>
 				<p align="center">
 				<div class="profile-picture" style="background-image : url(<?php echo base_url().$driver->photo ?>); " id="edit-prof-pic"></div>
