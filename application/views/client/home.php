@@ -12,7 +12,7 @@
 		<div class="col-sm-12" style="margin-top:20px;">
 			<ul class="nav nav-tabs">
 			    <li class="active"><a data-toggle="tab" href="#info">Restaurant Detail</a></li>
-			    <li><a data-toggle="tab" href="#menu">Update Menu</a></li>
+			    <!-- <li><a data-toggle="tab" href="#menu">Update Menu</a></li> -->
 			    <li><a data-toggle="tab" href="#pass">Change Password</a></li>
 		  	</ul>
 		  	<!--Restaurant Detail Tab-->
@@ -130,7 +130,7 @@
 
 					     	<div class="form-group">
 						        <label for="address">Address</label>
-						        <div class="col-sm-13">
+						        <div class="col-sm-12">
 								<textarea name="address_show" id="address_show" disabled="disabled" class="form-control" rows="3"><?php echo $restaurant->address; ?></textarea></div>
 								<input type="hidden" id="address" name="address" value="<?php echo $restaurant->address; ?>">					      
 						    </div>
@@ -228,7 +228,7 @@
 					      </div>
 					      <div class="modal-footer">
 					        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
-					        <input type="submit" class="btn btn-danger" data-dismiss="modal" value="Close">
+					        <!-- <input type="submit" class="btn btn-danger" data-dismiss="modal" value="Close"> -->
 					      </div>
 					      <?php echo form_close() ?>
 					    </div>
@@ -264,7 +264,7 @@
 					      </div>
 					      <div class="modal-footer">
 					        <input type="submit" value="Save changes" name="update" class="btn btn-primary">
-					        <input type="submit" class="btn btn-danger" data-dismiss="modal" value="Close">
+					        <!-- <input type="submit" class="btn btn-danger" data-dismiss="modal" value="Close"> -->
 					      </div>
 					      <?php echo form_close() ?>
 					    </div>
@@ -287,7 +287,7 @@
 					      <div class="modal-footer">
 					      	<input type="hidden" name="id" value="">
 					        <input type="submit" name="delete" value="Confirm" class="btn btn-danger">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
 					        <?php echo form_close() ?>
 					      </div>
 					    </div>

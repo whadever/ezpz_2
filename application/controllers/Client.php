@@ -51,6 +51,17 @@ class Client extends CI_Controller{
 		$this->template->load('default_client','client/profile', $data);
 	}
 
+	public function menu($id=''){
+
+
+		$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
+
+		$data['page_title'] = 'Menu';
+		$data['background'] = base_url()."images/pihza.jpg";
+		$data['client'] = $this->crud_model->get_by_condition('restaurants',array('id' => $id))->row();
+		$this->template->load('default_client','client/menu', $data);
+	}
+
 	public function add_menu(){
 		if($this->input->post('submit')){
 
