@@ -299,9 +299,18 @@ class Driver extends CI_Controller{
 
 			if($this->input->post()){
 				
-				$date = $this->input->post('year').'-'.$this->input->post('month');
 				
+
+				$date = $this->input->post('year').'-'.$this->input->post('month');
+			
 				$data['earnings'] = $this->driver_model->get_earnings($id,$date)->result();
+
+				$data['background'] = base_url()."images/pihza.jpg";	
+				$data['page_title'] = "My Earnings";
+
+				
+
+				$this->template->load('default_driver','driver/earnings',$data);
 
 			}else{
 
