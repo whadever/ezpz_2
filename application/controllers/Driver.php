@@ -200,7 +200,7 @@ class Driver extends CI_Controller{
 
 		
 		//$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
-		//$data['customer'] = $this->crud_model->get_by_condition('users',array('id' => $data['order']->user_id))->row();
+		$data['customer'] = $this->crud_model->get_by_condition('users',array('id' => $data['order']->user_id))->row();
 
 		$this->db->where('code',$code);
 		$this->db->update('orders',array('driver_id' => $this->session->userdata('user_id'), 'status' => 4));
