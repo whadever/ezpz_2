@@ -42,7 +42,7 @@
 							<?php echo $order->restaurant  ?>
 						</td>
 						<td>
-							<a href="#" data-toggle="modal" data-target="#maps" data-address="<?php echo urlencode($order->address) ?>"><?php echo $order->address  ?></a>
+							<a href="#" data-toggle="modal" data-target="#maps" data-address="<?php echo urlencode($order->address) ?>"><?php echo wordlimiter($order->address,5)  ?></a>
 						</td>
 						<td>
 							<?php echo NZD($order->delivery_cost * 70 / 100 - ($order->delivery_cost * 70/100 * 20/100) )  ?>

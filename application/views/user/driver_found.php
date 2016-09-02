@@ -27,7 +27,7 @@
 				<option value="5">5</option>
 			</select>
 			<a class="btn btn-primary" style="margin:10px;" href="tel:<?php echo $driver->telephone?>" ><span class="fa fa-phone" style="margin-right:10px;"></span>Call Driver</a>
-			<a class="btn btn-primary" style="margin:10px;" href="tel:<?php echo $driver->telephone?>"><span class="fa fa-envelope" style="margin-right:10px;"></span>Text Driver</a>
+			<a class="btn btn-primary" style="margin:10px;" href="sms:<?php echo $driver->telephone?>"><span class="fa fa-envelope" style="margin-right:10px;"></span>Text Driver</a>
 
 		</div>
 		<?php if($this->session->userdata('order_status') < 3): ?>

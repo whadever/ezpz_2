@@ -144,3 +144,41 @@
     </div>
   </div>
 </div><!-- Modal delete user end -->
+
+
+<script>
+//triggered when modal is about to be shown
+$('#edit_menu').on('show.bs.modal', function(e) {
+
+    //get data-id attribute of the clicked element
+    var name = $(e.relatedTarget).data('name');
+    var id = $(e.relatedTarget).data('id');
+    var price = $(e.relatedTarget).data('price');
+    var description = $(e.relatedTarget).data('description');
+
+    //populate the textbox
+    $(e.currentTarget).find('input[name="name"]').val(name);
+    $(e.currentTarget).find('input[name="id"]').val(id);
+    $(e.currentTarget).find('input[name="price"]').val(price);
+    $(e.currentTarget).find('textarea[name="description"]').val(description);
+});
+</script>
+<script>
+$('#delete_menu').on('show.bs.modal', function(e) {
+
+    //get data-id attribute of the clicked element
+
+    var id = $(e.relatedTarget).data('id');
+
+
+    //populate the textbox
+    $(e.currentTarget).find('input[name="id"]').val(id);
+
+});
+</script>
+
+<script>
+  $(document).ready(function() {
+     $('#buyers').DataTable();
+  } );
+</script>
