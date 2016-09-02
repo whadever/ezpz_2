@@ -276,7 +276,7 @@
 										 <a href="" data-toggle="modal" data-target="#driver_info" data-firstname="<?php echo $history->firstname?>" data-lastname="<?php echo $history->lastname ?>" data-email="<?php echo $history->email?>" data-telephone="<?php echo $history->telephone?>" ><?php echo $history->firstname . ' ' . $history->lastname?></a>
 									</td>
 									<td>
-										<?php echo $history->address ?>
+										<?php echo wordlimiter($history->address,5) ?>
 									</td>
 									<td>
 										<?php echo $history->date ?>
