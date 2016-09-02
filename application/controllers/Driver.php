@@ -289,60 +289,167 @@ class Driver extends CI_Controller{
 		$this->template->load('default_driver','driver/order_history',$data);
 	}
 
-	public function my_earnings($id,$param1='monthly'){
+	public function my_earnings($id){
 		if($id != $this->session->userdata('user_id')){
 			$id = $this->session->userdata('user_id');
 		}
 
-		//default
-		if($param1 == 'monthly'){
+		
+		
 
-			if($this->input->post()){
-				
-				
-
-				$date = $this->input->post('year').'-'.$this->input->post('month');
+		if($this->input->post()){
 			
-				$data['earnings'] = $this->driver_model->get_earnings($id,$date)->result();
+			
 
-				$data['background'] = base_url()."images/pihza.jpg";	
-				$data['page_title'] = "My Earnings";
+			$date = $this->input->post('year').'-'.$this->input->post('month');
+		
+			$data['earnings'] = $this->driver_model->get_earnings($id,$date)->result();
 
+			$data['background'] = base_url()."images/pihza.jpg";	
+			$data['page_title'] = "My Earnings";
+
+			if($this->input->post('month') == '01'){
+
+				$data['month'] = 'January';
+				$data['days'] = 31;
+
+			}elseif($this->input->post('month') == '02'){
+				$data['month'] = 'February';
+
+				if($this->input->post('year') % 4 == 0){
+					$data['days'] = 29;
+				}else{
+					$data['days'] = 28;
+				}
 				
+			}elseif($this->input->post('month') == '03'){
 
-				$this->template->load('default_driver','driver/earnings',$data);
+				$data['month'] = 'March';
+				$data['days'] = 31;
 
-			}else{
+			}elseif($this->input->post('month') == '04'){
 
-				$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m'))->result();
+				$data['month'] = 'April';
+				$data['days'] = 30;
 
-				$data['background'] = base_url()."images/pihza.jpg";	
-				$data['page_title'] = "My Earnings";
+			}elseif($this->input->post('month') == '05'){
 
-				
+				$data['month'] = 'May';
+				$data['days'] = 31;
 
-				$this->template->load('default_driver','driver/earnings',$data);
+			}elseif($this->input->post('month') == '06'){
+
+				$data['month'] = 'June';
+				$data['days'] = 30;
+
+			}elseif($this->input->post('month') == '07'){
+
+				$data['month'] = 'July';
+				$data['days'] = 31;
+
+			}elseif($this->input->post('month') == '08'){
+
+				$data['month'] = 'August';
+				$data['days'] = 31;
+
+			}elseif($this->input->post('month') == '09'){
+
+				$data['month'] = 'September';
+				$data['days'] = 30;
+
+			}elseif($this->input->post('month') == '10'){
+
+				$data['month'] = 'October';
+				$data['days'] = 31;
+
+			}elseif($this->input->post('month') == '11'){
+
+				$data['month'] = 'November';
+				$data['days'] = 30;
+
+			}elseif($this->input->post('month') == '12'){
+
+				$data['month'] = 'December';
+				$data['days'] = 31;
+
 			}
-		}
-		elseif($param1 == 'daily'){
-
-			if($this->input->post()){
 
 
-			}else{
+			$data['date'] = $date;
+			
+			$data['year'] = $this->input->post('year');
 
-				$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m-d'))->result();
+			$this->template->load('default_driver','driver/earnings',$data);
 
-				$data['background'] = base_url()."images/pihza.jpg";	
-				$data['page_title'] = "My Earnings";
+		}else{
 
+			$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m'))->result();
+
+			$data['background'] = base_url()."images/pihza.jpg";	
+			$data['page_title'] = "My Earnings";
+
+			if(date('m') == '01'){
+
+				$data['days'] = 31;
+
+			}elseif(date('m') == '02'){
+			
+				if($this->input->post('year') % 4 == 0){
+					$data['days'] = 29;
+				}else{
+					$data['days'] = 28;
+				}
 				
+			}elseif(date('m') == '03'){
 
-				$this->template->load('default_driver','driver/earnings',$data);
+				$data['days'] = 31;
+
+			}elseif(date('m') == '04'){
+
+				$data['days'] = 30;
+
+			}elseif(date('m') == '05'){
+
+				$data['days'] = 31;
+
+			}elseif(date('m') == '06'){
+
+				$data['days'] = 30;
+
+			}elseif(date('m') == '07'){
+
+				$data['days'] = 31;
+
+			}elseif(date('m') == '08'){
+
+				$data['days'] = 31;
+
+			}elseif(date('m') == '09'){
+
+				$data['days'] = 30;
+
+			}elseif(date('m') == '10'){
+
+				$data['days'] = 31;
+
+			}elseif(date('m') == '11'){
+
+				$data['days'] = 30;
+
+			}elseif(date('m') == '12'){
+
+				$data['days'] = 31;
+
 			}
 
+			$data['month'] = date('F');
+			$data['date'] = date('Y-m');
+
+			$this->template->load('default_driver','driver/earnings',$data);
 		}
 	}
+		
+	
 }
 
  ?>
