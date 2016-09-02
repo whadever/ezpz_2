@@ -439,20 +439,29 @@ class Login extends CI_Controller{
 				redirect('login/');
 			}else
 			{
-				
+				$separated_code = explode('~', $md5);
+
+				$user = $this->crud_model->get_by_condition('users',array('username'=> $separated_code[0] ,'verification_code' => $separated_code[1]))->row();
 				if($this->login_model->verify_account($md5))
 				{
+
 
 					$data_session = array(
 
 						//Set the session for login
+						'username'		=> $user->username,
+						'name'			=> $user->firstname.' '.$user->lastname,
+						'user_id'		=> $user->id,
+						'isLogged'		=> TRUE,
+						'type'			=> $user->type,
 						'isVerified'	=> 1
+
 
 						);
 					$this->session->set_userdata($data_session);
 
 					$this->session->set_flashdata('success', 'Account Verification is Successful!');
-					redirect('main');
+					redirect('user');
 				}else
 				{
 					$this->session->set_flashdata('error', 'Account Verification is not Successful!');
