@@ -18,7 +18,7 @@
 				<div class="col-xs-2 col-sm-3"></div>
 				<div class="col-xs-8 col-sm-6">
 					
-					<?php echo form_open('login/sign_in',array('id' => 'loginForm')) ?>
+					<?php echo form_open('login/sign_in') ?>
 
 						<div class="form-group">
 							<label for="">Username:</label>
@@ -31,7 +31,7 @@
 						</div>
 
 						<div class="form-group text-center">
-							<button type="submit" onclick="alert()" class="btn btn-primary " name="login" >Login</button>
+							<input type="submit" onclick="alert();" class="btn btn-primary " name="login" value="Login">
 							
 						</div>
 
@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<script>
+<!-- <script>
 function alert(){
 
 	data = $('#loginForm').serialize();
@@ -57,21 +57,15 @@ function alert(){
       data: data,
       type: 'POST',
       success: function(result){
-      	alert(result);
-      	if(result == 'success'){
-      		swal("Test!", "hellow.", "success");
-      	}
-        else{
-        	
-        	
-        }
-        //setTimeout(function(){ location.reload(); }, 1000);
+      	
+        swal("Deleted!", "hellow.", "success");
+        setTimeout(function(){ location.reload(); }, 1000);
         
       } 
     });
 }
 
-</script>
+</script> -->
 
 <script>
 	$('#loginModal').on('shown.bs.modal', function () {
