@@ -31,7 +31,7 @@
 						</div>
 
 						<div class="form-group text-center">
-							<input type="submit" class="btn btn-primary " name="login" value="Login">
+							<input type="submit" onclick="alert();" class="btn btn-primary " name="login" value="Login">
 							
 						</div>
 
@@ -46,6 +46,24 @@
     </div>
   </div>
 </div>
+
+<script>
+function alert(){
+
+	$.ajax({
+      url: "<?php echo base_url('login/sign_in')?>",
+      data: dish,
+      type: 'POST',
+      success: function(result){
+      	
+        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        setTimeout(function(){ location.reload(); }, 1000);
+        
+      } 
+    });
+}
+
+</script>
 
 <script>
 	$('#loginModal').on('shown.bs.modal', function () {

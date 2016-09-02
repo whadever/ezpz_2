@@ -15,8 +15,6 @@ class Driver extends CI_Controller{
 			redirect($this->session->userdata('type'));
 			
 		}
-
-		
 		
 		date_default_timezone_set('NZ');
 	}

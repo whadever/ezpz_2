@@ -256,20 +256,38 @@ $("#restaurant-search").typeahead({
         <script>
 
         function remove_item(dish){
+  
         	
-        	var result = confirm('are you sure ?');
-        	if(result){
-        		$.ajax({
-                  url: "<?php echo base_url('cart/remove')?>",
-                  data: dish,
-                  type: 'POST',
-                  success: function(result){
-                  
-                        
-                    location.reload();
-                  } 
-                });
-        	}
+        	swal({
+
+        		 title: "Are you sure?",   
+        		 text: "You will not be able to recover this imaginary file!",   
+        		 type: "warning",   
+        		 showCancelButton: true,   
+        		 confirmButtonColor: "#DD6B55",   
+        		 confirmButtonText: "Yes, delete it!",   
+        		 closeOnConfirm: true,   
+        		 closeOnCancel: false
+
+        	},
+
+        	function(isConfirm){
+        		if(isConfirm){
+	        		$.ajax({
+	                  url: "<?php echo base_url('cart/remove')?>",
+	                  data: dish,
+	                  type: 'POST',
+	                  success: function(result){
+	                  	
+	                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+	                    setTimeout(function(){ location.reload(); }, 1000);
+	                    
+	                  } 
+	                });
+        		}
+	        }
+        	);
+        	
         }
 
         function add_cart1(id,dish){
