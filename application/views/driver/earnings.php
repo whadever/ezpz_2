@@ -114,11 +114,14 @@
             "xAxisName": "Day",
             "yAxisName": "Revenues (In NZD)",
             "numberPrefix": "$",
+            "formatNumber": "1",
+            "decimals": "2",
+
            
 
 	        "paletteColors": "#2c3e50",
 	        "bgColor": "#ffffff",
-	        "showBorder": "0",
+	        "showBorder": "1",
 	        "showCanvasBorder": "0",
 	        "usePlotGradientColor": "0",
 	        "plotBorderAlpha": "10",
@@ -142,8 +145,14 @@
           "data": [
           	<?php for($i = 1; $i <= $days; $i++): if($i < 10) $i = '0'.$i ?>
           	  	{
+          	  		
+          	  		"toolText" : "<?php echo $i.'/'.date('m') ?>",
           	  		"label" : "<?php echo $i ?>",
-          	  		"value" : "<?php echo $this->driver_model->get_earnings_sum($this->session->userdata('user_id'),$date.'-'.$i)->row()->driver_earnings ?>"
+          	  		"value" : "<?php echo $this->driver_model->get_earnings_sum($this->session->userdata('user_id'),$date.'-'.$i)->row()->driver_earnings ?>",
+          	  		<?php if($date.'-'.$i == date('Y-m-d')): ?>
+          	  		"color" : "#2ecc71",
+          	  		"toolText" : "Today's Earning",
+          	  		<?php endif; ?>
           	  	},
           	<?php endfor; ?>
            ]

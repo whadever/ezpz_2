@@ -16,7 +16,7 @@ class Email_model extends CI_Model{
 		<table style="width:100%; height:100%;">
 			<tr>
 				<td style="background:#34495e; padding:2em 1em 1em 1em;">
-					<p align="center"><img src="http://ezpztest.gethassee.com/assets/logo.png" width="80" ></p>
+					<p align="center"><img src="https://ezpzdelivery.co.nz/assets/logo.png" width="80" ></p>
 				</td>
 			</tr>
 			<tr>
