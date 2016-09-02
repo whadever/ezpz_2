@@ -1,7 +1,5 @@
 <div class="container">
-	<pre>
-		<?php print_r($user) ?>
-	</pre>
+	
 	<div class="row">
 		<h2>Your registration has almost finished</h2>
 		<p>
