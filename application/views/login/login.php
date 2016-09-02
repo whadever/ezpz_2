@@ -18,7 +18,7 @@
 				<div class="col-xs-2 col-sm-3"></div>
 				<div class="col-xs-8 col-sm-6">
 					
-					<?php echo form_open('login/sign_in') ?>
+					<?php echo form_open('login/sign_in',array('id' => 'loginForm')) ?>
 
 						<div class="form-group">
 							<label for="">Username:</label>
@@ -31,11 +31,11 @@
 						</div>
 
 						<div class="form-group text-center">
-							<input type="submit" onclick="alert();" class="btn btn-primary " name="login" value="Login">
+							<button type="submit" onclick="alert()" class="btn btn-primary " name="login" >Login</button>
 							
 						</div>
 
-					</form>
+					<?php echo form_close() ?>
 				
 				</div>
 				<div class="col-xs-2 col-sm-3"></div>
@@ -50,14 +50,22 @@
 <script>
 function alert(){
 
+	data = $('#loginForm').serialize();
+
 	$.ajax({
       url: "<?php echo base_url('login/sign_in')?>",
-      data: dish,
+      data: data,
       type: 'POST',
       success: function(result){
-      	
-        swal("Deleted!", "Your imaginary file has been deleted.", "success");
-        setTimeout(function(){ location.reload(); }, 1000);
+      	alert(result);
+      	if(result == 'success'){
+      		swal("Test!", "hellow.", "success");
+      	}
+        else{
+        	
+        	
+        }
+        //setTimeout(function(){ location.reload(); }, 1000);
         
       } 
     });

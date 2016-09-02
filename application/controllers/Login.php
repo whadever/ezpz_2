@@ -350,7 +350,7 @@ class Login extends CI_Controller{
 
 	public function sign_in(){
 
-		if($this->input->post('login')){
+		if($this->input->post()){
 
 			$username = $this->input->post('username');
 			$password = hash_password($this->input->post('password'));
@@ -383,9 +383,8 @@ class Login extends CI_Controller{
 				if($user->type == 'user'){
 
 					$order = $this->crud_model->get_by_condition('orders',array('user_id' => $user->id))->row();
-					if($order->status == 4){
-						$this->session->set_userdata(array('rating' => 1));
-					}
+
+					
 					
 
 				}elseif($user->type == 'driver'){
@@ -395,9 +394,13 @@ class Login extends CI_Controller{
 				
 				if($order){
 					$this->session->set_userdata(array('order_status' => $order->status, 'code' => $order->code));
+					if($order->status == 4){
+						$this->session->set_userdata(array('rating' => 1));
+					}
 				}
 
-				redirect($user->type);
+				echo "success";
+				#redirect($user->type);
 			}
 			elseif($user && $user->is_verified == 0 && $user->type == 'user'){
 				$name = $user->firstname .' '. $user->lastname;
@@ -417,10 +420,11 @@ class Login extends CI_Controller{
 					);
 				$this->session->set_userdata($data_session);
 
-				redirect('login/verify_account/'.$user->username);
+				#redirect('login/verify_account/'.$user->username);
 			}
 			else{
-				redirect('main');
+				echo $this->input->post('username'); 
+				#redirect('main');
 				$this->session->set_flashdata('failed','Incorret Username or Password');
 			}
 		}
