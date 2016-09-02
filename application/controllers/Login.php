@@ -442,6 +442,7 @@ class Login extends CI_Controller{
 				$separated_code = explode('~', $md5);
 
 				$user = $this->crud_model->get_by_condition('users',array('username'=> $separated_code[0] ,'verification_code' => $separated_code[1]))->row();
+
 				if($this->login_model->verify_account($md5))
 				{
 
@@ -466,7 +467,7 @@ class Login extends CI_Controller{
 				{
 					$this->session->set_flashdata('error', 'Account Verification is not Successful!');
 					session_destroy();
-					redirect('accounts/');
+					redirect('main');
 				}
 			}
 
