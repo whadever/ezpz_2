@@ -122,11 +122,12 @@
 	<div class="container-fluid">
 		<div class="row">
       <div class="col-xs-3"></div>
-      <div class="col-xs-6">
+      <div class="col-xs-6 text-center">
 
         <!-- Waiting For Driver Text -->
           <div id="driver">
             <h1 class="waiting" id="textWait" align="center">WAITING FOR RATING</h1>
+            
           </div>
 
         <!-- Loading Div -->
@@ -137,6 +138,8 @@
             </svg>
           </div>
         </div>
+          <a class="btn btn-primary" href="tel:<?php echo $customer->telephone?>" ><span class="fa fa-phone" style="margin-right:10px;"> </span>Call User</a>
+          <a class="btn btn-primary" href="sms:<?php echo $customer->telephone?>"><span class="fa fa-envelope" style="margin-right:10px;"></span>Text User</a> 
       </div>
       <div class="col-xs-3"></div>
 		</div>
