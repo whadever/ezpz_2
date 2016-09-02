@@ -6,18 +6,20 @@
 		    border-top: none;
 		}
 		.found-info{
-			padding:15px;
-			height: 490px;
+			padding:20px;
+			padding-top: 5px;
 			border-top:4px solid #34495e;
+			margin-bottom: 20px;
 		}
 	</style>
+<div class="container">
 	<div class="row" style="margin-bottom:3%;margin-top:3%;">
 	<div class="col-md-4 col-xs-12">
 		<div class="found-info">
 		<div class="row text-center" id="status">
 			<h2 class="roboto headline">Order Status</h2>
-			<h2 class="roboto" id="statusOrder">Your order has been made</h2>
-			<h2 class="roboto" id="statusDriver"  align="center">Driver Enroute to Restaurant</h2>
+			<h3 class="roboto" id="statusOrder">Your order has been made</h3>
+			<h3 class="roboto" id="statusDriver"  align="center">Driver Enroute to Restaurant</h3>
 			
 			<select name="" id="rate" onchange="rate_driver()" style="display:none">
 				<option value="1">1</option>
@@ -106,7 +108,8 @@
 					</tr>
 				</table>
 			</div>
-		</div>	
+		</div>
+	</div>	
 </div>
 
 <script src="<?php echo base_url() ?>js/jquery.barrating.min.js"></script>
@@ -125,7 +128,7 @@ function auto_load(){
 
           	if(result == 3)
           	{
-             	document.getElementById("statusDriver").innerHTML = "Driver Have Bought Your Order and Now Enroute to Your Home";
+             	document.getElementById("statusDriver").innerHTML = "Driver have bought your order and now enroute to your home";
              	
              	$('#cancelorder').empty();
              	setTimeout(auto_load,3000);
@@ -134,7 +137,7 @@ function auto_load(){
           	{
           		document.getElementById("statusOrder").innerHTML = " ";
           		
-          		document.getElementById("statusDriver").innerHTML = "Your Order Have Been Completed!";
+          		document.getElementById("statusDriver").innerHTML = "Your order have been completed!";
           		
           		
           		

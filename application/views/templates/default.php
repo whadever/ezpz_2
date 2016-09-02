@@ -32,7 +32,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
 
     <!--FOnt-->
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto|Dosis" rel="stylesheet">
   
     
 </head>

@@ -400,7 +400,11 @@ width: 50%;
 
 .headline
 {
-  font-size:48px;
+  font-size:36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-family: 'Dosis', sans-serif; 
+  text-align: center;
 
 }
 
@@ -413,7 +417,7 @@ width: 50%;
 
 .roboto
 {
-  font-family: 'Roboto', sans-serif;
+  
   font-weight:100;
   
 }
@@ -421,7 +425,7 @@ width: 50%;
 /* Driver Found */
 .driver-info
 {
-  font-family:roboto;
+  
   font-size:18px;
   font-weight: lighter;
 }

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--Font-->
-    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto|Dosis" rel="stylesheet">
 
     
     <!-- Stylesheet -->

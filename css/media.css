@@ -53,6 +53,12 @@
 	    border-right: 0px !important;
 	    margin-bottom: 20px;
 	}
+	.roboto{
+		font-family: 'Roboto', sans-serif!important;
+	}
+	.driver-info{
+		font-family: 'Roboto', sans-serif!important;
+	}
 } 
 
 @media only screen and (max-device-width: 440px)
