@@ -399,7 +399,7 @@ class Login extends CI_Controller{
 					}
 				}
 
-				echo "success";
+				echo 'success';
 				#redirect($user->type);
 			}
 			elseif($user && $user->is_verified == 0 && $user->type == 'user'){
@@ -419,11 +419,11 @@ class Login extends CI_Controller{
 
 					);
 				$this->session->set_userdata($data_session);
-
+				echo 'success';
 				#redirect('login/verify_account/'.$user->username);
 			}
 			else{
-				echo $this->input->post('username'); 
+				echo 'failed'; 
 				#redirect('main');
 				$this->session->set_flashdata('failed','Incorret Username or Password');
 			}

@@ -18,7 +18,7 @@
 				<div class="col-xs-2 col-sm-3"></div>
 				<div class="col-xs-8 col-sm-6">
 					
-					<?php echo form_open('login/sign_in') ?>
+					<form action="" method="post" id="loginForm">
 
 						<div class="form-group">
 							<label for="">Username:</label>
@@ -27,15 +27,15 @@
 
 						<div class="form-group">
 							<label for="">Password</label>
-							<input type="password" autocomplete="off" autosave="off" name="password" class="form-control" required="1">
+							<input type="password" id="password" autocomplete="off" autosave="off" name="password" class="form-control" required="1">
 						</div>
 
 						<div class="form-group text-center">
-							<input type="submit" onclick="alert();" class="btn btn-primary " name="login" value="Login">
+							<button type="button" onclick="submitForm()" id="submit" class="btn btn-primary" >Login</button>
 							
 						</div>
 
-					<?php echo form_close() ?>
+					</form>
 				
 				</div>
 				<div class="col-xs-2 col-sm-3"></div>
@@ -47,25 +47,44 @@
   </div>
 </div>
 
-<!-- <script>
-function alert(){
+<script>
+	$("#password").keyup(function(event){
+    	if(event.keyCode == 13){
+    	 event.preventDefault();
+       	 $("#submit").click();
+    	}
+	});
+</script>
+
+<script>
+function submitForm(){
 
 	data = $('#loginForm').serialize();
-
 	$.ajax({
       url: "<?php echo base_url('login/sign_in')?>",
       data: data,
       type: 'POST',
+      cache : false,
       success: function(result){
-      	
-        swal("Deleted!", "hellow.", "success");
-        setTimeout(function(){ location.reload(); }, 1000);
+      	if(result == 'success'){
+      		swal("Login Success!", "you have succesfully logged in.", "success");
+        	setTimeout(function(){ location.reload(); }, 1000);
+      	}else if(result == 'failed'){
+      		swal("Login Failed!", "your username or password is incorrect", "error");
+        	swal({title: "Login Failed!",
+        	     text: "your username or password is incorrect",   
+        	     timer: 1000,   
+        	     showConfirmButton: false,
+        	     type: "error" });
+      	}
+       
         
-      } 
+      }
+      
     });
 }
 
-</script> -->
+</script> 
 
 <script>
 	$('#loginModal').on('shown.bs.modal', function () {

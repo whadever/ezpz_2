@@ -267,7 +267,7 @@ $("#restaurant-search").typeahead({
         		 confirmButtonColor: "#DD6B55",   
         		 confirmButtonText: "Yes, delete it!",   
         		 closeOnConfirm: true,   
-        		 closeOnCancel: false
+        		 closeOnCancel: true
 
         	},
 
