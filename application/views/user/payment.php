@@ -138,7 +138,7 @@
 
    <div class="row" style="margin: 20px 0">
       
-        <button type="button" name="submit" onclick="pay()" class="btn btn-primary btn-float">Pay Now</button>
+        <button type="button" name="submit" id="payBtn" onclick="pay()" class="btn btn-primary btn-float">Pay Now</button>
       
   </div>
 </div>
@@ -147,7 +147,9 @@
   function pay(){
     
     var data = $('#payment_form').serialize();
-    
+
+    document.getElementById("payBtn").disabled = true;
+
     $.ajax({
       url: "<?php echo base_url('order/find_driver/'.$order->code)?>",
       type: 'POST',
@@ -157,9 +159,13 @@
      
         if(result == 'success'){
           
-          swal("Payment Success!", "payment success","success");
-          setTimeout(function(){ window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>"); }, 2000);
-          
+          swal("Thank You!", "Payment transaction is succeeded","success");
+          setTimeout(function(){ window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>"); }, 2000); 
+        }
+        else if(result == 'failed'){
+
+          swal("Sorry . .","You have insufficent credits, please top up","error");
+          setTimeout(function(){ window.location.replace("<?php echo base_url('user/credits'); ?>"); }, 2000);
         }
       }
     });

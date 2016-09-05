@@ -68,7 +68,8 @@
 			if($this->input->post()){
 				$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
 				if($this->input->post('payment') > $credits){
-					redirect('user');
+					echo "failed";
+					// redirect('user');
 				}
 				else{
 					//update user's money
@@ -106,9 +107,12 @@
 					$to = implode (", ", $emails); 
 
 					//Emailing the drivers check *email model*
+					
 					$this->email_model->send_order($to, $restaurant_data);
 					
 					echo "success";	
+
+
 				
 					// $data['background'] = base_url().'images/pihza.jpg';
 					// $data['page_title'] = 'Payment';
@@ -125,6 +129,7 @@
 
 				$this->template->load('default_ordering','user/find_driver', $data);
 			}else{
+
 				redirect('user');
 			}
 			
