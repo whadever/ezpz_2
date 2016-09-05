@@ -380,6 +380,8 @@ class Login extends CI_Controller{
 					);
 				$this->session->set_userdata($data_session);
 
+				$order = '';
+
 				if($user->type == 'user'){
 
 					$order = $this->crud_model->get_by_condition('orders',array('user_id' => $user->id))->row();
@@ -392,9 +394,9 @@ class Login extends CI_Controller{
 				}
 				
 				
-				if($order){
+				if($order != ''){
 					$this->session->set_userdata(array('order_status' => $order->status, 'code' => $order->code));
-					if($order->status == 4){
+					if($order->status == 4 && $user->type == 'user'){
 						$this->session->set_userdata(array('rating' => 1));
 					}
 				}
