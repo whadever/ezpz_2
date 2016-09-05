@@ -22,7 +22,7 @@
           <div class="row">
                 <h2 align="center" style="margin:30px;">Top Up Wallet</h2>
           </div>
-         <?php echo form_open('user/topup', array('class' => 'inline')) ?> 
+         <?php echo form_open('user/topup', array('class' => 'inline', 'id' => 'top_up')) ?> 
           <div class="row">
             <table class="table">
             <tr>
@@ -36,23 +36,16 @@
                               <div class="input-group-addon">$</div>
                               <input type="text" name="amount" id="amount" onkeyup="format(this)" class="form-control" placeholder="amount" required>
                               <div class="input-group-addon">.00</div>
-                              <input type="hidden" name="stripeToken" />
-                              <input type="hidden" name="stripeEmail" />
+                              <input type="hidden" id="stripeToken" name="stripeToken" />
+                              <input type="hidden" id="stripeEmail" name="stripeEmail" />
                             </div>
                   </td>
             </tr> 
             </table>           
           </div>
-          <div class="row text-center" style="padding:20px;padding-right:5px;">               
-                   <script
-                      src="https://checkout.stripe.com/checkout.js" class="stripe-button pull-right"
-                      data-key="pk_test_WHJeocUki4v9PeEmVbhYedqV"
-                      data-email="<?php echo $user_email ?>"
-                      data-name="EZPZ Food Delivery"
-                      data-description="Wallet Top Up"
-                      data-locale="auto">
-                    </script>
-            </div>        
+          <div class="row text-center" style="padding:20px;padding-right:5px;">                     
+              <input type="button" class="btn btn-primary" id="pay" value="Pay">
+          </div>        
                 
             <?php echo form_close() ?>
         </div>
@@ -60,6 +53,8 @@
     </div>
 </div>
 </div>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
 
 <script>
 
@@ -81,6 +76,7 @@ $("#restaurant-search").typeahead({
 </script>
 
 <script>
+
   function format(input)
 {
     var nStr = input.value + '';
@@ -94,5 +90,35 @@ $("#restaurant-search").typeahead({
     }
     input.value = x1 + x2;
 }
+
+var handler = StripeCheckout.configure({
+    key: 'pk_test_WHJeocUki4v9PeEmVbhYedqV',
+    token: function (token) {
+        $("#stripeToken").val(token.id);
+        $("#stripeEmail").val(token.email);
+        $("#amount").val($("#amount").val() * 100);
+        $("#top_up").submit();
+    }
+});
+
+$('#pay').on('click', function (e) {
+    var amount = $("#amount").val();
+    amount = amount.replace(',','');
+    amount = Number(amount) * 100;
+    var displayAmount = parseFloat(Math.floor($("#amount").val() * 100) / 100).toFixed(2);
+    // Open Checkout with further options
+    handler.open({
+        name: 'EZPZ Food Delivery',
+        description: 'Wallet Top Up',
+        amount: amount,
+        email: '<?php echo $user_email ?>'
+    });
+    e.preventDefault();
+});
+
+// Close Checkout on page navigation
+$(window).on('popstate', function () {
+    handler.close();
+});
 
 </script>
