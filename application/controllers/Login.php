@@ -505,7 +505,9 @@ class Login extends CI_Controller{
 
 		$this->email_model->verification_email($user->email,$verification_string);
 
-		redirect('login/verify_account/'.$this->session->userdata('username'));
+		#redirect('login/verify_account/'.$this->session->userdata('username'));
+
+		echo 'success';
 
 	}
 

@@ -67,12 +67,12 @@ function submitForm(){
       cache : false,
       success: function(result){
       	if(result == 'success'){
-      		swal("Login Success!", "you have succesfully logged in.", "success");
+      		swal("Login Success!", "You have succesfully logged in.", "success");
         	setTimeout(function(){ location.reload(); }, 1000);
       	}else if(result == 'failed'){
-      		swal("Login Failed!", "your username or password is incorrect", "error");
+      		swal("Login Failed!", "Your username or password is incorrect", "error");
         	swal({title: "Login Failed!",
-        	     text: "your username or password is incorrect",   
+        	     text: "Your username or password is incorrect",   
         	     timer: 1000,   
         	     showConfirmButton: false,
         	     type: "error" });
