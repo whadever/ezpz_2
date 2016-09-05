@@ -1,3 +1,13 @@
+<style>
+  .input-group-addon{
+    background-color: #34495e;
+    border-radius: 0px;
+    border:3px solid #34495e;
+    color: #fff;
+  }
+</style>
+
+
 <div class="row">
 
 	<div class="col-md-3 col-xs-1"></div>
@@ -52,7 +62,11 @@
 
 			<div class="form-group">
 				<label for="">Phone</label>
-				<input type="tel" pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +XXXX-XXXX-XXXX)' name="telephone" class="form-control" required="1" >
+        <div class="input-group">
+          <span class="input-group-addon">+64</span>
+          <input type="tel" name="telephone" class="form-control" required="1" >
+        </div>
+				
 			</div>
 			
 			<div class="form-group" id="#mapBody">
@@ -69,7 +83,7 @@
 
 			<div class="form-group">
 	        	<label for="">Profile Picture</label>
-	        	<input type="file" name="photo" class="form-control" required="1">
+	        	<input type="file" name="photo" class="form-control">
 	        </div>
 
 			<div class="form-group">

@@ -96,7 +96,10 @@ var handler = StripeCheckout.configure({
     token: function (token) {
         $("#stripeToken").val(token.id);
         $("#stripeEmail").val(token.email);
-        $("#amount").val($("#amount").val() * 100);
+        var amount = $("#amount").val();
+        amount = amount.replace(',','');
+        amount = Number(amount);
+        $("#amount").val(amount);
         $("#top_up").submit();
     }
 });

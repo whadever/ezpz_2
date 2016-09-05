@@ -116,6 +116,8 @@ class Login extends CI_Controller{
                 {
                     //Get the link for the database
                     $photo = $config ['upload_path'] . '/' . $config ['file_name'];
+                }else{
+                	$photo = '';
                 }
 
 
@@ -132,7 +134,7 @@ class Login extends CI_Controller{
 					'email' 			=> $this->input->post('email'),
 					'latitude'			=> $this->input->post('lat'),
 					'longitude'			=> $this->input->post('lng'),
-					'telephone' 		=> $this->input->post('telephone'),
+					'telephone' 		=> '+64'.$this->input->post('telephone'),
 					'address' 			=> $this->input->post('address'),
 					'photo'				=> $photo,
 					'verification_code'	=> $verification_code,

@@ -59,6 +59,38 @@ class User extends CI_Controller{
 		$this->template->load('default','user/profile', $data);
 	}
 
+	public function change_password($id = ''){
+		if($id != $this->session->userdata('user_id')){
+			redirect('user');
+		}
+		if($this->input->post()){
+
+			$user = $this->crud_model->get_by_condition('users',array('id' => $id, 'password' => hash_password($this->input->post('old_password'))))->row();
+
+			if($user != ''){
+
+				$password = hash_password($this->input->post('password'));
+
+				$data_update = array(
+						'password' => $password
+
+					);
+
+				$this->crud_model->update_data('users',$data_update,array('id' => $id));
+
+				echo 'success';
+			}
+		
+			else{
+
+				echo 'failed';
+			}
+		}else{
+			redirect('user');
+		}
+
+	}
+
 	public function edit_profile($id = ''){
 		if($id != $this->session->userdata('user_id')){
 			redirect('user');

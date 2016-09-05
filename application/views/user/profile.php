@@ -261,7 +261,7 @@
 							<div class="row">
 								<div class="col-lg-4"></div>
 								<div class="col-lg-4">
-									<?php echo form_open('dashboard/change_password/submit') ?>
+									<?php echo form_open('',array('id' => 'change_password_form')) ?>
 							
 								    	<div class="form-group">
 								            
@@ -270,13 +270,13 @@
 
 								    	<div class="form-group">
 								            
-								            <input type="password" name ="new_password" class="form-control" placeholder="New Password" required="required">
+								            <input type="password" name ="password" id="password" class="form-control" placeholder="New Password" required="required">
 								        </div>
 								   		<div class="form-group">					          
-								            <input type="password" name ="conf_password" class="form-control" placeholder="Confirm Password" required="required">
+								            <input type="password" name ="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password" required="required">
 								        </div>
 								    	
-								    	<input type="submit" name="submit" value="Update" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">
+								    	<button type="button" name="submit" onclick="change_password()" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">Update</button>
 								    
 									<?php echo form_close() ?>
 								</div>
@@ -296,7 +296,7 @@
 	</div>
 </div>
 
-<!-- Modal Seller Info  -->
+<!-- Modal Driver Info  -->
 <div id="driver_info" class="modal fade" role="dialog">
   <div class="modal-dialog">
 <!-- Modal content-->
@@ -322,7 +322,41 @@
       </div>
     </div>
   </div>
-</div><!-- Modal Seller Info end -->
+</div><!-- Modal Driver Info end -->
+
+<script type="text/javascript">
+  function change_password(){
+
+
+  	if($('#password').val() == $('#confirm_password').val()){
+
+  		var data = $('#change_password_form').serialize();
+    
+	    $.ajax({
+	      url: "<?php echo base_url('user/change_password/'.$this->session->userdata('user_id'))?>",
+	      type: 'POST',
+	      data: data,
+	      cache : false,
+	      success: function(result){
+	     
+	        if(result == 'success'){
+	          
+	          swal("Password successfully changed!", "","success");
+	          setTimeout(function(){ window.location.replace("<?php echo base_url('user/profile/'.$this->session->userdata('user_id')); ?>"); }, 2000);
+	          
+	        }else if(result == 'failed'){
+	          swal('Your old password is invalid',"","error");
+	        }
+	      }
+	    });
+  	}else{
+  		swal("The Password field does not match the Confirm Password field ", "","warning");
+  	}
+    
+    
+  }
+</script>
+
 
 <script>
       // This example requires the Places library. Include the libraries=places

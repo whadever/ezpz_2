@@ -19,8 +19,7 @@ class Stripe_model extends CI_Model
 
         if($this->input->post('amount'))
         {
-            print_r($_POST);
-            exit;
+
             
             $topup_amount = str_replace(',', '',$this->input->post('amount') );
 

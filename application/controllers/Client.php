@@ -113,7 +113,7 @@ class Client extends CI_Controller{
                 $this->db->insert('dishes', $data);
 			}
 
-			redirect('client');
+			redirect('client/menu/'.$this->session->userdata('user_id'));
 
 	}
 
@@ -157,7 +157,7 @@ class Client extends CI_Controller{
 
 			$this->crud_model->update_data('dishes',$data,array('id' => $data['id']));
 		}
-		redirect('client');
+		redirect('client/menu/'.$this->session->userdata('user_id'));
 	}
 
 	public function delete_menu(){
@@ -165,7 +165,7 @@ class Client extends CI_Controller{
 		$dish = $this->crud_model->get_by_condition('dishes',array('id' => $id))->row();
 		unlink($dish->photo);
 		$this->crud_model->delete_data('dishes',array('id' => $id));
-		redirect('client/index#menu');
+		redirect('client/menu/'.$this->session->userdata('user_id'));
 	}
 
 	public function edit_profile($id){
