@@ -16,15 +16,18 @@ class Stripe_model extends CI_Model
      
      public function pay()
      {
+
         if($this->input->post('amount'))
         {
+            $topup_amount = str_replace(',', '',$this->input->post('amount') );
+
             $token      = $this->input->post('stripeToken');
-            $amount     = $this->input->post('amount');
+            $amount     = (int)$topup_amount;
 
             try {
               $charge = \Stripe\Charge::create(array(
                 "amount" => $amount * 100, // Amount in cents
-                "currency" => "usd",
+                "currency" => "nzd",
                 "source" => $token,
                 "description" => "Example charge"
                 ));

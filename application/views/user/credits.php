@@ -34,7 +34,7 @@
                   <td>           
                             <div class="input-group">
                               <div class="input-group-addon">$</div>
-                              <input type="number" name="amount" id="amount" class="form-control" placeholder="amount" required>
+                              <input type="text" name="amount" id="amount" onkeyup="format(this)" class="form-control" placeholder="amount" required>
                               <div class="input-group-addon">.00</div>
                               <input type="hidden" name="stripeToken" />
                               <input type="hidden" name="stripeEmail" />
@@ -77,5 +77,22 @@ $("#restaurant-search").typeahead({
                         items: 4,
                         source: test,   
                     });
+
+</script>
+
+<script>
+  function format(input)
+{
+    var nStr = input.value + '';
+    nStr = nStr.replace( /\,/g, "");
+    var x = nStr.split( '.' );
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while ( rgx.test(x1) ) {
+        x1 = x1.replace( rgx, '$1' + ',' + '$2' );
+    }
+    input.value = x1 + x2;
+}
 
 </script>

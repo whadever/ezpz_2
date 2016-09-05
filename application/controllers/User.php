@@ -201,7 +201,10 @@ class User extends CI_Controller{
 
 		$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
 
-		$amount = $credits + $this->input->post('amount');
+		$topup_amount = str_replace(',', '',$this->input->post('amount') );
+		
+
+		$amount = $credits + (int)$topup_amount ;
 
 		$this->crud_model->update_data('users', array('credits' => $amount), array('id' => $this->session->userdata('user_id')));
 		redirect('user');
