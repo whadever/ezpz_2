@@ -46,6 +46,10 @@
 
 <script>
 
+<?php if($this->session->flashdata('success_topup')){
+	echo $this->session->flashdata('success_topup');
+} ?>
+
 var test = [""];
 <?php $i = 0; ?>
 

@@ -32,6 +32,8 @@ class Stripe_model extends CI_Model
                 "description" => "Example charge"
                 ));
 
+              $this->session->set_flashdata('success_topup', 'swal("Top Up Success!", "You have succesfully topped up your credits.", "success")');
+
               return true;
             } catch(\Stripe\Error\Card $e) {     
                 $this->session->set_flashdata('error', 'Your Payment Have Been Declined, Please Choose Another Payment Option');
