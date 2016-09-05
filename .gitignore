@@ -7,3 +7,5 @@ application/config/database.php
 uploads/driver/john/photo.jpg
 
 uploads/user/johnnate/photo.jpg
+
+.DS_Store
