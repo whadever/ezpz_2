@@ -40,24 +40,35 @@
 		padding-bottom: 20px;
 	}
 	ul.nav-tabs > li {
-		max-width: 90px;
+		max-width: 90px !important;
 		font-size: 12px!important;
 
 	}
 	.nav-pills>li{
-     	max-width: 300px;
+     	max-width: 300px !important;
      	float: left !important;	
   	}
   	.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-	    border-bottom: 4px solid #34495e;
+	    border-bottom: 4px solid #34495e !important;
 	    border-right: 0px !important;
-	    margin-bottom: 20px;
+	    margin-bottom: 20px !important;
 	}
 	.roboto{
 		font-family: 'Roboto', sans-serif!important;
 	}
 	.driver-info{
 		font-family: 'Roboto', sans-serif!important;
+	}
+	.profile-content{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	#header{
+		color: #000!important;
+		background-color: #fff!important;
+		padding-left: 0px!important;
+		padding-right: 0px!important;
+		text-align: center!important;
 	}
 } 
 

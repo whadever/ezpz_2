@@ -407,6 +407,38 @@ width: 50%;
   text-align: center;
 
 }
+/*Pills and tab content for edit profile on client user and driver*/
+.nav-pills>li>a{
+  border-radius: 0px;
+  color: #95a5a6;
+}
+.nav-pills>li>a:hover{
+  color: #34495e;
+  background-color: transparent;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color:#34495e;
+  background-color:transparent;
+  border-right: 4px solid #34495e;      
+}
+.profile-content{
+  padding-top: 0px !important;
+  border:none !important;
+  
+}
+
+#header{
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 5px;
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+.profile-content h2{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
 
 /* Waiting for Drivers */
 .waiting

@@ -33,49 +33,12 @@
         font-family: Roboto;
       }
 
-      .nav-pills>li>a{
-      	border-radius: 0px;
-      	color: #95a5a6;
-      }
-      .nav-pills>li>a:hover{
-      	color: #34495e;
-      	background-color: transparent;
-      }
-      .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-	    color:#34495e;
-	    background-color:transparent;
-	    border-right: 4px solid #34495e;
-	    
-    	}
-      .tab-content{
-      	padding-left: 5%;
-      	padding-right: 5%;
-      	padding-top: 0px;
-      	border:0px;
-      	
-      }
-
-      #header{
-      	background-color: #2c3e50;
-      	color: white;
-	    padding: 10px 5px;
-	    padding-left: 15px;
-	    margin-bottom: 10px;
-
-	}
-
-      .tab-content h2{
-      	margin-top: 0px;
-      	margin-bottom: 0px;
-      }
+      
 </style>
 
-<div class="container">
+<div class="container" style="margin-top:30px;">
 	<div class="row">
-		<div class="col-lg-1"></div>
-
-		<div class="col-lg-10" style="padding:3% 0;">
-			
+			<!--Pill begin-->
 			<div class="col-sm-2">
 				<div class="row">
 					<ul class="nav nav-pills nav-stacked">
@@ -85,9 +48,9 @@
 					</ul>
 				</div>
 			</div>
-
+			<!--Pill End-->
 			<div class="col-sm-10">
-				<div class="tab-content">
+				<div class="tab-content profile-content">
 					<div id="profile" class="tab-pane fade in active">
 						<?php if($this->session->flashdata('success')): ?>
 									<div class="alert alert-success alert-dismissible">
@@ -135,8 +98,9 @@
 						
 								<div  id="header">
 						       		<h2>Address</h2>
+						       	</div>
 								<div id="map" style="margin-top:20px; margin-bottom:20px"></div>
-							</div>
+							
 				     		
 				     		
 						</div>
@@ -326,9 +290,9 @@
 			</div>	
 
 		</div>
-		<div class="col-lg-1">
+
 			
-		</div>
+		
 	</div>
 </div>
 
