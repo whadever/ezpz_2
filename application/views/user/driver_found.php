@@ -32,11 +32,6 @@
 			<a class="btn btn-primary" style="margin:10px;" href="sms:<?php echo $driver->telephone?>"><span class="fa fa-envelope" style="margin-right:10px;"></span>Text Driver</a>
 
 		</div>
-		<?php if($this->session->userdata('order_status') < 3): ?>
-		<div class="row text-center" id="cancelorder">
-			<a href="<?php echo base_url('order/cancel_order/'.$order->code) ?>" class="btn btn-primary">Cancel Order</a>
-		</div>
-		<?php endif; ?>
 		</div>
 	</div>
 	<div class="col-md-4 col-xs-12">
