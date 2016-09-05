@@ -21,12 +21,14 @@
   	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/themes/fontawesome-stars.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/icon.jpg">
+    <link rel="stylesheet" href="<?php echo base_url() ?>sweetalert-master/dist/sweetalert.css">
 
     <!-- Begin Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
     <script src="<?php echo base_url() ?>js/card.js"></script>
+    <script src="<?php echo base_url(); ?>sweetalert-master/dist/sweetalert.min.js"></script>
 
     
 

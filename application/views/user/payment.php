@@ -37,7 +37,7 @@
       }
     </style>
 
-<?php echo form_open('order/find_driver/'.$order->code); ?>
+<?php echo form_open(''); ?>
 
 <div class="container" id="cart-info" style="padding-bottom:20px; padding-top:20px;">
 
@@ -140,10 +140,26 @@
 
    <div class="row" style="margin: 20px 0">
       
-        <input type="submit" name="submit" value="Pay Now" class="btn btn-primary btn-float">
+        <button type="submit" name="submit" onclick="pay()" class="btn btn-primary btn-float">Pay Now</button>
       
   </div>
 </div>
+
+<script type="text/javascript">
+  function pay(){
+    $.ajax({
+      url: "<?php echo base_url('order/find_driver/'.$order->code)?>",
+      type: 'POST',
+      cache : false,
+      success: function(result){
+        if(result == 'success'){
+          swal("Payment Success!", "success");
+          window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>");
+        }
+      }
+    })
+  }
+</script>
 
   
 <?php echo form_close() ?> 

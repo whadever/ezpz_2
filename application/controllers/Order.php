@@ -113,7 +113,7 @@
 					$data['background'] = base_url().'images/pihza.jpg';
 					$data['page_title'] = 'Payment';
 				
-
+					echo "success";
 					$this->template->load('default_ordering','user/find_driver', $data);
 
 				}

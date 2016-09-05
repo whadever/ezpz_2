@@ -19,7 +19,7 @@
 
 		
 		<?php echo form_open('login/forget/reset', array ("id" => "loginForm")) ?>
-      <h1 class="text-center" style="margin-bottom:30px;">Forget Password</h1>
+      <h1 class="text-center" style="margin-bottom:30px;">Reset Password</h1>
 			<div class="form-group">
 				<label for="email">Submit your registered e-mail to receive the new password</label>
 				<input type="text" name ="email" class="form-control" placeholder="Email" required="1">

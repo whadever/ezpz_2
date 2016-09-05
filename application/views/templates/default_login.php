@@ -18,12 +18,14 @@
     <link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/icon.jpg">
+    <link rel="stylesheet" href="<?php echo base_url() ?>sweetalert-master/dist/sweetalert.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>sweetalert-master/dist/sweetalert.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

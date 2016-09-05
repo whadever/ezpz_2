@@ -437,7 +437,7 @@ class Login extends CI_Controller{
 	{
 		if($param1 == 'forget')
 		{
-			$data['page_title'] = 'Login';
+			$data['page_title'] = 'Forget Password';
 			$data['background'] = base_url()."images/pihza.jpg";
 			$this->template->load('default_login','login/forget_password', $data);
 		}else if($param1 == 'reset')

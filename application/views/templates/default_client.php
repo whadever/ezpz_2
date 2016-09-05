@@ -15,12 +15,14 @@
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/icon.jpg">
     
     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>sweetalert-master/dist/sweetalert.css">
     <script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="<?php echo base_url(); ?>sweetalert-master/dist/sweetalert.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
     <!--FOnt-->
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">

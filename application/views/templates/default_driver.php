@@ -14,6 +14,7 @@
     <link href="<?php echo base_url() ?>css/themes/bars-reversed.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/icon.jpg">
     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>sweetalert-master/dist/sweetalert.css">
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -34,6 +35,7 @@
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="<?php echo base_url(); ?>sweetalert-master/dist/sweetalert.min.js"></script>
 
     <!--FOnt-->
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
