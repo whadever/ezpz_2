@@ -28,7 +28,6 @@
 ul.nav-tabs > li > a:hover {
 	background-color: transparent;
 	border:none;
-	text-decoration: underline;
 }
 .restaurant-photo{
 	height: 400px;

@@ -9,7 +9,7 @@
 
 				<div class="col-xs-12 text-center">
 					
-					<h2>Sign In</h2>
+					<h2 style="margin-top:0px">Sign In</h2>
 				</div>
 
 			</div>
@@ -29,7 +29,7 @@
 							<label for="">Password</label>
 							<input type="password" id="password" autocomplete="off" autosave="off" name="password" class="form-control" required="1">
 						</div>
-
+						Forgot Password
 						<div class="form-group text-center">
 							<button type="button" onclick="submitForm()" id="submit" class="btn btn-primary" >Login</button>
 							
