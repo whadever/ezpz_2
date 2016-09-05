@@ -22,6 +22,7 @@
           <div class="row">
                 <h2 align="center" style="margin:30px;">Top Up Wallet</h2>
           </div>
+         <?php echo form_open('user/topup', array('class' => 'inline')) ?> 
           <div class="row">
             <table class="table">
             <tr>
@@ -30,12 +31,13 @@
             </tr>
             <tr>
                   <th class="payhead" style="vertical-align: middle;"><strong>Add Balance</strong></th>
-                  <td>
-                            <?php echo form_open('user/topup', array('class' => 'inline')) ?>            
+                  <td>           
                             <div class="input-group">
                               <div class="input-group-addon">$</div>
                               <input type="number" name="amount" id="amount" class="form-control" placeholder="amount" required>
                               <div class="input-group-addon">.00</div>
+                              <input type="hidden" name="stripeToken" />
+                              <input type="hidden" name="stripeEmail" />
                             </div>
                   </td>
             </tr> 
