@@ -22,6 +22,45 @@ class Login_model extends CI_Model{
 
 	}
 
+	public function resetPassword($email,  $data = array())
+		{
+			//Check if the thing is present
+			$check = array(
+
+				'email'		=> $email
+				
+				);
+
+			//Check On The User Database
+			if($this->db->get_where('users', $check)->num_rows() > 0)
+			{
+					$to = $email;
+					$subject = "Your Reseted Password";
+					$message = "Hello!
+								Here is your reseted password\n
+								
+								Password :" . $data['password'] . "\n
+								
+								For Safety Please Quickly Change Your Password!";
+
+					$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+					$headers .= 'From: noreply@ezpz.com' . "\r\n" .
+								'Reply-To: irpanwinata@gmail.com' . "\r\n" .
+								'X-Mailer: PHP/' . phpversion();
+					
+					if(!mail($to, $subject, $message, $headers))
+					{
+						return false;
+					}
+
+				$new_data = array('password' => hash_password($data['password']));
+
+				$this->db->set($new_data);
+				$this->db->where($check);
+				return $this->db->update('users');
+			}
+		}
+
 	public function verify_account($md5)
 		{
 

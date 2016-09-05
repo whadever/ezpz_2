@@ -448,7 +448,7 @@ class Login extends CI_Controller{
 
 			$user_data = array('email' => $email);
 
-			if($this->login_model->getUserdata($user_data))
+			if($this->crud_model->get_by_condition('users', $user_data))
 			{
 				$data = array (
 

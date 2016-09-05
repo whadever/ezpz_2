@@ -81,6 +81,7 @@
 					<ul class="nav nav-pills nav-stacked">
 					  <li role="presentation" class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
 					  <li role="presentation"><a data-toggle="pill" href="#order_history">Order History</a></li>
+					  <li role="presentation"><a data-toggle="pill" href="#changePassword">Change Password</a></li>
 					</ul>
 				</div>
 			</div>
@@ -96,9 +97,9 @@
 						 <?php endif; ?>
 						
 						<div class="row" id="header">
-							<div class="col-xs-12">
+							
 								<h2>Profile</h2>
-							</div>
+							
 						        
 						</div>
 
@@ -131,10 +132,9 @@
 						
 
 						<div class="row" id="#mapBody" style="margin-top:20px;"  >
-							<div class="col-xs-12">
+						
 								<div  id="header">
 						       		<h2>Address</h2>
-								</div>
 								<div id="map" style="margin-top:20px; margin-bottom:20px"></div>
 							</div>
 				     		
@@ -148,9 +148,9 @@
 						</div>
 
 						<div class="row text-center" style="margin-top:5%;">
-							<button class="btn btn-primary">
-							<span class="glyphicon glyphicon-edit"></span><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" style="color:white;"> Edit Profile</a>
-							</button>
+							<a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/edit_profile/<?php echo $this->session->userdata('user_id') ?>" style="color:white;" class="btn btn-primary">
+							<span class="glyphicon glyphicon-edit"></span> Edit Profile</a>
+							
 						</div>
 
 					</div>
@@ -285,6 +285,41 @@
 								<?php endforeach; ?>
 							</tbody>
 						</table>
+					</div>
+
+					<div id="changePassword" class="tab-pane fade">
+							<div class="row" id="header">
+								
+									<h2>Change Password</h2>
+							        
+							</div>
+
+							<div class="row">
+								<div class="col-lg-4"></div>
+								<div class="col-lg-4">
+									<?php echo form_open('dashboard/change_password/submit') ?>
+							
+								    	<div class="form-group">
+								            
+								            <input type="password" name ="old_password" class="form-control" placeholder="Old Password" required="required">
+								        </div>
+
+								    	<div class="form-group">
+								            
+								            <input type="password" name ="new_password" class="form-control" placeholder="New Password" required="required">
+								        </div>
+								   		<div class="form-group">					          
+								            <input type="password" name ="conf_password" class="form-control" placeholder="Confirm Password" required="required">
+								        </div>
+								    	
+								    	<input type="submit" name="submit" value="Update" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">
+								    
+									<?php echo form_close() ?>
+								</div>
+								<div class="col-lg-4"></div>
+
+							</div>
+						
 					</div>
 
 				</div>
