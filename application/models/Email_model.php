@@ -154,7 +154,7 @@ EOD;
 
 	public function test_mail()
 	{
-		$to = 'irpanwinata@gmail.com';
+		$to = 'setyawansusanto99@gmail.com';
 		$subject = "Your Order Receipt";
 		$name = 'irvan';
 		$address = 'gading';
@@ -232,6 +232,8 @@ EOD;
 		
 		if(!mail($to, $subject, $message, $headers))
 		{
+			echo'gagal lu wan';
+			exit;
 			return false;
 		}else
 		{

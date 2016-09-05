@@ -65,7 +65,7 @@
 			if($code != $this->session->userdata('code')){
 				redirect('order/find_driver/'.$this->session->userdata('code'));
 			}
-			if($this->input->post('submit')){
+			if($this->input->post()){
 				$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
 				if($this->input->post('payment') > $credits){
 					redirect('user');
@@ -108,17 +108,16 @@
 					//Emailing the drivers check *email model*
 					$this->email_model->send_order($to, $restaurant_data);
 					
-					
+					echo "success";	
 				
-					$data['background'] = base_url().'images/pihza.jpg';
-					$data['page_title'] = 'Payment';
+					// $data['background'] = base_url().'images/pihza.jpg';
+					// $data['page_title'] = 'Payment';
 				
-					echo "success";
-					$this->template->load('default_ordering','user/find_driver', $data);
+					// $this->template->load('default_ordering','user/find_driver', $data);
 
 				}
 			}elseif($this->session->userdata('order_status') == 1){
-
+				
 				$data['order'] = $this->crud_model->get_by_condition('orders', array('code' => $code))->row();
 				$data['background'] = base_url().'images/pihza.jpg';
 				$data['page_title'] = 'Waiting for Driver';

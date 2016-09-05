@@ -37,7 +37,7 @@
       }
     </style>
 
-<?php echo form_open(''); ?>
+<?php echo form_open('', array('id'=>'payment_form')); ?>
 
 <div class="container" id="cart-info" style="padding-bottom:20px; padding-top:20px;">
 
@@ -106,10 +106,8 @@
 
 	        <label for="">Deliver To:</label>
             <p id="address_show"><?php echo $order->address ?></p>
-            <input type="hidden" id="address" name="address">
 
-			    <input type="hidden" name="lat" id="lat" value="">
-	        <input type="hidden" name="lng" id="lng" value="">
+
 	        <input type="hidden" name="cost" id="cost" value="">
           <input type="hidden" name="payment" id="payment" value="">  
 
@@ -140,24 +138,31 @@
 
    <div class="row" style="margin: 20px 0">
       
-        <button type="submit" name="submit" onclick="pay()" class="btn btn-primary btn-float">Pay Now</button>
+        <button type="button" name="submit" onclick="pay()" class="btn btn-primary btn-float">Pay Now</button>
       
   </div>
 </div>
 
 <script type="text/javascript">
   function pay(){
+    
+    var data = $('#payment_form').serialize();
+    
     $.ajax({
       url: "<?php echo base_url('order/find_driver/'.$order->code)?>",
       type: 'POST',
+      data: data,
       cache : false,
       success: function(result){
+     
         if(result == 'success'){
-          swal("Payment Success!", "success");
-          window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>");
+          
+          swal("Payment Success!", "payment success","success");
+          setTimeout(function(){ window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>"); }, 2000);
+          
         }
       }
-    })
+    });
   }
 </script>
 
