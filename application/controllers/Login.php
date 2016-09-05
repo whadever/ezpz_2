@@ -433,6 +433,45 @@ class Login extends CI_Controller{
 
 	}
 
+	public function forget ($param1 = 'forget')
+	{
+		if($param1 == 'forget')
+		{
+			$data['page_title'] = 'Login';
+			$data['background'] = base_url()."images/pihza.jpg";
+			$this->template->load('default_login','login/forget_password', $data);
+		}else if($param1 == 'reset')
+		{
+			$email = $this->input->post('email');
+			$new_pass = substr(md5(microtime()),rand(0,26),5);
+			
+
+			$user_data = array('email' => $email);
+
+			if($this->login_model->getUserdata($user_data))
+			{
+				$data = array (
+
+				'password'  => $new_pass
+
+				);
+
+				if($this->login_model->resetPassword($email, $data))
+				{
+					$this->session->set_flashdata('success', 'Reset Password Success! Please Check Your Email!');
+					redirect('login/');
+				}else
+				{
+					$this->session->set_flashdata('error', 'Email not sent!');
+					redirect('login/');
+				}
+			}else
+			{
+				$this->session->set_flashdata('error', 'No Account Registered With That Email!');
+				redirect('login/');
+			}
+		}
+	}
 
 	public function email_verify($md5 = '')
 		{
