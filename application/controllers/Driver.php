@@ -392,7 +392,7 @@ class Driver extends CI_Controller{
 
 			}elseif(date('m') == '02'){
 			
-				if($this->input->post('year') % 4 == 0){
+				if(date('Y') % 4 == 0){
 					$data['days'] = 29;
 				}else{
 					$data['days'] = 28;
@@ -445,6 +445,38 @@ class Driver extends CI_Controller{
 
 			$this->template->load('default_driver','driver/earnings',$data);
 		}
+	}
+
+	public function change_password($id = ''){
+		if($id != $this->session->userdata('user_id')){
+			redirect('driver');
+		}
+		if($this->input->post()){
+
+			$driver = $this->crud_model->get_by_condition('drivers',array('id' => $id, 'password' => hash_password($this->input->post('old_password'))))->row();
+
+			if($driver != ''){
+
+				$password = hash_password($this->input->post('password'));
+
+				$data_update = array(
+						'password' => $password
+
+					);
+
+				$this->crud_model->update_data('drivers',$data_update,array('id' => $id));
+
+				echo 'success';
+			}
+		
+			else{
+
+				echo 'failed';
+			}
+		}else{
+			redirect('driver');
+		}
+
 	}
 		
 	

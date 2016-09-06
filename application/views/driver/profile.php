@@ -78,6 +78,7 @@
 					<ul class="nav nav-pills nav-stacked">
 					  <li role="presentation" class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
 					  <li role="presentation"><a data-toggle="pill" href="#order_history">Order History</a></li>
+					  <li role="presentation"><a data-toggle="pill" href="#changePassword">Change Password</a></li>
 					</ul>
 				</div>
 			</div>
@@ -130,6 +131,41 @@
 							</button>
 						</div>
 
+					</div>
+
+					<div id="changePassword" class="tab-pane fade">
+							<div class="row" id="header">
+								
+									<h2>Change Password</h2>
+							        
+							</div>
+
+							<div class="row">
+								<div class="col-lg-4"></div>
+								<div class="col-lg-4">
+									<?php echo form_open('',array('id' => 'change_password_form')) ?>
+							
+								    	<div class="form-group">
+								            
+								            <input type="password" name ="old_password" class="form-control" placeholder="Old Password" required="required">
+								        </div>
+
+								    	<div class="form-group">
+								            
+								            <input type="password" name ="password" id="password" class="form-control" placeholder="New Password" required="required">
+								        </div>
+								   		<div class="form-group">					          
+								            <input type="password" name ="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password" required="required">
+								        </div>
+								    	
+								    	<button type="button" name="submit" onclick="change_password()" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">Update</button>
+								    
+									<?php echo form_close() ?>
+								</div>
+								<div class="col-lg-4"></div>
+
+							</div>
+						
 					</div>
 
 					<!-- <div id="profile" class="tab-pane fade in active" >
@@ -307,6 +343,39 @@
     </div>
   </div>
 </div><!-- Modal Seller Info end -->
+
+<script type="text/javascript">
+  function change_password(){
+
+
+  	if($('#password').val() == $('#confirm_password').val()){
+
+  		var data = $('#change_password_form').serialize();
+    
+	    $.ajax({
+	      url: "<?php echo base_url('driver/change_password/'.$this->session->userdata('user_id'))?>",
+	      type: 'POST',
+	      data: data,
+	      cache : false,
+	      success: function(result){
+	     
+	        if(result == 'success'){
+	          
+	          swal("Password successfully changed!", "","success");
+	          setTimeout(function(){ window.location.replace("<?php echo base_url('driver/profile/'.$this->session->userdata('user_id')); ?>"); }, 2000);
+	          
+	        }else if(result == 'failed'){
+	          swal('Your old password is invalid',"","error");
+	        }
+	      }
+	    });
+  	}else{
+  		swal("The Password field does not match the Confirm Password field ", "","warning");
+  	}
+    
+    
+  }
+</script>
 
 <script>
       // This example requires the Places library. Include the libraries=places
