@@ -145,30 +145,36 @@
 
 <script type="text/javascript">
   function pay(){
+
+    swal({   title: "You are about to pay $ "+$('#payment').val(),   text: "Click OK to pay",   type: "info",   showCancelButton: true,   closeOnConfirm: false,   showLoaderOnConfirm: true, }, function(){  
+        var data = $('#payment_form').serialize();
+
+        document.getElementById("payBtn").disabled = true;
+
+        $.ajax({
+          url: "<?php echo base_url('order/find_driver/'.$order->code)?>",
+          type: 'POST',
+          data: data,
+          cache : false,
+          success: function(result){
+         
+            if(result == 'success'){
+              
+              swal("Thank You!", "Payment transaction is succeeded","success");
+              setTimeout(function(){ window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>"); }, 2000); 
+            }
+            else if(result == 'failed'){
+
+              swal("Sorry . .","You have insufficent credits, please top up","error");
+              setTimeout(function(){ window.location.replace("<?php echo base_url('user/credits'); ?>"); }, 2000);
+            }
+          }
+        });
+
+
+     });
     
-    var data = $('#payment_form').serialize();
-
-    document.getElementById("payBtn").disabled = true;
-
-    $.ajax({
-      url: "<?php echo base_url('order/find_driver/'.$order->code)?>",
-      type: 'POST',
-      data: data,
-      cache : false,
-      success: function(result){
-     
-        if(result == 'success'){
-          
-          swal("Thank You!", "Payment transaction is succeeded","success");
-          setTimeout(function(){ window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>"); }, 2000); 
-        }
-        else if(result == 'failed'){
-
-          swal("Sorry . .","You have insufficent credits, please top up","error");
-          setTimeout(function(){ window.location.replace("<?php echo base_url('user/credits'); ?>"); }, 2000);
-        }
-      }
-    });
+    
   }
 </script>
 

@@ -158,7 +158,7 @@
           </tr>
           <tr>
             <th>Order Total</th>
-            <td>$<?php echo $order->total_price ?></td>
+            <td><?php echo NZD($order->total_price) ?></td>
           </tr>
           <tr>
             <th>Delivery Address</th>
