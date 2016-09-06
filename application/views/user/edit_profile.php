@@ -53,10 +53,10 @@
 		
 		<?php echo form_open_multipart('user/edit_profile/'.$this->session->userdata('user_id')) ?>
 
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label for="">Username:</label>
-				<input type="text" name="username" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' class="form-control" value="<?php echo $user->username ?>" required="1" >
-			</div>
+				<input type="text" name="username" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' class="form-control" value="<?php echo $user->username ?>" disabrequired="1" >
+			</div> -->
 
 			<div class="row">
 				<div class="col-xs-6">
