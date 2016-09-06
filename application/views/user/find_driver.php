@@ -125,7 +125,7 @@
       <div class="col-xs-6">
 
         <!-- Waiting For Driver Text -->
-          <div id="driver">
+          <div class="roboto headline" id="driver">
             <h1 class="waiting" id="textWait" align="center">WAITING FOR DRIVER</h1>
           </div>
 
