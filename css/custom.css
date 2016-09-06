@@ -254,7 +254,7 @@ width: 50%;
 
 .mobile #top
 {
-  background-attachment:none;
+  background-attachment:local;
 }
 /*What can You Do box*/
 .food-panel{
