@@ -3,7 +3,7 @@
 	<div class="row" style="padding:5%;">
 		<div class="col-lg-2"></div>
 		<div class="col-lg-8">
-			<h2>Your registration has almost finished</h2>
+			<h2>Your registration is almost finished</h2>
 			<p>
 				We have sent you a verification email to activate your account. If you have not received any email, click the button below
 			</p>

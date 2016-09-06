@@ -162,7 +162,14 @@ function rate_driver(){
         	data: {rating : rating},
         	cache: false,
         	success: function(result){
-        		alert('Thank you for your participation');
+        		swal({   
+        			title: "Thank You",   
+        			text: "Thank You For Your Participantion", 
+        			type: "success",  
+        			timer: 2000,   
+        			showConfirmButton: false 
+        		});
+        		setTimeout(3000);
         		window.location.assign("<?php echo base_url('user') ?>");
         	}
         });
