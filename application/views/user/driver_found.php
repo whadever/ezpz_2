@@ -169,8 +169,7 @@ function rate_driver(){
         			timer: 2000,   
         			showConfirmButton: false 
         		});
-        		setTimeout(3000);
-        		window.location.assign("<?php echo base_url('user') ?>");
+        		setTimeout(function(){window.location.assign("<?php echo base_url('user') ?>")},3000);	
         	}
         });
 }
