@@ -24,6 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
+    <script src="<?php echo base_url() ?>js/iscroll.js"></script>
     <script src="<?php echo base_url() ?>js/card.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     
@@ -100,22 +101,25 @@
 
 
 <!--Full Div Image from div bg-->
-<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat;background-image: url(<?php echo $background ?>); padding-top:0px;" data-stellar-background-ratio="0.5">
-    <div class="row" id="body">
-        <form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
-        <div class="form-group center-block" id="search_bar" style="margin-top:20%;">
-            <div class="input-group">
-                <input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant" style="-webkit-box-shadow: none !important;  -moz-box-shadow: none !important;  box-shadow: none !important; border-radius:0px;">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit" name="search" onclick="submit()">
-                <span class="glyphicon glyphicon-search"></span></button>
-                </span>
+<div id="iscroll" style="background-attachment:fixed;">
+  <div id="wrap">
+    <div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat;background-image: url(<?php echo $background ?>); padding-top:0px;" data-stellar-background-ratio="0.3" data-stellar-vertical-offset="50">
+        <div class="row" id="body">
+            <form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
+            <div class="form-group center-block" id="search_bar" style="margin-top:20%;">
+                <div class="input-group">
+                    <input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant" style="-webkit-box-shadow: none !important;  -moz-box-shadow: none !important;  box-shadow: none !important; border-radius:0px;">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit" name="search" onclick="submit()">
+                    <span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
             </div>
+            </form>
         </div>
-        </form>
     </div>
+  </div>
 </div>
-
 
 
 
@@ -149,10 +153,19 @@
 $(document).ready(function(){
   $(window).stellar(
     {
-      verticalOffset:50,
-      horizontalOffset:50,
+      horizontalScrolling: false
     });
 });
+
+(function(){
+  var ua = navigator.userAgent,
+    isMobileWebkit = /WebKit/.test(ua) && /Mobile/.test(ua);
+
+  if (isMobileWebkit) {
+    $('html').addClass('mobile');
+  }
+
+})();
 
 </script>
 <script>

@@ -246,9 +246,15 @@ width: 50%;
 .image-full{
 	height: 400px;
 	padding-top: 20%;
+  background-attachment:fixed;
 }
 #search_bar{
   width:50%;
+}
+
+.mobile #top
+{
+  background-attachment:none;
 }
 /*What can You Do box*/
 .food-panel{
