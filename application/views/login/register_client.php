@@ -36,8 +36,11 @@
 			</div>
 
 			<div class="form-group">
-				<label for="">Phone</label>
-				<input type="tel" pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +XXXX-XXXX-XXXX)' name="telephone" class="form-control" required="1" >
+				<label for="telephone">Phone</label>
+		        <div class="input-group">
+		          <span class="input-group-addon">+64</span>
+		          <input type="tel" name="telephone" class="form-control" required="1" >
+		        </div>
 			</div>
 			
 			<div class="form-group" id="#mapBody">

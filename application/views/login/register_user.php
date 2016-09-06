@@ -1,13 +1,3 @@
-<style>
-  .input-group-addon{
-    background-color: #34495e;
-    border-radius: 0px;
-    border:3px solid #34495e;
-    color: #fff;
-  }
-</style>
-
-
 <div class="row">
 
 	<div class="col-md-3 col-xs-1"></div>

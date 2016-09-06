@@ -1,15 +1,8 @@
 <style type="text/css">
-  .input-group-addon{
-    background-color: #34495e;
-    border-radius: 0px;
-    border:3px solid #34495e;
-    color: #fff;
-  }
   .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
         padding: 8px;
         line-height: 1.42857143;
         vertical-align: top;
-        
         border-color: #34495e;
     }
   
