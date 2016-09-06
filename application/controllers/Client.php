@@ -51,6 +51,38 @@ class Client extends CI_Controller{
 		$this->template->load('default_client','client/profile', $data);
 	}
 
+	public function change_password($id = ''){
+		if($id != $this->session->userdata('user_id')){
+			redirect('client');
+		}
+		if($this->input->post()){
+
+			$client = $this->crud_model->get_by_condition('restaurants',array('id' => $id, 'password' => hash_password($this->input->post('old_password'))))->row();
+
+			if($client != ''){
+
+				$password = hash_password($this->input->post('password'));
+
+				$data_update = array(
+						'password' => $password
+
+					);
+
+				$this->crud_model->update_data('restaurants',$data_update,array('id' => $id));
+
+				echo 'success';
+			}
+		
+			else{
+
+				echo 'failed';
+			}
+		}else{
+			redirect('client');
+		}
+
+	}
+
 	public function menu($id=''){
 		$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $this->session->userdata('user_id')))->row();
 		$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
@@ -243,7 +275,7 @@ class Client extends CI_Controller{
 				$this->crud_model->insert_data('restaurant_time',$data_insert);
 			}	
 			
-			$this->session->set_flashdata('success', 'Client has been added');
+			$this->session->set_flashdata('success', 'swal("Success","Profile has been updated","success")');
 
 			redirect('client');
 	 	}

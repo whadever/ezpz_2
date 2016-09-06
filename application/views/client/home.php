@@ -1,12 +1,6 @@
 <div class="row" style="padding-top:30px;">
 
-		<?php if($this->session->flashdata('success')) : ?>
-			<div class="alert alert-success">
-				 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<?php echo $this->session->flashdata('success') ?>
-			</div>
-
-		<?php endif; ?>	
+		
 
 
 		<!--The content tabs-->
@@ -14,7 +8,7 @@
 			<div class="row">
 				<ul class="nav nav-pills nav-stacked">
 				    <li role="presentation" class="active"><a data-toggle="pill" href="#info">Restaurant Detail</a></li>
-				    <li role="presentation"><a data-toggle="pill" href="#pass">Change Password</a></li>
+				    <li role="presentation"><a data-toggle="pill" href="#changePassword">Change Password</a></li>
 			  	</ul>
 		  	</div>
 		</div>
@@ -153,7 +147,7 @@
 				<!--End of Restaurant info update, div info end-->
 				
 				<!--Update Password-->
-				<div id="pass" class="login tab-pane fade">
+				<!-- <div id="pass" class="login tab-pane fade">
 					<?php echo form_open('dashboard/change_password/submit') ?>
 					<div class="row">
 					    <div class="col-xs-12" id="header">
@@ -176,13 +170,81 @@
 			        	</div>
 			        	<div class="col-md-3"></div>
 					 </div>
-					</form>
-				</div><!--div pass end-->
+					<?php echo form_close() ?>
+				</div> --><!--div pass end-->
+
+				<div id="changePassword" class="tab-pane fade">
+					<div class="row" id="header">
+						
+							<h2>Change Password</h2>
+					        
+					</div>
+
+					<div class="row">
+						<div class="col-lg-4"></div>
+						<div class="col-lg-4">
+							<?php echo form_open('',array('id' => 'change_password_form')) ?>
+					
+						    	<div class="form-group">
+						            <input type="password" name ="old_password" class="form-control" placeholder="Old Password" required="required">
+						        </div>
+
+						    	<div class="form-group">
+						            <input type="password" name ="password" id="password" class="form-control" placeholder="New Password" required="required">
+						        </div>
+						   		<div class="form-group">					          
+						            <input type="password" name ="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password" required="required">
+						        </div>
+						    	
+						    	<button type="button" name="submit" onclick="change_password()" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">Update</button>
+						    
+							<?php echo form_close() ?>
+						</div>
+						<div class="col-lg-4"></div>
+
+					</div>
+
+				</div>
+
 			</div><!--End of tab content-->
 		</div>
 
 
 </div>
+
+<script type="text/javascript">
+  function change_password(){
+
+
+  	if($('#password').val() == $('#confirm_password').val()){
+
+  		var data = $('#change_password_form').serialize();
+    
+	    $.ajax({
+	      url: "<?php echo base_url('client/change_password/'.$this->session->userdata('user_id'))?>",
+	      type: 'POST',
+	      data: data,
+	      cache : false,
+	      success: function(result){
+	     
+	        if(result == 'success'){
+	          
+	          swal("Password successfully changed!", "","success");
+	          setTimeout(function(){ window.location.replace("<?php echo base_url('client'); ?>"); }, 2000);
+	          
+	        }else if(result == 'failed'){
+	          swal('Your old password is invalid',"","error");
+	        }
+	      }
+	    });
+  	}else{
+  		swal("The Password field does not match the Confirm Password field ", "","warning");
+  	}
+    
+    
+  }
+</script>
+
 
 <script>
       // This example requires the Places library. Include the libraries=places
@@ -267,6 +329,12 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5r3Vc2ohLE1naIZaaYLjfAifThGzAHwc&libraries=places&callback=initMap"
         async defer></script>
+
+<script>
+	<?php if($this->session->flashdata('success')) : ?>				 
+				<?php echo $this->session->flashdata('success') ?>
+	<?php endif; ?>	
+</script>
 
 <script>
 

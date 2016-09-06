@@ -159,7 +159,7 @@
      
         if(result == 'success'){
           
-          swal("Thank You!", "Payment transaction is succeeded","success");
+          swal("Thank You!", "Payment transaction has been succeeded","success");
           setTimeout(function(){ window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>"); }, 2000); 
         }
         else if(result == 'failed'){
