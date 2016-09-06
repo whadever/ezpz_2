@@ -1,12 +1,6 @@
 <div class="row" style="padding-top:30px;">
 
-		<?php if($this->session->flashdata('success')) : ?>
-			<div class="alert alert-success">
-				 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<?php echo $this->session->flashdata('success') ?>
-			</div>
-
-		<?php endif; ?>	
+		
 
 
 		<!--The content tabs-->
@@ -335,6 +329,12 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5r3Vc2ohLE1naIZaaYLjfAifThGzAHwc&libraries=places&callback=initMap"
         async defer></script>
+
+<script>
+	<?php if($this->session->flashdata('success')) : ?>				 
+				<?php echo $this->session->flashdata('success') ?>
+	<?php endif; ?>	
+</script>
 
 <script>
 

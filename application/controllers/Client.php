@@ -277,7 +277,7 @@ class Client extends CI_Controller{
 				$this->crud_model->insert_data('restaurant_time',$data_insert);
 			}	
 			
-			$this->session->set_flashdata('success', 'Client has been added');
+			$this->session->set_flashdata('success', 'swal("Success","Profile has been updated","success")');
 
 			redirect('client');
 	 	}
