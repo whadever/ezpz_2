@@ -164,7 +164,7 @@
               setTimeout(function(){ window.location.replace("<?php echo base_url('order/find_driver/'.$order->code); ?>"); }, 2000); 
             }
             else if(result == 'failed'){
-
+              
               swal("Sorry . .","You have insufficent credits, please top up","error");
               setTimeout(function(){ window.location.replace("<?php echo base_url('user/credits'); ?>"); }, 2000);
             }
@@ -173,7 +173,6 @@
 
 
      });
-    
     
   }
 </script>

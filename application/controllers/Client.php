@@ -84,12 +84,10 @@ class Client extends CI_Controller{
 	}
 
 	public function menu($id=''){
-
-
+		$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $this->session->userdata('user_id')))->row();
 		$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
-
 		$data['page_title'] = 'Menu';
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['background'] = base_url().$data['restaurant']->photo;
 		$data['client'] = $this->crud_model->get_by_condition('restaurants',array('id' => $id))->row();
 		$this->template->load('default_client','client/menu', $data);
 	}
@@ -277,7 +275,7 @@ class Client extends CI_Controller{
 				$this->crud_model->insert_data('restaurant_time',$data_insert);
 			}	
 			
-			$this->session->set_flashdata('success', 'Client has been added');
+			$this->session->set_flashdata('success', 'swal("Success","Profile has been updated","success")');
 
 			redirect('client');
 	 	}

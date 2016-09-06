@@ -131,12 +131,12 @@
 						<?php else: ?>
 						<?php echo form_open('restaurant/post_comment',array('id' => 'comment')) ?>
 						    <div class="input-group">
-			  					<textarea class="form-control" rows="1" name="review" aria-describedby="basic-addon2"></textarea></span>
+			  					<textarea class="form-control" rows="2" name="review" aria-describedby="basic-addon2"></textarea>
 			  					<input type="hidden" name="restaurant_id" value="<?php echo $restaurant->id ?>"/>
 			  					<input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id') ?>"/>
 			  					<input type="hidden" value="<?php echo uri_string(); ?>" name="url"/>
 			  					<span class="input-group-btn">
-		                    		<button class="btn btn-default" type="submit" name="post" onclick="submit()" style="height:53px;">
+		                    		<button class="btn btn-primary" type="submit" name="post" onclick="submit()" style="height:54px;">
 		                		Post</button>
 		                		
 							</div>

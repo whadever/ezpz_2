@@ -96,8 +96,9 @@
                       <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" >Edit Profile</a></li>
 
                       <li><a href="#">Edit Menu</a></li> -->
+                      <li><a href="<?php echo base_url('main') ?>"><?php echo $this->session->userdata('username') ?></a></li> 
 
-                      <li><a href="<?php echo base_url('client/menu') ?>">Menu</a></li> 
+                      <li><a href="<?php echo base_url('client/menu') ?>">Update Menu</a></li> 
                       
                       <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
                   </ul>
