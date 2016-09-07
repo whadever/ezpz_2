@@ -93,7 +93,7 @@ class Login extends CI_Controller{
 		else{
 			if($this->input->post()){
 
-				$config['allowed_types']        = 'jpg|png';
+				$config['allowed_types']        = 'jpg|png|jpeg';
 	            $config['max_size']             = 5000;
 	            // $config['max_width']            = 1000;
 	            // $config['max_height']           = 768;
@@ -181,7 +181,7 @@ class Login extends CI_Controller{
 			// $verification_code = verification_code();
 			// $verification_string = $this->input->post('username') . '~' . $verification_code;
 
-			$config['allowed_types']        = 'jpg|png';
+			$config['allowed_types']        = 'jpg|png|jpeg';
 	            $config['max_size']             = 5000;
 	            // $config['max_width']            = 1000;
 	            // $config['max_height']           = 768;
@@ -262,7 +262,7 @@ class Login extends CI_Controller{
 				
 					
 					
-					$config['allowed_types']        = 'jpg|png';
+					$config['allowed_types']        = 'jpg|png|jpeg';
 		            $config['max_size']             = 5000;
 		            // $config['max_width']            = 1000;
 		            // $config['max_height']           = 768;
