@@ -16,9 +16,9 @@
     <script type="text/javascript" src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
-
     
-
+    
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,7 +27,9 @@
     <![endif]-->
 
     <style>
-		
+		body{
+			font-family: 'Karla', sans-serif !important;
+		}
 
 		.sidenav {
 		    height: 100%; /* 100% Full-height */
@@ -36,10 +38,12 @@
 		    z-index: 1; /* Stay on top */
 		    top: 0;
 		    left: 0;
-		    background-color: #FFF12C; /* Black*/
+		    background-color: #34495e; /* Black*/
+		    color: #fff;
 		    overflow-x: hidden; /* Disable horizontal scroll */
 		    padding-top: 60px; /* Place content 60px from the top */
 		    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
 		}
 
 		/* The navigation menu links */
@@ -47,13 +51,15 @@
 		    padding: 8px 8px 8px 32px;
 		    text-decoration: none;
 		    font-size: 25px;
-		    color: black;
+		    color: #fff;
 		    display: block;
-		    transition: 0.3s
+		    transition: 0.3s;
+		    
 		}
 
 		/* When you mouse over the navigation links, change their color */
 		.sidenav a:hover, .offcanvas a:focus{
+			background-color: rgba(236, 240, 241,0.5);
 		    color: #f1f1f1;
 		}
 
@@ -112,7 +118,7 @@
 
 	    .sidenav a{
 	    	font-size: 18px;
-	    	border-bottom: 1px solid black;
+	    	border-bottom: none;
 	    }
 
 		.modal-header{
@@ -184,7 +190,7 @@
 
   <div id="mySidenav" class="sidenav">
 	  <div class="company_logo" style="margin-bottom: 30px; padding-left: 32px">
-	  	<h2>Menu</h2>
+	  	<img src="<?php echo base_url()?>logo.png" width="100px" class="hidden-xs" style="margin-left:15%">
 	  </div>
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="border-bottom: none">&times;</a>
 	  <a href="<?php echo base_url('admin') ?>">Home</a>
