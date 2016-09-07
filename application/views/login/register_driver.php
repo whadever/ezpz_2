@@ -89,6 +89,8 @@
 	        </div>
 
 			<div class="form-group">
+				<input type="hidden" id="lat" name="lat" value="">
+				<input type="hidden" id="lng" name="lng" value="">
 				<input type="submit" class="btn btn-primary" name="register" value="Register">
 			</div>
 

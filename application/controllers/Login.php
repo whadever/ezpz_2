@@ -176,80 +176,67 @@ class Login extends CI_Controller{
 	}
 
 	public function register_driver(){
-		/*Set the Message*/
-		$this->form_validation->set_message('is_unique','%s has been taken');
 
-		/*Set the Rules*/
-		$this->form_validation->set_rules('username', 'Username', 'is_unique[users.username]|is_unique[drivers.username]|is_unique[restaurants.username]');
-		$this->form_validation->set_rules('email', 'Email', 'valid_email|is_unique[users.email]|is_unique[drivers.email]|is_unique[restaurants.email]');
-		
-		if($this->form_validation->run() == FALSE){
+		if($this->input->post('register')){
+			// $verification_code = verification_code();
+			// $verification_string = $this->input->post('username') . '~' . $verification_code;
 
-			$data['page_title'] = 'Register';
+			$config['allowed_types']        = 'jpg|png';
+	            $config['max_size']             = 5000;
+	            // $config['max_width']            = 1000;
+	            // $config['max_height']           = 768;
 
-			$this->template->load('default_login', 'login/register_driver',$data);
+	            
+									
+				$config['upload_path']          = 'uploads/driver/' . $this->input->post('username');
+				$config['overwrite']			= True;
+				$config['file_name']			= 'photo.jpg';
+				$this->upload->initialize($config);
 
-		}else{
-			if($this->input->post('register')){
-				$verification_code = verification_code();
-				$verification_string = $this->input->post('username') . '~' . $verification_code;
+				//Check if the folder for the upload existed
+				if(!file_exists($config['upload_path']))
+				{
+					//if not make the folder so the upload is possible
+					mkdir($config['upload_path'], 0777, true);
+				}
 
-				$config['allowed_types']        = 'jpg|png';
-		            $config['max_size']             = 5000;
-		            // $config['max_width']            = 1000;
-		            // $config['max_height']           = 768;
-
-		            
-										
-					$config['upload_path']          = 'uploads/driver/' . $this->input->post('username');
-					$config['overwrite']			= True;
-					$config['file_name']			= 'photo.jpg';
-					$this->upload->initialize($config);
-
-					//Check if the folder for the upload existed
-					if(!file_exists($config['upload_path']))
-					{
-						//if not make the folder so the upload is possible
-						mkdir($config['upload_path'], 0777, true);
-					}
-
-	                if($this->upload->do_upload('photo'))
-	                {
-	                    //Get the link for the database
-	                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
-	                }
+                if($this->upload->do_upload('photo'))
+                {
+                    //Get the link for the database
+                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
+                }
 
 
-				$data = array(
+			$data = array(
 
-						'username' 			=> $this->input->post('username'),
-						'firstname'			=> $this->input->post('firstname'),
-						'lastname'			=> $this->input->post('lastname'),
-						'email' 			=> $this->input->post('email'),
-						'telephone' 		=> '+64'.$this->input->post('telephone'),
-						'latitude'			=> $this->input->post('lat'),
-						'longitude'			=> $this->input->post('lng'),
-						'address' 			=> $this->input->post('address'),
-						'ird'	 			=> $this->input->post('ird'),
-						'driver_license' 	=> $this->input->post('driver_license'),
-						'license_type' 		=> $this->input->post('license_type'),
-						'photo'				=> $photo,
-						'verification_code'	=> $verification_code,
-						'created'			=> date('Y-m-d')
+					'username' 			=> $this->input->post('username'),
+					'firstname'			=> $this->input->post('firstname'),
+					'lastname'			=> $this->input->post('lastname'),
+					'email' 			=> $this->input->post('email'),
+					'telephone' 		=> '+64'.$this->input->post('telephone'),
+					'latitude'			=> $this->input->post('lat'),
+					'longitude'			=> $this->input->post('lng'),
+					'address' 			=> $this->input->post('address'),
+					'ird'	 			=> $this->input->post('ird'),
+					'driver_license' 	=> $this->input->post('driver_license'),
+					'license_type' 		=> $this->input->post('license_type'),
+					'photo'				=> $photo,
+					// 'verification_code'	=> $verification_code,
+					'created'			=> date('Y-m-d')
 
-						);
-				
-				$this->crud_model->insert_data('drivers', $data);
-				//$this->email_model->verification_email($data['email'], $verification_string);
-				$this->session->set_flashdata('success','Driver has been added');
+					);
+			echo "<pre>";
+			print_r($data);
+			echo "</pre>";
+			$this->crud_model->insert_data('drivers', $data);
+			//$this->email_model->verification_email($data['email'], $verification_string);
+			$this->session->set_flashdata('success','Driver has been added');
 
-				redirect('main');
-			}
-			else{
-				redirect('login/register/driver');
-			}
+			redirect('main');
 		}
-
+		else{
+			redirect('login/register/driver');
+		}
 
 	}
 
