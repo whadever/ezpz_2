@@ -188,7 +188,7 @@
 	  </div>
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="border-bottom: none">&times;</a>
 	  <a href="<?php echo base_url('admin') ?>">Home</a>
-	  <a href="<?php echo base_url('admin/users') ?>">User List</a>
+	  <a href="<?php echo base_url('admin/users/1') ?>">User List</a>
 	  <a href="<?php echo base_url('admin/drivers/1') ?>">Driver List</a>
 	  <a href="<?php echo base_url('admin/clients/1') ?>">Client List</a>
 	  <a href="<?php echo base_url('admin/cuisines') ?>">Cuisines</a>
@@ -205,6 +205,7 @@
 				<button id="menu-button" onclick="openNav()"><img src="<?php echo base_url() ?>assets/menu.png" width="30" alt="">
 				</button>
 			</div>
+			<h5 style="padding:10px;">Welcome, <?php echo $this->session->userdata('admin_username') ?></h5>
 	  	</div>
 	  	<div class="col-xs-8">
 		  	<div class="row">
@@ -216,13 +217,13 @@
 		  		<div class="col-sm-4"></div>
 	  		</div>
 	  	</div>
-	  	<div class="col-xs-2"><h5 style="padding-top: 50px" class="pull-right">Welcome, <?php echo $this->session->userdata('admin_username') ?></h5>
+	  	<div class="col-xs-2">
 	  	</div>
 	  </div>
 	  <hr>
 		
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xs-12" style="margin-bottom:20px;">
 				<?php echo $body ?>
 			</div>
 		</div>

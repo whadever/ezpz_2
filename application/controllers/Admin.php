@@ -18,13 +18,33 @@ class Admin extends CI_Controller{
 		$data['unapproved_drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => 0))->result();
 		/* get all unapproved clients */
 		$data['unapproved_clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => 0))->result();
+		/* get unverified users */
+		$data['unverified_users'] = $this->crud_model->get_by_condition('users',array('is_verified' => 0))->result();
+
 		$this->template->load('default_admin','admin/home',$data);
 
 	}
 
+	public function delete(){
+		if($this->input->post('delete')){
+			if($this->input->post('account')=='driver'){
+				$this->crud_model->delete_data('drivers',array('username' => $this->input->post('username')));	
+			}
+			elseif ($this->input->post('account')=='client') {
+				$this->crud_model->delete_data('restaurants',array('username' => $this->input->post('username')));	
+			}
+			else{
+				$this->crud_model->delete_data('users',array('username' => $this->input->post('username')));	
+			}
+		}
+		redirect('admin');
+	
+	}
+
 	/* user list page */
-	public function users(){
-		$data['users'] = $this->crud_model->get_by_condition('users',array('is_verified' => 1))->result();
+	public function users($is_verified){
+
+		$data['users'] = $this->crud_model->get_by_condition('users',array('is_verified' => $is_verified))->result();
 
 		$this->template->load('default_admin','admin/users/index',$data); 
 	}
