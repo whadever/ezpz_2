@@ -32,10 +32,10 @@
 						<td><?php echo $user->telephone; ?></td>
 						<td>
             
-						  <span href="" data-toggle="modal" data-target="#delete_user" data-id="<?php echo $user->id?>" class="glyphicon glyphicon-trash pull-right" style="cursor:pointer; font-size: 20px" style="font-size: 12px">      
+						  <span href="" data-toggle="modal" data-target="#delete_user" data-id="<?php echo $user->id?>" class="glyphicon glyphicon-trash pull-right" style="cursor:pointer; font-size: 20px">      
               </span>
               
-							<span href="" class="glyphicon glyphicon-pencil pull-right"  style="cursor:pointer; font-size: 20px; margin-right :3px;" data-toggle="modal" data-target="#edit_user" data-id="<?php echo $user->id?>" data-name="<?php echo $user->username?>" data-email="<?php echo $user->email?>" data-phone="<?php echo $user->telephone?>" style="font-size: 12px">                
+							<span href="" class="glyphicon glyphicon-pencil pull-right"  style="cursor:pointer; font-size: 20px; margin-right :3px;" data-toggle="modal" data-target="#edit_user" data-id="<?php echo $user->id?>" data-name="<?php echo $user->username?>" data-email="<?php echo $user->email?>" data-phone="<?php echo $user->telephone?>">                
               </span>
 							
 
