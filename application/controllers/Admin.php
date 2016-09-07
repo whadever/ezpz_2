@@ -18,6 +18,7 @@ class Admin extends CI_Controller{
 		$data['unapproved_drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => 0))->result();
 		/* get all unapproved clients */
 		$data['unapproved_clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => 0))->result();
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$this->template->load('default_admin','admin/home',$data);
 
 	}
@@ -383,5 +384,11 @@ class Admin extends CI_Controller{
 		}
 		redirect('admin/clients/1');
 	}
+
+//Manage Settings
+	public function edit_settings(){
+		$this->template->load('default_admin','admin/edit_settings');
+	}
+
 }
 ?>
