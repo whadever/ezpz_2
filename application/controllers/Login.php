@@ -227,6 +227,8 @@ class Login extends CI_Controller{
 						'lastname'			=> $this->input->post('lastname'),
 						'email' 			=> $this->input->post('email'),
 						'telephone' 		=> '+64'.$this->input->post('telephone'),
+						'latitude'			=> $this->input->post('lat'),
+						'longitude'			=> $this->input->post('lng'),
 						'address' 			=> $this->input->post('address'),
 						'ird'	 			=> $this->input->post('ird'),
 						'driver_license' 	=> $this->input->post('driver_license'),
