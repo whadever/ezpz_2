@@ -46,7 +46,7 @@
 
       <?php foreach($unapproved_drivers as $driver): ?>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-6" style="text-align:left;"">
             <?php echo $driver->firstname.' '.$driver->lastname ?>
           </div>
           <div class="col-xs-6">
@@ -68,12 +68,14 @@
 
       <?php foreach($unapproved_clients as $client): ?>
         <div class="row">
-          <div class="col-xs-6">
+
+          <div class="col-xs-6" style="text-align:left;">
             <?php echo $client->name ?>
           </div>
           <div class="col-xs-6">
-              <span href="" data-toggle="modal" data-target="#approve" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-              </span>
+              <a href="<?php echo base_url('admin/approve_client/'.$client->id);?>">
+              <span onclick="verify()" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+              </span></a>
               <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
               </span>
           </div>
@@ -89,7 +91,7 @@
       </div>
       <?php foreach($unapproved_users as $user): ?>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-6" style="text-align:left;">
             <?php echo $user->firstname.' '.$user->lastname ?>
           </div>
           <div class="col-xs-6">
@@ -166,4 +168,32 @@ $('#disapprove').on('show.bs.modal', function(e) {
     $(e.currentTarget).find('input[name="account"]').val(account);
 
 });
+</script>
+
+<script>
+  function verify(){
+    $.ajax({
+      url: "<?php echo base_url('admin/approve_client/'.$client->id);?>",
+      type: 'POST',
+      cache : false,
+      success: function(result){
+        alert($client->id);
+        setTimeout(function(){ location.reload(); }, 1000);
+        // if(result == 'success'){
+        //   swal("Login Success!", "You have succesfully logged in.", "success");
+        //   setTimeout(function(){ location.reload(); }, 1000);
+        // }else if(result == 'failed'){
+        //   swal("Login Failed!", "Your username or password is incorrect", "error");
+        //   swal({title: "Login Failed!",
+        //        text: "Your username or password is incorrect",   
+        //        timer: 1000,   
+        //        showConfirmButton: false,
+        //        type: "error" });
+        // }
+       
+        
+      }
+      
+    });
+  }
 </script>
