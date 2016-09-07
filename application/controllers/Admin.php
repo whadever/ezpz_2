@@ -185,7 +185,7 @@ class Admin extends CI_Controller{
 		$this->crud_model->update_data('drivers',array('is_verified' => 1,'password' => $password), array('id' => $id));
 
 		$this->session->set_flashdata('password', $random_code);
-		redirect('admin/drivers/0');
+		redirect('admin');
 
 
 	}
@@ -233,7 +233,7 @@ class Admin extends CI_Controller{
 		if($this->input->post('submit')){
 
 			$config['allowed_types']        = 'jpg|png';
-            $config['max_size']             = 10000;
+            $config['max_size']             = 2000;
             // $config['max_width']            = 1000;
             // $config['max_height']           = 768;
 
@@ -265,7 +265,7 @@ class Admin extends CI_Controller{
 
 			$this->image_moo
 			->load($config ['upload_path'] . '/' . $image['file_name'])
-			->resize_crop(1900,700)
+			->resize_crop(1300,700)
 			->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
 
 			$data = array(
@@ -289,7 +289,7 @@ class Admin extends CI_Controller{
 	public function edit_cuisine(){
 		if($this->input->post('update')){
 			$config['allowed_types']        = 'jpg|png';
-            $config['max_size']             = 10000;	
+            $config['max_size']             = 2000;	
             // $config['max_width']            = 1000;
             // $config['max_height']           = 768;
 
@@ -319,7 +319,7 @@ class Admin extends CI_Controller{
 
 				$this->image_moo
 				->load($config ['upload_path'] . '/' . $image['file_name'])
-				->resize_crop(1900,700)
+				->resize_crop(1300,700)
 				->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
 
 				$thumb = $config ['upload_path'] . '/' . $image['raw_name'].'_thumb'.$image['file_ext'];
@@ -407,12 +407,49 @@ class Admin extends CI_Controller{
 //Manage Settings
 	public function edit_background(){	
 		if($this->input->post('update')){
+			$config['allowed_types']        = 'jpg|png';
+            $config['max_size']             = 2000;	
+            // $config['max_width']            = 1000;
+            // $config['max_height']           = 768;
+
+            
+								
+			$config['upload_path']          = 'uploads/config';
+			$config['overwrite']			= True;
+			$this->upload->initialize($config);
+
+			//Check if the folder for the upload existed
+			if(!file_exists($config['upload_path']))
+			{
+				//if not make the folder so the upload is possible
+				mkdir($config['upload_path'], 0777, true);
+			}
+
+            if ($this->upload->do_upload('photo'))
+            {	
+            	$image = $this->upload->data();
+                //Get the link for the database
+                $photo = $config ['upload_path'] . '/' . $image['file_name'];
+                			//image_moo
+
+				$this->image_moo
+				->load($config ['upload_path'] . '/' . $image['file_name'])
+				->resize_crop(1300,700)
+				->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
+            }
+            else{
+            	$photo= $this->crud_model->get_by_condition('config',array('id' => 1))->row('background');
+            	
+            }
+
 			$data = array(
+				'photo' => $photo,
 
-					
+			);
+			$this->crud_model->update_data('config',$data,array('id' => 1));
 
-				);
-		}
+			redirect('admin');
+		}	
 	}
 
 }

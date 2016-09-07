@@ -15,8 +15,12 @@
         <div class="col-lg-4">
           <h3>Background</h3>
           
-          <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a>
-
+          <a href="<?php echo base_url().$configuration->background ?>" class="fancybox"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a>
+          <!-- <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a> -->
+          <?php echo form_open_multipart('',array('id' => 'editBackground')) ?>
+            <input type="file" class="form-control" id="photo" name="photo">
+          <?php echo form_close() ?>
+    
         </div>
 
         <div class="col-lg-4">
@@ -50,8 +54,9 @@
             <?php echo $driver->firstname.' '.$driver->lastname ?>
           </div>
           <div class="col-xs-6">
-              <span href="" data-toggle="modal" data-target="#approve" data-id="<?php echo $driver->id?>" data-account="driver" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-              </span>
+              <a href="<?php echo base_url('admin/approve_driver/'.$driver->id);?>">
+              <span onclick="verify('driver')" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+              </span></a>
               <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $driver->id?>" data-account="driver" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
               </span>
           </div>
@@ -74,7 +79,7 @@
           </div>
           <div class="col-xs-6">
               <a href="<?php echo base_url('admin/approve_client/'.$client->id);?>">
-              <span onclick="verify()" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+              <span onclick="verify('client')" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
               </span></a>
               <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
               </span>
@@ -95,8 +100,9 @@
             <?php echo $user->firstname.' '.$user->lastname ?>
           </div>
           <div class="col-xs-6">
-              <span href="" data-toggle="modal" data-target="#approve" data-id="<?php echo $user->id?>" data-account="user" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-              </span>
+              <!-- <a href="<?php echo base_url('admin/approve_user/'.$user->id);?>">
+              <span onclick="verify_client()" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+              </span></a> -->
               <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $user->id?>" data-account="user" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
               </span></div>
         </div>
@@ -130,31 +136,6 @@
   </div>
 </div><!-- Modal delete user end -->
 
-<!-- Modal background  -->
-<div id="background" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-<!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Change Background</h4>
-      </div>
-
-      <div class="modal-body">
-        <?php echo form_open_multipart('admin/edit_background'); ?>
-        <img src="<?php echo base_url().$configuration->background ?>" width="500" alt="">
-      </div>
-
-      <div class="modal-footer">
-        <input type="submit" name="update" value="Confirm" class="btn btn-primary">
-        <?php echo form_close() ?>
-      </div>
-
-    </div>
-  </div>
-</div><!-- Modal delete user end -->
-
-
 <script>
 $('#disapprove').on('show.bs.modal', function(e) {
 
@@ -170,14 +151,80 @@ $('#disapprove').on('show.bs.modal', function(e) {
 });
 </script>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".fancybox").fancybox();
+
+  });
+</script>
+
+
 <script>
-  function verify(){
+
+
+  function verify(type){
+
+    if(type == 'driver'){
+      id = <?php echo $driver->id ?>
+    }else if(type == 'client'){
+      id = <?php echo $client->id ?>
+    }
+
     $.ajax({
-      url: "<?php echo base_url('admin/approve_client/'.$client->id);?>",
+      url: "<?php echo base_url()?>" + "admin/approve_" + type + "/" + id,
       type: 'POST',
       cache : false,
       success: function(result){
-        alert($client->id);
+        setTimeout(function(){ location.reload(); }, 1000);
+        // if(result == 'success'){
+        //   swal("Login Success!", "You have succesfully logged in.", "success");
+        //   setTimeout(function(){ location.reload(); }, 1000);
+        // }else if(result == 'failed'){
+        //   swal("Login Failed!", "Your username or password is incorrect", "error");
+        //   swal({title: "Login Failed!",
+        //        text: "Your username or password is incorrect",   
+        //        timer: 1000,   
+        //        showConfirmButton: false,
+        //        type: "error" });
+        // }
+       
+        
+      }
+      
+    });
+  }
+
+  // function verify_driver(){
+  //   $.ajax({
+  //     url: "<?php echo base_url('admin/approve_driver/'.$driver->id);?>",
+  //     type: 'POST',
+  //     cache : false,
+  //     success: function(result){
+  //       setTimeout(function(){ location.reload(); }, 1000);
+  //       // if(result == 'success'){
+  //       //   swal("Login Success!", "You have succesfully logged in.", "success");
+  //       //   setTimeout(function(){ location.reload(); }, 1000);
+  //       // }else if(result == 'failed'){
+  //       //   swal("Login Failed!", "Your username or password is incorrect", "error");
+  //       //   swal({title: "Login Failed!",
+  //       //        text: "Your username or password is incorrect",   
+  //       //        timer: 1000,   
+  //       //        showConfirmButton: false,
+  //       //        type: "error" });
+  //       // }
+       
+        
+  //     }
+      
+  //   });
+  // }
+
+  function verify_user(){
+    $.ajax({
+      url: "<?php echo base_url('admin/approve_user/'.$user->id);?>",
+      type: 'POST',
+      cache : false,
+      success: function(result){
         setTimeout(function(){ location.reload(); }, 1000);
         // if(result == 'success'){
         //   swal("Login Success!", "You have succesfully logged in.", "success");

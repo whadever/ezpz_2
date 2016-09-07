@@ -10,12 +10,14 @@
     <!-- CSS-->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url() ?>fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/icon.jpg">
     <script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     
     
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
@@ -241,6 +243,7 @@
     </div>
   </div>
 </footer>
+
 
 
     <script>
