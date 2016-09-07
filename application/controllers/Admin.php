@@ -405,8 +405,14 @@ class Admin extends CI_Controller{
 	}
 
 //Manage Settings
-	public function edit_settings(){
-		$this->template->load('default_admin','admin/edit_settings');
+	public function edit_background(){	
+		if($this->input->post('update')){
+			$data = array(
+
+					
+
+				);
+		}
 	}
 
 }

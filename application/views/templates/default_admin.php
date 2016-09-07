@@ -205,14 +205,12 @@
 				<button id="menu-button" onclick="openNav()"><img src="<?php echo base_url() ?>assets/menu.png" width="30" alt="">
 				</button>
 			</div>
-			<h5 style="padding:10px;">Welcome, <?php echo $this->session->userdata('admin_username') ?></h5>
 	  	</div>
 	  	<div class="col-xs-8">
 		  	<div class="row">
 		  		<div class="col-sm-4"></div>
 		  		<div class="col-sm-4 text-center">
-		  			<a href="<?php echo base_url('home') ?>"><img src="<?php echo base_url() ?>assets/logo.jpg" style="margin-bottom:10px; padding-top: 20px;width:100%" class="img img-responsive" alt="">
-		  			</a>
+		  			<img src="<?php echo base_url() ?>assets/logo.jpg" style="margin-bottom:10px; padding-top: 20px;width:100%" class="img img-responsive" alt="">
 		  		</div>
 		  		<div class="col-sm-4"></div>
 	  		</div>

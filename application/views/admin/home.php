@@ -6,8 +6,36 @@
     </div>
   </div>    
   
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <h2 class="text-center">Current Settings</h2>
+      <div class="row text-center">
+        
+        <div class="col-lg-4">
+          <h3>Background</h3>
+          
+          <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a>
+
+        </div>
+
+        <div class="col-lg-4">
+          <h3>Primary Color</h3>
+          <div class="color" style="height:100px; width:100px; margin:auto; border-radius: 50%; background-color: <?php echo $configuration->primary_color ?>;">
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <h3>Service Fare</h3>
+        </div>
+      
+      </div>
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
   
-  <div class="row text-center">
+  <div class="row text-center" style="margin-top:5%;">
       
     <div class="col-lg-4 col-xs-12">
       <div class="row">
@@ -75,6 +103,7 @@
 
   </div>
 </div>
+
 <!-- Modal delete user -->
 <div id="disapprove" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -98,6 +127,31 @@
     </div>
   </div>
 </div><!-- Modal delete user end -->
+
+<!-- Modal background  -->
+<div id="background" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+<!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Change Background</h4>
+      </div>
+
+      <div class="modal-body">
+        <?php echo form_open_multipart('admin/edit_background'); ?>
+        <img src="<?php echo base_url().$configuration->background ?>" width="500" alt="">
+      </div>
+
+      <div class="modal-footer">
+        <input type="submit" name="update" value="Confirm" class="btn btn-primary">
+        <?php echo form_close() ?>
+      </div>
+
+    </div>
+  </div>
+</div><!-- Modal delete user end -->
+
 
 <script>
 $('#disapprove').on('show.bs.modal', function(e) {
