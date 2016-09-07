@@ -19,6 +19,7 @@
           <!-- <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a> -->
           <?php echo form_open_multipart('',array('id' => 'editBackground')) ?>
             <input type="file" class="form-control" id="photo" name="photo">
+            <input type="submit" value="Upload" class="form-control">
           <?php echo form_close() ?>
     
         </div>
