@@ -1,7 +1,13 @@
+<?php 
+  header("Content-type: text/css; charset: UTF-8");
+  
+  include_once("../application/libraries/config.php");
+  /** CEK KONEKSI **/
+
+ ?>
 
 /* Import Media Query */
 @import url('media.css');
-
 
 /*footer*/
 footer{
@@ -129,7 +135,7 @@ label{
 }
 
 .modal .modal-header{
-  background-color: #2c3e50; 
+  background-color: <?php echo $row->primary_color ?>; 
   color:white;
 }
 

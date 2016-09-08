@@ -69,14 +69,14 @@
 
           <div class="admin-box-content">
           <?php foreach($unapproved_drivers as $driver): ?>
-            <div class="row admin-box-content">
+            <div class="row admin-box-content" >
               <div class="col-xs-6" style="text-align:left;"">
                 <?php echo $driver->firstname.' '.$driver->lastname ?>
               </div>
               <div class="col-xs-6">
-                <div class="pull-right">
-                  <a href="<?php echo base_url('admin/approve_driver/'.$driver->id);?>">
-                  <span onclick="verify('driver')" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+                <div class="pull-right" id="driver_<?php echo $driver->id ?>">
+                  <a onclick='verify_test("<?php echo $driver->id ?>","<?php echo $driver->type ?>" )'>
+                  <span class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
                   </span></a>
                   <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $driver->id?>" data-account="driver" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
                   </span>
@@ -108,9 +108,9 @@
                     <?php echo $client->name ?>
                   </div>
                   <div class="col-xs-6">
-                    <div class="pull-right">
-                      <a href="<?php echo base_url('admin/approve_client/'.$client->id);?>">
-                      <span onclick="verify('client')" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+                    <div class="pull-right" id="client_<?php echo $client->id ?>">
+                      <a onclick='verify_test("<?php echo $client->id ?>","<?php echo $client->type ?>" )'>
+                      <span data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
                       </span></a>
                       <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
                       </span>
@@ -183,6 +183,29 @@
     </div>
   </div>
 </div><!-- Modal delete user end -->
+
+<script>
+
+
+  function verify_test(id,type){
+
+    $.ajax({
+      url: "<?php echo base_url()?>" + "admin/approve_" + type + "/" + id,
+      type: 'POST',
+      cache : false,
+      success: function(result){
+        // setTimeout(function(){ location.reload(); }, 1000);
+        if(result == 'success'){
+          // swal("Login Success!", "You have succesfully logged in.", "success");
+          // setTimeout(function(){ location.reload(); }, 1000);
+          $('#'+type+'_'+id).empty();
+          $('#'+type+'_'+id).append('Accepted <span class="glyphicon glyphicon-ok"></span>');
+        }
+        }
+    });
+  }
+  
+</script>
 
 <script>
 
@@ -307,39 +330,3 @@ $('#disapprove').on('show.bs.modal', function(e) {
 </script>
 
 
-<script>
-
-
-  function verify(type){
-
-    if(type == 'driver'){
-      id = <?php echo $driver->id ?>
-    }else if(type == 'client'){
-      id = <?php echo $client->id ?>
-    }
-
-    $.ajax({
-      url: "<?php echo base_url()?>" + "admin/approve_" + type + "/" + id,
-      type: 'POST',
-      cache : false,
-      success: function(result){
-        setTimeout(function(){ location.reload(); }, 1000);
-        // if(result == 'success'){
-        //   swal("Login Success!", "You have succesfully logged in.", "success");
-        //   setTimeout(function(){ location.reload(); }, 1000);
-        // }else if(result == 'failed'){
-        //   swal("Login Failed!", "Your username or password is incorrect", "error");
-        //   swal({title: "Login Failed!",
-        //        text: "Your username or password is incorrect",   
-        //        timer: 1000,   
-        //        showConfirmButton: false,
-        //        type: "error" });
-        // }
-       
-        
-      }
-      
-    });
-  }
-  
-</script>

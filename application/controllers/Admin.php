@@ -185,7 +185,8 @@ class Admin extends CI_Controller{
 		$this->crud_model->update_data('drivers',array('is_verified' => 1,'password' => $password), array('id' => $id));
 
 		$this->session->set_flashdata('password', $random_code);
-		redirect('admin');
+		#redirect('admin');
+		echo "success";
 
 
 	}
@@ -218,8 +219,8 @@ class Admin extends CI_Controller{
 		$this->crud_model->update_data('restaurants',array('is_verified' => 1,'password' => $password), array('id' => $id));
 
 		$this->session->set_flashdata('password', $random_code);
-		redirect('admin');
-
+		// redirect('admin');
+		echo "success";
 
 	}
 
