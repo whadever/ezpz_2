@@ -510,11 +510,11 @@ var number = <?php echo count($this->cart->contents()) ?>;
 <script>
 
 	function restaurant_still_closed(){
-		alert('Restaurant is closed at the moment. Please come back later')
+		swal('Sorry','Restaurant is currently closed. Please come back later','error')
 	}
 
 	function restaurant_closed(){
-		alert('Restaurant is closed today')
+		swal('Sorry','Restaurant is currently closed. Please come back later','error')
 	}
 
     function submit(){

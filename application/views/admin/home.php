@@ -15,50 +15,52 @@
 <!--Setting Row-->  
 <div class="admin-box">
   <div class="row">
-  <div class="col-md-12">
-        <div class="admin-box-head">
-          <h3 class="text-center">Current Settings</h3>
-        </div>
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">
-          
-          <div class="row text-center setting-row">
-            <div class="col-lg-4">
-              <h4>Background</h4>
-
-              <a href="<?php echo base_url().$configuration->background ?>" class="fancybox"><img class="setting-content" src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a>
-              <!-- <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a> -->
-              <?php echo form_open_multipart('',array('id' => 'editBackground')) ?>
-                <input type="file" class="form-control" onchange="edit_background()" id="photo" name="photo">
-              <?php echo form_close() ?>
-        
-            </div>
-
-            <div class="col-lg-4">
-              <h4>Primary Color</h4>
-              <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" >
-            </div>
-
-            <div class="col-lg-4">
-              <h4>Service Fare</h4>
-              <input type="range" class="setting-content" min="0" step="0.1" max="10" value="<?php echo $configuration->service_fare ?>" onchange="show_value()" id="fare"> 
-              <p id="show_fare"><?php echo NZD($configuration->service_fare) ?></p>     
-              <button type="button" class="btn btn-primary form-control" onclick="change_fare()">Change Fare</button>
-            </div>
-          
+    <div class="col-md-12">
+          <div class="admin-box-head">
+            <h3 class="text-center">Current Settings</h3>
           </div>
 
-        </div>
-        <div class="col-lg-2"></div>
-  </div>
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            
+            <div class="row text-center setting-row">
+              <div class="col-lg-4">
+                <h4>Background</h4>
+
+                <a href="<?php echo base_url().$configuration->background ?>" class="fancybox"><img class="setting-content" src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a>
+                <!-- <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a> -->
+                <?php echo form_open_multipart('',array('id' => 'editBackground')) ?>
+                  <input type="file" class="form-control" onchange="edit_background()" id="photo" name="photo">
+                <?php echo form_close() ?>
+          
+              </div>
+
+              <div class="col-lg-4">
+                <h4>Primary Color</h4>
+                <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" >
+              </div>
+
+              <div class="col-lg-4">
+                <h4>Service Fare</h4>
+                <input type="range" class="setting-content" min="0" step="0.1" max="10" value="<?php echo $configuration->service_fare ?>" onchange="show_value()" id="fare"> 
+                <p id="show_fare"><?php echo NZD($configuration->service_fare) ?></p>     
+                <button type="button" class="btn btn-primary form-control" onclick="change_fare()">Change Fare</button>
+              </div>
+            
+            </div>
+
+          </div>
+          <div class="col-lg-2"></div>
+    </div>
   </div>
 </div>
 <!--Setting Row ENd-->
   
-  <div class="row text-center" style="margin-top:5%;">
+<div class="row text-center" style="margin-top:5%;">
       
     <div class="col-lg-4 col-xs-12">
         <div class="admin-box">
+
           <div class="row">
             <div class="col-xs-12">
               <div class="admin-box-head">
@@ -68,31 +70,34 @@
           </div>
 
           <div class="admin-box-content">
-          <?php foreach($unapproved_drivers as $driver): ?>
-            <div class="row admin-box-content" >
-              <div class="col-xs-6" style="text-align:left;"">
-                <?php echo $driver->firstname.' '.$driver->lastname ?>
-              </div>
-              <div class="col-xs-6">
-                <div class="pull-right" id="driver_<?php echo $driver->id ?>">
-                  <a onclick='verify_test("<?php echo $driver->id ?>","<?php echo $driver->type ?>" )'>
-                  <span class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-                  </span></a>
-                  <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $driver->id?>" data-account="driver" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
-                  </span>
+            <?php foreach($unapproved_drivers as $driver): ?>
+                <div class="col-xs-6" style="text-align:left;"">
+                  <?php echo $driver->firstname.' '.$driver->lastname ?>
                 </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
+
+                <div class="col-xs-6">
+                  <div class="pull-right" id="driver_<?php echo $driver->id ?>">
+                    <a onclick='verify_test("<?php echo $driver->id ?>","<?php echo $driver->type ?>" )'>
+                    <span class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+                    </span></a>
+                    <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $driver->id?>" data-account="driver" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
+                    </span>
+                  </div>
+                </div>
+            <?php endforeach; ?>
+
             <div class="row">
               <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Drivers">
             </div>
+
           </div>
 
-        </div>
+        </div>  
     </div>
+
     <div class="col-lg-4 col-xs-12">
         <div class="admin-box">
+
           <div class="row">
             <div class="col-xs-12">
               <div class="admin-box-head">
@@ -100,6 +105,7 @@
               </div>
             </div>
           </div>
+
           <div class="admin-box-content">
               <?php foreach($unapproved_clients as $client): ?>
                 <div class="row">
@@ -117,17 +123,19 @@
                     </div>
                   </div>
                   </div>
-              <?php endforeach; ?>
+                <?php endforeach; ?>
               
-              <div class="row">
-                <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Clients">
-            </div>
+                <div class="row">
+                  <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Clients">
+                </div>
           </div>
+
         </div>
     </div>
 
     <div class="col-lg-4 col-xs-12">
       <div class="admin-box">
+
         <div class="row">
           <div class="col-xs-12">
             <div class="admin-box-head">
@@ -135,6 +143,7 @@
             </div>
           </div>
         </div>
+
         <div class="admin-box-content">
             <?php foreach($unapproved_users as $user): ?>
               <div class="row">
@@ -152,12 +161,14 @@
               </div>
             <?php endforeach; ?>
             <div class="row">
-              <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Users">
+              <input type="submit" class="btn btn-primary" name="app_drivers" value="Disapprove All Users">
             </div>
         </div>
+
       </div>
-      </div>
-  </div>
+    </div>
+
+</div>
 
 
 <!-- Modal delete user -->
