@@ -496,7 +496,7 @@ var number = <?php echo count($this->cart->contents()) ?>;
       
           },
           error: function(){
-          	alert('please login to place an order');
+          	swal('Sorry!','Please login to place an order','warning');
           }
          
         });
