@@ -66,6 +66,7 @@
               </div>
             </div>
           </div>
+
           <div class="admin-box-content">
           <?php foreach($unapproved_drivers as $driver): ?>
             <div class="row admin-box-content">
@@ -83,7 +84,11 @@
               </div>
             </div>
           <?php endforeach; ?>
+            <div class="row">
+              <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Drivers">
+            </div>
           </div>
+
         </div>
     </div>
     <div class="col-lg-4 col-xs-12">
@@ -96,23 +101,27 @@
             </div>
           </div>
           <div class="admin-box-content">
-          <?php foreach($unapproved_clients as $client): ?>
-            <div class="row">
+              <?php foreach($unapproved_clients as $client): ?>
+                <div class="row">
 
-              <div class="col-xs-6" style="text-align:left;">
-                <?php echo $client->name ?>
-              </div>
-              <div class="col-xs-6">
-                <div class="pull-right">
-                  <a href="<?php echo base_url('admin/approve_client/'.$client->id);?>">
-                  <span onclick="verify('client')" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-                  </span></a>
-                  <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
-                  </span>
-                </div>
-              </div>
-          <?php endforeach; ?>
-          </div>
+                  <div class="col-xs-6" style="text-align:left;">
+                    <?php echo $client->name ?>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="pull-right">
+                      <a href="<?php echo base_url('admin/approve_client/'.$client->id);?>">
+                      <span onclick="verify('client')" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+                      </span></a>
+                      <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
+                      </span>
+                    </div>
+                  </div>
+                  </div>
+              <?php endforeach; ?>
+              
+              <div class="row">
+                <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Drivers">
+            </div>
           </div>
         </div>
     </div>
@@ -127,21 +136,24 @@
           </div>
         </div>
         <div class="admin-box-content">
-        <?php foreach($unapproved_users as $user): ?>
-          <div class="row">
-            <div class="col-xs-6" style="text-align:left;">
-              <?php echo $user->firstname.' '.$user->lastname ?>
-            </div>
-            <div class="col-xs-6">
-              <div class="pull-right">
-                <a href="<?php echo base_url('admin/approve_user/'.$user->id);?>">
-                <span onclick="verify_client()" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-                </span></a>
-                <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $user->id?>" data-account="user" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
-                </span></div>
+            <?php foreach($unapproved_users as $user): ?>
+              <div class="row">
+                <div class="col-xs-6" style="text-align:left;">
+                  <?php echo $user->firstname.' '.$user->lastname ?>
+                </div>
+                <div class="col-xs-6">
+                  <div class="pull-right">
+                    <a href="<?php echo base_url('admin/approve_user/'.$user->id);?>">
+                    <span onclick="verify_client()" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+                    </span></a>
+                    <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $user->id?>" data-account="user" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
+                    </span></div>
+                  </div>
               </div>
-          </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+            <div class="row">
+              <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Drivers">
+            </div>
         </div>
       </div>
       </div>

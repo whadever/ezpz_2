@@ -231,6 +231,7 @@
 		}
 		.admin-box-content{
 			padding: 20px;
+			padding-bottom: 10px;
 		}
 	</style>
 
