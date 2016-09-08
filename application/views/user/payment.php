@@ -97,7 +97,7 @@
 	        </table>
 
 	        <label for="">Detail</label>
-          <div id="fare">Fare: $ 2.00 / Km</div>
+          <div id="fare">Fare: <?php echo NZD($configuration->service_fare) ?> / Km</div>
 	        <div id="distance_show">Distance: </div>
  			    <div id="duration_show">Arriving in: </div>
           <input type="hidden" name="distance" id="distance" value="">
@@ -221,7 +221,7 @@
 
             //get total cost
 
-            cost = distance * <?php echo 2 ?>;
+            cost = distance * <?php echo $configuration->service_fare ?>;
              if(cost < 5){
               cost = 5;
             }

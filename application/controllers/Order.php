@@ -51,6 +51,7 @@
 				$data['order'] = $this->db->get_where('orders', array('code' => $code))->row();
 				$data['order_details'] = $this->order_model->get_order_detail($data['order']->code);
 				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $data['order']->restaurant_id))->row();
+				
 
 
 				$this->template->load('default','user/payment', $data);
