@@ -120,7 +120,7 @@
               <?php endforeach; ?>
               
               <div class="row">
-                <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Drivers">
+                <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Clients">
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@
               </div>
             <?php endforeach; ?>
             <div class="row">
-              <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Drivers">
+              <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Users">
             </div>
         </div>
       </div>
