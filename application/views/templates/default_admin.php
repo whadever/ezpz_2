@@ -54,7 +54,7 @@
 		.sidenav a {
 		    padding: 8px 8px 8px 32px;
 		    text-decoration: none;
-		    font-size: 25px;
+		    font-size: 15px !important;
 		    color: #fff;
 		    display: block;
 		    transition: 0.3s;
@@ -68,12 +68,16 @@
 		}
 
 		/* Position and style the close button (top right corner) */
-		.closebtn {
+		.closebtn{
 		    position: absolute;
 		    top: 0;
-		    right: 25px;
-		    font-size: 36px !important;
+		    right: 15px;
+		    
 		    margin-left: 50px;
+		}
+		.closebtn:hover{
+			background-color: transparent!important;
+			color: red !important;
 		}
 
 		/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -91,7 +95,7 @@
 		#menu-button{
 			
 			background-color: transparent;
-			border : 1px solid #CCC;
+			border: none;
 			border-radius: 5px;
 			
 
@@ -108,7 +112,8 @@
 
 		#background-btn{
 
-			padding-top: 50px;
+			padding-top: 10px;
+			padding-bottom: 10px;
 
 		}
 
@@ -185,6 +190,10 @@
 		.table-striped tbody tr:nth-of-type(odd) {
 	    	background-color: #EFEFFE ;
 		}
+		.welcome{
+			color: #fff;
+
+		}
 	</style>
 
 
@@ -196,7 +205,7 @@
 	  <div class="company_logo" style="margin-bottom: 30px; padding-left: 32px">
 	  	<img src="<?php echo base_url()?>logo.png" width="100px" class="hidden-xs" style="margin-left:15%">
 	  </div>
-	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="border-bottom: none">&times;</a>
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="border-bottom: none;font-size:25px!important;">&times;</a>
 	  <a href="<?php echo base_url('admin') ?>">Home</a>
 	  <a href="<?php echo base_url('admin/users/1') ?>">User List</a>
 	  <a href="<?php echo base_url('admin/drivers/1') ?>">Driver List</a>
@@ -208,13 +217,29 @@
   </div>
 
 <div class="container-fluid">
-  	<div id="main">
-	  <div class="row">
-	  	<div class="col-xs-2">
+  	<div id="main" >
+	  <div class="row" style="background-color:#34495e;">
+	  	<div class="col-xs-3">
 	  		<div id="background-btn" class="col-xs-4">
-				<button id="menu-button" onclick="openNav()"><img src="<?php echo base_url() ?>assets/menu.png" width="30" alt="">
+				<button id="menu-button" onclick="openNav()"><img src="<?php echo base_url() ?>assets/menu.png" width="30" alt="" style="border:none;">
 				</button>
 			</div>
+			<div style="padding-top:15px;">
+				<span class="welcome">Welcome, <?php echo $this->session->userdata('admin_username') ?></span>
+			</div>
+	  	</div>
+	  	<div class="col-xs-6">
+		  	
+	  	</div>
+	  	<div class="col-xs-3" style="padding-top:15px;">
+	  		
+	  		<a href="<?php echo base_url('admin_login/logout') ?>"><span class="welcome pull-right"> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</span></a>
+	  	</div>
+	  </div>
+
+	  <div class="row" style="background-color:#ecf0f1;">
+	  	<div class="col-xs-2">
+	  		
 	  	</div>
 	  	<div class="col-xs-8">
 		  	<div class="row">
