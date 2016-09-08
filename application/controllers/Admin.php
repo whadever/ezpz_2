@@ -454,5 +454,39 @@ class Admin extends CI_Controller{
 			// redirect('admin');
 		}
 
+	public function edit_color(){
+		if($this->input->post()){
+
+			$data = array(
+
+					'primary_color' => $this->input->post('color')
+
+				);
+
+			$this->crud_model->update_data('configuration', $data, array('id' => 1));
+
+			echo 'success';
+		}
+		else{
+			echo 'failed';
+		}
+	}
+
+	public function edit_fare(){
+		if($this->input->post()){
+			$data = array(
+
+					'service_fare' => $this->input->post('fare')
+
+				);
+			$this->crud_model->update_data('configuration',$data, array('id' => 1));
+			echo "success";
+		}
+		else
+		{
+			echo "failed";
+		}
+	}	
+
 }
 ?>

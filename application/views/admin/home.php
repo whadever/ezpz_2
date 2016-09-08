@@ -1,3 +1,11 @@
+
+<style>
+  #color{
+    width: 100px;
+    height: 100px;
+  }
+</style>
+
 <div class="container">
 
   <div class="row">
@@ -25,14 +33,14 @@
 
         <div class="col-lg-4">
           <h3>Primary Color</h3>
-          <div class="color" style="height:100px; width:100px; margin:auto; border-radius: 50%; background-color: <?php echo $configuration->primary_color ?>;">
-          </div>
-
-          <input type="color" onchange="show_value()" id="color" name="color" class="form-control">
+          <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" >
         </div>
 
         <div class="col-lg-4">
           <h3>Service Fare</h3>
+          <input type="range" min="0" step="0.1" max="10" value="<?php echo $configuration->service_fare ?>" onchange="show_value()" id="fare"> 
+          <p id="show_fare"><?php echo NZD($configuration->service_fare) ?></p>     
+          <button type="button" class="btn btn-primary form-control" onclick="change_fare()">Change Fare</button>
         </div>
       
       </div>
@@ -140,6 +148,45 @@
 
 <script>
 
+function show_value(){
+  fare = $('#fare').val();
+  fare = Number(fare);
+  fare = fare.toFixed(2);
+  document.getElementById("show_fare").innerHTML = "$ "+fare;
+}
+
+function change_fare(){
+  
+  fare = $('#fare').val();
+  fare = Number(fare);
+  fare = fare.toFixed(2);
+
+  swal({   title: "You are about to change the service fare into $ "+$('#fare').val(),   text: "Click OK to Change",   type: "info",   showCancelButton: true,   closeOnConfirm: false,   showLoaderOnConfirm: true, }, function(){ 
+
+      $.ajax({
+
+          url: "<?php echo base_url(); ?>" + 'admin/edit_fare/',
+          type: 'post',
+          data: {fare:fare},
+          success: function(data) 
+          {
+            if(data == 'success'){
+              swal("Success!", "Service fare is succesfully changed .", "success");
+              setTimeout(function(){ location.reload(); }, 1000);
+            }else{
+              
+              swal({title: "Failed!",
+                   text: data,   
+                   timer: 2000,   
+                   showConfirmButton: false,
+                   type: "error" });
+            }
+          },
+        });
+
+  });
+}
+
 function edit_background(){
 
     var file = document.getElementById("photo");   
@@ -154,6 +201,32 @@ function edit_background(){
       data: formData,
       processData: false,
           contentType: false,
+      success: function(data) 
+      {
+        if(data == 'success'){
+          swal("Upload Success!", "You have succesfully Upload a photo.", "success");
+          setTimeout(function(){ location.reload(); }, 1000);
+        }else{
+          
+          swal({title: "Upload Failed!",
+               text: data,   
+               timer: 2000,   
+               showConfirmButton: false,
+               type: "error" });
+        }
+      },
+    });
+  }
+
+  function edit_color(){
+     
+     color = $('#color').val();
+
+     $.ajax({
+
+      url: "<?php echo base_url(); ?>" + 'admin/edit_color/',
+      type: 'post',
+      data: {color:color},
       success: function(data) 
       {
         if(data == 'success'){
