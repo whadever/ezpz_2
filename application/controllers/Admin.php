@@ -406,9 +406,9 @@ class Admin extends CI_Controller{
 
 //Manage Settings
 	public function edit_background(){	
-		if($this->input->post('update')){
-			$config['allowed_types']        = 'jpg|png';
-            $config['max_size']             = 2000;	
+		if($this->input->post()){
+			$config['allowed_types']        = 'jpg|png|jpeg';
+            $config['max_size']             = 5000;	
             // $config['max_width']            = 1000;
             // $config['max_height']           = 768;
 
@@ -425,7 +425,7 @@ class Admin extends CI_Controller{
 				mkdir($config['upload_path'], 0777, true);
 			}
 
-            if ($this->upload->do_upload('photo'))
+            if ($this->upload->do_upload('upload'))
             {	
             	$image = $this->upload->data();
                 //Get the link for the database
@@ -447,8 +447,10 @@ class Admin extends CI_Controller{
 
 			);
 			$this->crud_model->update_data('config',$data,array('id' => 1));
-
-			redirect('admin');
+			echo "success";
+			// redirect('admin');
+		}else{
+			echo 'failed';
 		}	
 	}
 

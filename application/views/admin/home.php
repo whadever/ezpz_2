@@ -18,8 +18,9 @@
           <a href="<?php echo base_url().$configuration->background ?>" class="fancybox"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a>
           <!-- <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a> -->
           <?php echo form_open_multipart('',array('id' => 'editBackground')) ?>
-            <input type="file" class="form-control" id="photo" name="photo">
-            <input type="submit" value="Upload" class="form-control">
+            <input type="file" class="form-control" onchange="edit_background()" id="photo" name="photo">
+            <input type="hidden" value="ninja" name="serahlu">
+            <button type="button" class="form-control" onclick="edit_background()">Upload</button>
           <?php echo form_close() ?>
     
         </div>
@@ -138,6 +139,65 @@
 </div><!-- Modal delete user end -->
 
 <script>
+
+function edit_background(){
+
+    var file = document.getElementById("photo");   
+    /* Create a FormData instance */
+    var formData = new FormData();
+    /* Add the file */ 
+    formData.append("upload", file.files[0]);
+
+    alert(file.files[0]);
+
+    $.ajax({
+      url: "<?php echo base_url(); ?>" + 'admin/edit_background/',
+      type: 'post',
+      data: formData,
+      processData: false,
+          contentType: false,
+      success: function(data) 
+      {
+        alert(data);  
+      },
+    });
+  }
+
+
+  //  function edit_background(){
+
+  //   data = $('#editBackground').serialize();
+
+  //   alert(data);
+
+  //   $.ajax({
+  //     url: "<?php echo base_url('admin/edit_background')?>",
+  //     data : data,
+  //     type: 'POST',
+  //     cache : false,
+  //     success: function(result){
+  //       alert(result);
+  //       if(result == 'success'){
+  //         swal("Login Success!", "You have succesfully logged in.", "success");
+  //         setTimeout(function(){ location.reload(); }, 1000);
+  //       }else if(result == 'failed'){
+  //         swal("Login Failed!", "Your username or password is incorrect", "error");
+  //         swal({title: "Login Failed!",
+  //              text: "Your username or password is incorrect",   
+  //              timer: 1000,   
+  //              showConfirmButton: false,
+  //              type: "error" });
+  //       }
+       
+        
+  //     }
+      
+  //   });
+  // }
+  
+</script>
+
+<script>
 $('#disapprove').on('show.bs.modal', function(e) {
 
     //get data-id attribute of the clicked element
@@ -194,54 +254,5 @@ $('#disapprove').on('show.bs.modal', function(e) {
       
     });
   }
-
-  // function verify_driver(){
-  //   $.ajax({
-  //     url: "<?php echo base_url('admin/approve_driver/'.$driver->id);?>",
-  //     type: 'POST',
-  //     cache : false,
-  //     success: function(result){
-  //       setTimeout(function(){ location.reload(); }, 1000);
-  //       // if(result == 'success'){
-  //       //   swal("Login Success!", "You have succesfully logged in.", "success");
-  //       //   setTimeout(function(){ location.reload(); }, 1000);
-  //       // }else if(result == 'failed'){
-  //       //   swal("Login Failed!", "Your username or password is incorrect", "error");
-  //       //   swal({title: "Login Failed!",
-  //       //        text: "Your username or password is incorrect",   
-  //       //        timer: 1000,   
-  //       //        showConfirmButton: false,
-  //       //        type: "error" });
-  //       // }
-       
-        
-  //     }
-      
-  //   });
-  // }
-
-  function verify_user(){
-    $.ajax({
-      url: "<?php echo base_url('admin/approve_user/'.$user->id);?>",
-      type: 'POST',
-      cache : false,
-      success: function(result){
-        setTimeout(function(){ location.reload(); }, 1000);
-        // if(result == 'success'){
-        //   swal("Login Success!", "You have succesfully logged in.", "success");
-        //   setTimeout(function(){ location.reload(); }, 1000);
-        // }else if(result == 'failed'){
-        //   swal("Login Failed!", "Your username or password is incorrect", "error");
-        //   swal({title: "Login Failed!",
-        //        text: "Your username or password is incorrect",   
-        //        timer: 1000,   
-        //        showConfirmButton: false,
-        //        type: "error" });
-        // }
-       
-        
-      }
-      
-    });
-  }
+  
 </script>
