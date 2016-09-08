@@ -6,121 +6,147 @@
   }
 </style>
 
-<div class="container">
 
   <div class="row">
     <div class="col-xs-12 text-center">
       <h2 style="margin-bottom:20px;">Welcome to Reyner's God Page</h2>
     </div>
   </div>    
-  
+<!--Setting Row-->  
+<div class="admin-box">
   <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-      <h2 class="text-center">Current Settings</h2>
-      <div class="row text-center">
-        
-        <div class="col-lg-4">
-          <h3>Background</h3>
+  <div class="col-md-12">
+        <div class="admin-box-head">
+          <h3 class="text-center">Current Settings</h3>
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
           
-          <a href="<?php echo base_url().$configuration->background ?>" class="fancybox"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a>
-          <!-- <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a> -->
-          <?php echo form_open_multipart('',array('id' => 'editBackground')) ?>
-            <input type="file" class="form-control" onchange="edit_background()" id="photo" name="photo">
-          <?php echo form_close() ?>
-    
-        </div>
+          <div class="row text-center setting-row">
+            <div class="col-lg-4">
+              <h4>Background</h4>
 
-        <div class="col-lg-4">
-          <h3>Primary Color</h3>
-          <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" >
-        </div>
+              <a href="<?php echo base_url().$configuration->background ?>" class="fancybox"><img class="setting-content" src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a>
+              <!-- <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a> -->
+              <?php echo form_open_multipart('',array('id' => 'editBackground')) ?>
+                <input type="file" class="form-control" onchange="edit_background()" id="photo" name="photo">
+              <?php echo form_close() ?>
+        
+            </div>
 
-        <div class="col-lg-4">
-          <h3>Service Fare</h3>
-          <input type="range" min="0" step="0.1" max="10" value="<?php echo $configuration->service_fare ?>" onchange="show_value()" id="fare"> 
-          <p id="show_fare"><?php echo NZD($configuration->service_fare) ?></p>     
-          <button type="button" class="btn btn-primary form-control" onclick="change_fare()">Change Fare</button>
-        </div>
-      
-      </div>
+            <div class="col-lg-4">
+              <h4>Primary Color</h4>
+              <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" >
+            </div>
 
-    </div>
-    <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+              <h4>Service Fare</h4>
+              <input type="range" class="setting-content" min="0" step="0.1" max="10" value="<?php echo $configuration->service_fare ?>" onchange="show_value()" id="fare"> 
+              <p id="show_fare"><?php echo NZD($configuration->service_fare) ?></p>     
+              <button type="button" class="btn btn-primary form-control" onclick="change_fare()">Change Fare</button>
+            </div>
+          
+          </div>
+
+        </div>
+        <div class="col-lg-2"></div>
   </div>
+  </div>
+</div>
+<!--Setting Row ENd-->
   
   <div class="row text-center" style="margin-top:5%;">
       
     <div class="col-lg-4 col-xs-12">
-      <div class="row">
-        <div class="col-xs-12">
-          <a href="<?php echo base_url('admin/drivers/0') ?>">Unapproved Drivers <span class="badge"> <?php echo count($unapproved_drivers) ?></span></a>
+        <div class="admin-box">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="admin-box-head">
+                <a href="<?php echo base_url('admin/drivers/0') ?>"><h4>Unapproved Drivers <span class="badge"> <?php echo count($unapproved_drivers) ?></span></h4></a>
+              </div>
+            </div>
+          </div>
+          <div class="admin-box-content">
+          <?php foreach($unapproved_drivers as $driver): ?>
+            <div class="row admin-box-content">
+              <div class="col-xs-6" style="text-align:left;"">
+                <?php echo $driver->firstname.' '.$driver->lastname ?>
+              </div>
+              <div class="col-xs-6">
+                <div class="pull-right">
+                  <a href="<?php echo base_url('admin/approve_driver/'.$driver->id);?>">
+                  <span onclick="verify('driver')" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+                  </span></a>
+                  <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $driver->id?>" data-account="driver" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
+                  </span>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+          </div>
         </div>
-      </div>
+    </div>
+    <div class="col-lg-4 col-xs-12">
+        <div class="admin-box">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="admin-box-head">
+                <a href="<?php echo base_url('admin/clients/0') ?>"><h4>Unapproved Clients <span class="badge"> <?php echo count($unapproved_clients) ?></span></h4></a>
+              </div>
+            </div>
+          </div>
+          <div class="admin-box-content">
+          <?php foreach($unapproved_clients as $client): ?>
+            <div class="row">
 
-      <?php foreach($unapproved_drivers as $driver): ?>
-        <div class="row">
-          <div class="col-xs-6" style="text-align:left;"">
-            <?php echo $driver->firstname.' '.$driver->lastname ?>
+              <div class="col-xs-6" style="text-align:left;">
+                <?php echo $client->name ?>
+              </div>
+              <div class="col-xs-6">
+                <div class="pull-right">
+                  <a href="<?php echo base_url('admin/approve_client/'.$client->id);?>">
+                  <span onclick="verify('client')" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+                  </span></a>
+                  <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
+                  </span>
+                </div>
+              </div>
+          <?php endforeach; ?>
           </div>
-          <div class="col-xs-6">
-              <a href="<?php echo base_url('admin/approve_driver/'.$driver->id);?>">
-              <span onclick="verify('driver')" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-              </span></a>
-              <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $driver->id?>" data-account="driver" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
-              </span>
           </div>
         </div>
-      <?php endforeach; ?>
     </div>
 
     <div class="col-lg-4 col-xs-12">
-      <div class="row">
-        <div class="col-xs-12">
-          <a href="<?php echo base_url('admin/clients/0') ?>">Unapproved Clients <span class="badge"> <?php echo count($unapproved_clients) ?></span></a>
+      <div class="admin-box">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="admin-box-head">
+              <a href="<?php echo base_url('admin/drivers/0') ?>"><h4>Unverified Users <span class="badge"> <?php echo count($unapproved_users) ?></span></h4></a>
+            </div>
+          </div>
+        </div>
+        <div class="admin-box-content">
+        <?php foreach($unapproved_users as $user): ?>
+          <div class="row">
+            <div class="col-xs-6" style="text-align:left;">
+              <?php echo $user->firstname.' '.$user->lastname ?>
+            </div>
+            <div class="col-xs-6">
+              <div class="pull-right">
+                <a href="<?php echo base_url('admin/approve_user/'.$user->id);?>">
+                <span onclick="verify_client()" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
+                </span></a>
+                <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $user->id?>" data-account="user" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
+                </span></div>
+              </div>
+          </div>
+        <?php endforeach; ?>
         </div>
       </div>
-
-      <?php foreach($unapproved_clients as $client): ?>
-        <div class="row">
-
-          <div class="col-xs-6" style="text-align:left;">
-            <?php echo $client->name ?>
-          </div>
-          <div class="col-xs-6">
-              <a href="<?php echo base_url('admin/approve_client/'.$client->id);?>">
-              <span onclick="verify('client')" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-              </span></a>
-              <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $client->id?>" data-account="client" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
-              </span>
-          </div>
-        </div>
-      <?php endforeach; ?>
-    </div>
-
-    <div class="col-lg-4 col-xs-12">
-      <div class="row">
-        <div class="col-xs-12">
-          <a href="<?php echo base_url('admin/drivers/0') ?>">Unverified Users <span class="badge"> <?php echo count($unapproved_users) ?></span></a>
-        </div>
       </div>
-      <?php foreach($unapproved_users as $user): ?>
-        <div class="row">
-          <div class="col-xs-6" style="text-align:left;">
-            <?php echo $user->firstname.' '.$user->lastname ?>
-          </div>
-          <div class="col-xs-6">
-              <!-- <a href="<?php echo base_url('admin/approve_user/'.$user->id);?>">
-              <span onclick="verify_client()" class="glyphicon glyphicon-ok" style="cursor:pointer; font-size: 20px">      
-              </span></a> -->
-              <span href="" data-toggle="modal" data-target="#disapprove" data-id="<?php echo $user->id?>" data-account="user" class="glyphicon glyphicon-remove" style="cursor:pointer; font-size: 20px">      
-              </span></div>
-        </div>
-      <?php endforeach; ?>
-    </div>
-
   </div>
-</div>
+
 
 <!-- Modal delete user -->
 <div id="disapprove" class="modal fade" role="dialog">

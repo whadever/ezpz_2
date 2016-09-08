@@ -205,6 +205,33 @@
 			background-color: #34495e;
 			color: #fff;
 		}
+		.admin-box{
+			border:1px solid #34495e;
+			border-radius: 10px;
+			margin-bottom: 20px;
+		}
+		.admin-box h3,.admin-box h4{
+			margin: 0px;
+		}
+		.admin-box-head{
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			background-color: #34495e;
+			padding: 10px;
+			color: #fff;
+		}
+		.admin-box-head a{
+			color: #fff;
+		}
+		.setting-row{
+			padding: 20px;
+		}
+		.setting-content{
+			margin-bottom: 20px;
+		}
+		.admin-box-content{
+			padding: 20px;
+		}
 	</style>
 
 
@@ -262,10 +289,8 @@
 	  	</div>
 	  	<div class="col-xs-2">
 	  	</div>
-	  </div>
-	  <hr>
-		
-		<div class="row">
+	  </div>		
+	 <div class="row">
 			<div class="col-xs-12" style="margin-bottom:20px;">
 				<?php echo $body ?>
 			</div>
