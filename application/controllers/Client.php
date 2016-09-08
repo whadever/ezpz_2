@@ -28,7 +28,7 @@ class Client extends CI_Controller{
 
 		$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
 
-		$data['background'] = base_url().$data['restaurant']->photo;
+		$data['background'] =$data['restaurant']->photo;
 		$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 
 		$data['days'] = array('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
@@ -46,7 +46,7 @@ class Client extends CI_Controller{
 
 
 		$data['page_title'] = 'Profile';
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['background'] = $data['restaurant']->photo;
 		$data['client'] = $this->crud_model->get_by_condition('restaurants',array('id' => $id))->row();
 		$this->template->load('default_client','client/profile', $data);
 	}
@@ -87,7 +87,7 @@ class Client extends CI_Controller{
 		$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $this->session->userdata('user_id')))->row();
 		$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
 		$data['page_title'] = 'Menu';
-		$data['background'] = base_url().$data['restaurant']->photo;
+		$data['background'] = $data['restaurant']->photo;
 		$data['client'] = $this->crud_model->get_by_condition('restaurants',array('id' => $id))->row();
 		$this->template->load('default_client','client/menu', $data);
 	}

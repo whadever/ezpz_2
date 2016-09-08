@@ -33,7 +33,8 @@ class Driver extends CI_Controller{
 
 
 		$data['page_title'] = 'Driver';
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 		$data['orders'] = $this->order_model->get_orders();
 
 		$this->template->load('default_driver','driver/home',$data);
@@ -47,7 +48,8 @@ class Driver extends CI_Controller{
 
 
 		$data['page_title'] = 'Profile';
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 		$data['order_history'] = $this->driver_model->get_order_history($id)->result();
 		$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $id))->row();
 		$this->template->load('default_driver','driver/profile', $data);
@@ -59,7 +61,8 @@ class Driver extends CI_Controller{
 		}
 		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 		$data['page_title'] = 'Edit Profile';
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 		$data['user'] = $this->crud_model->get_by_condition('drivers',array('id' => $id))->row();
 
 		if($this->input->post('update')){
@@ -144,7 +147,8 @@ class Driver extends CI_Controller{
 
 	public function accept_order($code){
 		$data['page_title'] = 'Driver';
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 		$driver_id = $this->session->userdata('user_id');
 
 		$this->db->where('code',$code);
@@ -163,7 +167,8 @@ class Driver extends CI_Controller{
 
 	public function delivery($code){
 		$data['page_title'] = 'Driver';
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 		$driver_id = $this->session->userdata('user_id');
 
 		$this->db->where('code',$code);
@@ -190,7 +195,8 @@ class Driver extends CI_Controller{
 
 	public function waiting_payment($code){
 		$data['page_title'] = 'Waiting Payment';
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 
 		$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $this->session->userdata('user_id')))->row();
 		$data['order'] = $this->crud_model->get_by_condition('orders',array('code' => $code))->row();
@@ -253,7 +259,8 @@ class Driver extends CI_Controller{
 
 
 	public function credits(){
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 	
 		$data['page_title'] = "Credit Top Up";
 		$data['driver_email'] = $this->crud_model->get_by_condition('drivers', array('id' => $this->session->userdata('user_id')))->row()->email;
@@ -279,7 +286,8 @@ class Driver extends CI_Controller{
 			$id = $this->session->userdata('user_id');
 		}
 
-		$data['background'] = base_url()."images/pihza.jpg";	
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 		$data['page_title'] = "Order History";
 
 		$data['order_history'] = $this->driver_model->get_order_history($id)->result();
@@ -303,7 +311,8 @@ class Driver extends CI_Controller{
 		
 			$data['earnings'] = $this->driver_model->get_earnings($id,$date)->result();
 
-			$data['background'] = base_url()."images/pihza.jpg";	
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;	
 			$data['page_title'] = "My Earnings";
 
 			if($this->input->post('month') == '01'){
@@ -383,7 +392,8 @@ class Driver extends CI_Controller{
 
 			$data['earnings'] = $this->driver_model->get_earnings($id,date('Y-m'))->result();
 
-			$data['background'] = base_url()."images/pihza.jpg";	
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;	
 			$data['page_title'] = "My Earnings";
 
 			if(date('m') == '01'){

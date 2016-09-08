@@ -212,7 +212,7 @@
 
   <body>
 
-  <div id="mySidenav" class="sidenav">
+  <div id="mySidenav" class="sidenav" >
 	  <div class="company_logo" style="margin-bottom: 30px; padding-left: 32px">
 	  	<img src="<?php echo base_url()?>logo.png" width="100px" class="hidden-xs" style="margin-left:15%">
 	  </div>
@@ -229,7 +229,7 @@
 
 <div class="container-fluid">
   	<div id="main" >
-	  <div class="row" style="background-color:#34495e;">
+	  <div class="row" style="background-color:#34495e; height:50px;">
 	  	<div class="col-sm-3 col-xs-12">
 	  		<div id="background-btn" class="col-xs-4">
 				<button id="menu-button" onclick="openNav()"><img src="<?php echo base_url() ?>assets/menu.png" width="30" alt="" style="border:none;">
@@ -290,6 +290,7 @@
 	    document.getElementById("main").style.marginLeft = "250px";
 	    //document.getElementByClassName("nth-of-type(odd)").style.backgroundColor = "rgba(0,0,0,0.4)";
 	    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+	    $('#menu-button').hide();
 
 	}
 
@@ -298,6 +299,7 @@
 	    document.getElementById("mySidenav").style.width = "0";
 	    document.getElementById("main").style.marginLeft = "0";
 	    document.body.style.backgroundColor = "white";
+	    $('#menu-button').show();
 	}
 	</script>
     

@@ -89,7 +89,7 @@
   </header>
 
 <!--Full Div Image from div bg-->
-<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; ;background-image: url(<?php echo $background ?>);" data-stellar-background-ratio="0.5">
+<div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat; ;background-image: url(<?php echo base_url().$background ?>);" data-stellar-background-ratio="0.5">
 <div class="row" id="body" style="width:100%; height: 20px">&nbsp;</div>
 </div>
 

@@ -44,7 +44,9 @@
 				}
 
 				$data['code'] = $code;
-				$data['background'] = base_url().'images/pihza.jpg';
+				$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+				$data['background'] = $data['configuration']->background;
+
 				$data['page_title'] = 'Payment';
 				$data['order'] = $this->db->get_where('orders', array('code' => $code))->row();
 				$data['order_details'] = $this->order_model->get_order_detail($data['order']->code);
@@ -123,7 +125,9 @@
 			}elseif($this->session->userdata('order_status') == 1){
 				
 				$data['order'] = $this->crud_model->get_by_condition('orders', array('code' => $code))->row();
-				$data['background'] = base_url().'images/pihza.jpg';
+				$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+				$data['background'] = $data['configuration']->background;
+
 				$data['page_title'] = 'Waiting for Driver';
 			
 
@@ -154,7 +158,9 @@
 				redirect('user');
 			}
 			$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $data['order']->driver_id))->row();
-			$data['background'] = base_url().'images/pihza.jpg';
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;
+
 			$this->template->load('default_ordering','user/driver_found',$data);
 
 		}

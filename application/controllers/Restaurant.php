@@ -53,13 +53,15 @@
 				
 				$data['page_title']	= 'Restaurants';
 				$data['restaurants']= $this->restaurant_model->get_restaurants($cuisine->id);
-				$data['background'] = base_url().$cuisine->photo;
+				$data['background'] = $cuisine->photo;
 
 			}else{
 				$data['cuisine_name'] = "All Restaurants";
 				$data['page_title']	= 'Restaurants';
 				$data['restaurants']=$this->crud_model->get_by_condition('restaurants',array('is_verified' => 1))->result();
-				$data['background'] = base_url()."images/pihza.jpg";
+				$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+				$data['background'] = $data['configuration']->background;
+
 			}
 				
 				$data['lists'] = $this->crud_model->get_data('restaurants')->result();
@@ -95,7 +97,7 @@
 
 			$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $data['restaurant']->id))->result();
 
-			$data['background'] = base_url().$data['restaurant']->photo;
+			$data['background'] = $data['restaurant']->photo;
 			$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 
 			$data['comments'] = $this->restaurant_model->get_comments($data['restaurant']->id);

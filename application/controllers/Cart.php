@@ -103,7 +103,8 @@
 			}
 			$data['page_title']	= 'Your Shopping';
 			$data['items']		= $this->cart->contents();
-			$data['background'] = base_url()."images/pihza.jpg";
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;
 			$data['user'] = $this->crud_model->get_by_condition('users',array('id' => $this->session->userdata('user_id')))->row();
 			$this->template->load('default','cart/checkout',$data);
 			// $this->load->view('cart/checkout', $data);
@@ -117,7 +118,8 @@
 			}
 			$data['page_title'] = 'Your Shopping Cart';
 			$data['items'] 		= $this->cart->contents() ;
-			$data['background'] = base_url()."images/pihza.jpg";
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;
 			$this->template->load('default','cart/overview', $data);
 		}
 

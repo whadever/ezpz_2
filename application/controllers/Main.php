@@ -37,15 +37,19 @@
 			$data['page_title'] = 'Home';
 			$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 			$data['lists'] = $this->crud_model->get_data('restaurants')->result();
-			$data['background'] = base_url()."images/pihza.jpg";
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;
+
 			$this->template->load('default','main/home' ,$data);	
 			
 		}
 
 		public function about(){
 			$data['page_title'] = 'About';
-			$data['background'] = base_url()."images/pihza.jpg";
 			$data['lists'] = $this->crud_model->get_data('restaurants')->result();
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;
+
 			$this->template->load('default','main/about' ,$data);	
 		}
 

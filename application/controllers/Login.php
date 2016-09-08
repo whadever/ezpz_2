@@ -44,7 +44,8 @@ class Login extends CI_Controller{
 
 	public function register($type = '')
 	{
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
 
 			if($this->session->userdata('type') == 'user' || !$this->session->userdata('user_id'))
 			{
@@ -83,7 +84,8 @@ class Login extends CI_Controller{
 		if($this->form_validation->run() == FALSE){
 
 			$data['page_title'] = 'Register';
-			$data['background'] = base_url()."images/pihza.jpg";
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;
 
 
 			$this->template->load('default_login', 'login/register_user',$data);
@@ -252,7 +254,9 @@ class Login extends CI_Controller{
 		if($this->form_validation->run() == FALSE){
 
 			$data['page_title'] = 'Register';
-			$data['background'] = $data['background'] = base_url()."images/pihza.jpg";
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;
+
 
 			$this->template->load('default_login', 'login/register_client',$data);
 
@@ -429,7 +433,9 @@ class Login extends CI_Controller{
 		if($param1 == 'forget')
 		{
 			$data['page_title'] = 'Forget Password';
-			$data['background'] = base_url()."images/pihza.jpg";
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+			$data['background'] = $data['configuration']->background;
+
 			$this->template->load('default_login','login/forget_password', $data);
 		}else if($param1 == 'reset')
 		{
@@ -512,7 +518,9 @@ class Login extends CI_Controller{
 			redirect($this->session->userdata('type'));
 		}
 
-		$data['background'] = base_url()."images/pihza.jpg";
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
+
 		$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 		$data['page_title'] = "Verify Account";
 

@@ -25,6 +25,8 @@
 
 </div>
 
+<?php echo $background; ?>
+
 <script>
 
 var test = [""];

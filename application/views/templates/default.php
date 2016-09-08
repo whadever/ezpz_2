@@ -103,7 +103,7 @@
 <!--Full Div Image from div bg-->
 <div id="iscroll" style="background-attachment:fixed;">
   <div id="wrap">
-    <div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat;background-image: url(<?php echo $background ?>); padding-top:0px;" data-stellar-background-ratio="0.3" data-stellar-vertical-offset="50">
+    <div class="container-fluid image-full" id="top" style="background-size: cover; background-position:center center ;background-repeat: no-repeat;background-image: url(<?php echo base_url().$background ?>); padding-top:0px;" data-stellar-background-ratio="0.3" data-stellar-vertical-offset="50">
         <div class="row" id="body">
             <form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
             <div class="form-group center-block" id="search_bar" style="margin-top:20%;">
