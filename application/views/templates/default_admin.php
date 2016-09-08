@@ -72,7 +72,6 @@
 		    position: absolute;
 		    top: 0;
 		    right: 15px;
-		    
 		    margin-left: 50px;
 		}
 		.closebtn:hover{
@@ -102,7 +101,7 @@
 		}
 
 		#menu-button:hover{
-			background-color: #FFF12C;
+			background-color: rgba(236, 240, 241,0.5);
 			-webkit-transition: all 1s ease;
 			-moz-transition: all 0.6s ease;
 			-ms-transition: all 0.6s ease;
@@ -192,8 +191,8 @@
 		}
 		.welcome{
 			color: #fff;
-
 		}
+		
 	</style>
 
 
@@ -233,7 +232,7 @@
 	  	</div>
 	  	<div class="col-xs-3" style="padding-top:15px;">
 	  		
-	  		<a href="<?php echo base_url('admin_login/logout') ?>"><span class="welcome pull-right"> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</span></a>
+	  		<a href="<?php echo base_url('admin_login/logout') ?>" class="logout"><span class="welcome pull-right"> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</span></a>
 	  	</div>
 	  </div>
 
