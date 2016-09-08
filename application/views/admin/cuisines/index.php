@@ -1,9 +1,10 @@
 <div class="row" style="margin-bottom: 20px">
 	<div class="col-xs-4">
-		<h2>Manage cuisines</h2>
+		<h2 style="margin-top:0px;">Manage Cuisines</h2>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#add_cuisine">Add Cuisine</button>
 	</div>
 	<div class="col-xs-8">
-    <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_cuisine">Add Cuisine</button>
+    
 	</div>
 </div>
 
@@ -67,7 +68,7 @@
       </div>
       <div class="modal-footer">
         <input type="submit" name="submit" value="Submit " class="btn btn-primary">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
         <?php echo form_close() ?>
       </div>
     </div>

@@ -129,31 +129,34 @@
 	    	border-bottom: none;
 	    }
 
-		.modal-header{
-			background-color: #FFF12C;
-			color: black;
+		
+		.modal-header .modal-title{
+			color: #fff!important;
+			font-size: 25px !important;
+			font-weight: bold !important;
 		}
 
 		.modal-footer{
-			background-color: #FFF12C;
+			background-color: #fff;
+			color: #fff;
 		}
 
 		.btn-primary:hover{
-			background-color: #FFF12C;
-			border: 1px solid black;
-			color: black;	
+			background-color: black;
+			color: #fff;
+			border: black 1px solid;	
 		}
 
 		.btn-primary{
-			background-color: black;
+			background-color: #34495e;
 			color: white;
-			border: 1px solid black;
+			border: #34495e 1px solid;
 		}
 			
 		.btn-primary:focus, .btn-primary.focus {
-	      background-color: #FFF12C;
-		  border: 1px solid black;
-		  color: black; 
+	      background-color: #adbdd1;
+		  border: 1px solid  #adbdd1;
+		  color: #fff; 
 	    }
 
 	    .btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle.focus {
@@ -192,7 +195,16 @@
 		.welcome{
 			color: #fff;
 		}
-		
+		.table-striped >tbody>tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+		   background-color: #eff2f6 !important;
+		}
+		table, table>tbody>tr>td, table>thead>tr>th {
+			border-color: #fff!important;
+		}
+		table>thead>tr>th{
+			background-color: #34495e;
+			color: #fff;
+		}
 	</style>
 
 
@@ -210,7 +222,7 @@
 	  <a href="<?php echo base_url('admin/drivers/1') ?>">Driver List</a>
 	  <a href="<?php echo base_url('admin/clients/1') ?>">Client List</a>
 	  <a href="<?php echo base_url('admin/cuisines') ?>">Cuisines</a>
-	  <a href="<?php echo base_url('home/change_pass') ?>">Change Password</a>
+	  <a href="<?php echo base_url('home/change_pass') ?>">Edit Profile</a>
 	  <a href="<?php echo base_url('admin_login/logout') ?>">Logout</a>
 	  <div class="bottom-align-text text-center">Copyright &copy; 2016 | Hassee Developers</div>
   </div>
@@ -218,7 +230,7 @@
 <div class="container-fluid">
   	<div id="main" >
 	  <div class="row" style="background-color:#34495e;">
-	  	<div class="col-xs-3">
+	  	<div class="col-sm-3 col-xs-12">
 	  		<div id="background-btn" class="col-xs-4">
 				<button id="menu-button" onclick="openNav()"><img src="<?php echo base_url() ?>assets/menu.png" width="30" alt="" style="border:none;">
 				</button>
@@ -227,10 +239,9 @@
 				<span class="welcome">Welcome, <?php echo $this->session->userdata('admin_username') ?></span>
 			</div>
 	  	</div>
-	  	<div class="col-xs-6">
-		  	
+	  	<div class="col-sm-6">
 	  	</div>
-	  	<div class="col-xs-3" style="padding-top:15px;">
+	  	<div class="col-sm-3 hidden-xs" style="padding-top:15px;">
 	  		
 	  		<a href="<?php echo base_url('admin_login/logout') ?>" class="logout"><span class="welcome pull-right"> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</span></a>
 	  	</div>
@@ -244,7 +255,7 @@
 		  	<div class="row">
 		  		<div class="col-sm-4"></div>
 		  		<div class="col-sm-4 text-center">
-		  			<img src="<?php echo base_url() ?>assets/logo.jpg" style="margin-bottom:10px; padding-top: 20px;width:100%" class="img img-responsive" alt="">
+		  			<img src="<?php echo base_url() ?>assets/logo.jpg" style="margin-bottom:10px; padding-top: 20px;width:100%;border-radius:50%;" class="img img-responsive" alt="">
 		  		</div>
 		  		<div class="col-sm-4"></div>
 	  		</div>

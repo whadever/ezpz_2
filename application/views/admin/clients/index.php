@@ -1,6 +1,6 @@
 <div class="row" style="margin-bottom: 20px">
 	<div class="col-xs-4">
-		<h2>Manage clients</h2>
+		<h2>Manage Clients</h2>
 	</div>
 	<div class="col-xs-8">
 		<?php if($this->uri->segment(3) == 0): ?>
