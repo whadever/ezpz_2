@@ -19,8 +19,6 @@
           <!-- <a href="#" data-toggle="modal" data-target="#background"><img src="<?php echo base_url().$configuration->background ?>" width="100" alt=""></a> -->
           <?php echo form_open_multipart('',array('id' => 'editBackground')) ?>
             <input type="file" class="form-control" onchange="edit_background()" id="photo" name="photo">
-            <input type="hidden" value="ninja" name="serahlu">
-            <button type="button" class="form-control" onclick="edit_background()">Upload</button>
           <?php echo form_close() ?>
     
         </div>
@@ -29,6 +27,8 @@
           <h3>Primary Color</h3>
           <div class="color" style="height:100px; width:100px; margin:auto; border-radius: 50%; background-color: <?php echo $configuration->primary_color ?>;">
           </div>
+
+          <input type="color" onchange="show_value()" id="color" name="color" class="form-control">
         </div>
 
         <div class="col-lg-4">
@@ -146,9 +146,7 @@ function edit_background(){
     /* Create a FormData instance */
     var formData = new FormData();
     /* Add the file */ 
-    formData.append("upload", file.files[0]);
-
-    alert(file.files[0]);
+    formData.append("photo", file.files[0]);
 
     $.ajax({
       url: "<?php echo base_url(); ?>" + 'admin/edit_background/',
@@ -158,43 +156,21 @@ function edit_background(){
           contentType: false,
       success: function(data) 
       {
-        alert(data);  
+        if(data == 'success'){
+          swal("Upload Success!", "You have succesfully Upload a photo.", "success");
+          setTimeout(function(){ location.reload(); }, 1000);
+        }else{
+          
+          swal({title: "Upload Failed!",
+               text: data,   
+               timer: 2000,   
+               showConfirmButton: false,
+               type: "error" });
+        }
       },
     });
   }
 
-
-  //  function edit_background(){
-
-  //   data = $('#editBackground').serialize();
-
-  //   alert(data);
-
-  //   $.ajax({
-  //     url: "<?php echo base_url('admin/edit_background')?>",
-  //     data : data,
-  //     type: 'POST',
-  //     cache : false,
-  //     success: function(result){
-  //       alert(result);
-  //       if(result == 'success'){
-  //         swal("Login Success!", "You have succesfully logged in.", "success");
-  //         setTimeout(function(){ location.reload(); }, 1000);
-  //       }else if(result == 'failed'){
-  //         swal("Login Failed!", "Your username or password is incorrect", "error");
-  //         swal({title: "Login Failed!",
-  //              text: "Your username or password is incorrect",   
-  //              timer: 1000,   
-  //              showConfirmButton: false,
-  //              type: "error" });
-  //       }
-       
-        
-  //     }
-      
-  //   });
-  // }
-  
 </script>
 
 <script>

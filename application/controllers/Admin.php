@@ -406,7 +406,7 @@ class Admin extends CI_Controller{
 
 //Manage Settings
 	public function edit_background(){	
-		if($this->input->post()){
+		
 			$config['allowed_types']        = 'jpg|png|jpeg';
             $config['max_size']             = 5000;	
             // $config['max_width']            = 1000;
@@ -425,7 +425,7 @@ class Admin extends CI_Controller{
 				mkdir($config['upload_path'], 0777, true);
 			}
 
-            if ($this->upload->do_upload('upload'))
+            if ($this->upload->do_upload('photo'))
             {	
             	$image = $this->upload->data();
                 //Get the link for the database
@@ -436,23 +436,23 @@ class Admin extends CI_Controller{
 				->load($config ['upload_path'] . '/' . $image['file_name'])
 				->resize_crop(1300,700)
 				->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
+
+				$data = array(
+				'background' => $photo,
+
+				);
+				$this->crud_model->update_data('configuration',$data,array('id' => 1));
+				echo "success";
             }
             else{
-            	$photo= $this->crud_model->get_by_condition('config',array('id' => 1))->row('background');
-            	
+            	echo $this->upload->display_errors();
+     
             }
 
-			$data = array(
-				'photo' => $photo,
-
-			);
-			$this->crud_model->update_data('config',$data,array('id' => 1));
-			echo "success";
+			
+			
 			// redirect('admin');
-		}else{
-			echo 'failed';
-		}	
-	}
+		}
 
 }
 ?>
