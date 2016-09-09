@@ -33,12 +33,12 @@
                 <div class="row">
                   <h4>Primary Color</h4>
                   <!-- <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" > -->
-                  <input class="jscolor" onchange="edit_color()" id="primary_color" name="primary_color" value="<?php echo $configuration->primary_color ?>">
+                  <input class="jscolor" onblur="edit_color()" id="primary_color" name="primary_color" value="<?php echo $configuration->primary_color ?>">
                 </div>
                 <div class="row">
                   <h4>Secondary Color</h4>
                   <!-- <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" > -->
-                  <input class="jscolor" onchange="edit_color()" id="secondary_color" name="secondary_color" value="<?php echo $configuration->secondary_color ?>">
+                  <input class="jscolor" onblur="edit_color()" id="secondary_color" name="secondary_color" value="<?php echo $configuration->secondary_color ?>">
                 </div>
                 
               </div>
