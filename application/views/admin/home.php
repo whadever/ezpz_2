@@ -91,7 +91,7 @@
 
             <div class="row">
             <?php if(count($unapproved_drivers)>0): ?>
-              <a href="<?php echo base_url('admin/approve_all_driver'); ?>" style="margin-left:10px;"><button type="button" class="btn btn-primary" data-account="drivers" data-target="#all_drivers">Approve All Drivers</button></a>
+              <button type="button" class="btn btn-primary" data-account="drivers" data-target="#all_drivers" data-toggle="modal">Approve All Drivers</button>
             <?php else:?>
               <i>No unapproved drivers</i>
             <?php endif ?>
@@ -134,7 +134,7 @@
               
                 <div class="row">
                 <?php if(count($unapproved_clients)>0): ?>
-                  <a href="<?php echo base_url('admin/approve_all_client'); ?>" style="margin-left:10px;"><button type="button" class="btn btn-primary" data-account="client" data-target="#all_clients">Approve All Clients</button></a>
+                  <button type="button" class="btn btn-primary" data-account="client" data-target="#all_clients" data-toggle="modal">Approve All Clients</button>
                 <?php else:?>
                   <i>No unapproved clients</i>
                 <?php endif ?>
@@ -173,7 +173,7 @@
             <?php endforeach; ?>
             <div class="row">
             <?php if(count($unapproved_users)>0): ?>
-              <button type="button" class="btn btn-primary" data-account="user" data-target="#all_users">Delete All Users</button>
+              <button type="button" class="btn btn-primary" data-account="user" data-toggle="modal" data-target="#all_users">Delete All Users</button>
             <?php else:?>
               <i>No unapproved drivers</i>
             <?php endif?>
@@ -217,18 +217,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Disapprove Account</h4>
+        <h4 class="modal-title">Approve All Clients</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('admin/delete'); ?>
-      <p>By doing so, user will be deleted from database. Proceed?</p>
+      <p>All clients will be accepted and listed. Proceed?</p>
       </div>
       <div class="modal-footer">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="account">
-        <input type="submit" name="delete" value="Confirm" class="btn btn-danger">
+        <a href="<?php echo base_url('admin/approve_all_client'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Proceed</button></a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <?php echo form_close() ?>
       </div>
     </div>
   </div>
@@ -241,18 +237,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Disapprove Account</h4>
+        <h4 class="modal-title">Delete All Users</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('admin/delete'); ?>
-      <p>By doing so, user will be deleted from database. Proceed?</p>
+      <p>By doing so, all users will be deleted from database. Proceed?</p>
       </div>
       <div class="modal-footer">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="account">
-        <input type="submit" name="delete" value="Confirm" class="btn btn-danger">
+        <a href="<?php echo base_url('admin/disapprove_all_user'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Proceed</button></a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <?php echo form_close() ?>
       </div>
     </div>
   </div>
@@ -265,18 +257,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Disapprove Account</h4>
+        <h4 class="modal-title">Approve All Drivers</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('admin/delete'); ?>
       <p>By doing so, user will be deleted from database. Proceed?</p>
       </div>
       <div class="modal-footer">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="account">
-        <input type="submit" name="delete" value="Confirm" class="btn btn-danger">
+        <a href="<?php echo base_url('admin/approve_all_driver'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Proceed</button></a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <?php echo form_close() ?>
       </div>
     </div>
   </div>
