@@ -465,7 +465,8 @@ class Admin extends CI_Controller{
 
 			$data = array(
 
-					'primary_color' => '#'.$this->input->post('color')
+					'primary_color' => '#'.$this->input->post('primary_color'),
+					'secondary_color' => '#'.$this->input->post('secondary_color')
 
 				);
 
