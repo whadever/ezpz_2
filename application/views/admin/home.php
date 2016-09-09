@@ -126,7 +126,7 @@
                 <?php endforeach; ?>
               
                 <div class="row">
-                  <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Clients">
+                  <a href="<?php echo base_url('admin/approve_all_client'); ?>" style="margin-left:10px;"><button type="button" class="btn btn-primary" data-account="client">Approve All Clients</button></a>
                 </div>
           </div>
 

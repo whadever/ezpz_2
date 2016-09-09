@@ -208,7 +208,7 @@ class Admin extends CI_Controller{
 		$this->crud_model->update_data('restaurants',array('is_verified' => 1,'password' => $password), array('is_verified' => 0));
 
 		$this->session->set_flashdata('password', $random_code);
-		redirect('admin/drivers/0');
+		redirect('admin');
 
 
 	}
