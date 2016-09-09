@@ -107,7 +107,7 @@ label{
 .input-group-addon{
     background-color: <?php echo $row->primary_color ?> !important;
     border-radius: 0px !important;
-    border:3px solid #34495e !important;
+    border:3px solid <?php echo $row->primary_color ?> !important;
     color: <?php echo $row->secondary_color ?> !important;
   }
 

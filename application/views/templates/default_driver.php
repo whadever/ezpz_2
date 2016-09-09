@@ -217,13 +217,26 @@ $(document).ready(function(){
 </script>
 
 <script>
+
     var waypoint = new Waypoint({
-      element: document.getElementById('body'),
+      element: document.getElementById('restaurant-search'),
       handler: function(direction) {
+        <?php 
+           $hex = str_replace("#", "", $configuration->primary_color);
 
-        document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.95)';
-
+           if(strlen($hex) == 3) {
+              $r = hexdec(substr($hex,0,1).substr($hex,0,1));
+              $g = hexdec(substr($hex,1,1).substr($hex,1,1));
+              $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+           } else {
+              $r = hexdec(substr($hex,0,2));
+              $g = hexdec(substr($hex,2,2));
+              $b = hexdec(substr($hex,4,2));
            }
+           $rgb = array($r, $g, $b);
+         ?>
+        document.getElementById('navbar').style.backgroundColor = 'rgba(<?php echo $r ?>, <?php echo $g ?>, <?php echo $b ?>,0.95)'; 
+      }
     });
 
 </script>
@@ -232,7 +245,21 @@ $(document).ready(function(){
     var waypoint2 = new Waypoint({
       element: document.getElementById('top'),
       handler: function(direction) {
-        document.getElementById('navbar').style.backgroundColor = 'rgba(44, 62, 80,0.5)';
+        <?php 
+           $hex = str_replace("#", "", $configuration->primary_color);
+
+           if(strlen($hex) == 3) {
+              $r = hexdec(substr($hex,0,1).substr($hex,0,1));
+              $g = hexdec(substr($hex,1,1).substr($hex,1,1));
+              $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+           } else {
+              $r = hexdec(substr($hex,0,2));
+              $g = hexdec(substr($hex,2,2));
+              $b = hexdec(substr($hex,4,2));
+           }
+           $rgb = array($r, $g, $b);
+         ?>
+        document.getElementById('navbar').style.backgroundColor = "rgba(<?php echo $r ?>, <?php echo $g ?>, <?php echo $b ?>,0.5)";
      
        
       },
