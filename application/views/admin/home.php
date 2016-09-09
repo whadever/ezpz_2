@@ -386,7 +386,7 @@ function edit_background(){
 
       url: "<?php echo base_url(); ?>" + 'admin/edit_color/',
       type: 'post',
-      data: {color:color},
+      data: {primary_color:primary_color,secondary_color:secondary_color},
       success: function(data) 
       {
         if(data == 'success'){

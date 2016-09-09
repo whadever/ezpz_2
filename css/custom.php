@@ -12,7 +12,7 @@
 /*footer*/
 footer{
   background-color: <?php echo $row->primary_color ?>;
-  color: white;
+  color: <?php echo $row->secondary_color ?>;
 }
 
 /*Panel Review*/
@@ -54,12 +54,12 @@ header .navbar-default{
   background-color: <?php echo $row->primary_color ?>;
 }
 header .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-    color: white;
+    color: <?php echo $row->secondary_color ?>;
     background-color: transparent;
 }
 
 header .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-    color: white;
+    color: <?php echo $row->secondary_color ?>;
     background-color: transparent;
 }
 
@@ -108,7 +108,7 @@ label{
     background-color: <?php echo $row->primary_color ?> !important;
     border-radius: 0px !important;
     border:3px solid #34495e !important;
-    color: #fff !important;
+    color: <?php echo $row->secondary_color ?> !important;
   }
 
 .form-control:focus {
@@ -136,11 +136,11 @@ label{
 
 .modal .modal-header{
   background-color: <?php echo $row->primary_color ?>; 
-  color:white;
+  color:<?php echo $row->secondary_color ?>;
 }
 
 .modal .modal-header .close{
-  color:white;
+  color:<?php echo $row->secondary_color ?>;
 }
 
 .modal{
@@ -170,12 +170,12 @@ body{
 /*For navbar*/
 .nav.navbar-nav a {
   position: relative;
-  color: #fff;
+  color: <?php echo $row->secondary_color ?>;
   text-decoration: none;
 }
 
 .nav.navbar-nav a:hover {
-  color: #fff;
+  color: <?php echo $row->secondary_color ?>;
 }
 .nav.navbar-nav a:before {
   content: "";
@@ -203,10 +203,10 @@ body{
   padding-left: 10px;
 }
 .nav.navbar-nav.navbar-left a,.nav.navbar-nav.navbar-right a{
-	color: #fff;
+	color: <?php echo $row->secondary_color ?>;
 }
 .nav.navbar-nav.navbar-left a:hover,.nav.navbar-nav.navbar-right a:hover{
-  color: #fff;
+  color: <?php echo $row->secondary_color ?>;
 }
 
 
@@ -227,7 +227,7 @@ body{
 .navbar-brand a
 {
   font-size: 20px;
-  color:#fff;
+  color:<?php echo $row->secondary_color ?>;
 }
 
 
@@ -280,7 +280,7 @@ width: 50%;
   background-color: <?php echo $row->primary_color ?>;
 }
 .do-button p{
-  color: #fff ;
+  color: <?php echo $row->secondary_color ?> ;
   margin-bottom: 0px;
   padding: 5px;
 }
@@ -355,7 +355,7 @@ width: 50%;
 
 .hovereffect h2 {
   text-transform: uppercase;
-  color: #fff;
+  color: <?php echo $row->secondary_color ?>;
   text-align: center;
   position: relative;
   font-size: 17px;
@@ -384,7 +384,7 @@ width: 50%;
 }
 
 .hovereffect a, .hovereffect p {
-  color: #FFF;
+  color: <?php echo $row->secondary_color ?>;
   opacity: 0;
   filter: alpha(opacity=0);
   font-variant: small-caps;
@@ -417,7 +417,7 @@ width: 50%;
 
 .navbar-default .navbar-brand
 {
-  color:#fff !important; 
+  color:<?php echo $row->secondary_color ?> !important; 
 }
 
 .headline
@@ -451,7 +451,7 @@ width: 50%;
 
 #header{
   background-color: <?php echo $row->primary_color ?>;
-  color: white;
+  color: <?php echo $row->secondary_color ?>;
   padding: 10px 5px;
   padding-left: 15px;
   margin-bottom: 10px;
