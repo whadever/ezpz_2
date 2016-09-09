@@ -1,10 +1,4 @@
 
-<style>
-  #color{
-    width: 100px;
-    height: 100px;
-  }
-</style>
 
 
   <div class="row">
@@ -37,7 +31,8 @@
 
               <div class="col-lg-4">
                 <h4>Primary Color</h4>
-                <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" >
+                <!-- <input type="color" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>" > -->
+                <input class="jscolor" onchange="edit_color()" id="color" name="color" value="<?php echo $configuration->primary_color ?>">
               </div>
 
               <div class="col-lg-4">
