@@ -68,7 +68,7 @@ function submitForm(){
       success: function(result){
       	if(result == 'success'){
       		swal("Login Success!", "You have succesfully logged in.", "success");
-        	setTimeout(function(){ location.reload(); }, 1000);
+        	setTimeout(function(){ location.replace("<?php echo base_url() ?>") }, 1000);
       	}else if(result == 'failed'){
       		swal("Login Failed!", "Your username or password is incorrect", "error");
         	swal({title: "Login Failed!",

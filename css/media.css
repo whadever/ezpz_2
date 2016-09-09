@@ -117,5 +117,9 @@
 		top: 5%;
 	}
 
+	#order_history{
+		overflow-x: scroll; 
+	}
+
      
 }

@@ -20,6 +20,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
 	<script type="text/javascript" src="<?php echo base_url() ?>fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 	<script src="<?php echo base_url(); ?>sweetalert-master/dist/sweetalert.min.js"></script>
+	<script src="<?php echo base_url() ?>jscolor/jscolor.js"></script>
     
     
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">

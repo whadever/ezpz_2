@@ -11,7 +11,7 @@
 
 /*footer*/
 footer{
-  background-color: #34495e;
+  background-color: <?php echo $row->primary_color ?>;
   color: white;
 }
 
@@ -51,7 +51,7 @@ footer{
 
 /**/
 header .navbar-default{
-  background-color: rgba(44, 62, 80,0.5);
+  background-color: <?php echo $row->primary_color ?>;
 }
 header .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     color: white;
@@ -105,7 +105,7 @@ label{
 /*General*/
 
 .input-group-addon{
-    background-color: #34495e !important;
+    background-color: <?php echo $row->primary_color ?> !important;
     border-radius: 0px !important;
     border:3px solid #34495e !important;
     color: #fff !important;
@@ -120,13 +120,13 @@ label{
 .form-control{
   border-radius: 0px !important;
   box-shadow: none !important;
-  border-color: #34495e !important;
+  border-color: <?php echo $row->primary_color ?> !important;
 }
 
 
 .panel-default{
   border-radius: 0px;
-  border-color: #2C3E50;
+  border-color: <?php echo $row->primary_color ?>;
 }
 
 
@@ -154,12 +154,12 @@ body{
   font-family: 'Muli', sans-serif !important;
 }
 .btn-primary{
-  background-color: #34495e ; 
-  border-color: #34495e ;
+  background-color: <?php echo $row->primary_color ?> ; 
+  border-color: <?php echo $row->primary_color ?> ;
   border-radius: 0px ;
 }
 .btn-primary:hover{
-  background-color: #2c3e50 ;
+  background-color: <?php echo $row->primary_color ?> ;
 }
 
 
@@ -266,18 +266,18 @@ width: 50%;
 }
 /*What can You Do box*/
 .food-panel{
-  border-color: #34495e;
+  border-color: <?php echo $row->primary_color ?>;
   border-radius: 0;
   height: 220px;
 }
 .do-button{
-  background-color: #34495e;
+  background-color: <?php echo $row->primary_color ?>;
   border: 0px;
   border-radius: 0;
 
 }
 .do-button:hover{
-  background-color: #2c3e50;
+  background-color: <?php echo $row->primary_color ?>;
 }
 .do-button p{
   color: #fff ;
@@ -435,11 +435,11 @@ width: 50%;
   color: #95a5a6;
 }
 .nav-pills>li>a:hover{
-  color: #34495e;
+  color: <?php echo $row->primary_color ?>;
   background-color: transparent;
 }
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-  color:#34495e;
+  color:<?php echo $row->primary_color ?>;
   background-color:transparent;
   border-right: 4px solid #34495e;      
 }
@@ -450,7 +450,7 @@ width: 50%;
 }
 
 #header{
-  background-color: #2c3e50;
+  background-color: <?php echo $row->primary_color ?>;
   color: white;
   padding: 10px 5px;
   padding-left: 15px;
@@ -492,8 +492,8 @@ width: 50%;
 
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
   
-  background-color: #2c3e50;
-  border-color: #2c3e50;
+  background-color: <?php echo $row->primary_color ?>;
+  border-color: <?php echo $row->primary_color ?>;
 
 }
 
