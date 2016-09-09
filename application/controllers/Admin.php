@@ -224,6 +224,11 @@ class Admin extends CI_Controller{
 
 	}
 
+	public function disapprove_all_user(){
+		$this->crud_model->delete_data('users',array('is_verified' => 0));
+		redirect('admin');
+	}
+
 	public function cuisines(){
 		$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 

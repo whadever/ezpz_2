@@ -72,7 +72,7 @@
           <div class="admin-box-content">
             <?php foreach($unapproved_drivers as $driver): ?>
                 <div class="col-xs-6" style="text-align:left;"">
-                  <?php echo $driver->firstname.' '.$driver->lastname ?>
+                  <a href="<?php echo base_url('admin/loginEverywhere/'.$driver->type.'/'.$driver->id) ?>"><?php echo $driver->firstname.' '.$driver->lastname ?></a>
                 </div>
 
                 <div class="col-xs-6">
@@ -87,7 +87,11 @@
             <?php endforeach; ?>
 
             <div class="row">
-              <input type="submit" class="btn btn-primary" name="app_drivers" value="Approve All Drivers">
+            <?php if(count($unapproved_drivers)>0): ?>
+              <a href="<?php echo base_url('admin/approve_all_driver'); ?>" style="margin-left:10px;"><button type="button" class="btn btn-primary" data-account="drivers" data-target="#all_drivers">Approve All Drivers</button></a>
+            <?php else:?>
+              <i>No unapproved drivers</i>
+            <?php endif ?>
             </div>
 
           </div>
@@ -111,7 +115,7 @@
                 <div class="row">
 
                   <div class="col-xs-6" style="text-align:left;">
-                    <?php echo $client->name ?>
+                    <a href="<?php echo base_url('admin/loginEverywhere/'.$client->type.'/'.$client->id) ?>"><?php echo $client->name ?></a>
                   </div>
                   <div class="col-xs-6">
                     <div class="pull-right" id="client_<?php echo $client->id ?>">
@@ -126,7 +130,11 @@
                 <?php endforeach; ?>
               
                 <div class="row">
-                  <a href="<?php echo base_url('admin/approve_all_client'); ?>" style="margin-left:10px;"><button type="button" class="btn btn-primary" data-account="client">Approve All Clients</button></a>
+                <?php if(count($unapproved_clients)>0): ?>
+                  <a href="<?php echo base_url('admin/approve_all_client'); ?>" style="margin-left:10px;"><button type="button" class="btn btn-primary" data-account="client" data-target="#all_clients">Approve All Clients</button></a>
+                <?php else:?>
+                  <i>No unapproved clients</i>
+                <?php endif ?>
                 </div>
           </div>
 
@@ -148,7 +156,7 @@
             <?php foreach($unapproved_users as $user): ?>
               <div class="row">
                 <div class="col-xs-6" style="text-align:left;">
-                  <?php echo $user->firstname.' '.$user->lastname ?>
+                  <a href="<?php echo base_url('admin/loginEverywhere/'.$user->type.'/'.$user->id) ?>"><?php echo $user->firstname.' '.$user->lastname ?></a>
                 </div>
                 <div class="col-xs-6">
                   <div class="pull-right">
@@ -161,7 +169,11 @@
               </div>
             <?php endforeach; ?>
             <div class="row">
-              <input type="submit" class="btn btn-primary" name="app_drivers" value="Disapprove All Users">
+            <?php if(count($unapproved_users)>0): ?>
+              <button type="button" class="btn btn-primary" data-account="user" data-target="#all_users">Delete All Users</button>
+            <?php else:?>
+              <i>No unapproved drivers</i>
+            <?php endif?>
             </div>
         </div>
 
@@ -194,6 +206,78 @@
     </div>
   </div>
 </div><!-- Modal delete user end -->
+
+<!--Modal All Client-->
+<div id="all_clients" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Disapprove Account</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo form_open('admin/delete'); ?>
+      <p>By doing so, user will be deleted from database. Proceed?</p>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="id" value="">
+        <input type="hidden" name="account">
+        <input type="submit" name="delete" value="Confirm" class="btn btn-danger">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <?php echo form_close() ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal All User-->
+<div id="all_users" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Disapprove Account</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo form_open('admin/delete'); ?>
+      <p>By doing so, user will be deleted from database. Proceed?</p>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="id" value="">
+        <input type="hidden" name="account">
+        <input type="submit" name="delete" value="Confirm" class="btn btn-danger">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <?php echo form_close() ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal All Driver-->
+<div id="all_drivers" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Disapprove Account</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo form_open('admin/delete'); ?>
+      <p>By doing so, user will be deleted from database. Proceed?</p>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="id" value="">
+        <input type="hidden" name="account">
+        <input type="submit" name="delete" value="Confirm" class="btn btn-danger">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <?php echo form_close() ?>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 
