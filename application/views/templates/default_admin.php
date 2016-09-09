@@ -251,7 +251,6 @@
 	  <a href="<?php echo base_url('admin/drivers/1') ?>">Driver List</a>
 	  <a href="<?php echo base_url('admin/clients/1') ?>">Client List</a>
 	  <a href="<?php echo base_url('admin/cuisines') ?>">Cuisines</a>
-	  <a href="<?php echo base_url('home/change_pass') ?>">Edit Profile</a>
 	  <a href="<?php echo base_url('admin_login/logout') ?>">Logout</a>
 	  <div class="bottom-align-text text-center">Copyright &copy; 2016 | Hassee Developers</div>
   </div>

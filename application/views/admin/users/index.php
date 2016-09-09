@@ -9,6 +9,7 @@
 
 <div class="row" style="font-size : 14px">
 	<div class="col-xs-12">
+  <div class="wrap">
 		<table id="users" class="table table-bordered  table-striped">
 			<thead>
 				<tr>
@@ -45,6 +46,7 @@
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+    </div>
 	</div>
 </div>
 
