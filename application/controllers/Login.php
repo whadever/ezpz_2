@@ -549,6 +549,21 @@ class Login extends CI_Controller{
 
 	}
 
+	public function test_jquery(){
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$data['background'] = $data['configuration']->background;
+		$this->template->load('default_login','login/jquery_form',$data);
+	}
+
+	public function check_username(){
+		if($this->login_model->check_username($this->input->post('username'))){
+			echo 'taken';
+		}
+		else{
+			echo 'available';
+		}
+	}
+
 
 }
 

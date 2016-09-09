@@ -18,11 +18,12 @@
 	<div class="col-md-6 col-xs-12 col-form">
 
 		
-		<?php echo form_open_multipart('login/register_user',array('name' => 'register_user','id' => 'registerUser','onsubmit' => "return form_validation()")) ?>
+		<?php echo form_open_multipart('login/register_user',array('name' => 'register_user','class' => 'cmxform', 'id' => 'registerUser','onsubmit' => "return form_validation()")) ?>
       <h1 class="text-center" style="margin-bottom:30px;">User Registration</h1>
 			<div class="form-group">
 				<label for="">Username</label>
-				<input type="text" name="username" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' class="form-control" required="1" >
+				<input type="text" name="username" id="username" onkeyup="check_username()" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' class="form-control" required="1" >
+        <span id="username_error_message"></span>
 			</div>
 
 			<div class="row">
@@ -47,7 +48,8 @@
 
 			<div class="form-group">
 				<label for="">Email</label>
-				<input type="text" name="email" class="form-control" required="1" >
+				<input type="text" name="email" id="email" class="form-control" required="1" >
+        <span id="email_error_message"></span>
 			</div>
 
 			<div class="form-group">
@@ -89,6 +91,70 @@
 	<div class="col-md-3"></div>
 
 </div>
+
+<script>
+
+
+    function check_username(){
+      var username = $("#username").val();
+
+      if(username != ''){
+      
+      $.ajax({
+        url: "<?php echo base_url('login/check_username')?>",
+        data: {username:username},
+        type: 'POST',
+        cache : false,
+        success: function(result){
+         
+          if(result == 'taken'){
+            $('#username_error_message').empty();
+            $('#username_error_message').append("Username has been taken");
+            error_username = true;
+          }else if(result == 'available'){
+            $('#username_error_message').empty();
+            $('#username_error_message').append('Username Available');
+          }
+         
+          
+        }
+      
+      });
+    }else{
+      $('#username_error_message').empty();
+    }
+
+
+    }
+
+    function check_email(){
+      var email = $("#email").val();
+
+      $.ajax({
+        url: "<?php echo base_url('login/check_user')?>",
+        data: {email:email},
+        type: 'POST',
+        cache : false,
+        success: function(result){
+          if(result == 'taken'){
+            $('#email_error_message').append("Email has been taken");
+            $('#email_error_message').show();
+            error_email = true;
+          }else if(result == 'available'){
+            $('#email_error_message').append('');
+          }
+         
+          
+        }
+      
+      });
+
+
+    }
+
+</script>
+
+
 
 <script>
       // This example requires the Places library. Include the libraries=places

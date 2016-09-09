@@ -26,6 +26,8 @@
     <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>sweetalert-master/dist/sweetalert.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/dist/jquery.validate.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
