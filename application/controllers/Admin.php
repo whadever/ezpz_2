@@ -502,8 +502,16 @@ class Admin extends CI_Controller{
 
 	public function send_email(){
 		if($this->input->post()){
+			$users  = $this->crud_model->get_data('users')->result();
 
-			$this->email_model->test_mail1($this->input->post('content'));
+					foreach ($users as $user)
+					{
+						$emails[] = $user->email;
+					}
+
+					$to = implode (", ", $emails); 
+
+			$this->email_model->email_promotion($to,$this->input->post('content'));
 			echo 'success';
 		}else{
 			echo 'failed';

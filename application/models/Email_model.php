@@ -333,13 +333,10 @@ EOD;
 		}
 	}
 
-	public function test_mail1($content)
+	public function email_promotion($email,$content)
 	{
-		$to = 'setyawansusanto99@gmail.com';
-		$subject = "Your Order Receipt";
-		$name = 'irvan';
-		$address = 'gading';
-		$url = base_url();
+		$to = $email;
+		$subject = "Promotion Email";
 		$message = <<<EOD
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
