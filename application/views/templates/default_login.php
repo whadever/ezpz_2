@@ -76,11 +76,26 @@
     </style>
   </head>
 
+  <?php 
+           $hex = str_replace("#", "", $configuration->primary_color);
+
+           if(strlen($hex) == 3) {
+              $r = hexdec(substr($hex,0,1).substr($hex,0,1));
+              $g = hexdec(substr($hex,1,1).substr($hex,1,1));
+              $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+           } else {
+              $r = hexdec(substr($hex,0,2));
+              $g = hexdec(substr($hex,2,2));
+              $b = hexdec(substr($hex,4,2));
+           }
+           $rgb = array($r, $g, $b);
+       ?>
+
    <header>
   <!--NavBar-->
       <div class="container-fluid">
           
-          <nav class="navbar navbar-default navbar-fixed-top" id="navbar" style="background-color: rgba(44, 62, 80,0.5); border-color: transparent">
+          <nav class="navbar navbar-default navbar-fixed-top" id="navbar" style="background-color: rgba(<?php echo $r ?>, <?php echo $g ?>, <?php echo $b ?>,0.5); border-color: transparent">
             <div class="container">
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -171,22 +186,9 @@ $(document).ready(function(){
 <script>
 
     var waypoint = new Waypoint({
-      element: document.getElementById('restaurant-search'),
+      element: document.getElementById('body'),
       handler: function(direction) {
-        <?php 
-           $hex = str_replace("#", "", $configuration->primary_color);
-
-           if(strlen($hex) == 3) {
-              $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-              $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-              $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-           } else {
-              $r = hexdec(substr($hex,0,2));
-              $g = hexdec(substr($hex,2,2));
-              $b = hexdec(substr($hex,4,2));
-           }
-           $rgb = array($r, $g, $b);
-         ?>
+        
         document.getElementById('navbar').style.backgroundColor = 'rgba(<?php echo $r ?>, <?php echo $g ?>, <?php echo $b ?>,0.95)'; 
       }
     });
@@ -197,20 +199,7 @@ $(document).ready(function(){
     var waypoint2 = new Waypoint({
       element: document.getElementById('top'),
       handler: function(direction) {
-        <?php 
-           $hex = str_replace("#", "", $configuration->primary_color);
-
-           if(strlen($hex) == 3) {
-              $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-              $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-              $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-           } else {
-              $r = hexdec(substr($hex,0,2));
-              $g = hexdec(substr($hex,2,2));
-              $b = hexdec(substr($hex,4,2));
-           }
-           $rgb = array($r, $g, $b);
-         ?>
+        
         document.getElementById('navbar').style.backgroundColor = "rgba(<?php echo $r ?>, <?php echo $g ?>, <?php echo $b ?>,0.5)";
      
        
