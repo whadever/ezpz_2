@@ -86,7 +86,7 @@ body.modal-open[style] {
 
 /*REGISTRATION FORMS*/
 .col-form{
-    border-top:3px solid #34495e;
+    border-top:3px solid <?php  echo $row->primary_color ?>;
     margin-top:-70px;
     margin-bottom:20px;
     background-color:#fff;

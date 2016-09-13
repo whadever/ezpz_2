@@ -9,7 +9,7 @@
 
     <!-- CSS-->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>css/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/custom.php" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/icon.jpg">

@@ -98,6 +98,8 @@
     function check_username(){
       var username = $("#username").val();
 
+      
+
       if(username != ''){
       
       $.ajax({

@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/custom.php" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
