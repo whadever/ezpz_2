@@ -160,9 +160,10 @@ EOD;
 		$message = <<<EOD
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-		<table style="width:100%; height:100%;">
+		
+			<table style="width:100%; height:100%;">
 			<tr>
-				<td style="background:#34495e; padding:2em 1em 1em 1em;">
+				<td colspan="5" style="background:#34495e; padding:2em 1em 1em 1em;">
 					<p align="center"><img src="http://ezpztest.gethassee.com/assets/logo.png" width="80"></p>
 				</td>
 			</tr>
@@ -174,9 +175,7 @@ EOD;
 			</tr>
 			<tr>
 				<td colspan="5">
-					<h4>Order #{$data['order_code']} </h4>
-					<h4>Restaurant: {$data['restaurant']->name}</h4>
-					<h4>Driver:{$data['driver']->firstname}&nbsp;{$data['driver']->lastname}</h4>
+					<h3>Order #{$data['order_code']} </h3>
 				</td>
 			</tr>
 			<tr>
@@ -207,23 +206,32 @@ EOD;
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><b>Distance:</b></td>
-				<td colspan="3">{$data['distance']}</td>
+				<td colspan="2"><b>Restaurant</b></td>
+				<td colspan="3">{$data['restaurant']->name}</td>
 			</tr>
 			<tr>
-				<td colspan="2"><b>Delivery Cost:</b></td>
+				<td colspan="2"><b>Driver</b></td>
+				<td colspan="3">{$data['driver']->firstname}&nbsp;{$data['driver']->lastname}</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Distance</b></td>
+				<td colspan="3">{$data['distance']}km</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Delivery Cost</b></td>
 				<td colspan="3">NZD {$data['delivery_cost']}</td>
 			</tr>
 			<tr>
-				<td colspan="2"><b>Total Cost:</b></td>
+				<td colspan="2"><b>Total Cost</b></td>
 				<td colspan="3">NZD {$data['delivery_cost']}</td>
 			</tr>
 			<tr>
-				<td style="background:#34495e; color:#fff; height:20%; padding:1em 0 1em 0">
-					<div class="row" style="padding: 10px; text-align:center">
+				<td colspan="5" style="background:#34495e; color:#fff; height:20%; padding:1em 0 1em 0">
+					<div class="row" style="padding: 10px; " >
 					 
-				      <img src="http://ezpztest.gethassee.com/images/logo.png" width="50" style="margin-right:1em;">
-				      &copy; Hassee 2016. All Rights Reserved under LRM Corporation
+				      <center style="overflow:hidden"><div><img src="http://ezpztest.gethassee.com/images/logo.png" width="50" style="margin-right:1em;"></div>
+				      <div style="vertical-align: middle;">&copy; Hassee 2016. All Rights Reserved under LRM Corporation</div>
+				      </center>
 				      </div>
 				    
 				</td>
