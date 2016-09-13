@@ -500,5 +500,16 @@ class Admin extends CI_Controller{
 		$this->template->load('default_admin','admin/create_email',$data);
 	}	
 
+	public function send_email(){
+		if($this->input->post()){
+
+			$this->email_model->test_mail1($this->input->post('content'));
+			echo 'success';
+		}else{
+			echo 'failed';
+		}
+		
+	}
+
 }
 ?>

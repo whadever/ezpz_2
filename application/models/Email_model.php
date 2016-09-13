@@ -326,8 +326,54 @@ EOD;
 		
 		if(!mail($to, $subject, $message, $headers))
 		{
-			echo'gagal lu wan';
-			exit;
+			return false;
+		}else
+		{
+			return true;
+		}
+	}
+
+	public function test_mail1($content)
+	{
+		$to = 'setyawansusanto99@gmail.com';
+		$subject = "Your Order Receipt";
+		$name = 'irvan';
+		$address = 'gading';
+		$url = base_url();
+		$message = <<<EOD
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		
+		<table style="width:100%; height:100%;">
+			<tr>
+				<td colspan="5" style="background:#34495e; padding:2em 1em 1em 1em;">
+					<p align="center"><img src="http://ezpztest.gethassee.com/assets/logo.png" width="80"></p>
+				</td>
+			</tr>
+			<tr>
+			{$content}
+			</tr>
+			<tr>
+				<td colspan="5" style="background:#34495e; color:#fff; height:20%; padding:1em 0 1em 0">
+					<div class="row" style="padding: 10px; " >
+					 
+				      <center style="overflow:hidden"><div><img src="http://ezpztest.gethassee.com/images/logo.png" width="50" style="margin-right:1em;"></div>
+				      <div style="vertical-align: middle;">&copy; Hassee 2016. All Rights Reserved under LRM Corporation</div>
+				      </center>
+				      </div>
+				    
+				</td>
+			</tr>
+		</table>
+EOD;
+
+		$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+		$headers .= 'From: ordering@ezpzdelivery.co.nz' . "\r\n" .
+					'Reply-To: contact@ezpzdelivery.co.nz' . "\r\n" .
+					'X-Mailer: PHP/' . phpversion();
+		
+		if(!mail($to, $subject, $message, $headers))
+		{
 			return false;
 		}else
 		{
