@@ -229,6 +229,9 @@ class User extends CI_Controller{
 		//for email
 		$user = $this->crud_model->get_by_condition('users',array('id'=>$order->user_id))->row();
 		$data['order_code'] = $order->code;
+		$data['distance'] = $order->distance;
+		$data['delivery_cost'] = $order->delivery_cost;
+		$data['total_price'] = $order->total_price;
 		$data['order_detail'] = $this->order_model->get_order_detail($code);
 		$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
 		$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $order->restaurant_id))->row();

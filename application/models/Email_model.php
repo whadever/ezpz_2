@@ -208,15 +208,15 @@ EOD;
 			</tr>
 			<tr>
 				<td colspan="2"><b>Distance:</b></td>
-				<td colspan="3">9.4km</td>
+				<td colspan="3">{$data['distance']}</td>
 			</tr>
 			<tr>
 				<td colspan="2"><b>Delivery Cost:</b></td>
-				<td colspan="3">$ 5.00</td>
+				<td colspan="3">NZD {$data['delivery_cost']}</td>
 			</tr>
 			<tr>
 				<td colspan="2"><b>Total Cost:</b></td>
-				<td colspan="3">$ 9.00</td>
+				<td colspan="3">NZD {$data['delivery_cost']}</td>
 			</tr>
 			<tr>
 				<td style="background:#34495e; color:#fff; height:20%; padding:1em 0 1em 0">
