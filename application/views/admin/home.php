@@ -41,6 +41,8 @@
                   <input class="jscolor" onblur="edit_color()" id="secondary_color" name="secondary_color" value="<?php echo $configuration->secondary_color ?>">
                 </div>
                 
+                <a href="<?php echo base_url('admin/create_email') ?>">Create Email</a>
+                
               </div>
 
               <div class="col-lg-4">

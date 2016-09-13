@@ -493,6 +493,11 @@ class Admin extends CI_Controller{
 		{
 			echo "failed";
 		}
+	}
+
+	public function create_email(){
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
+		$this->template->load('default_admin','admin/create_email',$data);
 	}	
 
 }

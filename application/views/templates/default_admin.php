@@ -21,6 +21,7 @@
 	<script type="text/javascript" src="<?php echo base_url() ?>fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 	<script src="<?php echo base_url(); ?>sweetalert-master/dist/sweetalert.min.js"></script>
 	<script src="<?php echo base_url() ?>jscolor/jscolor.js"></script>
+	
     
     
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
@@ -43,8 +44,8 @@
 		    z-index: 1; /* Stay on top */
 		    top: 0;
 		    left: 0;
-		    background-color: #34495e; /* Black*/
-		    color: #fff;
+		    background-color: <?php echo $configuration->primary_color ?>; /* Black*/
+		    color: <?php echo $configuration->secondary_color ?>;
 		    overflow-x: hidden; /* Disable horizontal scroll */
 		    padding-top: 60px; /* Place content 60px from the top */
 		    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -149,9 +150,9 @@
 		}
 
 		.btn-primary{
-			background-color: #34495e;
-			color: white;
-			border: #34495e 1px solid;
+			background-color: <?php echo $configuration->primary_color ?>;
+			color: <?php echo $configuration->secondary_color ?>;
+			border: <?php echo $configuration->primary_color ?> 1px solid;
 		}
 			
 		.btn-primary:focus, .btn-primary.focus {
@@ -203,11 +204,11 @@
 			border-color: #fff!important;
 		}
 		table>thead>tr>th{
-			background-color: #34495e;
-			color: #fff;
+			background-color: <?php echo $configuration->primary_color ?>;
+			color: <?php echo $configuration->secondary_color ?>;
 		}
 		.admin-box{
-			border:1px solid #34495e;
+			border:1px solid <?php echo $configuration->primary_color ?>;
 			border-radius: 10px;
 			margin-bottom: 20px;
 		}
@@ -217,9 +218,9 @@
 		.admin-box-head{
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
-			background-color: #34495e;
+			background-color: <?php echo $configuration->primary_color ?>;
 			padding: 10px;
-			color: #fff;
+			color: <?php echo $configuration->secondary_color ?>;
 		}
 		.admin-box-head a{
 			color: #fff;
@@ -257,7 +258,7 @@
 
 <div class="container-fluid">
   	<div id="main" >
-	  <div class="row" style="background-color:#34495e; height:50px;">
+	  <div class="row" style="background-color:<?php echo $configuration->primary_color ?>; height:50px;">
 	  	<div class="col-sm-3 col-xs-12">
 	  		<div id="background-btn" class="col-xs-4">
 				<button id="menu-button" onclick="openNav()"><img src="<?php echo base_url() ?>assets/menu.png" width="30" alt="" style="border:none;">
