@@ -144,7 +144,7 @@ $(document).ready(function(){
 <script>
 
     var waypoint = new Waypoint({
-      element: document.getElementById('restaurant-search'),
+      element: document.getElementById('body'),
       handler: function(direction) {
         <?php 
            $hex = str_replace("#", "", $configuration->primary_color);
