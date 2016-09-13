@@ -48,7 +48,7 @@
 
 			<div class="form-group">
 				<label for="">Email</label>
-				<input type="text" name="email" id="email" class="form-control" required="1" >
+				<input type="text" name="email" id="email" onkeyup="check_email()" class="form-control" required="1" >
         <span id="email_error_message"></span>
 			</div>
 
@@ -110,7 +110,6 @@
           if(result == 'taken'){
             $('#username_error_message').empty();
             $('#username_error_message').append("Username has been taken");
-            error_username = true;
           }else if(result == 'available'){
             $('#username_error_message').empty();
             $('#username_error_message').append('Username Available');
@@ -128,26 +127,33 @@
     }
 
     function check_email(){
+
       var email = $("#email").val();
 
-      $.ajax({
-        url: "<?php echo base_url('login/check_user')?>",
-        data: {email:email},
-        type: 'POST',
-        cache : false,
-        success: function(result){
-          if(result == 'taken'){
-            $('#email_error_message').append("Email has been taken");
-            $('#email_error_message').show();
-            error_email = true;
-          }else if(result == 'available'){
-            $('#email_error_message').append('');
+      if(email != ''){
+        $.ajax({
+          url: "<?php echo base_url('login/check_email')?>",
+          data: {email:email},
+          type: 'POST',
+          cache : false,
+          success: function(result){
+            if(result == 'taken'){
+              $('#email_error_message').empty();
+              $('#email_error_message').append("Email has been taken");
+            }else if(result == 'available'){
+              $('#email_error_message').empty();
+              $('#email_error_message').append('Email is available');
+            }
+           
+            
           }
-         
-          
-        }
+        
+        });
+      }else{
+      $('#email_error_message').empty();
+      }
+
       
-      });
 
 
     }

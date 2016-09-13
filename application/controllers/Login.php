@@ -564,6 +564,14 @@ class Login extends CI_Controller{
 		}
 	}
 
+	public function check_email(){
+		if($this->login_model->check_email($this->input->post('email'))){
+			echo 'taken';
+		}
+		else{
+			echo 'available';
+		}
+	}
 
 }
 

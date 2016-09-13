@@ -42,6 +42,26 @@ class Login_model extends CI_Model{
 
 	}
 
+	public function check_email($email = ''){
+
+		if($this->db->get_where('users',array('email' => $email))->num_rows() > 0){
+
+			return $this->db->get_where('users',array('email' => $email))->row();
+
+		}else if($this->db->get_where('drivers',array('email' => $email))->num_rows() > 0){
+
+			return $this->db->get_where('drivers',array('email' => $email))->row();
+		
+		}else if($this->db->get_where('restaurants', array('email' => $email))->num_rows() > 0)
+		{
+			return $this->db->get_where('restaurants', array('email' => $email))->row();
+		}else{
+				
+			return false;
+		}
+
+	}
+
 	public function resetPassword($email,  $data = array())
 		{
 			//Check if the thing is present
