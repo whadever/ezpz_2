@@ -56,7 +56,7 @@
               $b = hexdec(substr($hex,4,2));
            }
            $rgb = array($r, $g, $b);
-         ?>
+?>
 
   <header>
   <!--NavBar-->

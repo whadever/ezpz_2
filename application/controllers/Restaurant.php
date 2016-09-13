@@ -96,7 +96,7 @@
 			$data['restaurant_time'] = $this->crud_model->get_by_condition('restaurant_time',array('day' => date('l'),'restaurant_id' => $data['restaurant']->id ))->row();
 
 			$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $data['restaurant']->id))->result();
-
+			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 			$data['background'] = $data['restaurant']->photo;
 			$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 
