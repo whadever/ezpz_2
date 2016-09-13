@@ -226,6 +226,15 @@ class User extends CI_Controller{
 
 		$this->crud_model->insert_data('order_history', $data_insert);
 		$this->crud_model->delete_data('orders',array('code' => $code));
+		//for email
+		$user = $this->crud_model->get_by_condition('users',array('id'=>$order->user_id))->row();
+		$data['order_code'] = $order->code;
+		$data['order_detail'] = $this->order_model->get_order_detail($code);
+		$data['driver'] = $this->crud_model->get_by_condition('drivers',array('id' => $driver_id))->row();
+		$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $order->restaurant_id))->row();
+		$this->email_model->order_receipt($user->email,$data);
+	
+
 		$this->session->unset_userdata(array('order_status','order_id','rating'));
 	
 	}

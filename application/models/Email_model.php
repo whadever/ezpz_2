@@ -154,7 +154,7 @@ EOD;
 
 
 	public function order_receipt($email, $data)
-	{
+	{	
 		$to = $email;
 		$subject = "EZPZ Order Receipt";
 		$message = <<<EOD
@@ -167,17 +167,56 @@ EOD;
 				</td>
 			</tr>
 			<tr>
-				<td style="padding:2em">
-					<h1>Thank you for using EZPZ Food Delivery Service.</h1><br>
-					<p>Here is your order detail:
-							<br><br>
-								 Restaurant :<p style="color: #16a085">$name</p>
-							<br><br>
-								Address : <p style="color: #16a085">$address</p>
-							<br>
-					</p>
-					<p>We hope you enjoy our services and continue on using EZPZ for easy food delivery.</p>
+				<td colspan="5">
+					<center><h1>Your Order Receipt</h1></center>
+
 				</td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<h4>Order #{$data['order_code']} </h4>
+					<h4>Restaurant: {$data['restaurant']->name}</h4>
+					<h4>Driver:{$data['driver']->firstname}&nbsp;{$data['driver']->lastname}</h4>
+				</td>
+			</tr>
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Qty</th>
+				<th>Price</th>
+				<th>Sub Total</th>
+			</tr>
+						
+EOD;
+	$i=1;
+	foreach ($data['order_detail'] as $detail) {
+		$message .= '<tr>';
+		$message .= '<td style="text-align:center">'.$i.'</td>';
+		$message .= '<td style="text-align:center">'.$detail->name.'</td>';
+		$message .= '<td style="text-align:center">'.$detail->qty.'</td>';
+		$message .= '<td style="text-align:center"> NZD'.$detail->price.'</td>';
+		$message .= '<td style="text-align:center"> NZD'.$detail->sub_total.'</td>';
+		$message .= '</tr>';
+		$i++;
+	}
+
+	$message.= <<<EOD
+			<tr style="margin-top:20px">
+				<td colspan="5">
+					<h4>Delivery Detail</h4>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Distance:</b></td>
+				<td colspan="3">9.4km</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Delivery Cost:</b></td>
+				<td colspan="3">$ 5.00</td>
+			</tr>
+			<tr>
+				<td colspan="2"><b>Total Cost:</b></td>
+				<td colspan="3">$ 9.00</td>
 			</tr>
 			<tr>
 				<td style="background:#34495e; color:#fff; height:20%; padding:1em 0 1em 0">
