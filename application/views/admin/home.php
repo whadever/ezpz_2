@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-xs-12 text-center">
       <h2 style="margin-bottom:20px;">Welcome to Reyner's God Page</h2>
+      <a href="<?php echo base_url('admin/create_email') ?>" class="btn btn-primary" style="margin-bottom:20px;">Create Email</a>
     </div>
   </div>    
 <!--Setting Row-->  
@@ -41,7 +42,7 @@
                   <input class="jscolor" onblur="edit_color()" id="secondary_color" name="secondary_color" value="<?php echo $configuration->secondary_color ?>">
                 </div>
                 
-                <a href="<?php echo base_url('admin/create_email') ?>">Create Email</a>
+                
                 
               </div>
 

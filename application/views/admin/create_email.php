@@ -1,4 +1,4 @@
-
+<div class="container">
 
 
 <div class="row">
@@ -8,12 +8,12 @@
   <?php echo form_open('', array('id'=>'emailForm')) ?>
 
 	<textarea name="words" class="tinymce" id="texteditor" cols="30" rows="10"></textarea>
-  <input type="submit" value="Send Mail" class="btn btn-primary">
+  <input type="submit" value="Send Mail to All Users" class="btn btn-primary" style="margin-top:10px;">
 
   <?php echo form_close() ?>
 
 </div>
-
+</div>
 
 
 <script>
