@@ -495,9 +495,10 @@ class Driver extends CI_Controller{
 		$data['background'] = $data['configuration']->background;
 		$data['order_history'] = $this->crud_model->get_by_condition('order_history',array('code' => $order_code))->row();
 		$data['order_detail'] = $this->order_model->get_order_detail($order_code);
-		$data['driver']=$this->crud_model->get_by_condition('drivers',array('id'=>$data['order_history']->driver_id))->row();
+		$data['user']=$this->crud_model->get_by_condition('users',array('id'=>$data['order_history']->user_id))->row();
 		$data['restaurant']=$this->crud_model->get_by_condition('restaurants',array('id'=>$data['order_history']->restaurant_id))->row();
-		$this->template->load('default', 'user/order_detail', $data);
+		$data['driver_earnings'] = number_format($data['order_history']->delivery_cost * 70 / 100 - ($data['order_history']->delivery_cost * 70/100 * 20/100),2);
+		$this->template->load('default', 'driver/order_detail', $data);
 	}
 		
 	
