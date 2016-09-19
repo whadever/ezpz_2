@@ -64,7 +64,6 @@ header .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
 
 /*table*/
 
-
 body.modal-open {
     overflow: auto;
 }

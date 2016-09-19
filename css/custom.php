@@ -112,7 +112,10 @@ body.modal-open[style] {
     width: 0 !important; /*removes the scrollbar but still scrollable*/
     /* reference: http://stackoverflow.com/a/26500272/2259400 */
 }
-
+/*Tables*/
+.table-bordered th,.table-bordered td{
+  border:1px solid <?php  echo $row->primary_color ?> !important;
+}
 
 /*REGISTRATION FORMS*/
 .col-form{
