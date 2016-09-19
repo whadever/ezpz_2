@@ -381,11 +381,11 @@ function edit_background(){
       success: function(data) 
       {
         if(data == 'success'){
-          swal("Upload Success!", "You have succesfully Upload a photo.", "success");
+          swal("Color Change Success!", "Color succesfully changed.", "success");
           setTimeout(function(){ location.reload(); }, 1000);
         }else{
           
-          swal({title: "Upload Failed!",
+          swal({title: "Color Change Failed!",
                text: data,   
                timer: 2000,   
                showConfirmButton: false,
