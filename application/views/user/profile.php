@@ -201,24 +201,29 @@
 
 						
 					</div> -->
+					<div class="form-group" style="margin-bottom: 20px">
+							<label for="">Search :</label>
+							<input type="text" class="form-control" id="filter" style="width: 25%">
+						</div>
 
-					<div id="order_history" class="tab-pane fade">
-						<table class="table table-bordered" id="orders">
+					<div id="order_history" class="tab-pane fade table-responsive toggle-circle-filled">
+						
+						<table class="table table-condensed" id="orders" data-filter="#filter" data-page-size="10">
 							<thead>
 								<tr>
-									<th>
+									<th data-toggle="true">
 										Order Number	
 									</th>
 									<th>
 										Restaurant
 									</th>
-									<th>
+									<th data-hide="phone">
 										Driver Name
 									</th>
-									<th>
+									<th data-hide="tablet, phone">
 										Address
 									</th>
-									<th>
+									<th data-hide="phone">
 										Date
 									</th>
 								</tr>	
@@ -248,6 +253,12 @@
 								</tr>
 								<?php endforeach; ?>
 							</tbody>
+							<tfoot class="hide-if-no-paging">
+								<td colspan="5">
+									<div class="pagination"></div>
+								</td>
+								
+							</tfoot>
 						</table>
 					</div>
 
@@ -479,7 +490,7 @@ $(document).ready(function() {
 
 <script>
 	$(document).ready(function() {
-   	 $('#orders').DataTable();
+   	 $('#orders').footable();
 	} );
 </script>
 

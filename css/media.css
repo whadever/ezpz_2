@@ -70,6 +70,16 @@
 		padding-right: 0px!important;
 		text-align: center!important;
 	}
+
+	#filter{
+		width: 100% !important;
+	}
+
+	.table-responsive>.table>tbody>tr>td, .table-responsive>.table>tbody>tr>th, .table-responsive>.table>tfoot>tr>td, .table-responsive>.table>tfoot>tr>th, .table-responsive>.table>thead>tr>td, .table-responsive>.table>thead>tr>th{
+		
+		white-space: normal !important;
+
+	}
 } 
 
 @media only screen and (max-device-width: 440px)

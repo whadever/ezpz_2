@@ -25,7 +25,7 @@
 						</div>
 					</div>
 				</div>
-				<a href="<?php echo base_url('main/send') ?>" class="btn btn-warning">send mail</a>
+				
 			</div>
 			<div class="col-sm-4">
 				<div class="panel text-center food-panel">

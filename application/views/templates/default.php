@@ -12,11 +12,13 @@
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.php" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/footable.core.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/footable.metro.min.css" type="text/css" rel="stylesheet">
   	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
   	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/themes/bars-reversed.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/icon.jpg">
-    <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css">
+<!--     <link rel="stylesheet" href="<?php echo base_url() ?>datatables/css/dataTables.bootstrap4.css"> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>sweetalert-master/dist/sweetalert.css">
     
 
@@ -31,8 +33,11 @@
 	  <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="<?php echo base_url() ?>js/footable.js"></script>
+    <script src="<?php echo base_url() ?>js/footable.filter.js"></script>
+    <script src="<?php echo base_url() ?>js/footable.paginate.js"></script>
+  <!--   <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>datatables/js/dataTables.bootstrap4.js"></script> -->
     <script src="<?php echo base_url(); ?>sweetalert-master/dist/sweetalert.min.js"></script>
 
     <!--FOnt-->

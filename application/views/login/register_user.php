@@ -23,7 +23,7 @@
       <h1 class="text-center" style="margin-bottom:30px;">User Registration</h1>
 			<div class="form-group">
 				<label for="">Username</label>
-				<input type="text" name="username" id="username" onkeyup="check_username()" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' class="form-control" required="1" >
+				<input type="text" name="username" autocomplete="off" id="username" onblur="check_username()" pattern="^[A-Za-z0-9_]{1,15}$" title='Username cannot contain space' class="form-control" required="1" >
         <span id="username_error_message"></span>
 			</div>
 
@@ -49,7 +49,7 @@
 
 			<div class="form-group">
 				<label for="">Email</label>
-				<input type="text" name="email" id="email" onkeyup="check_email()" class="form-control" required="1" >
+				<input type="text" autocomplete="off" name="email" id="email" onblur="check_email()" class="form-control" required="1" >
         <span id="email_error_message"></span>
 			</div>
 
@@ -98,42 +98,52 @@
 
     function check_username(){
       var username = $("#username").val();
-
-      
-
       if(username != ''){
       
-      $.ajax({
-        url: "<?php echo base_url('login/check_username')?>",
-        data: {username:username},
-        type: 'POST',
-        cache : false,
-        success: function(result){
-         
-          if(result == 'taken'){
-            $('#username_error_message').empty();
-            $('#username_error_message').append("Username has been taken");
-          }else if(result == 'available'){
-            $('#username_error_message').empty();
-            $('#username_error_message').append('Username Available');
-          }
-         
+        $('#username_error_message').empty();
+        $('#username_error_message').append('<img src="<?php echo base_url('images/loader.gif') ?>" width="20">  Check for availability');
+        
+        setTimeout(function(){
+        
           
-        }
-      
-      });
-    }else{
-      $('#username_error_message').empty();
-    }
+          $.ajax({
+            url: "<?php echo base_url('login/check_username')?>",
+            data: {username:username},
+            type: 'POST',
+            cache : false,
+            success: function(result){
+             
+              if(result == 'taken'){
+                $('#username_error_message').empty();
+                $('#username_error_message').append('<p style="color:red">Username has been taken</p>');
+              }else if(result == 'available'){
+                $('#username_error_message').empty();
+                $('#username_error_message').append('<p style="color:green">Username Available <span class="glyphicon glyphicon-ok"></span></p>');
+              }
+             
+              
+            }
+          
+          });
+       
 
+        },1000);
+      
+      }else{
+        $('#username_error_message').empty();
+      }
 
     }
 
     function check_email(){
 
       var email = $("#email").val();
+      $('#email_error_message').empty();
+      $('#email_error_message').append('<img src="<?php echo base_url('images/loader.gif') ?>" width="20">  Check for availability');
 
-      if(email != ''){
+      setTimeout(function(){
+
+        if(email != ''){
         $.ajax({
           url: "<?php echo base_url('login/check_email')?>",
           data: {email:email},
@@ -142,7 +152,7 @@
           success: function(result){
             if(result == 'taken'){
               $('#email_error_message').empty();
-              $('#email_error_message').append("Email has been taken");
+              $('#email_error_message').append('Email has been taken');
             }else if(result == 'available'){
               $('#email_error_message').empty();
               $('#email_error_message').append('Email is available');
@@ -155,6 +165,10 @@
       }else{
       $('#email_error_message').empty();
       }
+
+      },1000);
+
+      
 
       
 

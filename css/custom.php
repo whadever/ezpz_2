@@ -15,6 +15,36 @@ footer{
   color: <?php echo $row->secondary_color ?>;
 }
 
+/* footable */
+.footable{
+  background :white !important;
+  border : 2px solid <?php echo $row->primary_color ?> !important;
+  width: 100% !important;
+}
+
+.footable>thead>tr>th, .footable>thead>tr>td { 
+  
+  background-color : <?php echo $row->primary_color ?> !important;
+  border : 1px solid <?php echo $row->primary_color ?> !important
+
+}
+
+.footable>tfoot>tr>th, .footable>tfoot>tr>td { 
+  
+  background-color : <?php echo $row->primary_color ?> !important;
+  border : 1px solid <?php echo $row->primary_color ?> !important
+
+}
+
+
+.footable-row-detail-cell{
+  width : 100% !important;
+}
+
+.footable-row-detail-value{
+  word-break : keep-all !important;
+}
+
 /*Panel Review*/
 .profile-picture{
   border-radius: 50px;

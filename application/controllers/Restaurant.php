@@ -63,7 +63,7 @@
 				$data['background'] = $data['configuration']->background;
 
 			}
-				
+				$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 				$data['lists'] = $this->crud_model->get_data('restaurants')->result();
 				$data['restaurant_time'] = $this->crud_model->get_data('restaurant_time')->result();
 				

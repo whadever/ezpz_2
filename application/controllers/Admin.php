@@ -231,6 +231,7 @@ class Admin extends CI_Controller{
 
 	public function cuisines(){
 		$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 
 		$this->template->load('default_admin','admin/cuisines/index',$data); 
 	}
