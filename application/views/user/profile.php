@@ -202,9 +202,9 @@
 						
 					</div> -->
 					<div class="form-group" style="margin-bottom: 20px">
-							<label for="">Search :</label>
-							<input type="text" class="form-control" id="filter" style="width: 25%">
-						</div>
+						<label for="">Search :</label>
+						<input type="text" class="form-control" id="filter" style="width: 25%">
+					</div>
 
 					<div id="order_history" class="tab-pane fade table-responsive toggle-circle-filled">
 						

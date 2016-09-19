@@ -68,7 +68,7 @@ class Order_model extends CI_Model{
 	}
 
 	public function get_orders(){
-		$this->db->select('orders.*, restaurants.name as "restaurant", users.username');
+		$this->db->select('orders.*, restaurants.name as "restaurant", users.firstname,users.lastname,users.telephone,users.email');
 		$this->db->from('orders');
 		$this->db->join('restaurants','restaurants.id = orders.restaurant_id');
 		$this->db->join('users','users.id = orders.user_id');
