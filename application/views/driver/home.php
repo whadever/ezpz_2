@@ -123,7 +123,7 @@
 </div><!-- Modal Driver Info end -->
 
 <!-- Modal -->
-<div class="modal fade" id="maps" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top: 20%">
+<div class="modal fade" id="maps" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       

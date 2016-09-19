@@ -193,11 +193,14 @@ EOD;
 		$message .= '<td style="text-align:center">'.$i.'</td>';
 		$message .= '<td style="text-align:center">'.$detail->name.'</td>';
 		$message .= '<td style="text-align:center">'.$detail->qty.'</td>';
-		$message .= '<td style="text-align:center"> NZD'.$detail->price.'</td>';
-		$message .= '<td style="text-align:center"> NZD'.$detail->sub_total.'</td>';
+		$message .= '<td style="text-align:center">'.NZD($detail->price).'</td>';
+		$message .= '<td style="text-align:center">'.NZD($detail->sub_total).'</td>';
 		$message .= '</tr>';
 		$i++;
 	}
+
+	$delivery_cost = NZD($data['delivery_cost']);
+	$total_cost = NZD($data['total_price'] + $data['delivery_cost']);
 
 	$message.= <<<EOD
 			<tr style="margin-top:20px">
@@ -219,11 +222,11 @@ EOD;
 			</tr>
 			<tr>
 				<td colspan="2"><b>Delivery Cost</b></td>
-				<td colspan="3">NZD {$data['delivery_cost']}</td>
+				<td colspan="3">{$delivery_cost}</td>
 			</tr>
 			<tr>
 				<td colspan="2"><b>Total Cost</b></td>
-				<td colspan="3">NZD {$data['delivery_cost']}</td>
+				<td colspan="3">{$total_cost}</td>
 			</tr>
 			<tr>
 				<td colspan="5" style="background:#34495e; color:#fff; height:20%; padding:1em 0 1em 0">
