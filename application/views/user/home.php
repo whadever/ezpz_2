@@ -66,3 +66,7 @@ $("#restaurant-search").typeahead({
                     });
 
 </script>
+
+<script>
+	swal({   title: "Success",   text: "You Have Successfully Topped Up Your Wallet! Happy Shopping!", type: "success", showConfirmButton: false, timer:1500 });
+</script>

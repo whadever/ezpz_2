@@ -244,17 +244,53 @@ class User extends CI_Controller{
 
 	public function topup ()
 	{
-		$this->stripe_model->pay();
+		//Check user payment gateway
+		if($this->input->post('stripeToken'))
+		{
+			//Using stripe because stripe token return something
+			$this->stripe_model->pay();
 
-		$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
+			$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
 
-		$topup_amount = str_replace(',', '',$this->input->post('amount') );
-		
+			$topup_amount = str_replace(',', '',$this->input->post('amount') );
 
-		$amount = $credits + (int)$topup_amount ;
+			$amount = $credits + (int)$topup_amount ;
 
-		$this->crud_model->update_data('users', array('credits' => $amount), array('id' => $this->session->userdata('user_id')));
-		redirect('user');
+			$this->crud_model->update_data('users', array('credits' => $amount), array('id' => $this->session->userdata('user_id')));
+
+			$this->session->set_flashdata('success_topup', 'swal({   title: "Success",   text: "You Have Successfully Topped Up Your Wallet! Happy Shopping!", type: "success", showConfirmButton: false, timer:1500 });');
+
+			redirect('user');
+		}else if($this->session->flashdata('success_paypal'))
+		{
+			$credits = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row('credits');
+
+			$topup_amount = $this->session->flashdata('amount');
+
+			$amount = $credits + (int)$topup_amount ;
+
+			$this->crud_model->update_data('users', array('credits' => $amount), array('id' => $this->session->userdata('user_id')));
+
+			$this->session->set_flashdata('success_topup', 'swal({   title: "Success",   text: "You Have Successfully Topped Up Your Wallet! Happy Shopping!", type: "success", showConfirmButton: false, timer:1500 });');
+
+			redirect('user');
+		}
+		else
+		{
+			//Paypal the only other option right now
+
+			//Pass userdata for paypal gateway use
+			$data = $this->crud_model->get_by_condition('users', array('id' => $this->session->userdata('user_id')))->row();
+			$userdata = array (
+				'amount'		=> $this->input->post('amount')
+				);
+
+			//Set the post data to session flashdata for onetime use
+			$this->session->set_flashdata('data', $userdata);
+
+			//Redirect to paypal libs
+			redirect(base_url('paypal/Set_express_checkout'));
+		}
 	}
 
 	public function order_detail($order_code){

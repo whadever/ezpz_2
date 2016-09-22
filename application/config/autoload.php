@@ -103,7 +103,7 @@ $autoload['helper'] = array('form','file','url','ezpz','string','text');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('paypal');
 
 /*
 | -------------------------------------------------------------------

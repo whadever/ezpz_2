@@ -34,13 +34,15 @@
                             </div>
                   </td>
             </tr> 
-            </table>           
+            </table>         
           </div>
           <div class="row text-center" style="padding:20px;padding-right:5px;">                     
-              <input type="button" class="btn btn-primary" id="pay" value="Pay">
-          </div>        
-                
-            <?php echo form_close() ?>
+              <input type="button" class="btn btn-primary" id="pay" value="Pay Using Stripe">
+          </div> 
+          <div class="row text-center" style="padding:20px;padding-right:5px;">                     
+              <input type="submit" class="btn btn-primary" id="pay-paypal" value="Pay Using PayPal">
+          </div>
+          <?php echo form_close() ?>
         </div>
         <div class="col-lg-2"></div>
     </div>
@@ -71,18 +73,19 @@ $("#restaurant-search").typeahead({
 <script>
 
   function format(input)
-{
-    var nStr = input.value + '';
-    nStr = nStr.replace( /\,/g, "");
-    var x = nStr.split( '.' );
-    var x1 = x[0];
-    var x2 = x.length > 1 ? '.' + x[1] : '';
-    var rgx = /(\d+)(\d{3})/;
-    while ( rgx.test(x1) ) {
-        x1 = x1.replace( rgx, '$1' + ',' + '$2' );
-    }
-    input.value = x1 + x2;
-}
+  {
+      var nStr = input.value + '';
+      nStr = nStr.replace( /\,/g, "");
+      var x = nStr.split( '.' );
+      var x1 = x[0];
+      var x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+      while ( rgx.test(x1) ) {
+          x1 = x1.replace( rgx, '$1' + ',' + '$2' );
+      }
+      input.value = x1 + x2;
+  }
+
 
 var handler = StripeCheckout.configure({
     key: 'pk_test_WHJeocUki4v9PeEmVbhYedqV',
