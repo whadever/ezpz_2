@@ -4,10 +4,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title><?php echo $page_title; ?> - EZPZ</title>
+	<title><?php echo $page_title; ?> - EZPZ Delivery</title>
 
+    <META name="description" content="the best new zealand food delivery service.">
+    <META name="keywords" content="food, delivery, new zealand, ezpz, etc.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    
+    <meta name="robots" content="noindex">
     <!-- Stylesheet -->
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.php" type="text/css" rel="stylesheet">

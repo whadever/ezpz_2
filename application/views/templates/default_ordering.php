@@ -8,6 +8,11 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <META name="description" content="the best new zealand food delivery service.">
+    <META name="keywords" content="food, delivery, new zealand, ezpz, etc.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex">
+
 
     <!--Font-->
     <link href="https://fonts.googleapis.com/css?family=Muli|Roboto|Dosis" rel="stylesheet">
