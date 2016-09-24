@@ -6,7 +6,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  * -------------------------
  * TRUE means you'll be hitting PayPal's sandbox/test servers.  FALSE means you'll be hitting the live servers.
  */
-$config['Sandbox'] = TRUE;
+$config['Sandbox'] = FALSE;
 
 /* 
  * PayPal API Version
@@ -30,9 +30,9 @@ $config['APIVersion'] = '123.0';
  * Live: https://www.paypal.com/us/cgi-bin/webscr?cmd=_login-api-run
  *
  */
-$config['APIUsername'] = $config['Sandbox'] ? 'payment_api1.ezpzdelivery.co.nz' : 'PRODUCTION_USERNAME_GOES_HERE';
-$config['APIPassword'] = $config['Sandbox'] ? 'DH4SG8XSXWZU6ACF' : 'PRODUCTION_PASSWORD_GOES_HERE';
-$config['APISignature'] = $config['Sandbox'] ? 'AFcWxV21C7fd0v3bYYYRCpSSRl31Aghb3iiIsFANDq8kSQg.CSFbf7MN' : 'PRODUCTION_SIGNATURE_GOES_HERE';
+$config['APIUsername'] = $config['Sandbox'] ? 'payment_api1.ezpzdelivery.co.nz' : 'reyner_api1.lrmcorporation.com';
+$config['APIPassword'] = $config['Sandbox'] ? 'DH4SG8XSXWZU6ACF' : 'F2AKXGECX5MXLU6F';
+$config['APISignature'] = $config['Sandbox'] ? 'AFcWxV21C7fd0v3bYYYRCpSSRl31Aghb3iiIsFANDq8kSQg.CSFbf7MN' : 'AFcWxV21C7fd0v3bYYYRCpSSRl31AJ9II-zHPKW7i4XKyjWQHL-UuS14';
 
 /*
  * Payflow Gateway API Credentials
@@ -68,7 +68,7 @@ $config['ApplicationID'] = $config['Sandbox'] ? 'APP-80W284485P519543T' : 'PRODU
  * PayPal Developer Account Email Address
  * This is the email address that you use to sign in to http://developer.paypal.com
  */
-$config['DeveloperEmailAccount'] = 'some@email.com';
+$config['DeveloperEmailAccount'] = 'jonathan.hosea@hotmail.com';
 
 /**
  * Third Party User Values

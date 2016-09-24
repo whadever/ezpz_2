@@ -200,7 +200,7 @@ class Paypal extends CI_Controller
 		if(!$this->paypal_pro->APICallSuccessful($PayPalResult['ACK']))
 		{
 			$errors = array('Errors'=>$PayPalResult['ERRORS']);
-			$this->load->view('paypal/samples/error',$errors);
+			$this->load->view('paypal/error',$errors);
 		}
 		else
 		{
@@ -223,7 +223,7 @@ class Paypal extends CI_Controller
 		if(!$this->paypal_pro->APICallSuccessful($PayPalResult['ACK']))
 		{
 			$errors = array('Errors'=>$PayPalResult['ERRORS']);
-			$this->load->view('paypal/samples/error',$errors);
+			$this->load->view('paypal/error',$errors);
 		}
 		else
 		{
@@ -360,7 +360,7 @@ class Paypal extends CI_Controller
 		if(!$this->paypal_pro->APICallSuccessful($PayPalResult['ACK']))
 		{
 			$errors = array('Errors'=>$PayPalResult['ERRORS']);
-			$this->load->view('paypal/samples/error',$errors);
+			$this->load->view('paypal/error',$errors);
 		}
 		else
 		{
