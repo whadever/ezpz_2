@@ -28,6 +28,7 @@ class Client extends CI_Controller{
 
 		$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
 
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$data['background'] =$data['restaurant']->photo;
 		$data['cuisines'] = $this->crud_model->get_data('cuisines')->result();
 
@@ -46,6 +47,7 @@ class Client extends CI_Controller{
 
 
 		$data['page_title'] = 'Profile';
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$data['background'] = $data['restaurant']->photo;
 		$data['client'] = $this->crud_model->get_by_condition('restaurants',array('id' => $id))->row();
 		$this->template->load('default_client','client/profile', $data);
@@ -87,6 +89,7 @@ class Client extends CI_Controller{
 		$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('id' => $this->session->userdata('user_id')))->row();
 		$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
 		$data['page_title'] = 'Menu';
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$data['background'] = $data['restaurant']->photo;
 		$data['client'] = $this->crud_model->get_by_condition('restaurants',array('id' => $id))->row();
 		$this->template->load('default_client','client/menu', $data);
