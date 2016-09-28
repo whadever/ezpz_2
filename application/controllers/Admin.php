@@ -45,21 +45,22 @@ class Admin extends CI_Controller{
 	/* user list page */
 	public function users($is_verified){
 		$data['users'] = $this->crud_model->get_by_condition('users',array('is_verified' => $is_verified))->result();
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 
 		$this->template->load('default_admin','admin/users/index',$data); 
 	}
 
 
 	public function drivers($is_verified){
-		
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$data['drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => $is_verified))->result();
-
 
 		$this->template->load('default_admin','admin/drivers/index',$data); 
 	}
 
 
 	public function clients($is_verified){
+		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$data['clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => $is_verified))->result();
 
 
