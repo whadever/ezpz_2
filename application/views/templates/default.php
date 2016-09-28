@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -25,7 +25,7 @@
     
 
     <!-- Begin Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
     <script src="<?php echo base_url() ?>js/iscroll.js"></script>
@@ -214,25 +214,6 @@ $(document).ready(function(){
       offset: '-20%'
     });
 </script>
-
-
-<script>
-
-    var test = [""];
-    <?php $i = 0; ?>
-
-    <?php foreach ($lists as $restaurant): ?>
-        test[<?php echo $i ?>] = "<?php echo $restaurant['username'] ?>"
-        <?php $i++; ?>
-    <?php endforeach; ?>
-
-    $("#restaurant-search").typeahead({
-                            minLength: 0,
-                            items: 9999,
-                            source: test,   
-                        });
-</script>
-
 
 <script>
 
