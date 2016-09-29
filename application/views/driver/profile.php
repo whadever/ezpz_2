@@ -250,27 +250,27 @@
 
 						
 					</div> -->
-
-					<div id="order_history" class="tab-pane fade">
-						<table class="table table-bordered" id="orders">
+					
+					<div id="order_history" class="tab-pane fade table-responsive toggle-circle-filled">
+						<table class="table table-condensed" id="orders" data-filter="#filter" data-page-size="10">
 							<thead>
 								<tr>
-									<th>
+									<th data-toggle="true">
 										Order Number	
 									</th>
-									<th>
+									<th data-hide="phone,tablet">
 										Restaurant
 									</th>
 									<th>
 										Client Name
 									</th>
-									<th>
+									<th data-hide="phone,tablet">
 										Address
 									</th>
 									<th>
 										Earnings
 									</th>
-									<th>
+									<th data-hide="phone">
 										Date
 									</th>
 								</tr>	
@@ -498,7 +498,7 @@ $(document).ready(function() {
 
 <script>
 	$(document).ready(function() {
-   	 $('#orders').DataTable();
+   	 $('#orders').footable();
 	} );
 </script>
 
