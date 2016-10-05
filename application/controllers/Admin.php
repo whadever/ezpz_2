@@ -207,6 +207,12 @@ class Admin extends CI_Controller{
 		$random_code = random_string('numeric', 5);
 		$password = hash_password($random_code);
 		$this->crud_model->update_data('restaurants',array('is_verified' => 1,'password' => $password), array('is_verified' => 0));
+		foreach ($users as $user)
+		{
+			$emails[] = $user->email;
+		}
+
+		$to = implode (", ", $emails); 
 
 		$this->session->set_flashdata('password', $random_code);
 		redirect('admin');
@@ -218,7 +224,8 @@ class Admin extends CI_Controller{
 		$random_code = random_string('numeric', 5);
 		$password = hash_password($random_code);
 		$this->crud_model->update_data('restaurants',array('is_verified' => 1,'password' => $password), array('id' => $id));
-
+		$data = $this->crud_model->get_by_condition('restaurants', array('id' => $id))->row(); 
+		$this->email_model->restaurant_password($data->email,$data,$random_code);
 		$this->session->set_flashdata('password', $random_code);
 		// redirect('admin');
 		echo "success";
