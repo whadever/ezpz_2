@@ -27,7 +27,7 @@
 							<?php foreach ($restaurant_time as $time): ?>
 								<?php if($time->restaurant_id == $restaurant->id && $time->day == date('l')){
 									
-									echo "<p>".$time->opentime." - ".$time->closetime."</p>";
+									echo "<p>".date('H:i',strtotime($time->opentime))." - ".date('H:i',strtotime($time->closetime))."</p>";
 									$closed = 0;
 								} 
 								?>
