@@ -116,12 +116,14 @@ class Login extends CI_Controller{
 
                 if ($this->upload->do_upload('photo'))
                 {
+                	$image = $this->upload->data();
                     //Get the link for the database
                     $photo = $config ['upload_path'] . '/' . $config ['file_name'];
                 }else{
                 	$photo = '';
                 }
 
+                
 
 
 				$verification_code = verification_code();
@@ -139,6 +141,7 @@ class Login extends CI_Controller{
 					'telephone' 		=> '+64'.$this->input->post('telephone'),
 					'address' 			=> $this->input->post('address'),
 					'photo'				=> $photo,
+					
 					'verification_code'	=> $verification_code,
 					'created'			=> date('Y-m-d')
 
@@ -294,8 +297,15 @@ class Login extends CI_Controller{
 
 	                $this->image_moo
 					->load($config ['upload_path'] . '/' . $image['file_name'])
-					->resize_crop(1900,700)
+					->resize_crop(350,250)
+					->save_pa('','_thumb');
+
+					$this->image_moo
+					->load($config ['upload_path'] . '/' . $image['file_name'])
+					->resize_crop(1300,500)
 					->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
+
+	              
 
 					$data = array(
 
@@ -308,6 +318,7 @@ class Login extends CI_Controller{
 					'address' 			=> $this->input->post('address'),
 					'cuisine_id'		=> implode(', ', $this->input->post('cuisine')),
 					'photo'				=> $photo,
+					'thumb'				=> $config ['upload_path'] . '/' . $image['raw_name'].'_thumb'.$image['file_ext'],
 					'created'			=> date('Y-m-d')
 
 					);

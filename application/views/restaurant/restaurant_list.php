@@ -35,7 +35,7 @@
 							<?php echo $closed == 1 ? "<p style='color:red'>Closed Today</p>" : "<p style='color:green'>Open Today</p>" ?>
 					    </div>
 					    <a href="<?php echo base_url('restaurant/detail/'.$restaurant->name) ?>">
-						    <div class="panel-heading" style="background-image: url('<?php echo base_url().$restaurant->photo ?>');background-size: cover;background-repeat: no-repeat;background-position: center center; height:198px;">
+						    <div class="panel-heading" style="background-image: url('<?php echo base_url().$restaurant->thumb ?>');background-size: cover;background-repeat: no-repeat;background-position: center center; height:198px;">
 						        &nbsp;
 						    </div>
 				    	</a>

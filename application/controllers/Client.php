@@ -119,9 +119,9 @@ class Client extends CI_Controller{
                 if ($this->upload->do_upload('photo'))
                 {
                     //Get the link for the database
-                    $photo = $this->upload->data();
+                    $image = $this->upload->data();
 
-                    $photo = $config ['upload_path'] . '/' . $photo ['file_name'];
+                    $photo = $config ['upload_path'] . '/' . $image ['file_name'];
                     
                 }else
                 {
@@ -131,6 +131,11 @@ class Client extends CI_Controller{
                 	echo '</pre>';
                 	exit;
                 }
+
+                $this->image_moo
+				->load($config ['upload_path'] . '/' . $image['file_name'])
+				->resize_crop(300,300)
+				->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
 
                 $data = array(
 						
@@ -232,14 +237,21 @@ class Client extends CI_Controller{
             {
                 //Get the link for the database
                 $image = $this->upload->data();
-                $photo = $config ['upload_path'] . '/' . $config ['file_name'];
-                $this->image_moo
-					->load($photo)
-					->resize_crop(1900,700)
-					->save($photo,TRUE);
+                $photo = $config ['upload_path'] . '/' . $image ['file_name'];
+                
             }else{
             	$photo = $this->crud_model->get_by_condition('restaurants',array('id' => $this->session->userdata('user_id')))->row('photo');
             }
+
+            $this->image_moo
+			->load($config ['upload_path'] . '/' . $image['file_name'])
+			->resize_crop(350,250)
+			->save_pa('','_thumb');
+
+			$this->image_moo
+			->load($config ['upload_path'] . '/' . $image['file_name'])
+			->resize_crop(1300,500)
+			->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
 
 
 
@@ -253,6 +265,7 @@ class Client extends CI_Controller{
 			'address' 			=> $this->input->post('address'),
 			'cuisine_id'		=> implode(', ', $this->input->post('cuisine')),
 			'photo'				=> $photo,
+			'thumb'				=> $config ['upload_path'] . '/' . $image['raw_name'].'_thumb'.$image['file_ext'],
 			'created'			=> date('Y-m-d')
 
 			);
