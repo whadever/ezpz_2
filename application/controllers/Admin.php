@@ -33,12 +33,12 @@ class Admin extends CI_Controller{
 			}
 			elseif ($this->input->post('account')=='driver') {
 				$drivers = $this->crud_model->get_by_condition('drivers',array('id'=>$this->input->post('id')))->row();
-				$this->email_model->email_disaproval($drivers->email);
+				$this->email_model->email_disapproval($drivers->email);
 				$this->crud_model->delete_data('drivers',array('id' => $this->input->post('id')));
 			}
 			else{
 				$restaurants = $this->crud_model->get_by_condition('restaurants',array('id'=>$this->input->post('id')))->row();
-				$this->email_model->email_disaproval($restaurants->email);
+				$this->email_model->email_disapproval($restaurants->email);
 				$this->crud_model->delete_data('restaurants',array('id' => $this->input->post('id')));	
 			}
 	
