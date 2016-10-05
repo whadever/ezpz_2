@@ -244,7 +244,7 @@
 
   <div id="mySidenav" class="sidenav" >
 	  <div class="company_logo" style="margin-bottom: 30px; padding-left: 32px">
-	  	<img src="<?php echo base_url()?>logo.png" width="100px" class="hidden-xs" style="margin-left:15%">
+	  	<img src="<?php echo base_url()?>assets/logo.png" width="100px" class="hidden-xs" style="margin-left:15%">
 	  </div>
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="border-bottom: none;font-size:25px!important;">&times;</a>
 	  <a href="<?php echo base_url('admin') ?>">Home</a>

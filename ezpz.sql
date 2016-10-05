@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2016 at 02:27 AM
+-- Generation Time: Oct 05, 2016 at 03:23 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -44,6 +44,27 @@ INSERT INTO `admin` (`id`, `username`, `password`, `email`, `created`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `configuration`
+--
+
+CREATE TABLE `configuration` (
+  `id` int(11) NOT NULL,
+  `background` varchar(255) DEFAULT NULL,
+  `primary_color` varchar(255) DEFAULT NULL,
+  `service_fare` double DEFAULT NULL,
+  `secondary_color` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `configuration`
+--
+
+INSERT INTO `configuration` (`id`, `background`, `primary_color`, `service_fare`, `secondary_color`) VALUES
+(1, 'uploads/config/hd_wallpaper_best_2036_hd_backgrounds.jpg', '#2C3E50', 2, '#FFFFFF');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cuisines`
 --
 
@@ -62,7 +83,8 @@ INSERT INTO `cuisines` (`id`, `name`, `photo`, `thumb`) VALUES
 (15, 'Japanese', 'images/cuisines/Japan.jpg', 'images/cuisines/Japan_thumb.jpg'),
 (16, 'Chinese', 'images/cuisines/Tasty-Chinese-Dumplings-Food-Photo-Wallpaper-Desktop-Free-HD-2993493945.jpg', 'images/cuisines/Tasty-Chinese-Dumplings-Food-Photo-Wallpaper-Desktop-Free-HD-2993493945_thumb.jpg'),
 (17, 'Italian', 'images/cuisines/Supreme_pizza.jpg', 'images/cuisines/Supreme_pizza_thumb.jpg'),
-(18, 'American', 'images/cuisines/american.jpg', 'images/cuisines/american_thumb.jpg');
+(18, 'American', 'images/cuisines/american.jpg', 'images/cuisines/american_thumb.jpg'),
+(19, 'felita', 'images/cuisines/hd_wallpaper_best_2036_hd_backgrounds.jpg', 'images/cuisines/hd_wallpaper_best_2036_hd_backgrounds_thumb.jpg');
 
 -- --------------------------------------------------------
 
@@ -85,14 +107,16 @@ CREATE TABLE `dishes` (
 --
 
 INSERT INTO `dishes` (`id`, `restaurant_id`, `name`, `price`, `description`, `photo`, `available`) VALUES
-(5, 17, 'Spicy Italian Sandwich', 6, 'Best Sandwich', 'uploads/restaurant/subwayaddington/dishes/spicyitalian__1365688541.jpg', 1),
 (6, 16, 'Espresso', 3.75, 'Best Espresso in the world askldjsad alsdkaklsjd alkdjalksjd  aslkdjaslkd akldaskljd akljdalskjd askldjasljdnaklsjdaslkjd asdkljaskldjajasdjasd asdasdj sadasjd alksdjalksd aslkdjaklsjd aslkdjasd aslkdjaklsjd klasdjalskjd alskjdaklsjd alskdjaklsjd klasjdlksajd ..asdjlalskd aslkdjaslkjd ', 'uploads/restaurant/c1espresso/dishes/Base-Espresso-Cappuccino.jpg', 1),
 (7, 16, 'Caffe Latte', 5, 'Best latte ever', 'uploads/restaurant/c1espresso/dishes/slider.jpg', 1),
-(8, 20, 'Ayam Goreng', 4, 'Ayam lampu', 'uploads/restaurant/mcd/dishes/bulb.jpg', 1),
 (9, 16, 'kopi', 2, 'kopi', 'uploads/restaurant/c1espresso/dishes/minion_png_by_isammyt-d6fn0fj.png', 1),
 (10, 16, 'test', 23.79, 'test', 'uploads/restaurant/c1espresso/dishes/th.jpg', 1),
-(11, 21, 'salmon maki', 2, 'salmon maki', 'uploads/restaurant/sushitei/dishes/3993730-japanese-cuisine-salmon-maki-sushi.jpg', 1),
-(13, 20, 'sad', 20, 'asd', 'uploads/restaurant/mcd/dishes/i8bWneLrPgJG7.png', 1);
+(17, 23, 'ayam', 3, 'd', 'uploads/restaurant/bukris/dishes/ayam-penyet-lezat-tokomesin.jpg', 1),
+(18, 23, 'cheese', 6, 'tty', 'uploads/restaurant/bukris/dishes/gambar-artikel-10-3.jpg', 1),
+(19, 20, 'fried chicken', 5, 'ayam\r\n', 'uploads/restaurant/mcd/dishes/Ayam-Kentucky.jpg', 1),
+(20, 19, 'espresso', 2, 'test', 'uploads/restaurant/topkapi/dishes/coffee2.jpg', 1),
+(21, 17, 'Spicy Italian Sandwich', 6, 'test', 'uploads/restaurant/subwayaddington/dishes/20131216-1-a-sandwich-a-day-chop-shop-spicy-italian-edit-thumb-610x457-375814.jpg', 1),
+(22, 21, 'tuna mentai', 9, 'tuna mentai', 'uploads/restaurant/sushitei/dishes/package-of-tuna-salad-crispy-mentai-and-many-more-at-sushi-tei-diskon.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -114,6 +138,8 @@ CREATE TABLE `drivers` (
   `license_type` varchar(255) NOT NULL,
   `credits` double NOT NULL DEFAULT '0',
   `photo` varchar(255) DEFAULT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL,
   `verification_code` varchar(255) DEFAULT NULL,
   `is_verified` int(20) NOT NULL DEFAULT '0',
   `created` date NOT NULL,
@@ -124,9 +150,10 @@ CREATE TABLE `drivers` (
 -- Dumping data for table `drivers`
 --
 
-INSERT INTO `drivers` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `telephone`, `address`, `ird`, `driver_license`, `license_type`, `credits`, `photo`, `verification_code`, `is_verified`, `created`, `type`) VALUES
-(3, 'john', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Jonathan', 'Hosea', 'zonecaptain@gmail.com', '+812887688232', 'TPI', '09000', '0923712389120', 'Full License', 14.97, 'uploads/driver/john/photo.jpg', NULL, 1, '2016-08-15', 'driver'),
-(4, 'irpan', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Irvan', 'Winata', 'irvan@gethassee.com', '+812345678901', '8888', '123', '123123', 'Learner', 243.02, 'uploads/driver/irpan/photo.jpg', NULL, 1, '2016-08-22', 'driver');
+INSERT INTO `drivers` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `telephone`, `address`, `ird`, `driver_license`, `license_type`, `credits`, `photo`, `latitude`, `longitude`, `verification_code`, `is_verified`, `created`, `type`) VALUES
+(3, 'john', '73fcdc607c2bab87bb5293e09a0b3adc2f3499d45266b67f409225bf83e99141e96b9211d9e18b43649123df5a5277751220aabf43a03780943c9178aad80009', 'Jonathan', 'Hosea', 'zonecaptain@gmail.com', '+812887688232', 'TPI', '09000', '0923712389120', 'Full License', 14.97, 'uploads/driver/john/photo.jpg', 0, 0, NULL, 1, '2016-08-15', 'driver'),
+(4, 'irpan', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Irvan', 'Winata', 'irvan@gethassee.com', '+812345678901', '8888', '123', '123123', 'Learner', 428.92, 'uploads/driver/irpan/photo.jpg', 0, 0, NULL, 1, '2016-08-22', 'driver'),
+(5, 'baboon', 'dbd6dca2696240fbb1ff10a948d83d8818ea529b98db3b11c185e8facb9b1d2c6edf26d22aac66ad6b2571f53699a5b1c24a6bbd2a43dd3f31159d3f42dcf076', 'Baboon', 'Broo', 'irvan_winata@hotmail.com', '+6418371237721', '38 Riccarton Rd, Riccarton, Christchurch 8011, New Zealand', '09000', '12314124', 'Learner', 0, 'uploads/driver/baboon/photo.jpg', 0, 0, 'bf3b4691b70264f0bb92bb98d7ff742fd199d5c3562863b2eb806555a98e77e1', 1, '2016-09-08', 'driver');
 
 -- --------------------------------------------------------
 
@@ -179,7 +206,10 @@ INSERT INTO `driver_rating` (`id`, `driver_id`, `user_id`, `code`, `rating`) VAL
 (30, 4, 33, 'ed66add', 5),
 (31, 4, 33, 'bc298cb', 5),
 (32, 4, 33, '489bc4f', 5),
-(33, 4, 48, '4339aa', 5);
+(33, 4, 48, '4339aa', 5),
+(34, 4, 33, '1d0260c', 5),
+(35, 4, 33, '5b98739', 5),
+(36, 4, 33, '880864a', 5);
 
 -- --------------------------------------------------------
 
@@ -268,7 +298,19 @@ INSERT INTO `order_detail` (`id`, `code`, `product_id`, `qty`, `sub_total`) VALU
 (121, 'bc298cb', 5, 1, 6),
 (122, '489bc4f', 5, 1, 6),
 (123, 'fa29e1c', 5, 1, 6),
-(124, '4339aa', 5, 3, 18);
+(124, '4339aa', 5, 3, 18),
+(125, '7df21a3', 5, 1, 6),
+(127, '884e49c', 11, 1, 2),
+(128, 'd0f15a0', 11, 1, 2),
+(130, '6386e8b', 11, 5, 10),
+(131, 'a1896e5', 11, 1, 2),
+(134, 'ef88486', 13, 1, 20),
+(135, 'ef837d9', 11, 2, 4),
+(136, '1d0260c', 13, 1, 20),
+(138, 'bdbd62d', 8, 1, 4),
+(139, '5b98739', 8, 1, 4),
+(140, '880864a', 13, 1, 20),
+(141, '5074fa4', 6, 5, 18.75);
 
 -- --------------------------------------------------------
 
@@ -326,7 +368,10 @@ INSERT INTO `order_history` (`id`, `user_id`, `restaurant_id`, `driver_id`, `tot
 (24, 33, 21, 4, 1, 5, 10, 9.9, 'ed66add', 4, -6.142641999999999, 106.89111700000001, 'RT.10/RW.11, Klp. Gading Bar., Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14240, Indonesia', 28, 5, '2016-09-01 17:31:57'),
 (25, 33, 17, 4, 1, 1, 6, 5, 'bc298cb', 4, -43.5309739, 172.6065565, '1A Kipax Pl, Riccarton, Christchurch 8011, New Zealand', 19, 2, '2016-09-02 16:53:28'),
 (26, 33, 17, 4, 1, 1, 6, 5, '489bc4f', 4, -43.5309739, 172.6065565, '1A Kipax Pl, Riccarton, Christchurch 8011, New Zealand', 19, 2, '2016-09-02 22:15:52'),
-(27, 48, 17, 4, 1, 3, 18, 14.53, '4339aa', 4, -43.529533, 172.55565720000004, '20 Bucknell St, Sockburn, Christchurch 8042, New Zealand', 26, 7.3, '2016-09-05 20:57:44');
+(27, 48, 17, 4, 1, 3, 18, 14.53, '4339aa', 4, -43.529533, 172.55565720000004, '20 Bucknell St, Sockburn, Christchurch 8042, New Zealand', 26, 7.3, '2016-09-05 20:57:44'),
+(28, 33, 20, 4, 1, 1, 20, 199.93, '1d0260c', 4, -6.2017374, 106.78152709999995, 'Jl. Kebon Jeruk Raya No. 27, Kebon Jeruk, Kb. Jeruk, Jakarta Barat, Daerah Khusus Ibukota Jakarta 11530, Indonesia', 51, 28.2, '2016-09-19 14:13:33'),
+(29, 33, 20, 4, 1, 1, 4, 18.14, '5b98739', 4, -6.1554382, 106.89667439999994, 'Jl. Boulevard Bar. Raya, Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta, Indonesia', 22, 2.6, '2016-09-19 14:33:37'),
+(30, 33, 20, 4, 1, 1, 20, 35.32, '880864a', 4, -6.1649888, 106.91425430000004, 'Jl. Boulevard Timur No. 88, Kelapa Gading, Pegangsaan Dua, Klp. Gading, Jakarta Utara, Daerah Khusus Ibukota Jakarta, Indonesia', 29, 5, '2016-09-19 15:02:09');
 
 -- --------------------------------------------------------
 
@@ -344,6 +389,7 @@ CREATE TABLE `restaurants` (
   `longitude` double DEFAULT NULL,
   `latitude` double DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
+  `thumb` varchar(255) NOT NULL,
   `telephone` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `created` date DEFAULT NULL,
@@ -355,12 +401,12 @@ CREATE TABLE `restaurants` (
 -- Dumping data for table `restaurants`
 --
 
-INSERT INTO `restaurants` (`id`, `username`, `password`, `name`, `address`, `cuisine_id`, `longitude`, `latitude`, `photo`, `telephone`, `email`, `created`, `is_verified`, `type`) VALUES
-(16, 'c1espresso', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'C1 Espresso', '185 High St, Christchurch Central, Christchurch 8142, New Zealand', '15, 17', 172.64046280000002, -43.535125, 'uploads/restaurant/c1espresso/photo.jpg', '+812345678901', 'c1espresso@gethassee.com', '2016-08-22', 1, 'client'),
-(17, 'subwayaddington', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Subway Addington', '359 Lincoln Rd, Addington, Christchurch 8024, New Zealand', '15, 16', 172.61484180000002, -43.54124820000001, 'uploads/restaurant/subwayaddington/photo.jpg', '+628131687899', 'subway@addington.com', '2016-08-27', 1, 'client'),
-(19, 'topkapi', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Topkapi Restaurant', '64 Manchester St, Christchurch Central, Christchurch 8011, New Zealand', '17, 18', 172.63983099999996, -43.5368573, 'uploads/restaurant/topkapi/photo.jpg', '+812345678901', 'topkapi@gmail.com', '2016-08-18', 1, 'client'),
-(20, 'mcd', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'McDonalds', 'Jl. Boulevard Artha Gading Kav. D-01, Kelapa Gading, Klp. Gading Bar., Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14240, Indonesia', '18', 106.89637470000002, -6.146804099999999, 'uploads/restaurant/mcd/photo.jpg', '+081316361519', 'mmcd@mcd.xom', '2016-09-05', 1, 'client'),
-(21, 'sushitei', '6f0b8408d75f70d6791de8c428acf065636bfd8943d1f38b1cdd7bdf48b9bc73422f3f42d86faece2d313aff8f62e2d83e06c9b42c3149cdaed285101cd7334f', 'Sushi Tei', 'Mall Kelapa Gading 5 Lantai 1 Unit 47, JL Boulevard Kelapa Gading Utara, Klp. Gading Tim., Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14240, Indonesia', '16, 17, 18', 106.91012309999996, -6.156939299999998, 'uploads/restaurant/sushitei/photo.jpg', '+812345678901', 'sushitei@gethassee.com', '2016-08-30', 1, 'client');
+INSERT INTO `restaurants` (`id`, `username`, `password`, `name`, `address`, `cuisine_id`, `longitude`, `latitude`, `photo`, `thumb`, `telephone`, `email`, `created`, `is_verified`, `type`) VALUES
+(17, 'subwayaddington', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Subway Addington', '359 Lincoln Rd, Addington, Christchurch 8024, New Zealand', '15, 16', 172.61484180000002, -43.54124820000001, 'uploads/restaurant/subwayaddington/photo.jpg', 'uploads/restaurant/subwayaddington/photo_thumb.jpg', '+628131687899', 'subway@addington.com', '2016-10-05', 1, 'client'),
+(19, 'topkapi', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Topkapi Restaurant', '64 Manchester St, Christchurch Central, Christchurch 8011, New Zealand', '17, 18', 172.63983099999996, -43.5368573, 'uploads/restaurant/topkapi/photo.jpg', 'uploads/restaurant/topkapi/photo_thumb.jpg', '+812345678901', 'topkapi@gmail.com', '2016-10-05', 1, 'client'),
+(20, 'mcd', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'McDonalds', 'Jl. Boulevard Artha Gading Kav. D-01, Kelapa Gading, Klp. Gading Bar., Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14240, Indonesia', '18', 106.89637470000002, -6.146804099999999, 'uploads/restaurant/mcd/photo.jpg', 'uploads/restaurant/mcd/photo_thumb.jpg', '+081316361519', 'mmcd@mcd.xom', '2016-10-05', 1, 'client'),
+(21, 'sushitei', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Sushi Tei', 'Mall Kelapa Gading 5 Lantai 1 Unit 47, JL Boulevard Kelapa Gading Utara, Klp. Gading Tim., Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14240, Indonesia', '16, 17, 18', 106.91012309999996, -6.156939299999998, 'uploads/restaurant/sushitei/photo.jpg', 'uploads/restaurant/sushitei/photo_thumb.jpg', '+812345678901', 'sushitei@gethassee.com', '2016-10-05', 1, 'client'),
+(23, 'bukris', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Warung Bu Kris', 'Komplek Graha Parkview Blok ZD 01, Jl. Raya Boulevar Timur, Kelapa Gading, Pegangsaan Dua, Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14240, Indonesia', '15', 106.913007, -6.165606199999999, 'uploads/restaurant/bukris/photo.jpg', 'uploads/restaurant/bukris/photo_thumb.jpg', '+6429379139840', 'bukris@gethassee.com', '2016-10-05', 1, 'client');
 
 -- --------------------------------------------------------
 
@@ -382,28 +428,30 @@ CREATE TABLE `restaurant_time` (
 
 INSERT INTO `restaurant_time` (`id`, `restaurant_id`, `day`, `opentime`, `closetime`) VALUES
 (12, '18', 'Tuesday', '01:01:00', '12:59:00'),
-(49, '19', 'Tuesday', '10:00:00', '23:59:00'),
 (66, '16', 'Tuesday', '00:00:00', '23:59:00'),
 (67, '16', 'Thursday', '10:00:00', '22:00:00'),
 (68, '16', 'Friday', '00:00:00', '23:00:00'),
 (69, '16', 'Sunday', '10:00:00', '22:00:00'),
-(76, '17', 'Monday', '08:00:00', '23:59:00'),
-(77, '17', 'Tuesday', '07:00:00', '23:59:00'),
-(78, '17', 'Wednesday', '07:00:00', '23:59:00'),
-(79, '17', 'Thursday', '07:00:00', '23:59:00'),
-(80, '17', 'Friday', '07:00:00', '23:59:00'),
-(81, '17', 'Saturday', '00:00:00', '11:59:00'),
-(82, '17', 'Sunday', '00:00:00', '11:59:00'),
-(83, '21', 'Tuesday', '00:00:00', '23:59:00'),
-(84, '21', 'Wednesday', '00:00:00', '23:59:00'),
-(85, '21', 'Thursday', '00:00:00', '23:59:00'),
-(86, '20', 'Monday', '00:00:00', '23:59:00'),
-(87, '20', 'Tuesday', '00:00:00', '23:59:00'),
-(88, '20', 'Wednesday', '00:00:00', '23:59:00'),
-(89, '20', 'Thursday', '00:00:00', '23:59:00'),
-(90, '20', 'Friday', '00:00:00', '23:59:00'),
-(91, '20', 'Saturday', '00:00:00', '23:59:00'),
-(92, '20', 'Sunday', '00:00:00', '23:59:00');
+(93, '22', 'Wednesday', '00:00:00', '23:59:00'),
+(94, '23', 'Wednesday', '08:00:00', '23:59:00'),
+(95, '17', 'Monday', '08:00:00', '23:59:00'),
+(96, '17', 'Tuesday', '07:00:00', '23:59:00'),
+(97, '17', 'Wednesday', '07:00:00', '23:59:00'),
+(98, '17', 'Thursday', '07:00:00', '23:59:00'),
+(99, '17', 'Friday', '07:00:00', '23:59:00'),
+(100, '17', 'Saturday', '00:00:00', '11:59:00'),
+(101, '17', 'Sunday', '00:00:00', '11:59:00'),
+(102, '21', 'Tuesday', '00:00:00', '23:59:00'),
+(103, '21', 'Wednesday', '00:00:00', '23:59:00'),
+(104, '21', 'Thursday', '00:00:00', '23:59:00'),
+(105, '19', 'Tuesday', '10:00:00', '23:59:00'),
+(106, '20', 'Monday', '00:00:00', '23:59:00'),
+(107, '20', 'Tuesday', '00:00:00', '23:59:00'),
+(108, '20', 'Wednesday', '00:00:00', '23:59:00'),
+(109, '20', 'Thursday', '00:00:00', '23:59:00'),
+(110, '20', 'Friday', '00:00:00', '23:59:00'),
+(111, '20', 'Saturday', '00:00:00', '23:59:00'),
+(112, '20', 'Sunday', '00:00:00', '23:59:00');
 
 -- --------------------------------------------------------
 
@@ -431,7 +479,8 @@ INSERT INTO `review` (`id`, `restaurant_id`, `user_id`, `review`, `rating`, `dat
 (15, 20, 33, 'BNNla bla bla', 5, '2016-08-26 19:07:40'),
 (16, 20, 33, 'BNNla bla bla', 5, '2016-08-26 19:19:41'),
 (17, 20, 33, 'res', 5, '2016-08-26 19:20:08'),
-(18, 20, 33, 'ressat', 5, '2016-08-26 19:20:29');
+(18, 20, 33, 'ressat', 5, '2016-08-26 19:20:29'),
+(19, 23, 33, 'apa kabar', 5, '2016-10-05 15:55:53');
 
 -- --------------------------------------------------------
 
@@ -477,7 +526,10 @@ INSERT INTO `transaction` (`id`, `code`, `driver_id`, `driver_earnings`, `ezpz_e
 (24, 'ed66add', 4, 5.54, 4.36),
 (25, 'bc298cb', 4, 2.8, 2.2),
 (26, '489bc4f', 4, 2.8, 2.2),
-(27, '4339aa', 4, 8.14, 6.39);
+(27, '4339aa', 4, 8.14, 6.39),
+(28, '1d0260c', 4, 111.96, 87.97),
+(29, '5b98739', 4, 10.16, 7.98),
+(30, '880864a', 4, 19.78, 15.54);
 
 -- --------------------------------------------------------
 
@@ -509,9 +561,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `latitude`, `longitude`, `telephone`, `address`, `photo`, `credits`, `verification_code`, `is_verified`, `created`, `type`) VALUES
-(33, 'irvan', 'cb5478c9e7c13583f301752dabdc3704e136b8ce31ebdddf23efdb40c33aac1a9b605fcf538edfe6d03ecfa52c17d9f4d3d687ac3effdfddd34e8b0b3450c8b4', 'Irvan', 'Winata', 'irpanwinata@gmail.com', -43.5309739, 172.6065565, '+628131687899', '1A Kipax Pl, Riccarton, Christchurch 8011, New Zealand', 'uploads/user/irvan/photo.jpg', 401000.095, NULL, 1, '2016-08-15', 'user'),
+(33, 'irvan', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Irvan', 'Winata', 'irpanwinata@gmail.com', -43.5309739, 172.6065565, '+628131687899', '1A Kipax Pl, Riccarton, Christchurch 8011, New Zealand', 'uploads/user/irvan/photo.jpg', 400748.455, NULL, 1, '2016-08-15', 'user'),
 (38, 'Reyner', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Gerald', 'Liando', 'reyner@gethassee.com', -43.52879890000001, 172.60820569999998, '+081288768823', '28 Riccarton Rd, Riccarton, Christchurch 8011, New Zealand', 'uploads/user/Reyner/photo.jpg', 1182.17, NULL, 1, '2016-08-16', 'user'),
-(39, 'miki', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Mickey', 'Jane', 'mickeyjane28@gmail.com', -43.5297406, 172.59807539999997, '+081288768823', '128 Riccarton Rd, Riccarton, Christchurch 8041, New Zealand', 'uploads/user/miki/photo.jpg', 0, NULL, 1, '2016-08-23', 'user'),
+(39, 'miki', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Mickey', 'Jane', 'mickeyjane28@gmail.com', -43.5297406, 172.59807539999997, '+081288768823', '128 Riccarton Rd, Riccarton, Christchurch 8041, New Zealand', 'uploads/user/miki/photo.jpg', 2000, NULL, 1, '2016-08-23', 'user'),
 (46, 'setyawan', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Setyawan', 'Susanto', 'setyawansusanto99@outlook.com', -43.3002693, 172.1744301, '+812345678901', '1231 Depot Rd, Oxford 7430, New Zealand', 'uploads/user/setyawan/photo.jpg', 0, '832bf129c187573a9883e034259c16593e4bb2ac22ef7e500c585edeafd949b5', 0, '2016-09-02', 'user'),
 (47, 'setyawan9', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'Setyawan', 'Susanto', 'setyawan@gethassee.com', -43.5396236, 172.6255175, '+081288768823', '111 Moorhouse Ave, Addington, Christchurch 8011, New Zealand', 'uploads/user/setyawan9/photo.jpg', 0, '20eab13a2a24000e59ed6bc924f8ab9238078957ef0922b58afdda1c0f3686ea', 0, '2016-09-02', 'user'),
 (48, 'irpans', 'd3623c77578eebdac371c5f82d23c3fb4376396cdb4c7045c933398105db60f9e56c7c3f3af8474ee155a0804ea6f193e66555d76362ecf2675802e4f1a2387d', 'irvan', 'winata', 'irpanwinata@live.com', -43.529533, 172.55565720000004, '+644324231231', '20 Bucknell St, Sockburn, Christchurch 8042, New Zealand', '', 811.94, NULL, 1, '2016-09-05', 'user'),
@@ -525,6 +577,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `firstname`, `lastname`, `ema
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `configuration`
+--
+ALTER TABLE `configuration`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -609,25 +667,30 @@ ALTER TABLE `users`
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `configuration`
+--
+ALTER TABLE `configuration`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `cuisines`
 --
 ALTER TABLE `cuisines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `dishes`
 --
 ALTER TABLE `dishes`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `drivers`
 --
 ALTER TABLE `drivers`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `driver_rating`
 --
 ALTER TABLE `driver_rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `orders`
 --
@@ -637,32 +700,32 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 --
 -- AUTO_INCREMENT for table `order_history`
 --
 ALTER TABLE `order_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `restaurant_time`
 --
 ALTER TABLE `restaurant_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `users`
 --
