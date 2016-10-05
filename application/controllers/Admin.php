@@ -273,7 +273,7 @@ class Admin extends CI_Controller{
 
 			$this->image_moo
 			->load($config ['upload_path'] . '/' . $image['file_name'])
-			->resize_crop(1300,700)
+			->resize_crop(1300,500)
 			->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
 
 			$data = array(
@@ -327,7 +327,7 @@ class Admin extends CI_Controller{
 
 				$this->image_moo
 				->load($config ['upload_path'] . '/' . $image['file_name'])
-				->resize_crop(1300,700)
+				->resize_crop(1300,500)
 				->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
 
 				$thumb = $config ['upload_path'] . '/' . $image['raw_name'].'_thumb'.$image['file_ext'];
