@@ -32,9 +32,13 @@ class Admin extends CI_Controller{
 				$this->crud_model->delete_data('users',array('id' => $this->input->post('id')));
 			}
 			elseif ($this->input->post('account')=='driver') {
+				$drivers = $this->crud_model->get_by_condition('drivers',array('id'=>$this->input->post('id')))->row();
+				$this->email_model->email_disaproval($drivers->email);
 				$this->crud_model->delete_data('drivers',array('id' => $this->input->post('id')));
 			}
 			else{
+				$restaurants = $this->crud_model->get_by_condition('restaurants',array('id'=>$this->input->post('id')))->row();
+				$this->email_model->email_disaproval($restaurants->email);
 				$this->crud_model->delete_data('restaurants',array('id' => $this->input->post('id')));	
 			}
 	
@@ -206,13 +210,17 @@ class Admin extends CI_Controller{
 	public function approve_all_client(){
 		$random_code = random_string('numeric', 5);
 		$password = hash_password($random_code);
+		$restaurants = $this->crud_model->get_by_condition('restaurants', array('is_verified' => 0))->result();
 		$this->crud_model->update_data('restaurants',array('is_verified' => 1,'password' => $password), array('is_verified' => 0));
-		foreach ($users as $user)
+
+		foreach ($restaurants as $resto)
 		{
-			$emails[] = $user->email;
+			$emails[] = $resto->email;
 		}
 
 		$to = implode (", ", $emails); 
+
+		$this->email_model->restaurant_password_all($to,$random_code);
 
 		$this->session->set_flashdata('password', $random_code);
 		redirect('admin');
