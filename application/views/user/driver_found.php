@@ -111,9 +111,33 @@
 
 <script type="text/javascript">
    
+    window.addEventListener('load', function () {
+  // At first, let's check if we have permission for notification
+  // If not, let's ask for it
+  if (window.Notification && Notification.permission !== "granted") {
+    Notification.requestPermission(function (status) {
+      if (Notification.permission !== status) {
+        Notification.permission = status;
+      }
+    });
+  }
+  if (window.Notification && Notification.permission === "granted") {
+      
+      var options = {
+      	body: "Your driver is <?php echo $driver->firstname . ' '. $driver->lastname ?> ",
+      	icon: "<?php echo base_url('assets/icon.jpg') ?>"
+      }
+        var n = new Notification("Driver Found ! " , options);
+        
+      
+    }
+
+ 
+});
+
 </script>
 <script>
-
+var i = 0;
 function auto_load(){
         $.ajax({
           url: "<?php echo base_url('order/tracking/'.$order->code) ?>",
@@ -123,6 +147,22 @@ function auto_load(){
 
           	if(result == 3)
           	{
+          		if (window.Notification && Notification.permission !== "granted") {
+				    Notification.requestPermission(function (status) {
+				      if (Notification.permission !== status) {
+				        Notification.permission = status;
+				      }
+				    });
+				  }
+				  if (window.Notification && Notification.permission === "granted" && i == 0) {
+			      	var options = {
+				      	body: "Driver has bought your food and now enroute to your place",
+				      	icon: "<?php echo base_url('assets/icon.jpg') ?>"
+				      }
+				    var n = new Notification("EZPZ Status Update", options );
+				        i = 1;
+				      
+				    }
              	document.getElementById("statusDriver").innerHTML = "Driver have bought your order and now enroute to your home";
              	
              	$('#cancelorder').empty();
@@ -133,8 +173,25 @@ function auto_load(){
           		document.getElementById("statusOrder").innerHTML = " ";
           		
           		document.getElementById("statusDriver").innerHTML = "Your order have been completed!";
+          		if (window.Notification && Notification.permission !== "granted") {
+				    Notification.requestPermission(function (status) {
+				      if (Notification.permission !== status) {
+				        Notification.permission = status;
+				      }
+				    });
+				  }
           		
-          		
+          		if (window.Notification && Notification.permission === "granted") {
+      				
+          			var options = {
+				      	body: "Your order has finished, please rate the driver",
+				      	icon: "<?php echo base_url('assets/icon.jpg') ?>"
+				      }
+			      
+			        var n = new Notification("EZPZ Status Update", options );
+			        
+			      
+			    }
           		
 			      $('#rate').barrating({
 			        theme: 'fontawesome-stars'

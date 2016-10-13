@@ -88,7 +88,7 @@
 	                  
 	                  <li role="separator" class="divider" style="background-color: white; height: 1px"></li>
 	                </ul>
-
+       
 	                <?php if($this->session->userdata("isLogged") == FALSE): ?>
 	                <ul class="nav navbar-nav navbar-right">
 	                  <li><a href="<?php echo base_url('login/register/user') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -214,6 +214,7 @@ $(document).ready(function(){
       offset: '-20%'
     });
 </script>
+
 
 <script>
 
