@@ -70,35 +70,95 @@ class Login_model extends CI_Model{
 				'email'		=> $email
 				
 				);
-
+			
 			//Check On The User Database
-			if($this->db->get_where('users', $check)->num_rows() > 0)
-			{
-					$to = $email;
-					$subject = "Your Reseted Password";
-					$message = "Hello!
-								Here is your reseted password\n
-								
-								Password :" . $data['password'] . "\n
-								
-								For Safety Please Quickly Change Your Password!";
+			if($data['type']=='user'){
+				if($this->db->get_where('users', $check)->num_rows() > 0)
+				{
+						$to = $email;
+						$subject = "Your Reseted Password";
+						$message = "Hello!
+									Here is your reseted password\n
+									
+									Password :" . $data['password'] . "\n
+									
+									For Safety Please Quickly Change Your Password!";
 
-					$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
-					$headers .= 'From: noreply@ezpz.com' . "\r\n" .
-								'Reply-To: irpanwinata@gmail.com' . "\r\n" .
-								'X-Mailer: PHP/' . phpversion();
-					
-					if(!mail($to, $subject, $message, $headers))
-					{
-						return false;
-					}
+						$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+						$headers .= 'From: noreply@ezpz.com' . "\r\n" .
+									'Reply-To: irpanwinata@gmail.com' . "\r\n" .
+									'X-Mailer: PHP/' . phpversion();
+						
+						if(!mail($to, $subject, $message, $headers))
+						{
+							return false;
+						}
 
-				$new_data = array('password' => hash_password($data['password']));
+					$new_data = array('password' => hash_password($data['password']));
 
-				$this->db->set($new_data);
-				$this->db->where($check);
-				return $this->db->update('users');
+					$this->db->set($new_data);
+					$this->db->where($check);
+					return $this->db->update('users');
+				}
 			}
+			else if($data['type']=='driver'){
+				if($this->db->get_where('drivers', $check)->num_rows() > 0)
+				{
+						$to = $email;
+						$subject = "Your Reseted Password";
+						$message = "Hello!
+									Here is your reseted password\n
+									
+									Password :" . $data['password'] . "\n
+									
+									For Safety Please Quickly Change Your Password!";
+
+						$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+						$headers .= 'From: noreply@ezpz.com' . "\r\n" .
+									'Reply-To: irpanwinata@gmail.com' . "\r\n" .
+									'X-Mailer: PHP/' . phpversion();
+						
+						if(!mail($to, $subject, $message, $headers))
+						{
+							return false;
+						}
+
+					$new_data = array('password' => hash_password($data['password']));
+
+					$this->db->set($new_data);
+					$this->db->where($check);
+					return $this->db->update('drivers');
+				}
+			}
+			else if($data['type']=='client'){
+				if($this->db->get_where('restaurants', $check)->num_rows() > 0)
+				{
+						$to = $email;
+						$subject = "Your Reseted Password";
+						$message = "Hello!
+									Here is your reseted password\n
+									
+									Password :" . $data['password'] . "\n
+									
+									For Safety Please Quickly Change Your Password!";
+
+						$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+						$headers .= 'From: noreply@ezpz.com' . "\r\n" .
+									'Reply-To: irpanwinata@gmail.com' . "\r\n" .
+									'X-Mailer: PHP/' . phpversion();
+						
+						if(!mail($to, $subject, $message, $headers))
+						{
+							return false;
+						}
+
+					$new_data = array('password' => hash_password($data['password']));
+
+					$this->db->set($new_data);
+					$this->db->where($check);
+					return $this->db->update('restaurants');
+				}
+			}	
 		}
 
 	public function verify_account($md5)

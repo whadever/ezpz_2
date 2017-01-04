@@ -5,6 +5,14 @@
 	}
 </style>
 
+<script>
+<?php if($this->session->flashdata('success')){
+	echo $this->session->flashdata('success');
+}else if($this->session->flashdata('error')){
+	echo $this->session->flashdata('error');
+} ?>
+</script>
+
 
 <!--Full Div End, What you can do div-->
 <div class="row">
@@ -98,6 +106,7 @@
 
 
 <script>
+
 
 var test = [""];
 <?php $i = 0; ?>

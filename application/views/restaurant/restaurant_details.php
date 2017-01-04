@@ -30,7 +30,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 restaurant-detail">
-						
 					<h2 style="display:inline;"><?php echo $restaurant->name.' ' ?></h2>
 					
 					<p><?php echo $restaurant->address ?></p>

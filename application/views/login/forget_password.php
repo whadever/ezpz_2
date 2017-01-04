@@ -18,17 +18,17 @@
 	<div class="col-md-6 col-xs-12 col-form">
 
 		
-		<?php echo form_open('login/forget/reset', array ("id" => "loginForm")) ?>
-      <h1 class="text-center" style="margin-bottom:30px;">Reset Password</h1>
+		<?php echo form_open('login/forget/reset') ?>
+      		<h1 class="text-center" style="margin-bottom:30px;">Reset Password</h1>
 			<div class="form-group">
 				<label for="email">Submit your registered e-mail to receive the new password</label>
 				<input type="text" name ="email" class="form-control" placeholder="Email" required="1">
 			</div>
 			<div class="text-center">
-				<input type="submit" name="submit" value="Reset Password" onClick="submitForm ()" id="loginButton" class="btn btn-primary ">
+				<input type="submit" name="submit" value="Reset Password" id="loginButton" class="btn btn-primary ">
 			</div>
 
-		</form>
+		<?php echo form_close(); ?>
 
 	</div>
 

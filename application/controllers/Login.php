@@ -453,30 +453,67 @@ class Login extends CI_Controller{
 			$email = $this->input->post('email');
 			$new_pass = substr(md5(microtime()),rand(0,26),5);
 			
-
 			$user_data = array('email' => $email);
 
-			if($this->crud_model->get_by_condition('users', $user_data))
+			if($this->crud_model->get_by_condition('users', $user_data)->row())
 			{
 				$data = array (
 
-				'password'  => $new_pass
+				'password'  => $new_pass,
+				'type'		=> 'user'
 
 				);
 
 				if($this->login_model->resetPassword($email, $data))
 				{
-					$this->session->set_flashdata('success', 'Reset Password Success! Please Check Your Email!');
-					redirect('login/');
+					$this->session->set_flashdata('success', 'swal({   title: "Success",   text: "Reset Password Success! Please Check Your Email", type: "success", showConfirmButton: false, timer:1500 });');
+					redirect('main');
 				}else
 				{
-					$this->session->set_flashdata('error', 'Email not sent!');
-					redirect('login/');
+					$this->session->set_flashdata('error', 'swal({   title: "Error",   text: "Email not sent", type: "warning", showConfirmButton: false, timer:1500 });');
+					redirect('main');
 				}
-			}else
+			}else if($this->crud_model->get_by_condition('drivers', $user_data)->row())
 			{
-				$this->session->set_flashdata('error', 'No Account Registered With That Email!');
-				redirect('login/');
+				$data = array (
+
+				'password'  => $new_pass,
+				'type'		=> 'driver'
+
+				);
+
+				if($this->login_model->resetPassword($email, $data))
+				{
+					$this->session->set_flashdata('success', 'swal({   title: "Success",   text: "Reset Password Success! Please Check Your Email", type: "success", showConfirmButton: false, timer:1500 });');
+					redirect('main');
+				}else
+				{
+					$this->session->set_flashdata('error', 'swal({   title: "Error",   text: "Email not sent", type: "warning", showConfirmButton: false, timer:1500 });');
+					redirect('main');
+				}
+			}else if($this->crud_model->get_by_condition('restaurants', $user_data)->row())
+			{
+				$data = array (
+
+				'password'  => $new_pass,
+				'type'		=> 'client'
+
+				);
+
+				if($this->login_model->resetPassword($email, $data))
+				{
+					$this->session->set_flashdata('success', 'swal({   title: "Success",   text: "Reset Password Success! Please Check Your Email", type: "success", showConfirmButton: false, timer:1500 });');
+					redirect('main');
+				}else
+				{
+					$this->session->set_flashdata('error', 'swal({   title: "Error",   text: "Email not sent", type: "warning", showConfirmButton: false, timer:1500 });');
+					redirect('main');
+				}
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'swal({   title: "Error",   text: "Email not exist", type: "warning", showConfirmButton: false, timer:1500 });');
+				redirect('main');
 			}
 		}
 	}
