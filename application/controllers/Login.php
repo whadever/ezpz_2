@@ -181,8 +181,7 @@ class Login extends CI_Controller{
 	}
 
 	public function register_driver(){
-
-		if($this->input->post('register')){
+		if($this->input->post()){
 			// $verification_code = verification_code();
 			// $verification_string = $this->input->post('username') . '~' . $verification_code;
 
@@ -230,12 +229,11 @@ class Login extends CI_Controller{
 					'created'			=> date('Y-m-d')
 
 					);
-			echo "<pre>";
-			print_r($data);
-			echo "</pre>";
+
 			$this->crud_model->insert_data('drivers', $data);
+			$this->email_model->driver_registered($data);
 			//$this->email_model->verification_email($data['email'], $verification_string);
-			$this->session->set_flashdata('success','Driver has been added');
+			$this->session->set_flashdata('success','You have successfully registered');
 
 			redirect('main');
 		}
@@ -341,8 +339,9 @@ class Login extends CI_Controller{
 					
 					$this->crud_model->insert_data('restaurant_time',$data_insert);
 				}	
+				$this->email_model->restaurant_registered($data);
 				
-				$this->session->set_flashdata('success', 'Client has been added');
+				$this->session->set_flashdata('success', 'You have successfully registered');
 
 				redirect('login');
 		 	}

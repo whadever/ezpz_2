@@ -42,21 +42,21 @@ class Admin extends CI_Controller{
 	}
 
 	/* user list page */
-	public function users($is_verified){
+	public function users($is_verified =1){
 		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$data['users'] = $this->crud_model->get_by_condition('users',array('is_verified' => $is_verified))->result();
 		$this->template->load('default_admin','admin/users/index',$data); 
 	}
 
 	/* driver list page */
-	public function drivers($is_verified){
+	public function drivers($is_verified =1){
 		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$data['drivers'] = $this->crud_model->get_by_condition('drivers',array('is_verified' => $is_verified))->result();
 		$this->template->load('default_admin','admin/drivers/index',$data); 
 	}
 
 	/* client list page */
-	public function clients($is_verified){
+	public function clients($is_verified =1){
 		$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 		$data['clients'] = $this->crud_model->get_by_condition('restaurants',array('is_verified' => $is_verified))->result();
 		$this->template->load('default_admin','admin/clients/index',$data); 
@@ -175,6 +175,8 @@ class Admin extends CI_Controller{
 		$random_code = random_string('numeric', 5);
 		$password = hash_password($random_code);
 		$this->crud_model->update_data('drivers',array('is_verified' => 1,'password' => $password), array('id' => $id));
+		$data = $this->crud_model->get_by_condition('drivers', array('id' => $id))->row(); 
+		$this->email_model->restaurant_password($data->email,$data,$random_code);
 		echo "success";
 	}
 
@@ -346,7 +348,7 @@ class Admin extends CI_Controller{
 		if($this->input->post('delete')){
 			$this->crud_model->delete_data('users',array('id' => $this->input->post('id')));
 		}
-		redirect('admin/users');
+		redirect('admin/users/1');
 	}
 
 	//Manage Client/Restaurant Update Delete
@@ -461,6 +463,13 @@ class Admin extends CI_Controller{
 		}else{
 			echo 'failed';
 		}		
+	}
+
+	public function delete_driver(){
+		if($this->input->post('delete')){
+			$this->crud_model->delete_data('drivers',array('id' => $this->input->post('id')));
+		}
+		redirect('admin/drivers/1');
 	}
 }
 ?>

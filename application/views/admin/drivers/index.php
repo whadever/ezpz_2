@@ -107,7 +107,7 @@
         <h4 class="modal-title">Delete driver</h4>
       </div>
       <div class="modal-body">
-        <?php echo form_open('drivers/delete'); ?>
+        <?php echo form_open('admin/delete_driver'); ?>
 			<p>Are you sure?</p>
       </div>
       <div class="modal-footer">

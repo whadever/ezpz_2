@@ -284,7 +284,7 @@
 		  	<div class="row">
 		  		<div class="col-sm-4"></div>
 		  		<div class="col-sm-4 text-center">
-		  			<img src="<?php echo base_url() ?>assets/logo.jpg" style="margin-bottom:10px; padding-top: 20px;width:100%;border-radius:50%;" class="img img-responsive" alt="">
+		  			<img src="<?php echo base_url() ?>assets/icon.jpg" style="margin-bottom:10px;margin-top:10px; border-radius:5%;" width="150" alt="">
 		  		</div>
 		  		<div class="col-sm-4"></div>
 	  		</div>
