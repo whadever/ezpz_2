@@ -178,61 +178,8 @@
 
 				$this->crud_model->delete_data('orders',array('code' => $code));
 				$this->session->unset_userdata(array('order_status','code'));
-
+				$this->session->set_flashdata('success_topup','swal({   title: "Success",   text: "Your Order has been cancelled!", type: "success", showConfirmButton: false, timer:1500 });');
 			}
-
-			//Kasian Irvan
-
-			// elseif($order->status == 2){ //if driver has accept the order
-			// 	$driver_id = $order->driver_id;
-			// 	$user = $this->crud_model->get_by_condition('users', array('id' => $user_id))->row();
-
-			// 	$delivery_cost = $order->delivery_cost / 2;
-
-			// 	$this->crud_model->update_data('users', array('credits' => $user->credits + $delivery_cost + $order->total_price),array('id' => $user_id));
-			
-			// 	$this->session->unset_userdata(array('order_status','code'));
-
-			// 	$driver_earnings = number_format($delivery_cost * 70 / 100 - ($delivery_cost * 70/100 * 20/100),2);
-			// 	$ezpz_earnings = number_format($delivery_cost - ($delivery_cost * 70 / 100 - ($delivery_cost * 70/100 * 20/100)),2);
-
-			// 	$transaction_data = array (
-
-			// 		'code'				=> $code,
-			// 		'driver_id'			=> $driver_id,
-			// 		'driver_earnings'	=> $driver_earnings,
-			// 		'ezpz_earnings'		=> $ezpz_earnings
-			// 		);
-
-			// 	$data_insert = array(
-			// 		'user_id' 			=> $order->user_id,
-			// 		'restaurant_id' 	=> $order->restaurant_id,
-			// 		'driver_id' 		=> $order->driver_id,
-			// 		'total_product' 	=> $order->total_product,
-			// 		'total_qty' 		=> $order->total_qty,
-			// 		'total_price' 		=> $order->total_price,
-			// 		'delivery_cost' 	=> $order->delivery_cost,
-			// 		'code' 				=> $order->code,
-			// 		'status' 			=> $order->status,
-			// 		'latitude' 			=> $order->latitude,
-			// 		'longitude' 		=> $order->longitude,
-			// 		'address' 			=> $order->address,
-			// 		'estimation_time' 	=> $order->estimation_time,
-			// 		'distance' 			=> $order->distance,
-			// 		'date'				=> $order->date
-					
-
-			// 	);
-
-			// 	$this->crud_model->insert_data('order_history', $data_insert);
-			// 	$this->crud_model->delete_data('orders',array('code' => $code));
-
-			// 	$this->crud_model->insert_data('transaction', $transaction_data);
-
-			// }
-
-			
-			
 			
 			redirect('user');
 		}

@@ -150,7 +150,7 @@ class Client extends CI_Controller{
 
                 $this->db->insert('dishes', $data);
 			}
-
+			$this->session->set_flashdata('success','swal({   title: "Success",   text: "New Menu has been added!", type: "success", showConfirmButton: false, timer:1500 });');
 			redirect('client/menu/'.$this->session->userdata('user_id'));
 
 	}
@@ -195,6 +195,7 @@ class Client extends CI_Controller{
 
 			$this->crud_model->update_data('dishes',$data,array('id' => $data['id']));
 		}
+		$this->session->set_flashdata('success','swal({   title: "Success",   text: "Menu has been successfully updated!", type: "success", showConfirmButton: false, timer:1500 });');
 		redirect('client/menu/'.$this->session->userdata('user_id'));
 	}
 
@@ -203,6 +204,7 @@ class Client extends CI_Controller{
 		$dish = $this->crud_model->get_by_condition('dishes',array('id' => $id))->row();
 		unlink($dish->photo);
 		$this->crud_model->delete_data('dishes',array('id' => $id));
+		$this->session->set_flashdata('success','swal({   title: "Success",   text: "Menu has been successfully deleted!", type: "success", showConfirmButton: false, timer:1500 });');
 		redirect('client/menu/'.$this->session->userdata('user_id'));
 	}
 
@@ -238,20 +240,20 @@ class Client extends CI_Controller{
                 //Get the link for the database
                 $image = $this->upload->data();
                 $photo = $config ['upload_path'] . '/' . $image ['file_name'];
-                
+            	$this->image_moo
+				->load($config ['upload_path'] . '/' . $image['file_name'])
+				->resize_crop(350,250)
+				->save_pa('','_thumb');
+
+				$this->image_moo
+				->load($config ['upload_path'] . '/' . $image['file_name'])
+				->resize_crop(1300,500)
+				->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);    
             }else{
             	$photo = $this->crud_model->get_by_condition('restaurants',array('id' => $this->session->userdata('user_id')))->row('photo');
             }
 
-            $this->image_moo
-			->load($config ['upload_path'] . '/' . $image['file_name'])
-			->resize_crop(350,250)
-			->save_pa('','_thumb');
-
-			$this->image_moo
-			->load($config ['upload_path'] . '/' . $image['file_name'])
-			->resize_crop(1300,500)
-			->save($config ['upload_path'] . '/' . $image['file_name'],TRUE);
+            
 
 
 

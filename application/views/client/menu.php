@@ -178,6 +178,12 @@ $('#delete_menu').on('show.bs.modal', function(e) {
 </script>
 
 <script>
+  <?php if($this->session->flashdata('success')){
+    echo $this->session->flashdata('success');
+  } ?>
+</script>
+
+<script>
   $(document).ready(function() {
      $('#buyers').DataTable();
   } );
