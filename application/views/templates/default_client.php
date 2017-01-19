@@ -119,7 +119,7 @@
                       <li><a href="#">Edit Menu</a></li> -->
                       <li><a href="<?php echo base_url('main') ?>"><?php echo $this->session->userdata('username') ?></a></li> 
 
-                      <li><a href="<?php echo base_url('client/menu') ?>">Update Menu</a></li> 
+                      <li><a href="<?php echo base_url('client/menu') ?>">Update Dish</a></li> 
                       
                       <li><a href="<?php echo base_url('login/signout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
                   </ul>

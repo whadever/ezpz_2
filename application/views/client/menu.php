@@ -3,8 +3,8 @@
 		<div class="col-xs-12">
 			<?php echo form_open() ?>
 				<div class="heading" style="padding-top:3%;">
-					<h2 style="display:inline;">Menu List</h2>
-					<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_menu">Add menu</button>
+					<h2 style="display:inline;">Dish List</h2>
+					<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add_menu">Add dish</button>
 				</div>
 				<hr>
 
@@ -55,7 +55,7 @@
     <div class="modal-content login">
       <div class="modal-header heading">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
+        <h4 class="modal-title" id="myModalLabel">Add Dish</h4>
       </div>
       <?php echo form_open_multipart('client/add_menu') ?>
       <div class="modal-body">
