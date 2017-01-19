@@ -9,7 +9,7 @@
 
 				<div class="col-xs-12 text-center">
 					
-					<h2 style="margin-top:0px">Sign In</h2>
+					<h2 style="margin-top:0px">Login</h2>
 				</div>
 
 			</div>
@@ -31,7 +31,7 @@
 						</div>
 						<a href="<?php echo base_url('login/forget')?>" style="font-size:11px;">Forgot Password</a>
 						<div class="form-group text-center" style="margin-top:10px;">
-							<input type="submit" id="submit" class="btn btn-primary form-control"value="Login">
+							<input type="submit" id="submit" class="btn btn-primary form-control" value="Login">
 							
 						</div>
 
